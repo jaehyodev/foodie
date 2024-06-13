@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+	<!-- 1. HikariCP bean 객체 등록 : 어떤 DB 사용할 지 작성 -->
+	<bean id="hikoriConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+      	<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/spring_db?serverTimezone=UTC&amp;characterEncoding=UTF-8"/>
+      	<property name="username" value="root"/>
+      	<property name="password" value="1234"/>
+	</bean>
+
+	<!-- 2. DataSource : Spring을 통해서 mysql 사용을 위한 접근 -->
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<!-- dataSource가 생성될 때 처리를 위한 생성자 생성
+		생성자가 생성될 때 db의 정보를 가지고 있는 hikariConfig 객체 생성 -->
+		<constructor-arg ref="hikoriConfig"/>
+	</bean>
+	
+	<!-- 3. Mybatis 사용하여 SqlSessionFactory 생성 관리 -->
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+</beans>
