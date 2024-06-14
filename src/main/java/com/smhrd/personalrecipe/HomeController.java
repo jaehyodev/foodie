@@ -1,4 +1,4 @@
-package com.smhrd.personalfood;
+package com.smhrd.personalrecipe;
 
 import java.util.Locale;
 
