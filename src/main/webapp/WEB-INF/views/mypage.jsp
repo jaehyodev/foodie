@@ -29,80 +29,6 @@
 <link rel="stylesheet" href="resources/css/slicknav.min.css"
    type="text/css">
 <link rel="stylesheet" href="resources/css/style.css" type="text/css">
-
-<style>
-/* 마이 페이지 스타일 */
-.mypage-section {
-   padding: 80px;
-}
-
-.mypage__sidebar {
-   padding: 20px;
-   background-color: #f5f5f5;
-   border-radius: 5px;
-   margin-bottom: 30px;
-}
-
-.mypage__sidebar h2 {
-   font-size: 24px;
-   font-weight: 700;
-   margin-bottom: 20px;
-}
-
-.mypage__sidebar ul {
-   list-style: none;
-   padding: 0;
-}
-
-.mypage__sidebar ul li a {
-   display: block;
-   padding: 10px 15px;
-   color: #1c1c1c;
-   font-size: 16px;
-   text-decoration: none;
-   transition: background-color 0.3s;
-}
-
-.mypage__sidebar ul li.active a {
-   background-color: #7fad39;
-   color: #fff;
-}
-
-.mypage__sidebar ul li a:hover {
-   background-color: #eee;
-}
-
-.mypage__content {
-   padding: 20px;
-}
-
-.mypage__content h2 {
-   font-size: 24px;
-   font-weight: 700;
-   margin-bottom: 20px;
-}
-
-.mypage__content table {
-   width: 100%;
-   border-collapse: collapse;
-}
-
-.mypage__content table th, .mypage__content table td {
-   padding: 12px 15px;
-   border-bottom: 1px solid #ddd;
-   text-align: left;
-}
-
-.mypage__content table th {
-   background-color: #f5f5f5;
-   font-weight: bold;
-}
-
-.mypage__content table button {
-   padding: 8px 15px;
-   font-size: 14px;
-}
-</style>
 </head>
 <body>
 
@@ -245,19 +171,6 @@
     </section>
     <!-- Hero Section End -->
 
-    <!-- Breadcrumb Section Begin 바꿔야 할 부분-->
-    <section class="breadcrumb-section set-bg" data-setbg="resources/img/breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>마이페이지</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
     
    <section class="hero hero-normal">
       <div class="container">

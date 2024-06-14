@@ -300,7 +300,7 @@
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <button type="submit" class="site-btn">결제하기</button>
+                                <button onclick="requestPay()" class="site-btn">결제하기</button>
                             </div>
                         </div>
                     </div>
@@ -388,6 +388,37 @@
     <script src="resources/js/owl.carousel.min.js"></script>
     <script src="resources/js/main.js"></script>
     <script src="resources/js/checkout.js"></script>
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+    
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <!-- iamport.payment.js -->
+    <!-- <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script> -->
+
+	  <script>
+	  var IMP = window.IMP; // 생략 가능
+	  IMP.init("imp51542456");
+	  /* IMP.agency("imp51542456", 'ABC'); */
+	  
+	  function requestPay() {
+	       IMP.request_pay({
+	         pg: "html5_inicis",
+	         pay_method: "card",
+	         merchant_uid: "ORD20180131-0000011",   // 주문번호
+	         name: "신선한 봉투",
+	         amount: 64900,                         // 숫자 타입
+	         buyer_email: "gildong@gmail.com",
+	         buyer_name: "이승지",
+	         buyer_tel: "010-1234-8282",
+	         buyer_addr: "광주광역시 동구 충장동",
+	         buyer_postcode: "01181"
+	       }, function (rsp) { // callback
+	         //rsp.imp_uid 값으로 결제 단건조회 API를 호출하여 결제결과를 판단합니다.
+	            console.log(rsp)
+	         
+	       });
+	     }
+	  </script>
 
  
 

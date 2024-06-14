@@ -121,16 +121,17 @@
                             <span>카테고리</span>
                         </div>
                         <ul>
-                            <li><a href="#">채소</a></li>
-                            <li><a href="#">과일</a></li>
-                            <li><a href="#">정육</a></li>
-                            <li><a href="shopgrid">수산</a></li>
-                            <li><a href="#">쌀ㆍ잡곡</a></li>
-                            <li><a href="#">면ㆍ오일</a></li>
-                            <li><a href="#">우유ㆍ유제품</a></li>
-                            <li><a href="#">소스ㆍ조미료</a></li>
-                            <li><a href="recipe">레시피</a></li>
-                            
+                            <li><a href="#">초간단 레시피</a></li>
+                            <li><a href="#">혼밥 레시피</a></li>
+                            <li><a href="#">자취생 레시피</a></li>
+                            <li><a href="#">손님 접대 레시피</a></li>
+                            <li><a href="#">다이어트 레시피</a></li>
+                            <li><a href="recipe">제철 요리 레시피</a></li>
+                            <li><a href="#">이국적인 요리 레시피</a></li>
+                            <li><a href="#">별미 / 야식 레시피</a></li>
+                            <li><a href="recipe">디저트 레시피</a></li>
+                            <li><a href="#">밑반찬 레시피</a></li>
+                            <li><a href="shopgrid">재료 사러가기</a></li>
                         </ul>
                     </div>
                 </div>
@@ -154,10 +155,10 @@
                     </div>
                     <div class="hero__item set-bg" data-setbg="resources/img/hero/banner.jpg">
                         <div class="hero__text">
-                            <span>신선한 재료</span>
-                            <h2>Vegetable <br />100% 유기농</h2>
-                            <p>스푼 식자재로 건강하게 만든 요리</p>
-                            <a href="#" class="primary-btn">지금 구매하기</a>
+                            <span>갑각류 알레르기도 먹을 수 있는</span>
+                            <h2>맛있는 <br />해산물 레시피</h2>
+                            <p></p>
+                            <a href="#" class="primary-btn">지금 보러가기</a>
                         </div>
                     </div>
                 </div>
@@ -169,31 +170,39 @@
     <!-- Categories Section Begin -->
     <section class="categories">
         <div class="container">
+        	<div class="section-title">
+            	<h2>✨요즘 뜨는 레시피✨</h2>
+                </div>
+                <div class="featured__controls">
+                	<ul>
+                    	<li>지금이 가장 맛있게 먹을 찬스 !</li>
+                    </ul>
+                </div>
             <div class="row">
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="resources/img/categories/cat-1.jpg">
-                            <h5><a href="#">오렌지</a></h5>
+                            <h5><a href="#">명란마요초밥</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="resources/img/categories/cat-2.jpg">
-                            <h5><a href="#">건조 과일</a></h5>
+                            <h5><a href="#">매콤홍합탕</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="resources/img/categories/cat-3.jpg">
-                            <h5><a href="#">야채</a></h5>
+                            <h5><a href="#">들기름 막국수</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="resources/img/categories/cat-4.jpg">
-                            <h5><a href="#">과일 음료</a></h5>
+                            <h5><a href="#">마늘통삼겹구이</a></h5>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="resources/img/categories/cat-5.jpg">
-                            <h5><a href="#">소고기</a></h5>
+                            <h5><a href="#">두부참치전</a></h5>
                         </div>
                     </div>
                 </div>
@@ -201,392 +210,51 @@
         </div>
     </section>
     <!-- Categories Section End -->
+    
     <br></br>
     
-    
     <section class="categories">
         <div class="container">
-            <div class="row">
-               <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>오늘만 특가✨</h2>
-                    </div>
-                    <div class="featured__controls">
-                        <ul>
-                            <li>매일 달라지는 초특가 상품을 만나보세요. 오늘만 이 가격입니다.</li>
-                            
-                        </ul>
-                    </div>
+        	<div class="section-title">
+            	<h2>✨Best 레시피✨</h2>
                 </div>
+                <div class="featured__controls">
+                	<ul>
+                    	<li>가장 인기있는 레시피만 모아 보세요 !</li>
+                    </ul>
+                </div>
+            <div class="row">
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-1.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
+                        <div class="categories__item set-bg" data-setbg="resources/img/categories/cat-1.jpg">
+                            <h5><a href="#">대파파스타</a></h5>
                         </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">소고기</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-2.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
+                        <div class="categories__item set-bg" data-setbg="resources/img/categories/cat-2.jpg">
+                            <h5><a href="#">고추장크림떡볶이</a></h5>
                         </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">바나나</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-3.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
+                        <div class="categories__item set-bg" data-setbg="resources/img/categories/cat-3.jpg">
+                            <h5><a href="#">칠리새우덮밥</a></h5>
                         </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">미니수박</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-4.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
+                        <div class="categories__item set-bg" data-setbg="resources/img/categories/cat-4.jpg">
+                            <h5><a href="#">차돌된장찌개</a></h5>
                         </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">수박</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
                     </div>
                     <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-1.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">소고기</a></h6>
-                            <h5>1,000원</h5>
+                        <div class="categories__item set-bg" data-setbg="resources/img/categories/cat-5.jpg">
+                            <h5><a href="#">전복버터밥</a></h5>
                         </div>
                     </div>
                 </div>
-            </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Banner Begin -->
-
-    <!-- Banner End -->
-
-<section class="categories">
-        <div class="container">
-            <div class="row">
-               <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>Best 상품👍</h2>
-                    </div>
-                    <div class="featured__controls">
-                        <ul>
-                            <li>스푼 최근 인기상품입니다.</li>
-                            
-                        </ul>
-                    </div>
-                </div>
-                <div class="categories__slider owl-carousel">
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-1.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">소고기</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-2.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">바나나</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-3.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">미니수박</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-4.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">수박</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-1.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">소고기</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-    </section>
-    <section class="categories">
-        <div class="container">
-            <div class="row">
-               <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>🐮🐷싱싱 냉장육 썸머 페스티벌</h2>
-                    </div>
-                    <div class="featured__controls">
-                        <ul>
-                            <li>건강하게 길러 더 맛있는 냉장육 할인 ~!</li>
-                            
-                        </ul>
-                    </div>
-                </div>
-                <div class="categories__slider owl-carousel">
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-1.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">소고기</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-2.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">바나나</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-3.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">미니수박</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-4.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">수박</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-1.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">소고기</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-    </section>
-    <section class="categories">
-        <div class="container">
-            <div class="row">
-               <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>🐟스푼 수산시장</h2>
-                    </div>
-                    <div class="featured__controls">
-                        <ul>
-                            <li>할인중인 수산물을 모아보았어요!</li>
-                            
-                        </ul>
-                    </div>
-                </div>
-                <div class="categories__slider owl-carousel">
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-1.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">소고기</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-2.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">바나나</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-3.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">미니수박</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-4.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">수박</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="resources/img/featured/feature-1.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">소고기</a></h6>
-                            <h5>1,000원</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
     </section>
     
-	<!-- Latest Product Section End -->
 
 
     <!-- Blog Section Begin -->
@@ -595,7 +263,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title from-blog__title">
-                        <h2>스푼만의 특별한 레시피🥗</h2>
+                        <h2>🥗Personal 레시피🥗</h2>
                     </div>
                 </div>
             </div>
@@ -729,7 +397,7 @@
     <script src="resources/js/main.js"></script>
     <script>
         function openChatbot() {
-            window.open("/smartfood/chatbot", "SmartTalk", "width=400,height=600");
+            window.open("/personalfood/chatbot", "PersonalTalk", "width=400,height=600");
         }
     </script>
 

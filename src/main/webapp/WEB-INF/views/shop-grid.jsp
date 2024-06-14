@@ -52,29 +52,6 @@
                 <a href="mypage"><i class="fa fa-address-card"></i> 마이페이지</a>
             </div>
         </div>
-        <!-- <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.jsp">Home</a></li>
-                <li><a href="./shop-grid.jsp">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.jsp">Shop Details</a></li>
-                        <li><a href="./shoping-cart.jsp">Shoping Cart</a></li>
-                        <li><a href="./checkout.jsp">Check Out</a></li>
-                        <li><a href="./blog-details.jsp">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.jsp">Blog</a></li>
-                <li><a href="./contact.jsp">Contact</a></li>
-            </ul>
-        </nav> -->
-        <!-- <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
-        </div> -->
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> hello@smhrd.com</li>
@@ -177,7 +154,7 @@
                             <li><a href="#">면ㆍ오일</a></li>
                             <li><a href="#">우유ㆍ유제품</a></li>
                             <li><a href="#">소스ㆍ조미료</a></li>
-                            <li><a href="recipe">레시피</a></li>
+                            <li><a href="index">레시피 보러가기</a></li>
                         </ul>
                     </div>
                 </div>

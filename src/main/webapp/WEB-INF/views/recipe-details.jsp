@@ -187,15 +187,17 @@
                             <span>카테고리</span>
                         </div>
                         <ul>
-                            <li><a href="#">채소</a></li>
-                            <li><a href="#">과일</a></li>
-                            <li><a href="#">정육</a></li>
-                            <li><a href="shopgrid">수산</a></li>
-                            <li><a href="#">쌀ㆍ잡곡</a></li>
-                            <li><a href="#">면ㆍ오일</a></li>
-                            <li><a href="#">우유ㆍ유제품</a></li>
-                            <li><a href="#">소스ㆍ조미료</a></li>
-                            <li><a href="recipe">레시피</a></li>
+                            <li><a href="#">초간단 레시피</a></li>
+                            <li><a href="#">혼밥 레시피</a></li>
+                            <li><a href="#">자취생 레시피</a></li>
+                            <li><a href="#">손님 접대 레시피</a></li>
+                            <li><a href="#">다이어트 레시피</a></li>
+                            <li><a href="recipe">제철 요리 레시피</a></li>
+                            <li><a href="#">이국적인 요리 레시피</a></li>
+                            <li><a href="#">별미 / 야식 레시피</a></li>
+                            <li><a href="recipe">디저트 레시피</a></li>
+                            <li><a href="#">밑반찬 레시피</a></li>
+                            <li><a href="shopgrid">재료 사러가기</a></li>
                         </ul>
                     </div>
                 </div>

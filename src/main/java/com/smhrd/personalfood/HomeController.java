@@ -21,7 +21,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		
-		return "shop-details";
+		return "index";
 	}
 	
 	@RequestMapping(value="/index", method=RequestMethod.GET)
@@ -31,7 +31,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/cart", method=RequestMethod.GET)
 	public String cart() {
-		return "shoping-cart";
+		return "shopping-cart";
 	}
 	
 	@RequestMapping(value="/shopgrid", method=RequestMethod.GET)
@@ -84,4 +84,5 @@ public class HomeController {
 	        return "chatbot";
 	    }
 	}
+	
 }
