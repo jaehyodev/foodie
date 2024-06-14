@@ -397,7 +397,7 @@
     <script src="resources/js/main.js"></script>
     <script>
         function openChatbot() {
-            window.open("/personalfood/chatbot", "PersonalTalk", "width=400,height=600");
+            window.open("/personalrecipe/chatbot", "PersonalTalk", "width=400,height=600");
         }
     </script>
 
