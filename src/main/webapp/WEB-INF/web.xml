@@ -14,7 +14,8 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
-		<filter>
+	<!-- 한국어 인코딩 : 데이터를 db에 넣을 때 한국어가 안 깨지도록 해주던데... -->
+	<filter>
     	<filter-name>encodingFilter</filter-name>
       	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
       	<init-param>
@@ -27,7 +28,7 @@
       	<url-pattern>/*</url-pattern>
       
    	</filter-mapping>
-
+	
 	<!-- Processes application requests -->
 	<servlet>
 		<servlet-name>appServlet</servlet-name>

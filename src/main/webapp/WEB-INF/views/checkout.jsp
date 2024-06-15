@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <head>
     <meta charset="UTF-8">
@@ -63,51 +62,7 @@
     <!-- Humberger End -->
 
     <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="header__top__left">
-                            <ul>
-                                <li><i class="fa fa-envelope"></i> hello@smhrd.com</li>
-                                <li>5만원 이상 구매 시 무료배송</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="header__top__right">
-                            <div class="header__top__right__auth">
-                                <a href="#"><i class="fa fa-user"></i> 로그인 / 회원가입</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="header__logo">
-                        <a href="index"><img src="resources/img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                </div>
-                <div class="col-lg-3">
-                    <div class="header__cart">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="humberger__open">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </header>
+    <%@ include file="./header.jsp"%>
     <!-- Header Section End -->
 
     <!-- Hero Section Begin -->
@@ -311,71 +266,7 @@
     <!-- Checkout Section End -->
 
     <!-- Footer Section Begin -->
-    <footer class="footer spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__about__logo">
-                            <a href="index"><img src="resources/img/logo.png" alt=""></a>
-                        </div>
-                        <ul>
-                            <li>Address: 60-49 Road 11378 New York</li>
-                            <li>Phone: +65 11.188.888</li>
-                            <li>Email: hello@colorlib.com</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
-                    <div class="footer__widget">
-                        <h6>Useful Links</h6>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">About Our Shop</a></li>
-                            <li><a href="#">Secure Shopping</a></li>
-                            <li><a href="#">Delivery infomation</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Our Sitemap</a></li>
-                        </ul>
-                        <ul>
-                            <li><a href="#">Who We Are</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Projects</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Innovation</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
-                        </form>
-                        <div class="footer__widget__social">
-                            <!-- <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer__copyright">
-                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
-                        <div class="footer__copyright__payment"><img src="resources/img/payment-item.png" alt=""></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <%@ include file="./footer.jsp"%>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
@@ -395,33 +286,28 @@
     <!-- iamport.payment.js -->
     <!-- <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script> -->
 
-	  <script>
-	  var IMP = window.IMP; // 생략 가능
-	  IMP.init("imp51542456");
-	  /* IMP.agency("imp51542456", 'ABC'); */
+	<script>
+		var IMP = window.IMP; // 생략 가능
+	  	IMP.init("imp51542456");
+	  	/* IMP.agency("imp51542456", 'ABC'); */
 	  
-	  function requestPay() {
-	       IMP.request_pay({
-	         pg: "html5_inicis",
-	         pay_method: "card",
-	         merchant_uid: "ORD20180131-0000011",   // 주문번호
-	         name: "신선한 봉투",
-	         amount: 64900,                         // 숫자 타입
-	         buyer_email: "gildong@gmail.com",
-	         buyer_name: "이승지",
-	         buyer_tel: "010-1234-8282",
-	         buyer_addr: "광주광역시 동구 충장동",
-	         buyer_postcode: "01181"
-	       }, function (rsp) { // callback
-	         //rsp.imp_uid 값으로 결제 단건조회 API를 호출하여 결제결과를 판단합니다.
-	            console.log(rsp)
-	         
-	       });
-	     }
-	  </script>
-
- 
-
+	  	function requestPay() {
+			IMP.request_pay({
+		        pg: "html5_inicis",
+		        pay_method: "card",
+		        merchant_uid: "ORD20180131-0000011",   // 주문번호
+		        name: "신선한 봉투",
+		        amount: 64900,                         // 숫자 타입
+		        buyer_email: "gildong@gmail.com",
+		        buyer_name: "이승지",
+		        buyer_tel: "010-1234-8282",
+		        buyer_addr: "광주광역시 동구 충장동",
+		        buyer_postcode: "01181",
+			}, function (rsp) { // callback
+        		//rsp.imp_uid 값으로 결제 단건조회 API를 호출하여 결제결과를 판단합니다.
+           		console.log(rsp)
+	      	});
+		}
+	</script>
 </body>
-
 </html>

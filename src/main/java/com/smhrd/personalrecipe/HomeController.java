@@ -24,11 +24,6 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping(value="/index", method=RequestMethod.GET)
-	public String index() {
-		return "index";
-	}
-	
 	@RequestMapping(value="/cart", method=RequestMethod.GET)
 	public String cart() {
 		return "shopping-cart";
@@ -79,8 +74,7 @@ public class HomeController {
 
 	    @GetMapping("/chatbot")
 	    public String chatbot(Model model) {
-	        model.addAttribute("initMessage", "ì•ˆë…•í•˜ì„¸ìš”. ì–´ë–¤ ìŒì‹ì˜ ì¬ë£Œë¥¼ ì¶”ì²œí•´ë“œë¦´ê¹Œìš” ?");
-	        System.out.println("chatbot ì‹¤í–‰");
+	        model.addAttribute("initMessage", "¾È³çÇÏ¼¼¿ä? ¾î¶² ·¹½ÃÇÇ¸¦ ÃßÃµÇØµå¸±±î¿ä?");
 	        return "chatbot";
 	    }
 	}
