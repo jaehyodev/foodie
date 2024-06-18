@@ -1,2 +1,4 @@
 ### API KEY ###
 resources/application-API-KEY.properties
+# Ignore Maven pom.properties file
+pom.properties

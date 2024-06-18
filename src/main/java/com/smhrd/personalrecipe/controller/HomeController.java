@@ -51,51 +51,14 @@ public class HomeController {
 		return "recipe-details";
 	}
 	
-	@RequestMapping(value="/join", method=RequestMethod.GET)
-	public String join() {
-		return "join";
-	}
 
-	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public String login() {
-		return "login";
-	}
-	
-	@RequestMapping(value="/mypage", method=RequestMethod.GET)
-	public String myPage() {
-		return "mypage";
-	}
 	
 	@RequestMapping(value="/checkout", method=RequestMethod.GET)
 	public String checkout() {
 		return "checkout";
 	}
 	
-	@RequestMapping(value="/wishlist", method=RequestMethod.GET)
-	public String wishlist() {
-		return "wishlist";
-	}
-	
-	@RequestMapping(value="/allergy", method=RequestMethod.GET)
-	public String allergy() {
-		return "allergy";
-	}
-	
-	@RequestMapping(value="/edituserinfo", method=RequestMethod.GET)
-	public String edituserinfo() {
-		return "edituserinfo";
-	}
-	
-	@RequestMapping(value="/deleteuserinfo", method=RequestMethod.GET)
-	public String deleteuserinfo() {
-		return "deleteuserinfo";
-	}
-	
-	@RequestMapping(value="/editpw", method=RequestMethod.GET)
-	public String editpw() {
-		return "editpw";
-	}
-	
+
 	// Chatbot Open
 	@Controller
 	public class ChatbotController {
