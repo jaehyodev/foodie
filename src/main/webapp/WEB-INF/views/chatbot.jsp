@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html>
+
 <head>
 	<meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
@@ -12,6 +12,7 @@
     
 	<link rel="stylesheet" href="resources/css/chatbot.css" type="text/css">
 </head>
+
 <body>
 	<div id="chat__header">1:1 문의 상담</div>
 	

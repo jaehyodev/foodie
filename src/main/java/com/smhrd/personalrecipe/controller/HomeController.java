@@ -1,26 +1,28 @@
-package com.smhrd.personalrecipe;
+package com.smhrd.personalrecipe.controller;
 
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.client.RestTemplate;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class HomeController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		
 		return "index";
 	}
 	
@@ -69,14 +71,53 @@ public class HomeController {
 		return "checkout";
 	}
 	
+	@RequestMapping(value="/wishlist", method=RequestMethod.GET)
+	public String wishlist() {
+		return "wishlist";
+	}
+	
+	@RequestMapping(value="/allergy", method=RequestMethod.GET)
+	public String allergy() {
+		return "allergy";
+	}
+	
+	@RequestMapping(value="/edituserinfo", method=RequestMethod.GET)
+	public String edituserinfo() {
+		return "edituserinfo";
+	}
+	
+	@RequestMapping(value="/deleteuserinfo", method=RequestMethod.GET)
+	public String deleteuserinfo() {
+		return "deleteuserinfo";
+	}
+	
+	@RequestMapping(value="/editpw", method=RequestMethod.GET)
+	public String editpw() {
+		return "editpw";
+	}
+	
+	// Chatbot Open
 	@Controller
 	public class ChatbotController {
-
+		
 	    @GetMapping("/chatbot")
 	    public String chatbot(Model model) {
-	        model.addAttribute("initMessage", "¾È³çÇÏ¼¼¿ä? ¾î¶² ·¹½ÃÇÇ¸¦ ÃßÃµÇØµå¸±±î¿ä?");
+	        model.addAttribute("initMessage", "ì•ˆë…•í•˜ì„¸ìš”?");
 	        return "chatbot";
 	    }
 	}
 	
+	// ChatGPT OpenAI Api í˜¸ì¶œ
+	// @Value("${openai.api.key}")
+	private String openAiApiKey;
+	
+	@Bean
+	public RestTemplate restTemplate() {
+		RestTemplate restTemplate = new RestTemplate();
+	    restTemplate.getInterceptors().add((request, body, execution) -> {
+	        request.getHeaders().add("Authorization", "Bearer " + openAiApiKey);
+	        return execution.execute(request, body);
+	    });
+		return restTemplate;
+	}
 }

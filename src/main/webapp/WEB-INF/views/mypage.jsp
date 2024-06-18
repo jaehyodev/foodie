@@ -23,9 +23,10 @@
     <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="resources/css/style.css" type="text/css">
 </head>
+
 <body>
 
-   <!-- Page Preloder -->
+    <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
@@ -130,12 +131,12 @@
 	              <div class="mypage__sidebar">
 	                 <h2>마이 페이지</h2>
 	                 <ul>
-	                    <li><a href="wishlist.jsp">알레르기 / 비선호도</a></li>
-	                    <li class="active"><a href="mypage.jsp">주문 내역</a></li>
-	                    <li><a href="wishlist.jsp">찜 목록</a></li>
-	                    <li><a href="userinfo.jsp">개인 정보 수정</a></li>
-	                    <li><a href="password.jsp">비밀번호 변경</a></li>
-	                    <li><a href="logout.jsp">회원탈퇴</a></li>
+	                    <li class="active"><a href="mypage">주문 내역</a></li>
+	                    <li><a href="wishlist">찜 목록</a></li>
+	                    <li><a href="allergy">알레르기 / 비선호도</a></li>
+	                    <li><a href="edituserinfo">개인 정보 수정</a></li>
+	                    <li><a href="editpw">비밀번호 변경</a></li>
+	                    <li><a href="deleteuserinfo">회원탈퇴</a></li>
 	                 </ul>
 	              </div>
 	           </div>

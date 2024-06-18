@@ -48,7 +48,10 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
+                <a href="#"><i class="fa fa-user"></i> 로그아웃 </a>
+            </div>
+            <div class="header__top__right__auth">
+                <a href="mypage"><i class="fa fa-address-card"></i> 마이페이지</a>
             </div>
         </div>
         <div id="mobile-menu-wrap"></div>
@@ -115,58 +118,60 @@
     </section>
     <!-- Hero Section End -->
 
-    <!-- Breadcrumb Section Begin 바꿔야 할 부분-->
-    <section class="breadcrumb-section set-bg" data-setbg="resources/img/breadcrumb.jpg">
+    
+	  <section class="hero hero-normal">
+	     <div class="container">
+	        <div class="row"></div>
+	     </div>
+	  </section>
+	  <section class="userinfo-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>로그인</h2>
+                <div class="col-lg-3">
+                    <div class="mypage__sidebar">
+                        <h2>마이 페이지</h2>
+                        <ul>
+                            <li><a href="mypage">주문 내역</a></li>
+                            <li><a href="wishlist">찜 목록</a></li>
+                            <li><a href="allergy">알레르기 / 비선호도</a></li>
+                            <li class="active"><a href="edituserinfo">개인 정보 수정</a></li>
+                            <li><a href="editpw">비밀번호 변경</a></li>
+                            <li><a href="deleteuserinfo">회원탈퇴</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="mypage__content">
+                        <h2>개인 정보 수정</h2>
+                        <form action="updateUserInfo" method="post"> <%-- 수정 처리 서블릿으로 연결 --%>
+                            <div class="form-group">
+                                <label for="username">이름:</label>
+                                <input type="text" id="username" name="username" value="<%= session.getAttribute("username") %>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">이메일:</label>
+                                <input type="email" id="email" name="email" value="<%= session.getAttribute("email") %>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">휴대폰 번호:</label>
+                                <input type="tel" id="phone" name="phone" value="<%= session.getAttribute("phone") %>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">주소:</label>
+                                <input type="text" id="address" name="address" value="<%= session.getAttribute("address") %>" required>
+                            </div>
+                            <button type="submit" class="site-btn">수정 완료</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Breadcrumb Section End -->
-
-   <section class="hero hero-normal">
-      <div class="container">
-         <div class="row"></div>
-      </div>
-   </section>
-
-   <section class="login-section spad">
-      <div class="container">
-         <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-8">
-               <div class="login__form">
-                  <form action="#">
-                     <div class="form-group">
-                        <label for="username">아이디</label> <input type="text"
-                           class="form-control" id="username" placeholder="아이디를 입력하세요">
-                     </div>
-                     <div class="form-group">
-                        <label for="password">비밀번호</label> <input type="password"
-                           class="form-control" id="password" placeholder="비밀번호를 입력하세요">
-                     </div>
-                     <br></br>
-                     <button type="submit" class="site-btn float-center">로그인</button>
-                  </form>
-                  <br></br>
-                  <br></br>
-                  <div class="login__register float-center">
-                     아직 회원이 아니신가요? <a href="join">회원가입</a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-	</section>
-
+   
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
     <!-- Footer Section End -->
-
+   
    <script src="resources/js/jquery-3.3.1.min.js"></script>
    <script src="resources/js/bootstrap.min.js"></script>
    <script src="resources/js/jquery.nice-select.min.js"></script>
