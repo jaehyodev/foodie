@@ -160,7 +160,7 @@
 	                          <td>2024-06-10</td>
 	                          <td>신선한 채소 패키지 외 2건</td>
 	                          <td>55,000원</td>
-	                          <td>배송 완료</td>
+	                          <td>배송 준비 중</td>
 	                          <td><button type="button" class="site-btn">보기</button></td>
 	                       </tr>
 	                       <%-- 더 많은 주문 내역 추가 가능 --%>
