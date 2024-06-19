@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,7 +59,7 @@ public class HomeController {
 	public String checkout() {
 		return "checkout";
 	}
-	
+
 
 	// Chatbot Open
 	@Controller
@@ -71,9 +72,9 @@ public class HomeController {
 	    }
 	}
 	
-	// ChatGPT OpenAI Api 호출
-	// @Value("${openai.api.key}")
-	private String openAiApiKey;
+	// ChatGPT Api
+	@Value("${openai.api.key}")
+    private String openAiApiKey;
 	
 	@Bean
 	public RestTemplate restTemplate() {
