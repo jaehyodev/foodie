@@ -17,6 +17,4 @@ public class Member {
 
 	private String mem_addr;
 
-	private String mem_type;
-
 }

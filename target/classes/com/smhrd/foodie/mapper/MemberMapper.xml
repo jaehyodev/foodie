@@ -6,8 +6,9 @@
  
  <mapper namespace="com.smhrd.foodie.mapper.MemberMapper">
  	
- 	<select id="" resultType="User">
-        SELECT * FROM member_info WHERE id = #{id}
-    </select>
+ 	<insert id="userJoin" parameterType="com.smhrd.foodie.model.Member">
+        insert into member_info (mem_id, mem_pw, mem_name, mem_email, mem_phone, mem_addr)
+        values (#{mem_id}, #{mem_pw}, #{mem_name}, #{mem_eamil}, #{mem_phone}, #{mem_addr})
+    </insert>
  	
  </mapper>
