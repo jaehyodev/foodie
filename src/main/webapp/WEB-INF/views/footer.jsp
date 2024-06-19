@@ -17,7 +17,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="footer__about">
                     <div class="footer__about__logo">
-                        <a href="index"><img src="resources/img/banner/logo.png" alt=""></a>
+                        <a href="index"><img src="<c:url value='/resources/img/logo.png'/>" alt=""></a>
                     </div>
                     <ul>
                         <li>(주)Foodie</li>
@@ -69,7 +69,7 @@
                   </p>
                </div>
                     <div class="footer__copyright__payment">
-                       <img src="resources/img/payment-item.png" alt="">
+                       <img src="<c:url value='/resources/img/payment-item.png'/>" alt="">
                     </div>
                 </div>
             </div>
