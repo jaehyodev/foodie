@@ -51,29 +51,6 @@
                 <a href="#"><i class="fa fa-address-card"></i> 마이페이지</a>
             </div>
         </div>
-        <!-- <nav class="humberger__menu__nav mobile-menu">
-            <ul>
-                <li class="active"><a href="./index.jsp">Home</a></li>
-                <li><a href="./shop-grid.jsp">Shop</a></li>
-                <li><a href="#">Pages</a>
-                    <ul class="header__menu__dropdown">
-                        <li><a href="./shop-details.jsp">Shop Details</a></li>
-                        <li><a href="./shoping-cart.jsp">Shoping Cart</a></li>
-                        <li><a href="./checkout.jsp">Check Out</a></li>
-                        <li><a href="./blog-details.jsp">Blog Details</a></li>
-                    </ul>
-                </li>
-                <li><a href="./blog.jsp">Blog</a></li>
-                <li><a href="./contact.jsp">Contact</a></li>
-            </ul>
-        </nav> -->
-        <!-- <div id="mobile-menu-wrap"></div>
-        <div class="header__top__right__social">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-pinterest-p"></i></a>
-        </div> -->
         <div class="humberger__menu__contact">
             <ul>
                 <li><i class="fa fa-envelope"></i> hello@smhrd.com</li>
@@ -98,18 +75,15 @@
                             <span>카테고리</span>
                         </div>
                         <ul>
-	                    	<li><a href="#">초간단 레시피</a></li>
-	                        <li><a href="#">혼밥 레시피</a></li>
-	                        <li><a href="#">자취생 레시피</a></li>
-	                        <li><a href="#">손님 접대 레시피</a></li>
-	                        <li><a href="#">다이어트 레시피</a></li>
-	                        <li><a href="recipe">제철 요리 레시피</a></li>
-	                        <li><a href="#">이국적인 요리 레시피</a></li>
-	                        <li><a href="#">별미 / 야식 레시피</a></li>
-	                        <li><a href="recipe">디저트 레시피</a></li>
-	                        <li><a href="#">밑반찬 레시피</a></li>
-	                        <li><a href="shopgrid">재료 사러가기</a></li>
-	                    </ul>
+                            <li><a href="recipe/주부">주부 레시피</a></li>
+                            <li><a href="#">키즈 레시피</a></li>
+                            <li><a href="#">자취생 레시피</a></li>
+                            <li><a href="#">다이어트 레시피</a></li>
+                            <li><a href="#">캠핑 레시피</a></li>
+                            <li><a href="#">파티 레시피</a></li>
+                            <li><a href="recipe">야식 레시피</a></li>
+                            <li><a href="shopgrid">재료 사러가기</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -136,23 +110,6 @@
     </section>
     <!-- Hero Section End -->
 
-    <!-- Breadcrumb Section Begin -->
-    <!-- <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>Organi Shop</h2>
-                        <div class="breadcrumb__option">
-                            <a href="./index.jsp">Home</a>
-                            <span>Shop</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Breadcrumb Section End -->
 
     <!-- Product Section Begin -->
     <section class="product spad">
@@ -163,16 +120,13 @@
                         <div class="sidebar__item">
                             <h4>레시피</h4>
                             <ul>
-	                            <li><a href="#">초간단 레시피</a></li>
-	                            <li><a href="#">혼밥 레시피</a></li>
+	                            <li><a href="recipe/주부">주부 레시피</a></li>
+	                            <li><a href="#">키즈 레시피</a></li>
 	                            <li><a href="#">자취생 레시피</a></li>
-	                            <li><a href="#">손님 접대 레시피</a></li>
 	                            <li><a href="#">다이어트 레시피</a></li>
-	                            <li><a href="recipe">제철 요리 레시피</a></li>
-	                            <li><a href="#">이국적인 요리 레시피</a></li>
-	                            <li><a href="#">별미 / 야식 레시피</a></li>
-	                            <li><a href="recipe">디저트 레시피</a></li>
-	                            <li><a href="#">밑반찬 레시피</a></li>
+	                            <li><a href="#">캠핑 레시피</a></li>
+	                            <li><a href="#">파티 레시피</a></li>
+	                            <li><a href="recipe">야식 레시피</a></li>
 	                        </ul>
                         </div>
                         <div class="sidebar__item">
@@ -182,7 +136,7 @@
                 <div class="col-lg-9 col-md-7">
                     <div class="product__discount">
                         <div class="section-title product__discount__title">
-                            <h2>제철 요리 레시피</h2>
+                            <h2> 레시피</h2>
                         </div>
                     </div>
                     <div class="filter__item">
@@ -191,7 +145,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>6</span> 개의 레시피</h6>
+                                    <h6><span>10</span> 개의 레시피</h6>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
@@ -203,78 +157,21 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="resources/img/recipe/recipe1.jpg">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="recipedetail">양배추참치덮밥</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="resources/img/recipe/recipe2.jpg">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">골뱅이소면</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="resources/img/recipe/recipe3.jpg">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">꼬막비빔면</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="resources/img/recipe/recipe4.jpg">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">초계국수</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="resources/img/recipe/recipe5.jpg">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">치킨피카타</a></h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="resources/img/recipe/recipe6.jpg">
-                                    <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">두부미역샐러드</a></h6>
-                                </div>
-                            </div>
-                        </div>
+                    	<c:forEach items="${recipeList }" var="list">
+                    		<div class="col-lg-4 col-md-6 col-sm-6">
+	                            <div class="product__item">
+	                                <div class="product__item__pic set-bg" data-setbg="resources/img/recipe/recipe1.jpg">
+	                                    <ul class="product__item__pic__hover">
+	                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+	                                    </ul>
+	                                </div>
+	                                <div class="product__item__text">
+	                                    <h6><a href="recipedetail">${list.recipe_name }</a></h6>
+	                                </div>
+	                            </div>
+	                        </div>
+					      </c:forEach>
+                        
                     </div>
                     <!-- <div class="product__pagination">
                     	<a href="#"><i class="fa fa-long-arrow-left"></i></a>

@@ -9,15 +9,10 @@ import com.smhrd.foodie.model.Ingredient;
 import com.smhrd.foodie.model.Recipe;
 
 @Mapper
-public interface MemberMapper {
-	
-	void select();
-	
-	void join();
-	
-	void login();
-	
-	void editPw();
-	
-	int delete(String id);
+public interface RecipeMapper {
+	@Select("select * from recipe_info where recipe_cat = #{recipe_cat}")
+	List<Recipe> select(String recipe_cat);
+
+	@Select("select * from ingredient_info")
+	List<Ingredient> ingredient();
 }
