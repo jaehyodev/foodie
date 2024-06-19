@@ -34,11 +34,11 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="index"><img src="resources/img/logo.png" alt=""></a>
+            <a href="index"><img src="resources/img/banner/logo.png" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
-            	<!-- 찜 -->
+               <!-- 찜 -->
                 <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
                 <!-- 장바구니 -->
                 <li><a href="cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
@@ -53,9 +53,9 @@
         <div id="mobile-menu-wrap"></div>
         <div class="humberger__menu__contact">
             <ul>
-            	<!-- 이메일 -->
+               <!-- 이메일 -->
                 <li><i class="fa fa-envelope"></i> hello@smhrd.com</li>
-                <li>5만원 이상 구매 시 무료배송</li>
+                <li>하루 안에 도착하는 푸디 배송 ~ 🚚🚚</li>
             </ul>
         </div>
     </div>
@@ -73,19 +73,16 @@
                     <div class="hero__categories">
                         <div class="hero__categories__all">
                             <i class="fa fa-bars"></i>
-                            <span>카테고리</span>
+                            <span>레시피 카테고리</span>
                         </div>
                         <ul>
-                            <li><a href="#">초간단 레시피</a></li>
-                            <li><a href="#">혼밥 레시피</a></li>
+                            <li><a href="#">주부 레시피</a></li>
+                            <li><a href="#">키즈 레시피</a></li>
                             <li><a href="#">자취생 레시피</a></li>
-                            <li><a href="#">손님 접대 레시피</a></li>
                             <li><a href="#">다이어트 레시피</a></li>
-                            <li><a href="recipe">제철 요리 레시피</a></li>
-                            <li><a href="#">이국적인 요리 레시피</a></li>
-                            <li><a href="#">별미 / 야식 레시피</a></li>
-                            <li><a href="recipe">디저트 레시피</a></li>
-                            <li><a href="#">밑반찬 레시피</a></li>
+                            <li><a href="#">캠핑 레시피</a></li>
+                            <li><a href="#">파티 레시피</a></li>
+                            <li><a href="recipe">야식 레시피</a></li>
                             <li><a href="shopgrid">재료 사러가기</a></li>
                         </ul>
                     </div>
@@ -100,7 +97,7 @@
                         </div>
                         <div class="hero__search__phone">
                             <div class="hero__search__phone__icon">
-   								<button onclick="openChatbot()" id="chatbot-btn"><i class="fa fa-comments"></i></button>
+                           <button onclick="openChatbot()" id="chatbot-btn"><i class="fa fa-comments"></i></button>
                             </div>
                             <div class="hero__search__phone__text">
                                 <h5>재료 추천받기</h5>
@@ -108,12 +105,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="resources/img/hero/banner.jpg">
+                    <div class="hero__item set-bg" data-setbg="resources/img/hero/main_visual.jpg">
                         <div class="hero__text">
-                            <span>갑각류 알레르기도 먹을 수 있는</span>
-                            <h2>맛있는 <br />해산물 레시피</h2>
+                            <span>쉽고 빠르게 따라 할 수있는!</span>
+                            <h2>새내기 요리사 <br />파티 레시피</h2>
                             <p></p>
-                            <a href="#" class="primary-btn">지금 보러가기</a>
+                            <a href="#" class="primary-btn">파티 레시피 보기</a>
                         </div>
                     </div>
                 </div>
@@ -125,12 +122,12 @@
     <!-- Categories Section Begin -->
     <section class="categories">
         <div class="container">
-        	<div class="section-title">
-            	<h2>✨요즘 뜨는 레시피✨</h2>
+           <div class="section-title">
+               <h2>인기 레시피</h2>
                 </div>
                 <div class="featured__controls">
-                	<ul>
-                    	<li>지금이 가장 맛있게 먹을 찬스 !</li>
+                   <ul>
+                       <li>푸디에서 많은 분들이 찾아본 인기 레시피를 소개합니다.</li>
                     </ul>
                 </div>
             <div class="row">
@@ -170,12 +167,12 @@
     
     <section class="categories">
         <div class="container">
-        	<div class="section-title">
-            	<h2>✨Best 레시피✨</h2>
+           <div class="section-title">
+               <h2>추천 레시피</h2>
                 </div>
                 <div class="featured__controls">
-                	<ul>
-                    	<li>가장 인기있는 레시피만 모아 보세요 !</li>
+                   <ul>
+                       <li>푸디가 제안하는 레시피로 최고의 요리를 만들어보세요.</li>
                     </ul>
                 </div>
             <div class="row">
@@ -218,7 +215,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title from-blog__title">
-                        <h2>🥗Personal 레시피🥗</h2>
+                        <h2>new 레시피</h2>
                     </div>
                 </div>
             </div>
@@ -276,7 +273,7 @@
     <!-- Blog Section End -->
 
     <!-- Footer Section Begin -->
-	<%@ include file="./footer.jsp"%>
+   <%@ include file="./footer.jsp"%>
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
