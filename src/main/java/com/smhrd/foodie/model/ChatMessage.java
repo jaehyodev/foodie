@@ -1,4 +1,4 @@
-package com.smhrd.personalrecipe.model;
+package com.smhrd.foodie.model;
 
 import lombok.Data;
 import lombok.AllArgsConstructor;
