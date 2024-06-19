@@ -1,4 +1,4 @@
-package com.smhrd.personalrecipe.mapper;
+package com.smhrd.foodie.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 

@@ -1,4 +1,4 @@
-package com.smhrd.personalrecipe.controller;
+package com.smhrd.foodie.controller;
 
 import java.util.Locale;
 

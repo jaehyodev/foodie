@@ -1,4 +1,4 @@
-package com.smhrd.personalrecipe.controller;
+package com.smhrd.foodie.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
