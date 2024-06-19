@@ -3,6 +3,7 @@ package com.smhrd.foodie.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 	
 @Controller
 public class MemberController {
@@ -11,6 +12,22 @@ public class MemberController {
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join() {
 		return "join";
+	}
+	
+	// 회원가입 실행 메소드
+	@RequestMapping(value = "/userJoin", method = RequestMethod.POST)
+	public String userJoin(@RequestParam("id") String id, @RequestParam("pw") String pw,
+			@RequestParam("pwck") String pwck, @RequestParam("email") String email,
+			@RequestParam("tel") String tel, @RequestParam("addr") String addr) {
+		
+		System.out.println("응답받은 ID : " + id);
+		System.out.println("응답받은 PW : " + pw);
+		System.out.println("응답받은 PWCK : " + pwck);
+		System.out.println("응답받은 email : " + email);
+		System.out.println("응답받은 tel : " + tel);
+		System.out.println("응답받은 addr : " + addr);
+
+		return "login";
 	}
 
 	// 로그인
