@@ -25,7 +25,17 @@
                <div class="col-lg-6">
                    <div class="header__top__right">
                        <div class="header__top__right__auth">
-                           <a href="login"><i class="fa fa-user"></i> 로그인 / 회원가입</a>
+                           <form action="logout" method="post">
+	                           <c:choose>
+	                              <c:when test="${empty Member}">
+	                                 <a href="login"><i class="fa fa-user"></i>로그인 / </a><a href="join">회원가입</a>
+	                              </c:when>
+	                              <c:otherwise>
+	                                 <h6>${Member.mem_id}님환영합니다.</h6>
+	                                 <button type="submit">로그아웃</button>
+	                              </c:otherwise>
+	                           </c:choose>
+                        	</form>
                        </div>
                    </div>
                </div>
@@ -36,7 +46,7 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="index"><img src="resources/img/banner/logo.png" alt=""></a>
+                    <a href="index"><img src="<c:url value='/resources/img/logo.png'/>" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-6">

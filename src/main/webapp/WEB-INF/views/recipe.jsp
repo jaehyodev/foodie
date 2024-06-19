@@ -14,14 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/font-awesome.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/elegant-icons.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/jquery-ui.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/owl.carousel.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="index"><img src="resources/img/logo.png" alt=""></a>
+            <a href="index"><img src="<c:url value='/resources/img/logo.png'/>" alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -75,7 +75,7 @@
                             <span>카테고리</span>
                         </div>
                         <ul>
-                            <li><a href="recipe/주부">주부 레시피</a></li>
+                            <li><a href="recipe/housewife">주부 레시피</a></li>
                             <li><a href="#">키즈 레시피</a></li>
                             <li><a href="#">자취생 레시피</a></li>
                             <li><a href="#">다이어트 레시피</a></li>
@@ -120,7 +120,7 @@
                         <div class="sidebar__item">
                             <h4>레시피</h4>
                             <ul>
-	                            <li><a href="recipe/주부">주부 레시피</a></li>
+	                            <li><a href="recipe/housewife">주부 레시피</a></li>
 	                            <li><a href="#">키즈 레시피</a></li>
 	                            <li><a href="#">자취생 레시피</a></li>
 	                            <li><a href="#">다이어트 레시피</a></li>
@@ -192,13 +192,13 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="resources/js/jquery-3.3.1.min.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
-    <script src="resources/js/jquery.nice-select.min.js"></script>
-    <script src="resources/js/jquery-ui.min.js"></script>
-    <script src="resources/js/jquery.slicknav.js"></script>
-    <script src="resources/js/mixitup.min.js"></script>
-    <script src="resources/js/owl.carousel.min.js"></script>
-    <script src="resources/js/main.js"></script>
+    <script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
+	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery-ui.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.slicknav.js' />"></script>
+	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
+	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
+	<script src="<c:url value='/resources/js/main.js' />"></script>
 </body>
 </html>
