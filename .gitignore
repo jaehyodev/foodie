@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 # 프로젝트 폴더에 넣어주세요!
 # GitHub에 올라갈 때 아래 파일들은 제외됩니다.
 ### API KEY ###
 application.properties
 ### Maven pom.properties ###
 pom.properties
+=======
+# Ignore application.properties
+src/main/resources/application.properties
+>>>>>>> 977002b99593673906d69b86733fadb0bb1fbe96
