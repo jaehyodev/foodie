@@ -43,13 +43,9 @@
                 <!-- 장바구니 -->
                 <li><a href="cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
-            <!-- 장바구니 총 금액 -->
         </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
-            </div>
-        </div>
+      
+ 
         <div id="mobile-menu-wrap"></div>
         <div class="humberger__menu__contact">
             <ul>
@@ -77,15 +73,14 @@
                             <span>카테고리</span>
                         </div>
                         <ul>
-                            <li><a href="#">채소</a></li>
-                            <li><a href="#">과일</a></li>
-                            <li><a href="#">정육</a></li>
-                            <li><a href="shopgrid">수산</a></li>
-                            <li><a href="#">쌀ㆍ잡곡</a></li>
-                            <li><a href="#">면ㆍ오일</a></li>
-                            <li><a href="#">우유ㆍ유제품</a></li>
-                            <li><a href="#">소스ㆍ조미료</a></li>
-                            <li><a href="recipe">레시피</a></li>
+                            <li><a href="#">주부 레시피</a></li>
+                            <li><a href="#">키즈 레시피</a></li>
+                            <li><a href="#">자취생 레시피</a></li>
+                            <li><a href="#">다이어트 레시피</a></li>
+                            <li><a href="#">캠핑 레시피</a></li>
+                            <li><a href="recipe">파티 레시피</a></li>
+                            <li><a href="#">야식 레시피</a></li>
+                            <li><a href="shopgrid">재료 사러가기</a></li>
                         </ul>
                     </div>
                 </div>
@@ -133,7 +128,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h6><span class="icon_tag_alt"></span> 5만원 이상 무료배송 <a href="index">Click here</a> 계속 쇼핑하기
+                    <h6><span class="icon_tag_alt"></span> 먹고 싶은 메뉴에 맞게 편리하게 쇼핑해보세요! <a href="index">계속 쇼핑하기</a>
                     </h6>
                 </div>
             </div>
@@ -146,30 +141,30 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>이름<span>*</span></p>
-                                        <input type="text">
+                                        <input type="text" value="이승지">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>연락처<span>*</span></p>
-                                        <input type="text">
+                                        <input type="text" value="010-3011-1255">
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
                                 <p>이메일<span>*</span></p>
-                                <input type="text">
+                                <input type="text" value="seungji@smhrd.com">
                             </div>
                             <div class="checkout__input">
                                 <p>주소<span>*</span></p>
                                 <input type="text" placeholder="도로명 주소" class="checkout__input__add">
-                                <input type="text" placeholder="주소 세부사항(선택)">
+                                <input type="text" placeholder="주소 세부사항">
                             </div>
                             <div class="checkout__input">
-                                <p>배송요청사항<span>*</span></p>
-                                <input type="text">
+                                <p>배송요청사항<span></span></p>
+                                <input type="text" placeholder="부재시 문앞에 놓아주세요">
                             </div>
-                            <!--  -->
+                            <!--  
                            <div class="checkout__input">
                                 <p>Country/State<span>*</span></p>
                                 <input type="text">
@@ -217,6 +212,8 @@
                                 <input type="text"
                                     placeholder="Notes about your order, e.g. special notes for delivery.">
                             </div>
+                            -->
+                            
                         </div>
                         
                         <div class="col-lg-4 col-md-6">
@@ -224,8 +221,8 @@
                                 <h4>총 결제금액</h4>
                                 <div class="checkout__order__products">상품 <span>가격</span></div>
                                 <ul>
-                                    <li>채소 한무더기 <span>7500원</span></li>
-                                    <li>봉투에 담긴 것 <span>15200원</span></li>
+                                    <li>목록 예시1 <span>7500원</span></li>
+                                    <li>목록 예시2 <span>15200원</span></li>
                                     <li>유기농 바나나 <span>5300원</span></li>
                                 </ul>
                                 <div class="checkout__order__subtotal">배송비 <span>3000원</span></div>
@@ -238,8 +235,8 @@
                                     </label>
                                 </div>
                                 <p>
-                                5만원 이상 구매시 무료배송입니다
-                                주문내용을 다시 한번 확인해주세요
+                                <b>5만원 이상 구매시 무료배송</b>입니다 .<br>
+                                주문 내용을 다시 한 번 확인해주세요
                                 </p>
                                 <div class="checkout__input__checkbox">
                                     <label for="payment">
@@ -250,7 +247,7 @@
                                 </div>
                                 <div class="checkout__input__checkbox">
                                     <label for="paypal">
-                                        카카오페이
+                                        간편결제(페이)
                                         <input type="radio" name="pay" id="paypal">
                                         <span class="checkmark"></span>
                                     </label>

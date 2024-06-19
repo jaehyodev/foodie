@@ -43,7 +43,6 @@
                 <!-- 장바구니 -->
                 <li><a href="cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
-            <!-- 장바구니 총 금액 -->
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
@@ -76,15 +75,14 @@
                             <span>카테고리</span>
                         </div>
                         <ul>
-                            <li><a href="#">채소</a></li>
-                            <li><a href="#">과일</a></li>
-                            <li><a href="#">정육</a></li>
-                            <li><a href="shopgrid">수산</a></li>
-                            <li><a href="#">쌀ㆍ잡곡</a></li>
-                            <li><a href="#">면ㆍ오일</a></li>
-                            <li><a href="#">우유ㆍ유제품</a></li>
-                            <li><a href="#">소스ㆍ조미료</a></li>
-                            <li><a href="recipe">레시피</a></li>
+                            <li><a href="#">주부 레시피</a></li>
+                            <li><a href="#">키즈 레시피</a></li>
+                            <li><a href="#">자취생 레시피</a></li>
+                            <li><a href="#">다이어트 레시피</a></li>
+                            <li><a href="#">캠핑 레시피</a></li>
+                            <li><a href="recipe">파티 레시피</a></li>
+                            <li><a href="#">야식 레시피</a></li>
+                            <li><a href="shopgrid">재료 사러가기</a></li>
                         </ul>
                     </div>
                 </div>
@@ -142,13 +140,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <!-- 장바구니 목록출력 -->
-                                <tr>
-                                    <td class="shoping__cart__item">
+                            <!-- 장바구니 목록출력!! 반복문 사용-->
+                            <c:forEach items="${ingre_list}" var="ingre">
+                            	<tr>
+                            		<td class="shoping__cart__item">
                                         <img src="resources/img/cart/cart-1.jpg" alt="">
-                                        <h5>채소 한무더기</h5>
+                                        <h5>${ingre_name}</h5>
                                     </td>
-                                    
                                     <td class="shoping__cart__quantity">
                                         <div class="quantity">
                                             <div class="pro-qty">
@@ -156,9 +154,36 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="shoping__cart__total">
-                                        11000원
+                            		<td class="shoping__cart__total">
+                                        ${ingre_price }원
                                     </td>
+                                    <!-- 해당항목삭제 -->
+                                    <td class="shoping__cart__item__close">
+                                    	<a href=""><span class="icon_close"></span></a>
+                                    </td>
+                            	</tr>                            
+                            </c:forEach>
+                            
+                            </tbody>
+                        </table>
+                            
+                                <tr>
+                                    <td class="shoping__cart__item">
+                                        <img src="resources/img/cart/cart-1.jpg" alt="">
+                                        <h5>${ingre_name }</h5>
+                                    </td>
+                                    
+                                    <td class="shoping__cart__quantity">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="2">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="shoping__cart__total">
+                                        ${ingre_price }원
+                                    </td>
+                                    <!-- 해당항목삭제 -->
                                     <td class="shoping__cart__item__close">
                                         <span class="icon_close"></span>
                                     </td>
@@ -167,7 +192,7 @@
                                 <tr>
                                     <td class="shoping__cart__item">
                                         <img src="resources/img/cart/cart-2.jpg" alt="">
-                                        <h5>신선한 봉투</h5>
+                                        <h5>장바구니 목록 예시2</h5>
                                     </td>
                                     
                                     <td class="shoping__cart__quantity">
@@ -178,7 +203,7 @@
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total">
-                                        13900원
+                                        15200원
                                     </td>
                                     <td class="shoping__cart__item__close">
                                         <span class="icon_close"></span>
@@ -199,7 +224,7 @@
                                         </div>
                                     </td>
                                     <td class="shoping__cart__total">
-                                        16900원
+                                        5300원
                                     </td>
                                     <td class="shoping__cart__item__close">
                                         <span class="icon_close"></span>
@@ -219,23 +244,15 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <!-- <div class="shoping__continue">
-                        <div class="shoping__discount">
-                            <h5>Discount Codes</h5>
-                            <form action="#">
-                                <input type="text" placeholder="Enter your coupon code">
-                                <button type="submit" class="site-btn">APPLY COUPON</button>
-                            </form>
-                        </div>
-                    </div> -->
+                    
                 </div>
                 <div class="col-lg-6">
                     <div class="shoping__checkout">
                         <h5>총 결제금액</h5>
                         <ul>
-                            <li>상품금액 <span>45000원</span></li>
+                            <li>상품금액 <span>28000원</span></li>
                             <li>배송비 <span>3000원</span></li>
-                            <li>결제예정금액 <span>48000원</span></li>
+                            <li>결제예정금액 <span>31000원</span></li>
                         </ul>
                         <a href="checkout" class="primary-btn">구매하기</a>
                     </div>
