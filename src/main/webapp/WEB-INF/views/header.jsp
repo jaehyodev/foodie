@@ -12,32 +12,31 @@
 </head>
 <body>
 <header class="header">
-	<div class="header__top">
-	    <div class="container">
-	        <div class="row">
-	            <div class="col-lg-6">
-	                <div class="header__top__left">
-	                    <ul>
-	                        <li><i class="fa fa-envelope"></i> hello@smhrd.com</li>
-	                        <li>5만원 이상 구매 시 무료배송</li>
-	                    </ul>
-	                </div>
-	            </div>
-	            <div class="col-lg-6">
-	                <div class="header__top__right">
-	                    <div class="header__top__right__auth">
-	                        <a href="login"><i class="fa fa-user"></i> 로그인 / 회원가입</a>
-	                    </div>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
-	</div>
+   <div class="header__top">
+       <div class="container">
+           <div class="row">
+               <div class="col-lg-6">
+                   <div class="header__top__left">
+                       <ul>
+                           <li>하루 안에 도착하는 푸디 배송 ~ 🚚</li>
+                       </ul>
+                   </div>
+               </div>
+               <div class="col-lg-6">
+                   <div class="header__top__right">
+                       <div class="header__top__right__auth">
+                           <a href="login"><i class="fa fa-user"></i> 로그인 / 회원가입</a>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
                 <div class="header__logo">
-                    <a href="index"><img src="resources/img/logo.png" alt=""></a>
+                    <a href="index"><img src="resources/img/banner/logo.png" alt=""></a>
                 </div>
             </div>
             <div class="col-lg-6">
