@@ -26,7 +26,7 @@ public class ChatController {
 											chatCompletionRequest,
 											ChatCompletionResponse.class);
 				
-		System.out.println("ChatGPT 통신 중!");
+		System.out.println("ChatGPT 통신 중!!!");
 		return response.getChoices().get(0).getMessage().getContent();
 	}
 }
