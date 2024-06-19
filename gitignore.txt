@@ -4,3 +4,5 @@
 application.properties
 ### Maven pom.properties ###
 pom.properties
+### target ###
+target/
