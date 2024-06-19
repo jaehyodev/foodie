@@ -1,8 +1,12 @@
 package com.smhrd.foodie.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data // lombok
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Member {
 
 	private String mem_id;
