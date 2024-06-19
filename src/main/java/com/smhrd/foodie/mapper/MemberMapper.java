@@ -14,6 +14,5 @@ public interface MemberMapper {
 	
 	void editPw();
 	
-	void delete();
-	
+	int delete(String id);
 }
