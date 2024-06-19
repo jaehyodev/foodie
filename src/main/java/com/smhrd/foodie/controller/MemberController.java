@@ -49,27 +49,24 @@ public class MemberController {
 	}
 
 	// 마이페이지에서 회원 정보 변경
-	@RequestMapping(value = "/edituserinfo", method = RequestMethod.GET)
-	public String edituserinfo() {
-		return "edituserinfo";
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update() {
+		return "update";
 	}
 
 	@RequestMapping(value = "/allergy", method = RequestMethod.GET)
 	public String allergy() {
 		return "allergy";
 	}
-	@RequestMapping(value = "/deleteuserinfo", method = RequestMethod.GET)
-	public String deleteuserinfo() {
-		return "deleteuserinfo";
-	}
-
-	@RequestMapping(value = "/editpw", method = RequestMethod.GET)
-	public String editpw() {
-		return "editpw";
-	}
-
-
-
 	
+	@RequestMapping(value = "mypage/delete", method = RequestMethod.GET)
+	public String delete() {
+		return "delete";
+	}
+
+	@RequestMapping(value = "/updatepw", method = RequestMethod.GET)
+	public String updatepw() {
+		return "updatepw";
+	}
 
 }
