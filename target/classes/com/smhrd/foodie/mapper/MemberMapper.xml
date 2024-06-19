@@ -10,5 +10,9 @@
         insert into member_info (mem_id, mem_pw, mem_name, mem_email, mem_phone, mem_addr)
         values (#{mem_id}, #{mem_pw}, #{mem_name}, #{mem_eamil}, #{mem_phone}, #{mem_addr})
     </insert>
+    
+    <delete id="delete" parameterType="com.smhrd.foodie.model.Member">
+    	delete from member where id = #{mem_id}
+    </delete>
  	
  </mapper>
