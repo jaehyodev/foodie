@@ -16,7 +16,7 @@
 <body>
 	<div id="chat__header">1:1 문의 상담</div>
 	
-	<div id="chat__content"></div>	
+	<div id="chat__content"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkR2ScXoPmPQEjbaL1X7RQpfdor4p2MVrR_A&s"/></div>	
 	
     <div id="chat__footer">
     	<div id="footer__choice">선택지 입력</div>

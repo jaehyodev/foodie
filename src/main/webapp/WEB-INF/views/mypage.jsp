@@ -8,7 +8,7 @@
     <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Personal Recipe</title>
+    <title>Foodie</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
@@ -160,7 +160,7 @@
 	                          <td>2024-06-10</td>
 	                          <td>신선한 채소 패키지 외 2건</td>
 	                          <td>55,000원</td>
-	                          <td>배송 완료</td>
+	                          <td>배송 준비 중</td>
 	                          <td><button type="button" class="site-btn">보기</button></td>
 	                       </tr>
 	                       <%-- 더 많은 주문 내역 추가 가능 --%>
