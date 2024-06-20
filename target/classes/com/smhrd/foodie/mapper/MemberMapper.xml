@@ -9,14 +9,19 @@
  4. SQL문 실행 결과 (영향을 받은 행 수)를 다시 반환-->
  <mapper namespace="com.smhrd.foodie.mapper.MemberMapper">
     
-    <insert id="join" parameterType="com.smhrd.foodie.model.Member">
+    <!-- 회원가입 -->
+    <insert id="join" parameterType="Map">
         insert into member_info (mem_id, mem_pw, mem_name, mem_email, mem_phone, mem_addr)
         values (#{mem_id}, #{mem_pw}, #{mem_name}, #{mem_email}, #{mem_phone}, #{mem_addr})
     </insert>
     
+    <!-- 로그인 -->
     <select id="loginCheck" parameterType="com.smhrd.foodie.model.Member" resultType="com.smhrd.foodie.model.Member">
        select mem_id, mem_pw from member_info where mem_id = #{mem_id} and mem_pw = #{mem_pw}
     </select>
     
+    
+
+
     
  </mapper>

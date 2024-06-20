@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <header class="header">
 	<div class="header__top">
 		<div class="container">
@@ -14,17 +15,17 @@
 					<div class="header__top__right">
 						<div class="header__top__right__auth">
 							<form action="logout" method="post">
-								<c:choose>
-									<c:when test="${empty Member}">
-										<a href="login"><i class="fa fa-user"></i>로그인 / </a>
-										<a href="join">회원가입</a>
-									</c:when>
-									<c:otherwise>
-										<h6>${Member.mem_id}님환영합니다.</h6>
-										<button type="submit">로그아웃</button>
-									</c:otherwise>
-								</c:choose>
-							</form>
+	                           <c:choose>
+	                              <c:when test="${empty Member}">
+	                                 <a href="login"><i class="fa fa-user"></i>로그인/</a><a href="join">회원가입</a>
+	                              </c:when>
+	                              <c:otherwise>
+	                                 <h6>${Member.mem_id}님환영합니다.</h6>
+	                                 <a href="mypage">마이페이지</a>
+	                                 <button type="submit">로그아웃</button>
+	                              </c:otherwise>
+	                           </c:choose>
+                        	</form>
 						</div>
 					</div>
 				</div>

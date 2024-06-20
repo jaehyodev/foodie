@@ -17,6 +17,7 @@
 	rel="stylesheet">
 
 <!-- Css Styles -->
+<<<<<<< HEAD
 <link rel="stylesheet"
 	href="<c:url value='/resources/css/bootstrap.min.css'/>"
 	type="text/css">
@@ -41,7 +42,6 @@
 </head>
 
 <body>
-
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
@@ -156,59 +156,123 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-6 col-md-8">
 					<div class="register-container">
+						<!-- form 시작 -->
 						<form action="/foodie/join.do" method="post">
 							<div class="form-group">
 								<label for="id">아이디</label> <input type="text"
-									class="form-control" id="id" name="id" placeholder="아이디를 입력하세요"
+									class="form-control" id="id" name="mem_id" placeholder="아이디를 입력하세요"
 									required>
 							</div>
 							<div class="form-group">
 								<label for="password">비밀번호</label> <input type="password"
-									class="form-control" id="pw" name="pw"
+									class="form-control" id="pw" name="mem_pw"
 									placeholder="비밀번호를 입력하세요" required>
 							</div>
 							<div class="form-group">
 								<label for="pwck">비밀번호 확인</label> <input type="password"
-									class="form-control" id="pwck" name="pwck"
+									class="form-control" id="pwck" name="mem_pwck"
 									placeholder="비밀번호를 다시 입력하세요" required>
 							</div>
 							<div class="form-group">
 								<label for="email">이메일</label> <input type="email"
-									class="form-control" id="email" name="email"
+									class="form-control" id="email" name="mem_email"
 									placeholder="이메일을 입력하세요" required>
 							</div>
 							<div class="form-group">
 								<label for="phoneNumber">전화번호</label> <input type="tel"
-									class="form-control" id="tel" name="tel"
+									class="form-control" id="tel" name="mem_tel"
 									placeholder="전화번호를 입력하세요" required>
 							</div>
 							<div class="form-group">
 								<label for="addr">주소</label> <input type="text"
-									class="form-control" id="addr" name="addr"
+									class="form-control" id="addr" name="mem_addr"
 									placeholder="주소를 입력하세요" required>
 							</div>
+							
+							<lable>알레르기 또는 비선호 식재료를 선택해주세요!</lable>
+							<div class="mypage__content">
+								<table>
+									<thead>
+										<tr>
+											<th colspan="4"><h3>알레르기</h3></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><label><input type="checkbox" name="allergy_name" value="알류">알류</label></td>
+											<td><label><input type="checkbox" name="allergy_name" value="우유">우유</label></td>
+											<td><label><input type="checkbox" name="allergy_name" value="메밀">메밀</label></td>
+											<td><label><input type="checkbox" name="allergy_name" value="땅콩">땅콩</label></td>
+										</tr>
+										<tr>
+											<td><label><input type="checkbox" name="allergy_name" value="대두">대두</label></td>
+											<td><label><input type="checkbox" name="allergy_name" value="밀">밀</label></td>
+											<td><label><input type="checkbox" name="allergy_name" value="고등어">고등어</label></td>
+											<td><label><input type="checkbox" name="allergy_name" value="게">게</label></td>
+										</tr>
+										<tr>
+											<td><label><input type="checkbox" name="allergy_name" value="새우">새우</label></td>
+											<td><label><input type="checkbox" name="allergy_name" value="돼지고기">돼지고기</label></td>
+											<td><label><input type="checkbox" name="allergy_name" value="소고기">소고기</label></td>
+											<td><label><input type="checkbox" name="allergy_name" value="닭고기">닭고기</label></td>
+										</tr>
+										<tr>
+											<td><label><input type="checkbox" name="allergy_name" value="복숭아">복숭아</label></td>
+											<td><label><input type="checkbox" name="allergy_name" value="토마토">토마토</label></td>
+											<td><label><input type="checkbox" name="allergy_name" value="호두">호두</label></td>
+											<td><label><input type="checkbox" name="allergy_name" value="잣">잣</label></td>
+										</tr>
+										<tr>
+											<td><label><input type="checkbox" name="allergy_name" value="오징어">오징어</label></td>
+											<td><label><input type="checkbox" name="allergy_name" value="조개류">조개류</label></td>
+											<td></td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+
+								<div style="height: 55px;"></div>
+
+								<table>
+									<thead>
+										<tr>
+											<th colspan="5"><h3>비선호 식재료</h3></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><label><input type="checkbox" name="dislike_name" value="오이">오이</label></td>
+											<td><label><input type="checkbox" name="dislike_name" value="버섯">버섯</label></td>
+											<td><label><input type="checkbox" name="dislike_name" value="당근">당근</label></td>
+											<td><label><input type="checkbox" name="dislike_name" value="생강">생강</label></td>
+											<td><label><input type="checkbox" name="dislike_name" value="아보카도">아보카도</label></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
 							<br></br>
 							<button type="submit" class="site-btn float-center">회원가입</button>
 							<br></br>
 						</form>
-
+						<!-- form 끝 -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
+	
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
 
-	<script src="resources/js/jquery-3.3.1.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/jquery.nice-select.min.js"></script>
-	<script src="resources/js/jquery-ui.min.js"></script>
-	<script src="resources/js/jquery.slicknav.js"></script>
-	<script src="resources/js/mixitup.min.js"></script>
-	<script src="resources/js/owl.carousel.min.js"></script>
-	<script src="resources/js/main.js"></script>
+	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
+	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery-ui.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.slicknav.js' />"></script>
+	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
+	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
+	<script src="<c:url value='/resources/js/main.js' />"></script>
 </body>
 </html>
