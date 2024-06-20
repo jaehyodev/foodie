@@ -133,72 +133,66 @@
 	</section>
 	<!-- Hero Section End -->
 
-
-	<section class="hero hero-normal">
-		<div class="container">
-			<div class="row"></div>
-		</div>
-	</section>
-	<section class="userinfo-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3">
-					<div class="mypage__sidebar">
-						<h2>마이 페이지</h2>
-						<ul>
+	  <section class="hero hero-normal">
+	     <div class="container">
+	        <div class="row"></div>
+	     </div>
+	  </section>
+	  <section class="userinfo-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="mypage__sidebar">
+                        <h2>마이 페이지</h2>
+                        <ul>
 							<li><a href="mypage">주문 내역</a></li>
-							<li><a href="wishlist">찜 목록</a></li>
-							<li><a href="allergy">알레르기 / 비선호도</a></li>
-							<li class="active"><a href="edituserinfo">개인 정보 수정</a></li>
-							<li><a href="editpw">비밀번호 변경</a></li>
-							<li><a href="deleteuserinfo">회원탈퇴</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-9">
-					<div class="mypage__content">
-						<h2>개인 정보 수정</h2>
-						<form action="updateUserInfo" method="post">
-							<%-- 수정 처리 서블릿으로 연결 --%>
-							<div class="form-group">
-								<label for="username">이름:</label> <input type="text"
-									id="username" name="username"
-									value="<%=session.getAttribute("username")%>" required>
-							</div>
-							<div class="form-group">
-								<label for="email">이메일:</label> <input type="email" id="email"
-									name="email" value="<%=session.getAttribute("email")%>"
-									required>
-							</div>
-							<div class="form-group">
-								<label for="phone">휴대폰 번호:</label> <input type="tel" id="phone"
-									name="phone" value="<%=session.getAttribute("phone")%>"
-									required>
-							</div>
-							<div class="form-group">
-								<label for="address">주소:</label> <input type="text" id="address"
-									name="address" value="<%=session.getAttribute("address")%>"
-									required>
-							</div>
-							<button type="submit" class="site-btn">수정 완료</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+                            <li><a href="wishlist">찜 목록</a></li>
+                            <li><a href="allergy">알레르기 / 비선호 식재료</a></li>
+                            <li class="active"><a href="update">개인 정보 수정</a></li>
+                            <li><a href="updatepw">비밀번호 변경</a></li>
+                            <li><a href="delete">회원탈퇴</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="mypage__content">
+                        <h2>개인 정보 수정</h2>
+                        <form action="updateUserInfo" method="post"> <%-- 수정 처리 서블릿으로 연결 --%>
+                            <div class="form-group">
+                                <label for="username">이름:</label>
+                                <input type="text" id="username" name="username" value="<%= session.getAttribute("username") %>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">이메일:</label>
+                                <input type="email" id="email" name="email" value="<%= session.getAttribute("email") %>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">휴대폰 번호:</label>
+                                <input type="tel" id="phone" name="phone" value="<%= session.getAttribute("phone") %>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">주소:</label>
+                                <input type="text" id="address" name="address" value="<%= session.getAttribute("address") %>" required>
+                            </div>
+                            <button type="submit" class="site-btn">수정 완료</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
 
-	<script src="resources/js/jquery-3.3.1.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/jquery.nice-select.min.js"></script>
-	<script src="resources/js/jquery-ui.min.js"></script>
-	<script src="resources/js/jquery.slicknav.js"></script>
-	<script src="resources/js/mixitup.min.js"></script>
-	<script src="resources/js/owl.carousel.min.js"></script>
-	<script src="resources/js/main.js"></script>
+	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
+	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery-ui.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.slicknav.js' />"></script>
+	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
+	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
+	<script src="<c:url value='/resources/js/main.js' />"></script>
 </body>
 </html>

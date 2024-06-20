@@ -242,6 +242,74 @@
                                     placeholder="Notes about your order, e.g. special notes for delivery.">
                             </div>
                             -->
+<<<<<<< HEAD
+                            
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6">
+                            <div class="checkout__order">
+                                <h4>총 결제금액</h4>
+                                <div class="checkout__order__products">상품 <span>가격</span></div>
+                                <ul>
+                                <!-- 장바구니 목록 출력 -->
+                                	<c:forEach items="${cartList}" var="list">
+                                		<li>${list.ingre_name}<span>${list.ingre_price*list.ingre_cnt}원</span></li>
+                                	</c:forEach>
+                               <!-- <li>목록 예시1 <span>7500원</span></li>
+                                    <li>목록 예시2 <span>15200원</span></li>
+                                    <li>유기농 바나나 <span>5300원</span></li> -->
+                                </ul>
+                                <!-- 50000원 이상 무료배송 로직 -->
+                                <c:choose>
+                                <c:when test="${sum>=50000}">
+                                	<div class="checkout__order__subtotal">배송비 <span>무료배송</span></div>
+                                	<div class="checkout__order__total">총 상품금액 <span>${sum}원</span></div>
+                                </c:when>
+                                
+                                <c:otherwise>
+                                	<div class="checkout__order__subtotal">배송비 <span>3000원</span></div>
+                                	<div class="checkout__order__total">총 상품금액 <span>${sum+3000}원</span></div>
+                                </c:otherwise>                               
+                                </c:choose>
+                                
+                                <%-- <div class="checkout__order__subtotal">배송비 <span>3000원</span></div>
+                                <div class="checkout__order__total">총 상품금액 <span>${sum}원</span></div> --%>
+                                <div class="checkout__input__checkbox">
+                                    <label for="acc-or">
+                                        결제에 동의하십니까?
+                                        <input type="checkbox" id="acc-or">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <p>
+                                <b>5만원 이상 구매시 무료배송</b>입니다 .<br>
+                                주문 내용을 다시 한 번 확인해주세요
+                                </p>
+                                <div class="checkout__input__checkbox">
+                                    <label for="payment">
+                                        카드결제
+                                        <input type="radio" name="pay" id="payment">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <div class="checkout__input__checkbox">
+                                    <label for="paypal">
+                                        간편결제(페이)
+                                        <input type="radio" name="pay" id="paypal">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                                <button onclick="requestPay()" class="site-btn">결제하기</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Checkout Section End -->
+=======
+>>>>>>> main
 
 						</div>
 
@@ -295,15 +363,15 @@
 	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
-	<script src="resources/js/jquery-3.3.1.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/jquery.nice-select.min.js"></script>
-	<script src="resources/js/jquery-ui.min.js"></script>
-	<script src="resources/js/jquery.slicknav.js"></script>
-	<script src="resources/js/mixitup.min.js"></script>
-	<script src="resources/js/owl.carousel.min.js"></script>
-	<script src="resources/js/main.js"></script>
-	<script src="resources/js/checkout.js"></script>
+	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
+	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery-ui.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.slicknav.js' />"></script>
+	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
+	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
+	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/checkout.js' />"></script>
 	<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 
 	<!-- jQuery -->

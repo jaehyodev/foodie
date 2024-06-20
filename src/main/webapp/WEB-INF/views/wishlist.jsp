@@ -81,9 +81,9 @@
 	</div>
 	<!-- Humberger End -->
 
-	<!-- Header Section Begin -->
-	<%@ include file="./header.jsp"%>
-	<!-- Header Section End -->
+    <!-- Header Section Begin -->
+    <%@ include file="./header.jsp"%>
+    <!-- Header Section End -->
 
 	<!-- Hero Section Begin -->
 	<!-- 카테고리 -->
@@ -148,10 +148,10 @@
 						<ul>
 							<li><a href="mypage">주문 내역</a></li>
 							<li class="active"><a href="wishlist">찜 목록</a></li>
-							<li><a href="allergy">알레르기 / 비선호도</a></li>
-							<li><a href="edituserinfo">개인 정보 수정</a></li>
-							<li><a href="editpw">비밀번호 변경</a></li>
-							<li><a href="deleteuserinfo">회원탈퇴</a></li>
+							<li><a href="allergy">알레르기 / 비선호 식재료</a></li>
+							<li><a href="update">개인 정보 수정</a></li>
+							<li><a href="updatepw">비밀번호 변경</a></li>
+							<li><a href="delete">회원탈퇴</a></li>
 						</ul>
 					</div>
 				</div>
@@ -197,13 +197,13 @@
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
 
-	<script src="resources/js/jquery-3.3.1.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/jquery.nice-select.min.js"></script>
-	<script src="resources/js/jquery-ui.min.js"></script>
-	<script src="resources/js/jquery.slicknav.js"></script>
-	<script src="resources/js/mixitup.min.js"></script>
-	<script src="resources/js/owl.carousel.min.js"></script>
-	<script src="resources/js/main.js"></script>
+	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
+	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery-ui.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.slicknav.js' />"></script>
+	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
+	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
+	<script src="<c:url value='/resources/js/main.js' />"></script>
 </body>
 </html>
