@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.smhrd.foodie.mapper.CartMapper">
+ 	
+ 	<!-- 장바구니 목록 출력 -->
+ 	<select id="list" parameterType="com.smhrd.foodie.model.CartItems" resultType="com.smhrd.foodie.model.CartItems">
+	select a.ingre_idx,a.ingre_img, a.ingre_name,a.ingre_price,b.mem_id,b.ingre_cnt
+	from ingredient_info a,basket_info b
+	where a.ingre_idx = b.ingre_idx
+	and b.mem_id = #{mem_id}
+	</select>
+	
+	<!-- 장바구니 항목 삭제 -->
+	<delete id="deleteItem" parameterType="com.smhrd.foodie.model.CartItems">
+	delete from basket_info where mem_id = #{mem_id} and ingre_idx = #{ingre_idx}
+	</delete>
+	
+ 	
+ 	
+ </mapper>

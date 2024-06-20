@@ -150,6 +150,65 @@
 	</section>
 	<!-- Breadcrumb Section End -->
 
+<<<<<<< HEAD
+    <!-- Product Details Section Begin -->
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__item">
+                        	<!-- 재료 대표 사진 -->
+                            <img class="product__details__pic__item--large"
+                                src="resources/img/product/corvina.jpg" alt="">
+                        </div>
+                        <!-- 재료 사진 슬라이더 -->
+                        <div class="product__details__pic__slider owl-carousel">
+                            <img data-imgbigurl="resources/img/product/corvina.jpg"
+                                src="resources/img/product/corvina.jpg" alt="">
+                            <img data-imgbigurl="resources/img/product/corvina-2.jpg"
+                                src="resources/img/product/corvina-2.jpg" alt="">
+                            <img data-imgbigurl="resources/img/product/corvina3.jpg"
+                                src="resources/img/product/corvina3.jpg" alt="">
+                            <img data-imgbigurl="resources/img/product/corvina4.jpg"
+                                src="resources/img/product/corvina4.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="product__details__text">
+                        <h3>굴비</h3>
+                        <div class="product__details__rating">
+                        	<!-- 평점 -->
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <span>(18 reviews)</span>
+                        </div>
+                        <!-- 가격 -->
+                        <div class="product__details__price">8,800원</div>
+                        <p>합리적으로 즐기는 오통통한 굴비</p>
+                        <!-- 수량 -->
+                        <div class="product__details__quantity">
+                            <div class="quantity">
+                                <div class="pro-qty">
+                                    <input type="text" value="1">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="cart/cartAdd.do" class="primary-btn">장바구니 담기</a>
+                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <ul>
+                            <li><b>중량/용량</b> <span>260g</span></li>
+                            <li><b>생산연도</b> <span>2024</span></li>
+                            <li><b>보관방법</b> <span>냉동보관</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-12">
+=======
 	<!-- Product Details Section Begin -->
 	<section class="product-details spad">
 		<div class="container">
@@ -204,6 +263,7 @@
 					</div>
 				</div>
 				<!-- <div class="col-lg-12">
+>>>>>>> main
                     <div class="product__details__tab">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
@@ -378,13 +438,13 @@
 	<!-- Footer Section End -->
 
 	<!-- Js Plugins -->
-	<script src="resources/js/jquery-3.3.1.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/jquery.nice-select.min.js"></script>
-	<script src="resources/js/jquery-ui.min.js"></script>
-	<script src="resources/js/jquery.slicknav.js"></script>
-	<script src="resources/js/mixitup.min.js"></script>
-	<script src="resources/js/owl.carousel.min.js"></script>
-	<script src="resources/js/main.js"></script>
+	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
+	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery-ui.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.slicknav.js' />"></script>
+	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
+	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
+	<script src="<c:url value='/resources/js/main.js' />"></script>
 </body>
 </html>
