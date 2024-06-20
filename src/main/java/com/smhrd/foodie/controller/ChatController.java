@@ -11,22 +11,23 @@ import com.smhrd.foodie.model.ChatCompletionResponse;
 
 @RestController
 public class ChatController {
-	
+
 	@Autowired
-	RestTemplate restTemplate;
-	
-	@PostMapping("/hitopenaiapi")
+	private RestTemplate restTemplate;
+
+	@PostMapping("/chatbot/hitopenaiapi")
 	public String getOpenaiResponse(@RequestBody String prompt) {
-		
-		ChatCompletionRequest chatCompletionRequest
-			= new ChatCompletionRequest("gpt-3.5-turbo-0125", prompt);
-		
-		ChatCompletionResponse response
-			= restTemplate.postForObject("https://api.openai.com/v1/chat/completions",
-											chatCompletionRequest,
-											ChatCompletionResponse.class);
-				
+
+		int max_tokens = 150;
+		ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest("gpt-3.5-turbo-0125", prompt, max_tokens );
+
+		ChatCompletionResponse response = restTemplate.postForObject("https://api.openai.com/v1/chat/completions",
+				chatCompletionRequest, ChatCompletionResponse.class);
+
 		System.out.println("ChatGPT 통신 중!!!");
-		return response.getChoices().get(0).getMessage().getContent();
+		
+		String responseData = response.getChoices().get(0).getMessage().getContent(); 
+
+		return responseData;
 	}
 }
