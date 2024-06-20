@@ -34,8 +34,9 @@ public class CsvReaderRecipe {
             conn.setAutoCommit(false);
 
             String sqlCheckDuplicate = "SELECT COUNT(*) FROM recipe_info WHERE recipe_idx = ?";
+            
             String sqlInsert = "INSERT INTO recipe_info "
-                + "(recipe_idx, recipe_name, recipe_cat, recipe_content, "
+                 + "(recipe_idx, recipe_name, recipe_cat, recipe_content, "
                 + "recipe_time, recipe_portion, recipe_all_ingre, "
                 + "recipe_cook, recipe_title_img) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
@@ -59,7 +60,7 @@ public class CsvReaderRecipe {
               String recipe_portion = nextLine[5].trim();
               String recipe_all_ingre = nextLine[6].trim();
               String recipe_cook = nextLine[7].trim();
-              String recipe_title_img = "/recipe/" + nextLine[8].trim() + ".jpg";
+              String recipe_title_img = "/recipe/" + nextLine[8].trim() + "_title.jpg";
 
               // 중복 체크 (ingre_allergy_idx 기준)
               checkDuplicateStmt.setInt(1, parseInt(recipe_idx));
