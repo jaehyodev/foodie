@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.smhrd.foodie.mapper.MemberMapper;
 import com.smhrd.foodie.model.Member;
+import com.smhrd.foodie.model.MemberAllergy;
    
 @Controller
 public class MemberController {
@@ -30,7 +31,7 @@ public class MemberController {
    public String join(@RequestParam("mem_id") String mem_id, @RequestParam("mem_pw") String mem_pw,
          @RequestParam("mem_pwck") String mem_pwck, @RequestParam("mem_email") String mem_email,
          @RequestParam("mem_tel") String mem_tel, @RequestParam("mem_addr") String mem_addr,
-         @RequestParam("allergy_name") List<String> allergy_name, @RequestParam("dislike_name") List<String> dislike_name) {
+         @RequestParam("allergy_list") List<String> allergy_list, @RequestParam("dislike_name") List<String> dislike_name) {
       
       System.out.println("응답받은 mem_id : " + mem_id);
       System.out.println("응답받은 mem_pw : " + mem_pw);
@@ -38,13 +39,12 @@ public class MemberController {
       System.out.println("응답받은 mem_email : " + mem_email);
       System.out.println("응답받은 mem_tel : " + mem_tel);
       System.out.println("응답받은 mem_addr : " + mem_addr);
-      System.out.println("응답받은 allergy_name : " + allergy_name);
+      System.out.println("응답받은 allergy_list : " + allergy_list);
       System.out.println("응답받은 dislike_name : " + dislike_name);
       
-      Member member = new Member(mem_id, mem_pw, mem_pwck, mem_email, mem_tel, mem_addr, allergy_name, dislike_name);
-      
+      Member member = new Member(mem_id, mem_pw, mem_pwck, mem_email, mem_tel, mem_addr);
       System.out.println("member 값 : " + member);
-      
+
       
     
       
@@ -72,6 +72,18 @@ public class MemberController {
          System.out.println("회원가입 성공");
       }else {
          System.out.println("회원가입 실패");
+      }
+      
+      // 회원가입 mapper 코드보다 뒤에 와야함. 외래키 제약 때문에 회원가입이 먼저 되어야 테이블에 insert 가능함
+      int rowAllergy = 0; // 알러지가 총 몇개 들어갔는 지 카운트
+      for (int i = 0; i < allergy_list.size(); i++) {
+    	  MemberAllergy memberAllergy = new MemberAllergy(mem_id, Integer.parseInt(allergy_list.get(i)));
+    	  mapper.allergy(memberAllergy);
+    	  rowAllergy++; 
+      }
+      // 총 몇개의 알러지가 들어갔는 지 확인하기
+      for (int i = 0; i < rowAllergy; i++) {
+          System.out.println("알러지 추가");
       }
       
       return "login";

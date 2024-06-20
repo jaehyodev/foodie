@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.smhrd.foodie.model.Member;
+import com.smhrd.foodie.model.MemberAllergy;
 
 @Mapper
 public interface MemberMapper {
@@ -17,13 +18,15 @@ public interface MemberMapper {
    int join(Member member); // 회원가입
 
    Member loginCheck(Member member); // 로그인
-
-   void allergy(List<Member> member);
    
-//   void dislike(Map<String, Object>);
+   void allergy(MemberAllergy memberAllergy);
+   
+   // void dislike(Map<String, Object>);
    
    int updatePw();
 
    void delete();
+
+
 
 }
