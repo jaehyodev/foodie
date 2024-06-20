@@ -28,10 +28,6 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		return "index";
 	}
-<<<<<<< HEAD
-	
-	@RequestMapping(value="/cartTest", method=RequestMethod.GET)
-=======
 
 	// 회원가입 페이지
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
@@ -75,8 +71,7 @@ public class HomeController {
 		return "delete";
 	}
 
-	@RequestMapping(value = "/cart", method = RequestMethod.GET)
->>>>>>> main
+	@RequestMapping(value = "/cartTest", method = RequestMethod.GET)
 	public String cart() {
 		return "shopping-cart";
 	}
