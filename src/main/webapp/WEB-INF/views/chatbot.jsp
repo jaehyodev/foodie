@@ -109,11 +109,12 @@
             $.ajax({
                 type: "POST",
                 url: "/foodie/chatbot/hitopenaiapi",  // 서버의 컨트롤러 매핑 URL
-                contentType: "application/json",
+                contentType: "application/json; charset=UTF-8",
                 data: JSON.stringify(chatToSend),
                 success: function(response) {
-                		console.log("Chat Data sent successfully!");
+                		console.log("당신의 채팅을 서버로 보냅니다!");
                   	chat(response, false);
+                  	console.log(response);
                 },
                 error: function(error) {
                     console.error("Error sending data: ", error);
