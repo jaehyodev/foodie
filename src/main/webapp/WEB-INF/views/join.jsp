@@ -199,32 +199,32 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox" name="allergy_name" value="알류">알류</label></td>
-											<td><label><input type="checkbox" name="allergy_name" value="우유">우유</label></td>
-											<td><label><input type="checkbox" name="allergy_name" value="메밀">메밀</label></td>
-											<td><label><input type="checkbox" name="allergy_name" value="땅콩">땅콩</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="1">알류</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="2">우유</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="3">메밀</label></td>
+											<td><label><input type="checkbox" name="allergy_liste" value="4">땅콩</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox" name="allergy_name" value="대두">대두</label></td>
-											<td><label><input type="checkbox" name="allergy_name" value="밀">밀</label></td>
-											<td><label><input type="checkbox" name="allergy_name" value="고등어">고등어</label></td>
-											<td><label><input type="checkbox" name="allergy_name" value="게">게</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="5">대두</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="6">밀</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="7">고등어</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="8">게</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox" name="allergy_name" value="새우">새우</label></td>
-											<td><label><input type="checkbox" name="allergy_name" value="돼지고기">돼지고기</label></td>
-											<td><label><input type="checkbox" name="allergy_name" value="소고기">소고기</label></td>
-											<td><label><input type="checkbox" name="allergy_name" value="닭고기">닭고기</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="9">새우</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="10">돼지고기</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="11">소고기</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="12">닭고기</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox" name="allergy_name" value="복숭아">복숭아</label></td>
-											<td><label><input type="checkbox" name="allergy_name" value="토마토">토마토</label></td>
-											<td><label><input type="checkbox" name="allergy_name" value="호두">호두</label></td>
-											<td><label><input type="checkbox" name="allergy_name" value="잣">잣</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="13">복숭아</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="14">토마토</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="15">호두</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="16">잣</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox" name="allergy_name" value="오징어">오징어</label></td>
-											<td><label><input type="checkbox" name="allergy_name" value="조개류">조개류</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="17">오징어</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="18">조개류</label></td>
 											<td></td>
 											<td></td>
 										</tr>
