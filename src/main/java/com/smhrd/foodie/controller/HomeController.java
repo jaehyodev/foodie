@@ -22,108 +22,113 @@ import org.springframework.web.client.RestTemplate;
 public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
+
 	// 메인 페이지
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		return "index";
 	}
-	
-  // 회원가입 페이지
-  @RequestMapping(value = "/join", method = RequestMethod.GET)
-  public String join() {
-     return "join";
-  }
-  
-  // 로그인 페이지
-  @RequestMapping(value = "/login", method = RequestMethod.GET)
-  public String login() {
-     return "login";
-  }
-  
-  // 마이페이지
-  @RequestMapping(value = "/mypage", method = RequestMethod.GET)
-  public String myPage() {
-     return "mypage";
-  }
-  
-  // 마이페이지에서 회원 정보 변경 페이지
-  @RequestMapping(value = "/update", method = RequestMethod.GET)
-  public String update() {
-     return "update";
-  }
-  
-  // 찜 목록 페이지
-  @RequestMapping(value = "/wishlist", method = RequestMethod.GET)
-  public String wishlist() {   
-     return "wishlist";
-  }
-  
-  // 알러지 수정 페이지
-  @RequestMapping(value = "/allergy", method = RequestMethod.GET)
-  public String allergy() {
-     return "allergy";
-  }
-  
-  // 회원 탈퇴 페이지
-  @RequestMapping(value = "/delete", method = RequestMethod.GET)
-  public String delete() {
-     return "delete";
-  }
-  
-	@RequestMapping(value="/cart", method=RequestMethod.GET)
+
+	// 회원가입 페이지
+	@RequestMapping(value = "/join", method = RequestMethod.GET)
+	public String join() {
+		return "join";
+	}
+
+	// 로그인 페이지
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		return "login";
+	}
+
+	// 마이페이지
+	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
+	public String myPage() {
+		return "mypage";
+	}
+
+	// 마이페이지에서 회원 정보 변경 페이지
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String update() {
+		return "update";
+	}
+
+	// 찜 목록 페이지
+	@RequestMapping(value = "/wishlist", method = RequestMethod.GET)
+	public String wishlist() {
+		return "wishlist";
+	}
+
+	// 알러지 수정 페이지
+	@RequestMapping(value = "/allergy", method = RequestMethod.GET)
+	public String allergy() {
+		return "allergy";
+	}
+
+	// 회원 탈퇴 페이지
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String delete() {
+		return "delete";
+	}
+
+	@RequestMapping(value = "/cart", method = RequestMethod.GET)
 	public String cart() {
 		return "shopping-cart";
 	}
-	
-	@RequestMapping(value="/shopgrid", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/shopgrid", method = RequestMethod.GET)
 	public String shopGrid() {
 		return "shop-grid";
 	}
-	
-	@RequestMapping(value="/shopdetail", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/shopdetail", method = RequestMethod.GET)
 	public String shopDetail() {
 		return "shop-details";
 	}
-	
-	@RequestMapping(value="/recipe", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/recipe", method = RequestMethod.GET)
 	public String recipe() {
 		return "recipe";
 	}
-	
-	@RequestMapping(value="/recipedetail", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/recipedetail", method = RequestMethod.GET)
 	public String recipeDetail() {
 		return "recipe-details";
 	}
-	
-	@RequestMapping(value="/checkout", method=RequestMethod.GET)
+
+	@RequestMapping(value = "/checkout", method = RequestMethod.GET)
 	public String checkout() {
 		return "checkout";
 	}
 
 	
+	@RequestMapping(value = "/updatepw", method = RequestMethod.GET)
+	public String updatePw() {
+		return "updatepw";
+	}
+
 	// Chatbot Open
 	@Controller
 	public class ChatbotController {
-		
-	    @GetMapping("/chatbot")
-	    public String chatbot(Model model) {
-	        model.addAttribute("initMessage", "안녕하세요?");
-	        return "chatbot";
-	    }
+
+		@GetMapping("/chatbot")
+		public String chatbot(Model model) {
+			model.addAttribute("initMessage", "안녕하세요?");
+			return "chatbot";
+		}
 	}
-	
+
 	// ChatGPT Api
 	@Value("${openai.api.key}")
-    private String openAiApiKey;
-	
+	private String openAiApiKey;
+
 	@Bean
 	public RestTemplate restTemplate() {
 		RestTemplate restTemplate = new RestTemplate();
-	    restTemplate.getInterceptors().add((request, body, execution) -> {
-	        request.getHeaders().add("Authorization", "Bearer " + openAiApiKey);
-	        return execution.execute(request, body);
-	    });
+		restTemplate.getInterceptors().add((request, body, execution) -> {
+			request.getHeaders().add("Authorization", "Bearer " + openAiApiKey);
+			return execution.execute(request, body);
+		});
 		return restTemplate;
 	}
 }

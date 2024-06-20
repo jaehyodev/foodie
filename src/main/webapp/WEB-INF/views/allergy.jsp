@@ -1,27 +1,37 @@
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Foodie</title>
+<meta charset="UTF-8">
+<meta name="description" content="Ogani Template">
+<meta name="keywords" content="Ogani, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Foodie</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+	rel="stylesheet">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+<!-- Css Styles -->
+<link rel="stylesheet" href="resources/css/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/font-awesome.min.css"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/elegant-icons.css"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/nice-select.css"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/jquery-ui.min.css"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/owl.carousel.min.css"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/slicknav.min.css"
+	type="text/css">
+<link rel="stylesheet" href="resources/css/style.css" type="text/css">
 </head>
 
 <body>
@@ -132,97 +142,86 @@
 						<ul>
 							<li><a href="mypage">주문 내역</a></li>
 							<li><a href="wishlist">찜 목록</a></li>
-							<li class="active"><a href="allergy">알레르기 / 비선호도</a></li>
-							<li><a href="edituserinfo">개인 정보 수정</a></li>
-							<li><a href="editpw">비밀번호 변경</a></li>
-							<li><a href="deleteuserinfo">회원탈퇴</a></li>
+							<li class="active"><a href="allergy">알레르기 / 비선호 식재료</a></li>
+							<li><a href="update">개인 정보 수정</a></li>
+							<li><a href="updatepw">비밀번호 변경</a></li>
+							<li><a href="delete">회원탈퇴</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
 					<div class="mypage__content">
-						<h2>알레르기 / 비선호도</h2>
 						<form action="updateAllergy" method="post">
 							<div class="allergy-container">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th><h3>알레르기</h3></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><label><input type="checkbox"> 난류</label></td>
-                                        <td><label><input type="checkbox"> 우유</label></td>
-                                        <td><label><input type="checkbox"> 메밀</label></td>
-                                        <td><label><input type="checkbox"> 땅콩</label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label><input type="checkbox"> 대두</label></td>
-                                        <td><label><input type="checkbox"> 밀</label></td>
-                                        <td><label><input type="checkbox"> 고등어</label></td>
-                                        <td><label><input type="checkbox"> 게</label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label><input type="checkbox"> 새우</label></td>
-                                        <td><label><input type="checkbox"> 돼지고기</label></td>
-                                        <td><label><input type="checkbox"> 복숭아</label></td>
-                                        <td><label><input type="checkbox"> 토마토</label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label><input type="checkbox"> 아황산류</label></td>
-                                        <td><label><input type="checkbox"> 호두</label></td>
-                                        <td><label><input type="checkbox"> 닭고기</label></td>
-                                        <td><label><input type="checkbox"> 쇠고기</label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label><input type="checkbox"> 오징어</label></td>
-                                        <td><label><input type="checkbox"> 조개류</label></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+								<table>
+									<thead>
+										<tr>
+											<th colspan="4"><h3>알레르기</h3></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><label><input type="checkbox">알류</label></td>
+											<td><label><input type="checkbox">우유</label></td>
+											<td><label><input type="checkbox">메밀</label></td>
+											<td><label><input type="checkbox">땅콩</label></td>
+										</tr>
+										<tr>
+											<td><label><input type="checkbox">대두</label></td>
+											<td><label><input type="checkbox">밀</label></td>
+											<td><label><input type="checkbox">고등어</label></td>
+											<td><label><input type="checkbox">게</label></td>
+										</tr>
+										<tr>
+											<td><label><input type="checkbox">새우</label></td>
+											<td><label><input type="checkbox">돼지고기</label></td>
+											<td><label><input type="checkbox">소고기</label></td>
+											<td><label><input type="checkbox">닭고기</label></td>
+										</tr>
+										<tr>
+											<td><label><input type="checkbox">복숭아</label></td>
+											<td><label><input type="checkbox">토마토</label></td>
+											<td><label><input type="checkbox">호두</label></td>
+											<td><label><input type="checkbox">잣</label></td>
+										</tr>
+										<tr>
+											<td><label><input type="checkbox">오징어</label></td>
+											<td><label><input type="checkbox">조개류</label></td>
+											<td></td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
 
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th><h3>비선호도</h3></th>
-                                        <th></th>
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><label><input type="checkbox"> 매운맛</label></td>
-                                        <td><label><input type="checkbox"> 짠맛</label></td>
-                                        <td><label><input type="checkbox"> 단맛</label></td>
-                                        <td><label><input type="checkbox"> 신맛</label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label><input type="checkbox"> 쓴맛</label></td>
-                                        <td><label><input type="checkbox"> 기름진 맛</label></td>
-                                        <td><label><input type="checkbox"> 느끼한 맛</label></td>
-                                        <td><label><input type="checkbox"> 비린 맛</label></td>
-                                    </tr>
-                                    <tr>
-                                        <td><label><input type="checkbox"> 탄 맛</label></td>
-                                        <td><label><input type="checkbox"> 떫은 맛</label></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+								<div style="height: 55px;"></div>
+
+								<table>
+									<thead>
+										<tr>
+											<th colspan="5"><h3>비선호 식재료</h3></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><label><input type="checkbox">오이</label></td>
+											<td><label><input type="checkbox">버섯</label></td>
+											<td><label><input type="checkbox">당근</label></td>
+											<td><label><input type="checkbox">콩</label></td>
+											<td><label><input type="checkbox">가지</label></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<br></br>
+
 							<div class="form-group">
 								<button type="submit" class="site-btn">저장하기</button>
 							</div>
 						</form>
+
 						<p>알레르기와 비선호 식품을 필터링하여 재료를 추천합니다.</p>
+
 					</div>
 				</div>
 			</div>
