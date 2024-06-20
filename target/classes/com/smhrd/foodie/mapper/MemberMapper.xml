@@ -14,5 +14,10 @@
     <delete id="delete" parameterType="com.smhrd.foodie.model.Member">
     	delete from member where id = #{mem_id}
     </delete>
+    
+    <select id="login" parameterType="com.smhrd.foodie.model.Member"
+    resultType="com.smhrd.foodie.model.Member">
+    	select * from member_info where id = #{id} and pw = #{pw}
+    </select>
  	
  </mapper>
