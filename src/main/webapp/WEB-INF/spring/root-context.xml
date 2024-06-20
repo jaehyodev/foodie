@@ -26,7 +26,10 @@
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
+
 	<!-- mybatis 활용을 위한 mapper 연결 -->
-		<mybatis-spring:scan base-package ="com.smhrd.foodie.mapper"/>		
+	<mybatis-spring:scan base-package="com.smhrd.foodie.mapper"></mybatis-spring:scan>
 	
+	<!-- AppConfig 클래스 등록 (API Key 설정) -->
+    <bean class="com.smhrd.foodie.config.AppConfig" />
 </beans>
