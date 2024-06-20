@@ -29,4 +29,7 @@
 	
 	<!-- mapper 설정 -->
 	<mybatis-spring:scan base-package="com.smhrd.foodie.mapper"></mybatis-spring:scan>
+	
+	<!-- AppConfig 클래스 등록 (API Key 설정) -->
+    <bean class="com.smhrd.foodie.config.AppConfig" />
 </beans>
