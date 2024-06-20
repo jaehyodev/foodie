@@ -102,28 +102,12 @@ public class HomeController {
 	}
 
 	
-	// Chatbot Open
-	@Controller
-	public class ChatbotController {
-		
-	    @GetMapping("/chatbot")
-	    public String chatbot(Model model) {
-	        model.addAttribute("initMessage", "안녕하세요?");
-	        return "chatbot";
-	    }
+	// 챗봇
+	@GetMapping("/chatbot")
+	public String chatbot(Model model) {
+		model.addAttribute("initMessage", "안녕하세요?");
+	  return "chatbot";
 	}
 	
-	// ChatGPT Api
-	@Value("${openai.api.key}")
-    private String openAiApiKey;
-	
-	@Bean
-	public RestTemplate restTemplate() {
-		RestTemplate restTemplate = new RestTemplate();
-	    restTemplate.getInterceptors().add((request, body, execution) -> {
-	        request.getHeaders().add("Authorization", "Bearer " + openAiApiKey);
-	        return execution.execute(request, body);
-	    });
-		return restTemplate;
-	}
+
 }
