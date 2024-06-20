@@ -221,12 +221,29 @@
                                 <h4>총 결제금액</h4>
                                 <div class="checkout__order__products">상품 <span>가격</span></div>
                                 <ul>
-                                    <li>목록 예시1 <span>7500원</span></li>
+                                <!-- 장바구니 목록 출력 -->
+                                	<c:forEach items="${cartList}" var="list">
+                                		<li>${list.ingre_name}<span>${list.ingre_price*list.ingre_cnt}원</span></li>
+                                	</c:forEach>
+                               <!-- <li>목록 예시1 <span>7500원</span></li>
                                     <li>목록 예시2 <span>15200원</span></li>
-                                    <li>유기농 바나나 <span>5300원</span></li>
+                                    <li>유기농 바나나 <span>5300원</span></li> -->
                                 </ul>
-                                <div class="checkout__order__subtotal">배송비 <span>3000원</span></div>
-                                <div class="checkout__order__total">총 상품금액 <span>31000원</span></div>
+                                <!-- 50000원 이상 무료배송 로직 -->
+                                <c:choose>
+                                <c:when test="${sum>=50000}">
+                                	<div class="checkout__order__subtotal">배송비 <span>무료배송</span></div>
+                                	<div class="checkout__order__total">총 상품금액 <span>${sum}원</span></div>
+                                </c:when>
+                                
+                                <c:otherwise>
+                                	<div class="checkout__order__subtotal">배송비 <span>3000원</span></div>
+                                	<div class="checkout__order__total">총 상품금액 <span>${sum+3000}원</span></div>
+                                </c:otherwise>                               
+                                </c:choose>
+                                
+                                <%-- <div class="checkout__order__subtotal">배송비 <span>3000원</span></div>
+                                <div class="checkout__order__total">총 상품금액 <span>${sum}원</span></div> --%>
                                 <div class="checkout__input__checkbox">
                                     <label for="acc-or">
                                         결제에 동의하십니까?

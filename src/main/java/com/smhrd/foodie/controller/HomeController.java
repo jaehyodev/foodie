@@ -27,7 +27,7 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping(value="/cart", method=RequestMethod.GET)
+	@RequestMapping(value="/cartTest", method=RequestMethod.GET)
 	public String cart() {
 		return "shopping-cart";
 	}
@@ -54,7 +54,7 @@ public class HomeController {
 	
 
 	
-	@RequestMapping(value="/checkout", method=RequestMethod.GET)
+	@RequestMapping(value="/checkoutTest", method=RequestMethod.GET)
 	public String checkout() {
 		return "checkout";
 	}

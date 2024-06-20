@@ -180,7 +180,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="primary-btn">장바구니 담기</a>
+                        <a href="cart/cartAdd.do" class="primary-btn">장바구니 담기</a>
                         <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>중량/용량</b> <span>260g</span></li>

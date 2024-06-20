@@ -1,12 +1,21 @@
 package com.smhrd.foodie.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.smhrd.foodie.mapper.MemberMapper;
+import com.smhrd.foodie.model.Member;
 	
 @Controller
 public class MemberController {
+	
+	@Autowired
+	MemberMapper mapper;
 	
 	// 회원가입
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
@@ -26,14 +35,16 @@ public class MemberController {
 		System.out.println("응답받은 email : " + email);
 		System.out.println("응답받은 tel : " + tel);
 		System.out.println("응답받은 addr : " + addr);
-
+		
 		return "login";
 	}
 
 	// 로그인
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
+		
 		return "login";
+		
 	}
 	
 	// 마이페이지

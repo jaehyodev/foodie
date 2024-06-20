@@ -14,14 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/font-awesome.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/elegant-icons.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/jquery-ui.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/owl.carousel.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css">
 </head>
 
 <body>
@@ -46,7 +46,8 @@
         </div>
         <div class="humberger__menu__widget">
             <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> 로그인 / 회원가입</a>
+                <a href="#"><i class="fa fa-user"></i> 회원가입</a>/
+                <a href="login"><i class="fa fa-user"></i> 로그인</a>
             </div>
         </div>
         <div id="mobile-menu-wrap"></div>
@@ -139,35 +140,31 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                            <!-- 장바구니 목록출력!! 반복문 사용-->
-                            <c:forEach items="${ingre_list}" var="ingre">
-                            	<tr>
-                            		<td class="shoping__cart__item">
-                                        <img src="resources/img/cart/cart-1.jpg" alt="">
-                                        <h5>${ingre_name}</h5>
-                                    </td>
-                                    <td class="shoping__cart__quantity">
-                                        <div class="quantity">
-                                            <div class="pro-qty">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                            		<td class="shoping__cart__total">
-                                        ${ingre_price }원
-                                    </td>
-                                    <!-- 해당항목삭제 -->
-                                    <td class="shoping__cart__item__close">
-                                    	<a href=""><span class="icon_close"></span></a>
-                                    </td>
-                            	</tr>                            
-                            </c:forEach>
-                            
-                            </tbody>
-                        </table>
-                            <!-- 반복문 끝 -->
-                                <tr>
+							<tbody>
+								<!-- 장바구니 목록출력!! 반복문 사용-->
+								<c:forEach items="${cartList}" var="list">
+									<tr>
+										<td class="shoping__cart__item">
+										<img src="<c:url value='./resources/img${list.ingre_img }'/>" 
+										alt="${list.ingre_name}" style="max-width: 30%; height: auto;">
+											<h5>${list.ingre_name}</h5></td>
+										<td class="shoping__cart__quantity">
+											<div class="quantity">
+												<div class="pro-qty">
+													<input type="text" value="${list.ingre_cnt}">
+												</div>
+											</div>
+										</td>
+										<td class="shoping__cart__total">${list.ingre_price*list.ingre_cnt}원</td>
+										<!-- 해당항목삭제 -->
+										<td class="shoping__cart__item__close"><a href="deleteItem/${list.ingre_idx}/${list.mem_id}"><span
+												class="icon_close"></span></a></td>
+									</tr>
+								</c:forEach>
+
+
+								<!-- 반복문 끝 -->
+								<%-- <tr>
                                     <td class="shoping__cart__item">
                                         <img src="resources/img/cart/cart-1.jpg" alt="">
                                         <h5>${ingre_name }</h5>
@@ -229,9 +226,9 @@
                                     <td class="shoping__cart__item__close">
                                         <span class="icon_close"></span>
                                     </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                </tr> --%>
+							</tbody>
+						</table>
                     </div>
                 </div>
             </div>
@@ -239,8 +236,7 @@
                 <div class="col-lg-12">
                     <div class="shoping__cart__btns">
                         <a href="shopdetail" class="primary-btn cart-btn">쇼핑 계속하기</a>
-                        <a href="#" class="primary-btn cart-btn cart-btn-right"><span class="icon_loading"></span>
-                            장바구니 수정</a>
+                        <a href="#" class="primary-btn cart-btn cart-btn-right">장바구니 수정</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -267,13 +263,13 @@
     <!-- Footer Section End -->
 
     <!-- Js Plugins -->
-    <script src="resources/js/jquery-3.3.1.min.js"></script>
-    <script src="resources/js/bootstrap.min.js"></script>
-    <script src="resources/js/jquery.nice-select.min.js"></script>
-    <script src="resources/js/jquery-ui.min.js"></script>
-    <script src="resources/js/jquery.slicknav.js"></script>
-    <script src="resources/js/mixitup.min.js"></script>
-    <script src="resources/js/owl.carousel.min.js"></script>
-    <script src="resources/js/main.js"></script>
+   <script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
+   <script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
+   <script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
+   <script src="<c:url value='/resources/js/jquery-ui.min.js' />"></script>
+   <script src="<c:url value='/resources/js/jquery.slicknav.js' />"></script>
+   <script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
+   <script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
+   <script src="<c:url value='/resources/js/main.js' />"></script>
 </body>
 </html>
