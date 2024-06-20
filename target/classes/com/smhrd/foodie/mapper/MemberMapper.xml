@@ -10,7 +10,7 @@
  <mapper namespace="com.smhrd.foodie.mapper.MemberMapper">
     
     <!-- 회원가입 -->
-    <insert id="join" parameterType="com.smhrd.foodie.model.Member">
+    <insert id="join" parameterType="Map">
         insert into member_info (mem_id, mem_pw, mem_name, mem_email, mem_phone, mem_addr)
         values (#{mem_id}, #{mem_pw}, #{mem_name}, #{mem_email}, #{mem_phone}, #{mem_addr})
     </insert>
