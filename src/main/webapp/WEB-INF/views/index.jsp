@@ -344,7 +344,7 @@
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script>
 		function openChatbot() {
-			window.open("/foodie/chatbot", "PersonalTalk",
+			window.open("/foodie/chatbot", "ChatGPT openAI Chatbot",
 					"width=400,height=600");
 		}
 	</script>
