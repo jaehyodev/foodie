@@ -1,5 +1,7 @@
 package com.smhrd.foodie.model;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,5 +22,9 @@ public class Member {
 	private String mem_phone;
 
 	private String mem_addr;
+	
+	private List<String> allergy_name;
+
+	private List<String> dislike_name;
 
 }

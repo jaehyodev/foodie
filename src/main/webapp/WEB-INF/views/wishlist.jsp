@@ -65,55 +65,11 @@
 	</div>
 	<!-- Humberger End -->
 
-	<!-- Header Section Begin -->
-	<header class="header">
-		<div class="header__top">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="header__top__left">
-							<ul>
-								<li><i class="fa fa-envelope"></i> hello@smhrd.com</li>
-								<li>5만원 이상 구매 시 무료배송</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="header__top__right">
-							<div class="header__top__right__auth">
-								<a href="#"><i class="fa fa-user"></i> 로그아웃 </a>
-							</div>
-							<div class="header__top__right__auth">
-								<a href="mypage"><i class="fa fa-address-card"></i> 마이페이지</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3">
-					<div class="header__logo">
-						<a href="index"><img src="resources/img/logo.png" alt=""></a>
-					</div>
-				</div>
-				<div class="col-lg-6"></div>
-				<div class="col-lg-3">
-					<div class="header__cart">
-						<ul>
-							<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-							<li><a href="cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="humberger__open">
-				<i class="fa fa-bars"></i>
-			</div>
-		</div>
-	</header>
-	<!-- Header Section End -->
+
+    <!-- Header Section Begin -->
+    <%@ include file="./header.jsp"%>
+    <!-- Header Section End -->
+
 
 	<!-- Hero Section Begin -->
 	<!-- 카테고리 -->
@@ -178,10 +134,10 @@
 						<ul>
 							<li><a href="mypage">주문 내역</a></li>
 							<li class="active"><a href="wishlist">찜 목록</a></li>
-							<li><a href="allergy">알레르기 / 비선호도</a></li>
-							<li><a href="edituserinfo">개인 정보 수정</a></li>
-							<li><a href="editpw">비밀번호 변경</a></li>
-							<li><a href="deleteuserinfo">회원탈퇴</a></li>
+							<li><a href="allergy">알레르기 / 비선호 식재료</a></li>
+							<li><a href="update">개인 정보 수정</a></li>
+							<li><a href="updatepw">비밀번호 변경</a></li>
+							<li><a href="delete">회원탈퇴</a></li>
 						</ul>
 					</div>
 				</div>

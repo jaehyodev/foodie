@@ -133,7 +133,7 @@
 	                 <ul>
 	                    <li class="active"><a href="mypage">주문 내역</a></li>
 	                    <li><a href="wishlist">찜 목록</a></li>
-	                    <li><a href="allergy">알레르기 / 비선호도</a></li>
+	                    <li><a href="allergy">알레르기 / 비선호 식재료</a></li>
 	                    <li><a href="update">개인 정보 수정</a></li>
 	                    <li><a href="updatepw">비밀번호 변경</a></li>
 	                    <li><a href="delete">회원탈퇴</a></li>

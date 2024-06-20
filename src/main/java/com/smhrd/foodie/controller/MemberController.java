@@ -1,5 +1,8 @@
 package com.smhrd.foodie.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.reflection.SystemMetaObject;
@@ -22,26 +25,43 @@ public class MemberController {
    
    // 회원가입 실행 메소드
    @RequestMapping(value = "/join.do", method = RequestMethod.POST)
-   public String join(@RequestParam("id") String id, @RequestParam("pw") String pw,
-         @RequestParam("pwck") String pwck, @RequestParam("email") String email,
-         @RequestParam("tel") String tel, @RequestParam("addr") String addr) {
+   public String join(@RequestParam("mem_id") String mem_id, @RequestParam("mem_pw") String mem_pw,
+         @RequestParam("mem_pwck") String mem_pwck, @RequestParam("mem_email") String mem_email,
+         @RequestParam("mem_tel") String mem_tel, @RequestParam("mem_addr") String mem_addr,
+         @RequestParam("allergy_name") List<String> allergy_name, @RequestParam("dislike_name") List<String> dislike_name) {
       
-      System.out.println("응답받은 ID : " + id);
-      System.out.println("응답받은 PW : " + pw);
-      System.out.println("응답받은 PWCK : " + pwck);
-      System.out.println("응답받은 email : " + email);
-      System.out.println("응답받은 tel : " + tel);
-      System.out.println("응답받은 addr : " + addr);      
+      System.out.println("응답받은 mem_id : " + mem_id);
+      System.out.println("응답받은 mem_pw : " + mem_pw);
+      System.out.println("응답받은 mem_pwck : " + mem_pwck);
+      System.out.println("응답받은 mem_email : " + mem_email);
+      System.out.println("응답받은 mem_tel : " + mem_tel);
+      System.out.println("응답받은 mem_addr : " + mem_addr);
+      System.out.println("응답받은 allergy_name : " + allergy_name);
+      System.out.println("응답받은 dislike_name : " + dislike_name);
       
-      Member member = new Member(id, pw, pwck, email, tel, addr);
+      Member member = new Member(mem_id, mem_pw, mem_pwck, mem_email, mem_tel, mem_addr, allergy_name, dislike_name);
       
       System.out.println("member 값 : " + member);
+      
+      
       
       // sql문 실행
       // 1. mapper에 있는 userJoin 메소드 실행
       // 흐름 : contoller -> 인터페이스 -> xml -> controller로 값 반환
       int row = mapper.join(member);
-      // inselt는 0 or 1을 반환
+      
+      System.out.println(member);
+      
+//      for(int i=0; i<allergy_name.size(); i++) {
+//    	  mapper.allergy());
+//      }
+      
+      
+//      mapper.allergy(Map.of("mem_id", member.getMem_id(), "allergy_name", member.getAllergy_name()));
+//      mapper.dislike(Map.of("mem_id", member.getMem_id(), "dislike_name", member.getDislike_name()));
+
+      
+
       
       System.out.println("insert 반환 값 : " + row);
       
@@ -70,6 +90,9 @@ public class MemberController {
        System.out.println("loginCheck 값 (select 반환 값) : " + m);    
        
        if(m != null) {
+    	   
+    	   // 기존에 존재하는 session에 key 와 value 값으로 객체를 set
+    	   // 해당 값으로 사용자 구분
           session.setAttribute("Member", member);
          
           System.out.println("Member : " + session.getAttribute("Member"));
@@ -80,6 +103,10 @@ public class MemberController {
           ra.addFlashAttribute("error", "아이디 또는 비밀번호를 다시 확인해주세요.");
           System.out.println("로그인 실패");
           
+          // 로그인 실패 시 세션의 값이 null 인지 확인
+          System.out.println(session.getAttribute("Member"));
+          
+          // 오류 메세지를 담고 있는 값 출력 테스트
           System.out.println(ra.getFlashAttributes());
           
           return "redirect:/login";
@@ -90,7 +117,12 @@ public class MemberController {
    @RequestMapping(value = "/logout", method = RequestMethod.POST)
    public String logout(HttpSession session) {
       
+	   System.out.println("삭제 전 세션 값 : " + session.getAttribute("Member"));
+	   
+	   // 기존에 존재하던 session에 저장되어 있던 객체값을 delete
       session.removeAttribute("Member");
+      
+      System.out.println("삭제 후 세션 값 : " + session.getAttribute("Member"));
       
       // redirect : /logout 이 리턴해주는 jsp로 이동하는 것이 아니라 (리턴해주는 곳으로 갈 경우 url에 /logout으로 뜸) value가 / 인 곳으로 가게 하는 것
       return "redirect:/";
