@@ -20,8 +20,4 @@
        select mem_id, mem_pw from member_info where mem_id = #{mem_id} and mem_pw = #{mem_pw}
     </select>
     
-    
-
-
-    
- </mapper>
+</mapper>
