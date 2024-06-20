@@ -44,6 +44,7 @@ public class MemberController {
       System.out.println("member 값 : " + member);
       
       
+    
       
       // sql문 실행
       // 1. mapper에 있는 userJoin 메소드 실행
