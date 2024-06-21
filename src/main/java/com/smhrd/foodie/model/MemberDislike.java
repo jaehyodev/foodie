@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class MemberDislike {
 	
 	private String mem_id;
-	private List<String> dislike_name;
+	private int dislike_idx;
 }

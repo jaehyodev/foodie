@@ -52,17 +52,16 @@ public class HomeController {
 	public String update() {
 		return "update";
 	}
-
+	
+	@RequestMapping(value = "/updatepw", method = RequestMethod.GET)
+	public String updatePw() {
+		return "updatepw";
+	}
+	
 	// 찜 목록 페이지
 	@RequestMapping(value = "/wishlist", method = RequestMethod.GET)
 	public String wishlist() {
 		return "wishlist";
-	}
-
-	// 알러지 수정 페이지
-	@RequestMapping(value = "/allergy", method = RequestMethod.GET)
-	public String allergy() {
-		return "allergy";
 	}
 
 	// 회원 탈퇴 페이지

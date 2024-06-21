@@ -159,40 +159,45 @@
 					<div class="mypage__content">
 						<form action="updateAllergy" method="post">
 							<div class="allergy-container">
+							<p>session에 저장되어 있는 사용자 ID : ${Member.mem_id}</p>
+							<p>list 인덱스 0이 가지고 있는 allergy_idx의 값 : ${allergyIdx}</p>
 								<table>
 									<thead>
 										<tr>
 											<th colspan="4"><h3>알레르기</h3></th>
 										</tr>
 									</thead>
+									
+
+									
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox">알류</label></td>
-											<td><label><input type="checkbox">우유</label></td>
-											<td><label><input type="checkbox">메밀</label></td>
-											<td><label><input type="checkbox">땅콩</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="1" checked="on">알류</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="2" checked="on">우유</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="3">메밀</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="4">땅콩</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox">대두</label></td>
-											<td><label><input type="checkbox">밀</label></td>
-											<td><label><input type="checkbox">고등어</label></td>
-											<td><label><input type="checkbox">게</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="5">대두</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="6">밀</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="7">고등어</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="8">게</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox">새우</label></td>
-											<td><label><input type="checkbox">돼지고기</label></td>
-											<td><label><input type="checkbox">소고기</label></td>
-											<td><label><input type="checkbox">닭고기</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="9">새우</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="10">돼지고기</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="11">소고기</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="12">닭고기</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox">복숭아</label></td>
-											<td><label><input type="checkbox">토마토</label></td>
-											<td><label><input type="checkbox">호두</label></td>
-											<td><label><input type="checkbox">잣</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="13">복숭아</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="14">토마토</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="15">호두</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="16">잣</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox">오징어</label></td>
-											<td><label><input type="checkbox">조개류</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="17">오징어</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="18">조개류</label></td>
 											<td></td>
 											<td></td>
 										</tr>
@@ -209,11 +214,11 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox">오이</label></td>
-											<td><label><input type="checkbox">버섯</label></td>
-											<td><label><input type="checkbox">당근</label></td>
-											<td><label><input type="checkbox">콩</label></td>
-											<td><label><input type="checkbox">가지</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="1">당근</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="2">버섯</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="3">생강</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="4">아보카도</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="5">오이</label></td>
 										</tr>
 									</tbody>
 								</table>

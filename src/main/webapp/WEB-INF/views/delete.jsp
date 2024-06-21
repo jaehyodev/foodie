@@ -174,19 +174,20 @@
 
 						<form action="deleteMember" method="post">
 							<%-- 탈퇴 처리 서블릿으로 연결 --%>
-							<div class="form-group">
 
 								<!--
 							label for="id" 해당 id값과 연결된다. 
 							id 가 id 인 input 태그와 연결되므로 label을 클릭시 인풋 입력이 활성하됨.
 							 -->
-
-								<label for="id">아이디 : </label> <input type="text" id="id"
-									name="id" required> <br> <label for="password">비밀번호
-									: </label> <input type="password" id="password" name="password"
-									required>
+								
+							<div class="form-group">
+								<label for="id">아이디 : </label>
 							</div>
-							<button type="submit" class="site-btn">탈퇴하기</button>
+								<input type="text" id="id" name="id" required>
+								<label for="password">비밀번호 : </label>
+								<input type="password" id="password" name="password" required>
+							
+							<button type="submit" class="#">탈퇴하기</button>
 
 						</form>
 					</div>
