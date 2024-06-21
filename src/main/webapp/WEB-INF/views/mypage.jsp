@@ -189,59 +189,6 @@
 	</section>
 	<!-- Hero Section End -->
 
-	<section class="hero hero-normal">
-		<div class="container">
-			<div class="row"></div>
-		</div>
-	</section>
-	<section class="mypage-section">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3">
-					<div class="mypage__sidebar">
-						<h2>마이 페이지</h2>
-						<ul>
-							<li class="active"><a href="mypage">주문 내역</a></li>
-							<li><a href="wishlist">찜 목록</a></li>
-							<li><a href="allergy">알레르기 / 비선호도</a></li>
-							<li><a href="update">개인 정보 수정</a></li>
-							<li><a href="updatepw">비밀번호 변경</a></li>
-							<li><a href="delete">회원탈퇴</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-9">
-					<div class="mypage__content">
-						<h2>주문 내역</h2>
-						<table>
-							<thead>
-								<tr>
-									<th>주문 번호</th>
-									<th>주문 날짜</th>
-									<th>상품 정보</th>
-									<th>주문 금액</th>
-									<th>주문 상태</th>
-									<th>상세 보기</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>12345</td>
-									<td>2024-06-10</td>
-									<td>신선한 채소 패키지 외 2건</td>
-									<td>55,000원</td>
-									<td>배송 준비 중</td>
-									<td><button type="button" class="site-btn">보기</button></td>
-								</tr>
-								<%-- 더 많은 주문 내역 추가 가능 --%>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->

@@ -164,12 +164,13 @@
 							<thead>
 								<tr>
 									<th>레시피 이름</th>
-									<th>등록 날짜</th>
-									<th>상세 보기</th>
 									<th>찜 해제</th>
 								</tr>
 							</thead>
 							<tbody>
+							
+							
+							
 								<%-- 레시피 찜 목록 데이터 출력 (DB 연동 필요) --%>
 							</tbody>
 						</table>
@@ -179,11 +180,14 @@
 							<thead>
 								<tr>
 									<th>재료 이름</th>
-									<th>등록 날짜</th>
 									<th>찜 해제</th>
 								</tr>
 							</thead>
 							<tbody>
+							
+							
+							
+							
 								<%-- 재료 찜 목록 데이터 출력 (DB 연동 필요) --%>
 							</tbody>
 						</table>

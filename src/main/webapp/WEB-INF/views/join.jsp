@@ -241,11 +241,11 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox" name="dislike_name" value="오이">오이</label></td>
-											<td><label><input type="checkbox" name="dislike_name" value="버섯">버섯</label></td>
-											<td><label><input type="checkbox" name="dislike_name" value="당근">당근</label></td>
-											<td><label><input type="checkbox" name="dislike_name" value="생강">생강</label></td>
-											<td><label><input type="checkbox" name="dislike_name" value="아보카도">아보카도</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="1">당근</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="2">버섯</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="3">생강</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="4">아보카도</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="5">오이</label></td>
 										</tr>
 									</tbody>
 								</table>

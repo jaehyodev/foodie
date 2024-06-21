@@ -20,9 +20,24 @@
         insert into member_allergy_info (mem_id, allergy_idx) values (#{mem_id}, #{allergy_idx})
     </insert>
     
+        <!-- 회원가입 시 비선호 식재료 정보 추가 -->
+    <insert id="dislike" parameterType="com.smhrd.foodie.model.MemberDislike">
+        insert into member_dislike_info (mem_id, dislike_idx) values (#{mem_id}, #{dislike_idx})
+    </insert>
+    
+   
+    
     <!-- 로그인 -->
     <select id="loginCheck" parameterType="com.smhrd.foodie.model.Member" resultType="com.smhrd.foodie.model.Member">
        select mem_id, mem_pw from member_info where mem_id = #{mem_id} and mem_pw = #{mem_pw}
     </select>
+    
+    <!-- 회원가입했을 때 입력받은 알러지 정보를 마이페이지 체크박스에 반영 -->
+    <!-- 조회된 값만 리턴해줌 -->
+ 	<select id="allergyMypage" parameterType="com.smhrd.foodie.model.Member" resultType="com.smhrd.foodie.model.MemberAllergy">
+    	select * from member_allergy_info where mem_id = #{mem_id}
+    </select>
+    
+    
     
 </mapper>

@@ -3,6 +3,7 @@ package com.smhrd.foodie.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.reflection.SystemMetaObject;
@@ -10,6 +11,7 @@ import org.apache.ibatis.reflection.SystemMetaObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.smhrd.foodie.mapper.MemberMapper;
 import com.smhrd.foodie.model.Member;
 import com.smhrd.foodie.model.MemberAllergy;
+import com.smhrd.foodie.model.MemberDislike;
    
 @Controller
 public class MemberController {
@@ -31,7 +34,7 @@ public class MemberController {
    public String join(@RequestParam("mem_id") String mem_id, @RequestParam("mem_pw") String mem_pw,
          @RequestParam("mem_pwck") String mem_pwck, @RequestParam("mem_email") String mem_email,
          @RequestParam("mem_tel") String mem_tel, @RequestParam("mem_addr") String mem_addr,
-         @RequestParam("allergy_list") List<String> allergy_list, @RequestParam("dislike_name") List<String> dislike_name) {
+         @RequestParam("allergy_list") List<String> allergy_list, @RequestParam("dislike_list") List<String> dislike_list) {
       
       System.out.println("응답받은 mem_id : " + mem_id);
       System.out.println("응답받은 mem_pw : " + mem_pw);
@@ -40,7 +43,7 @@ public class MemberController {
       System.out.println("응답받은 mem_tel : " + mem_tel);
       System.out.println("응답받은 mem_addr : " + mem_addr);
       System.out.println("응답받은 allergy_list : " + allergy_list);
-      System.out.println("응답받은 dislike_name : " + dislike_name);
+      System.out.println("응답받은 dislike_name : " + dislike_list);
       
       Member member = new Member(mem_id, mem_pw, mem_pwck, mem_email, mem_tel, mem_addr);
       System.out.println("member 값 : " + member);
@@ -53,19 +56,6 @@ public class MemberController {
       // 흐름 : contoller -> 인터페이스 -> xml -> controller로 값 반환
       int row = mapper.join(member);
       
-      System.out.println(member);
-      
-//      for(int i=0; i<allergy_name.size(); i++) {
-//    	  mapper.allergy());
-//      }
-      
-      
-//      mapper.allergy(Map.of("mem_id", member.getMem_id(), "allergy_name", member.getAllergy_name()));
-//      mapper.dislike(Map.of("mem_id", member.getMem_id(), "dislike_name", member.getDislike_name()));
-
-      
-
-      
       System.out.println("insert 반환 값 : " + row);
       
       if(row > 0) {
@@ -76,15 +66,35 @@ public class MemberController {
       
       // 회원가입 mapper 코드보다 뒤에 와야함. 외래키 제약 때문에 회원가입이 먼저 되어야 테이블에 insert 가능함
       int rowAllergy = 0; // 알러지가 총 몇개 들어갔는 지 카운트
+      
       for (int i = 0; i < allergy_list.size(); i++) {
     	  MemberAllergy memberAllergy = new MemberAllergy(mem_id, Integer.parseInt(allergy_list.get(i)));
     	  mapper.allergy(memberAllergy);
     	  rowAllergy++; 
       }
+      
       // 총 몇개의 알러지가 들어갔는 지 확인하기
       for (int i = 0; i < rowAllergy; i++) {
-          System.out.println("알러지 추가");
+          System.out.println("알러지 추가" + (i+1));
       }
+      
+      
+      
+      // 비선호 식재료
+      int rowDislike = 0; // 알러지가 총 몇개 들어갔는 지 카운트
+      
+      for (int i = 0; i < dislike_list.size(); i++) {
+    	  MemberDislike memberDislike = new MemberDislike(mem_id, Integer.parseInt(dislike_list.get(i)));
+    	  mapper.dislike(memberDislike);
+    	  rowDislike++; 
+      }
+      
+      // 총 몇개의 비선호 식재료가 들어갔는 지 확인하기
+      for (int i = 0; i < rowDislike; i++) {
+    	  System.out.println("비선호 식재료 추가" + (i+1));
+      }
+      
+      
       
       return "login";
    }
@@ -148,5 +158,36 @@ public class MemberController {
    public String updatePw() {
       return "updatepw";
    }
+   
+	// 알러지 수정 페이지
+	@RequestMapping(value = "/allergy", method = RequestMethod.GET)
+	public String allergy(HttpSession session, Model model) {
+		
+		
+		// 1. 알러지 페이지에 접속했을 때 해당 유저의 id값 가져오기
+		System.out.println("session의 object 값 : " + session.getAttribute("Member"));
+		
+		// 2. object 타입을 Member로 바꿔주고 Member타입의 변수에 담기
+		Member member = (Member)session.getAttribute("Member");
+		
+		// 3. member의 mem_id에 사용자의 id가 잘 담겼는지 확인
+		System.out.println("mem_id 값 : " + member.getMem_id());
+		
+		// 4. "Member"안에 있는 mem_id 값 db에 보내기
+		List<MemberAllergy> list = mapper.allergyMypage(member);
+		
+		System.out.println("select문 반환 값 : " + list); // select문 
+		// 인터페이스에 있는 allergyMypage의 매개변수에도 똑같이 적어줘야 함.
+		
+		System.out.println("인덱스 0의 allergy_dix(0) : " + list.get(0).getAllergy_idx());
+		
+		model.addAttribute("allergyIdx", list.get(0).getAllergy_idx());
+		
+		// 5. select문의 반환 값을 list로 받기
+		
+		
+		
+		return "allergy"; // allergy.jsp가 실행되는 순간 위 정보들이 반영
+	}
 
 }
