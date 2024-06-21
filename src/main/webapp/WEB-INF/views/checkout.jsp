@@ -77,7 +77,6 @@
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-<<<<<<< HEAD
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
@@ -169,7 +168,6 @@
                                     placeholder="Notes about your order, e.g. special notes for delivery.">
                             </div>
                             -->
-<<<<<<< HEAD
                             
                         </div>
                         
@@ -235,55 +233,6 @@
         </div>
     </section>
     <!-- Checkout Section End -->
-=======
->>>>>>> main
-
-						</div>
-
-						<div class="col-lg-4 col-md-6">
-							<div class="checkout__order">
-								<h4>총 결제금액</h4>
-								<div class="checkout__order__products">
-									상품 <span>가격</span>
-								</div>
-								<ul>
-									<li>목록 예시1 <span>7500원</span></li>
-									<li>목록 예시2 <span>15200원</span></li>
-									<li>유기농 바나나 <span>5300원</span></li>
-								</ul>
-								<div class="checkout__order__subtotal">
-									배송비 <span>3000원</span>
-								</div>
-								<div class="checkout__order__total">
-									총 상품금액 <span>31000원</span>
-								</div>
-								<div class="checkout__input__checkbox">
-									<label for="acc-or"> 결제에 동의하십니까? <input type="checkbox"
-										id="acc-or"> <span class="checkmark"></span>
-									</label>
-								</div>
-								<p>
-									<b>5만원 이상 구매시 무료배송</b>입니다 .<br> 주문 내용을 다시 한 번 확인해주세요
-								</p>
-								<div class="checkout__input__checkbox">
-									<label for="payment"> 카드결제 <input type="radio"
-										name="pay" id="payment"> <span class="checkmark"></span>
-									</label>
-								</div>
-								<div class="checkout__input__checkbox">
-									<label for="paypal"> 간편결제(페이) <input type="radio"
-										name="pay" id="paypal"> <span class="checkmark"></span>
-									</label>
-								</div>
-								<button onclick="requestPay()" class="site-btn">결제하기</button>
-							</div>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</section>
-	<!-- Checkout Section End -->
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
