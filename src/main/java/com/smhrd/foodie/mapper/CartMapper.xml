@@ -16,8 +16,8 @@
 	<!-- 장바구니 항목 삭제 -->
 	<delete id="deleteItem" parameterType="com.smhrd.foodie.model.CartItems">
 	delete from basket_info where mem_id = #{mem_id} and ingre_idx = #{ingre_idx}
-	</delete>
-	
+	</delete>	
+
  	
  	
  </mapper>

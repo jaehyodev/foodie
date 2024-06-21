@@ -1,5 +1,6 @@
 package com.smhrd.foodie.controller;
 
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -18,14 +19,34 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
+import com.smhrd.foodie.mapper.RecipeMapper;
+import com.smhrd.foodie.model.Recipe;
+
 @Controller
 public class HomeController {
+	
+	@Autowired
+	RecipeMapper mapper;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	// 메인 페이지
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
+    // 인기 있는 레시피 목록을 데이터베이스에서 가져옵니다.
+    List<Recipe> popularList = mapper.findPopularRecipes();
+    // 새로운 레시피 목록을 데이터베이스에서 가져옵니다.
+    List<Recipe> newList = mapper.findNewRecipes();
+    // 모든 레시피 목록을 데이터베이스에서 가져옵니다.
+    List<Recipe> recommendedList = mapper.findRecommendedRecipes();
+    
+    // 가져온 목록을 뷰에서 사용할 수 있도록 모델에 추가합니다.
+    model.addAttribute("popularList", popularList);
+    model.addAttribute("newList", newList);
+    model.addAttribute("recommendedList", recommendedList);
+    
+    // 인기 있는 레시피 목록을 콘솔에 출력합니다.
+    System.out.println("인기 리스트 : " + popularList);
 		return "index";
 	}
 
@@ -104,7 +125,7 @@ public class HomeController {
 	// 챗봇 페이지
 	@GetMapping("/chatbot")
 	public String chatbot(Model model) {
-		model.addAttribute("initMessage", "안녕하세요?");
+		model.addAttribute("initMessage", "안녕하세요! 세계 최고의 요리사 푸 입니다.");
 	  return "chatbot";
 	}
 	

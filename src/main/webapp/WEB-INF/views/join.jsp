@@ -17,7 +17,6 @@
 	rel="stylesheet">
 
 <!-- Css Styles -->
-<<<<<<< HEAD
 <link rel="stylesheet"
 	href="<c:url value='/resources/css/bootstrap.min.css'/>"
 	type="text/css">
@@ -42,41 +41,6 @@
 </head>
 
 <body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-
-	<!-- Humberger Begin -->
-	<div class="humberger__menu__overlay"></div>
-	<div class="humberger__menu__wrapper">
-		<div class="humberger__menu__logo">
-			<a href="index"><img src="resources/img/logo.png" alt=""></a>
-		</div>
-		<div class="humberger__menu__cart">
-			<ul>
-				<!-- 찜 -->
-				<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-				<!-- 장바구니 -->
-				<li><a href="cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-			</ul>
-			<!-- 장바구니 총 금액 -->
-		</div>
-		<div class="humberger__menu__widget">
-			<div class="header__top__right__auth">
-				<a href="#"><i class="fa fa-user"></i> Login</a>
-			</div>
-		</div>
-		<div id="mobile-menu-wrap"></div>
-		<div class="humberger__menu__contact">
-			<ul>
-				<!-- 이메일 -->
-				<li><i class="fa fa-envelope"></i> hello@smhrd.com</li>
-				<li>5만원 이상 구매 시 무료배송</li>
-			</ul>
-		</div>
-	</div>
-	<!-- Humberger End -->
 
 	<!-- Header Section Begin -->
 	<%@ include file="./header.jsp"%>
@@ -160,8 +124,8 @@
 						<form action="/foodie/join.do" method="post">
 							<div class="form-group">
 								<label for="id">아이디</label> <input type="text"
-									class="form-control" id="id" name="mem_id" placeholder="아이디를 입력하세요"
-									required>
+									class="form-control" id="id" name="mem_id"
+									placeholder="아이디를 입력하세요" required>
 							</div>
 							<div class="form-group">
 								<label for="password">비밀번호</label> <input type="password"
@@ -184,12 +148,15 @@
 									placeholder="전화번호를 입력하세요" required>
 							</div>
 							<div class="form-group">
-								<label for="addr">주소</label> <input type="text"
-									class="form-control" id="addr" name="mem_addr"
-									placeholder="주소를 입력하세요" required>
+								<label for="addr">주소</label>
+								<button type="button" onclick="daumPost()">주소 찾기</button>
+								<input type="text" class="form-control" id="addr"
+									name="mem_addr" required readonly> <input type="text"
+									class="form-control" id="extraAddr" name="mem_extraAddr"
+									placeholder="나머지 주소를 입력하세요" required>
 							</div>
-							
-							<lable>알레르기 또는 비선호 식재료를 선택해주세요!</lable>
+
+							<label>알레르기 또는 비선호 식재료를 선택해주세요!</label>
 							<div class="mypage__content">
 								<table>
 									<thead>
@@ -199,32 +166,50 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox" name="allergy_list" value="1">알류</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="2">우유</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="3">메밀</label></td>
-											<td><label><input type="checkbox" name="allergy_liste" value="4">땅콩</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="1">알류</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="2">우유</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="3">메밀</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_liste" value="4">땅콩</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox" name="allergy_list" value="5">대두</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="6">밀</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="7">고등어</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="8">게</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="5">대두</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="6">밀</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="7">고등어</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="8">게</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox" name="allergy_list" value="9">새우</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="10">돼지고기</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="11">소고기</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="12">닭고기</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="9">새우</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="10">돼지고기</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="11">소고기</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="12">닭고기</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox" name="allergy_list" value="13">복숭아</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="14">토마토</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="15">호두</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="16">잣</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="13">복숭아</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="14">토마토</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="15">호두</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="16">잣</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox" name="allergy_list" value="17">오징어</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="18">조개류</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="17">오징어</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="18">조개류</label></td>
 											<td></td>
 											<td></td>
 										</tr>
@@ -241,11 +226,16 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox" name="dislike_name" value="오이">오이</label></td>
-											<td><label><input type="checkbox" name="dislike_name" value="버섯">버섯</label></td>
-											<td><label><input type="checkbox" name="dislike_name" value="당근">당근</label></td>
-											<td><label><input type="checkbox" name="dislike_name" value="생강">생강</label></td>
-											<td><label><input type="checkbox" name="dislike_name" value="아보카도">아보카도</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_name" value="오이">오이</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_name" value="버섯">버섯</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_name" value="당근">당근</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_name" value="생강">생강</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_name" value="아보카도">아보카도</label></td>
 										</tr>
 									</tbody>
 								</table>
@@ -261,7 +251,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
@@ -274,5 +264,28 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<!-- 다음 주소 API -->
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<!-- 주소 찾기 창 띄우기 -->
+	<script>
+		function daumPost() {
+			new daum.Postcode({
+				oncomplete : function(data) {
+					// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+					// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+					// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+					var addr = data.roadAddress;
+
+					// 우편번호와 주소 정보를 해당 필드에 넣는다.
+					// document.getElementById('postcode').value = data.zonecode;
+					document.getElementById("addr").value = addr;
+					// 커서를 상세주소 필드로 이동한다.
+					document.getElementById("extraAddr").focus();
+				}
+			}).open();
+		}
+	</script>
 </body>
 </html>

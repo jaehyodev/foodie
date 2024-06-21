@@ -17,5 +17,6 @@ public class Recipe {
 	   private String recipe_all_ingre;
 	   private String recipe_cook;
 	   private String recipe_title_img;
+	   private String recipe_posted_at;
 	   private int recipe_views_cnt;
 }

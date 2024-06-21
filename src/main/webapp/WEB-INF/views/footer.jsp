@@ -5,7 +5,7 @@
 			<div class="col-lg-3 col-md-6 col-sm-6">
 				<div class="footer__about">
 					<div class="footer__about__logo">
-						<a href="index"><img
+						<a href="/foodie"><img
 							src="<c:url value='/resources/img/logo.png'/>" alt=""></a>
 					</div>
 					<ul>

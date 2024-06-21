@@ -36,7 +36,7 @@
 		<div class="row">
 			<div class="col-lg-3">
 				<div class="header__logo">
-					<a href="index"><img
+					<a href="/foodie"><img
 						src="<c:url value='/resources/img/logo.png'/>" alt=""></a>
 				</div>
 			</div>
