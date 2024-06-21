@@ -125,7 +125,7 @@ public class HomeController {
 	// 챗봇 페이지
 	@GetMapping("/chatbot")
 	public String chatbot(Model model) {
-		model.addAttribute("initMessage", "안녕하세요?");
+		model.addAttribute("initMessage", "안녕하세요! 세계 최고의 요리사 푸 입니다.");
 	  return "chatbot";
 	}
 	

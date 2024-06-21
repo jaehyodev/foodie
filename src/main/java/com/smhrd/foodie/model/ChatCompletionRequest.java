@@ -13,10 +13,10 @@ public class ChatCompletionRequest {
 	private int max_tokens;
 	
 	
-	public ChatCompletionRequest(String model, String prompt, int max_tokens) {
+	public ChatCompletionRequest(String model, List<ChatMessage> conversationHistory,String prompt, int max_tokens) {
 		super();
 		this.model = model;
-		this.messages =  new ArrayList<ChatMessage>();
+		this.messages =  new ArrayList<>(conversationHistory);
 		this.messages.add(new ChatMessage("user", prompt));
 		this.max_tokens = max_tokens;
 	}
