@@ -17,7 +17,6 @@
 	rel="stylesheet">
 
 <!-- Css Styles -->
-<<<<<<< HEAD
 <link rel="stylesheet"
 	href="<c:url value='/resources/css/bootstrap.min.css'/>"
 	type="text/css">
@@ -47,37 +46,7 @@
 		<div class="loader"></div>
 	</div>
 
-	<!-- Humberger Begin -->
-	<div class="humberger__menu__overlay"></div>
-	<div class="humberger__menu__wrapper">
-		<div class="humberger__menu__logo">
-			<a href="index"><img src="resources/img/logo.png" alt=""></a>
-		</div>
-		<div class="humberger__menu__cart">
-			<ul>
-				<!-- 찜 -->
-				<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-				<!-- 장바구니 -->
-				<li><a href="cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-			</ul>
-			<!-- 장바구니 총 금액 -->
-		</div>
-		<div class="humberger__menu__widget">
-			<div class="header__top__right__auth">
-				<a href="#"><i class="fa fa-user"></i> Login</a>
-			</div>
-		</div>
-		<div id="mobile-menu-wrap"></div>
-		<div class="humberger__menu__contact">
-			<ul>
-				<!-- 이메일 -->
-				<li><i class="fa fa-envelope"></i> hello@smhrd.com</li>
-				<li>5만원 이상 구매 시 무료배송</li>
-			</ul>
-		</div>
-	</div>
-	<!-- Humberger End -->
-
+	
 	<!-- Header Section Begin -->
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
@@ -189,7 +158,7 @@
 									placeholder="주소를 입력하세요" required>
 							</div>
 							
-							<lable>알레르기 또는 비선호 식재료를 선택해주세요!</lable>
+							<label>알레르기 또는 비선호 식재료를 선택해주세요!</label>
 							<div class="mypage__content">
 								<table>
 									<thead>
