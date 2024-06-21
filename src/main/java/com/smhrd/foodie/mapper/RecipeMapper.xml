@@ -6,8 +6,23 @@
  
  <mapper namespace="com.smhrd.foodie.mapper.RecipeMapper">
  	
- 	<insert id="userJoin" parameterType="com.smhrd.foodie.model.Recipe">
-    </insert>
-    
+ 	<!-- 레시피 -> 관련 재료 -->
+ 	<select id="recipeIngre" parameterType="com.smhrd.foodie.model.Recipe" resultType="com.smhrd.foodie.model.Ingredient">
+ 		SELECT B.ingre_idx, B.ingre_name, B.ingre_cat, B.ingre_price, B.ingre_img, B.ingre_weight
+		FROM recipe_ingre_info A, ingredient_info B
+		WHERE A.ingre_idx = B.ingre_idx
+		AND A.recipe_idx = #{recipe_idx}
+ 	</select>
  	
+ 	<!-- 레시피 재료 페이징 리스트 -->
+ 	<select id="ingreList" parameterType="com.smhrd.foodie.model.Paging" resultType="com.smhrd.foodie.model.Ingredient">
+ 		select A.ingre_idx, A.ingre_name, A.ingre_cat, A.ingre_price, A.ingre_img, A.ingre_weight
+		from (
+			select *, row_number() over(order by ingre_idx) as row_num
+		    from ingredient_info
+		    where ingre_cat = #{ingre_cat}
+		) A
+		where row_num between #{start} and #{end}
+ 	</select>
+    
  </mapper>
