@@ -3696,7 +3696,7 @@ transparent
 	}
 }
 
-/* 마이 페이지 스타일 */
+/* 박준식 - 마이페이지 */
 .mypage-section {
 	padding: 80px;
 }
@@ -3766,4 +3766,19 @@ transparent
 .mypage__content table button {
 	padding: 8px 15px;
 	font-size: 14px;
+}
+
+/* 곽효정 - 레시피 */
+.check {
+   accent-color: #D03737;
+}
+
+.i-recipe {
+   color: #D03737;
+}
+
+.product__item__pic {
+   padding-bottom: 100%;
+   position: relative;
+   overflow: hidden;
 }
