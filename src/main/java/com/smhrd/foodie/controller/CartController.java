@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.smhrd.foodie.mapper.CartMapper;
 import com.smhrd.foodie.model.CartItems;
+import com.smhrd.foodie.model.Member;
 
-//@RequestMapping("/cart/*")
 @Controller
 public class CartController {
 	
@@ -25,11 +25,11 @@ public class CartController {
 	@RequestMapping(value="/cart",method=RequestMethod.GET)
 	public String cartList(Model model ) {
 		
-		CartItems cart = new CartItems();
-		cart.setMem_id("seung");
+		CartItems CartItems = new CartItems();
+		CartItems.setMem_id("seung");
 		
 		
-		List<CartItems> cartList = mapper.list(cart);
+		List<CartItems> cartList = mapper.list(CartItems);
 		model.addAttribute("cartList",cartList);
 		
 		//System.out.println(cartList);
@@ -38,7 +38,7 @@ public class CartController {
 		return "shopping-cart";
 	}
 	//장바구니 목록 삭제
-	@RequestMapping(value="/deleteItem/{ingre_idx}/{mem_id}",method=RequestMethod.GET)
+	@RequestMapping(value="/delete.do/{ingre_idx}/{mem_id}",method=RequestMethod.GET)
 	public String deleteItem(@PathVariable("ingre_idx") int ingre_idx,@PathVariable("mem_id") String mem_id) {
 		
 		CartItems cartItems = new CartItems();
@@ -61,10 +61,10 @@ public class CartController {
 	@RequestMapping(value="/checkout",method=RequestMethod.GET)
 	public String checkoutCartList(Model model) {
 				
-		CartItems cart = new CartItems();
-		cart.setMem_id("seung");
+		CartItems CartItems = new CartItems();
+		CartItems.setMem_id("seung");
 		
-		List<CartItems> cartList = mapper.list(cart);
+		List<CartItems> cartList = mapper.list(CartItems);
 		model.addAttribute("cartList",cartList);
 		
 		int sum = 0;
@@ -72,6 +72,8 @@ public class CartController {
 			sum += cartList.get(i).getIngre_price() * cartList.get(i).getIngre_cnt();
 		}
 		model.addAttribute("sum", sum);
+		Member member = mapper.checkoutInfo("seung");
+		model.addAttribute("member",member);
 				
 		return "checkout";
 	}
