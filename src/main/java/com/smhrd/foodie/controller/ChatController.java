@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.smhrd.foodie.model.ChatCompletionRequest;
 import com.smhrd.foodie.model.ChatCompletionResponse;
+import com.smhrd.foodie.model.ChatMessage;
 
 @RestController
 public class ChatController {
@@ -20,48 +21,35 @@ public class ChatController {
 	@Autowired
 	private RestTemplate restTemplate;
 
+	List<ChatMessage> conversationHistory = new ArrayList<>();
+  
+	// 초기 대화 기록 설정
+  public ChatController() {
+      // 초기 대화 기록 추가
+  		conversationHistory.add(new ChatMessage("system", "너의 이름은 '푸', 직업은 세계 최고의 요리사야"));
+      conversationHistory.add(new ChatMessage("system", "유저가 요리에 대해 물어보면 친절하게 알려줘"));
+      conversationHistory.add(new ChatMessage("system", "어조: 친절하게, 전문적이게"));
+  }
+
 	@PostMapping(value = "/chatbot/hitopenaiapi", produces = "application/text; charset=utf8")
 	public String getOpenaiResponse(@RequestBody String prompt, HttpSession session) {
 
-		int max_tokens = 150;
+		int max_tokens = 2048;
+		
+		// 사용자가 보낸 새로운 질문을 conversationHistory에 추가
+    conversationHistory.add(new ChatMessage("user", prompt));
 
-		// 사용자가 보낸 메시지를 세션에 저장
-		@SuppressWarnings("unchecked")
-		List<String> userMessages = (List<String>) session.getAttribute("userMessages");
-		if (userMessages == null) {
-			userMessages = new ArrayList<>();
-		}
-		userMessages.add(prompt);
-		session.setAttribute("userMessages", userMessages);
-
-		ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest("gpt-3.5-turbo-0125", prompt,
+		ChatCompletionRequest chatCompletionRequest = new ChatCompletionRequest("gpt-3.5-turbo-0125", conversationHistory, prompt,
 				max_tokens);
 
 		ChatCompletionResponse response = restTemplate.postForObject("https://api.openai.com/v1/chat/completions",
 				chatCompletionRequest, ChatCompletionResponse.class);
 
 		System.out.println("ChatGPT 통신 중!!!");
-
 		String responseData = response.getChoices().get(0).getMessage().getContent();
+		conversationHistory.add(new ChatMessage("assistant", responseData));
+		System.out.println(conversationHistory);
 
-		// AI의 응답을 세션에 저장
-		session.setAttribute("lastAIResponse", responseData);
-
-		// AI 모델에 전달할 질문과 이전 대화 히스토리
-		StringBuilder history = new StringBuilder();
-		for (String message : userMessages) {
-			history.append(message).append("\n");
-		}
-		history.append(prompt); // 현재 사용자의 새로운 질문 추가
-
-		// 세션에서 저장된 사용자 메시지와 AI 응답 가져오기
-		@SuppressWarnings("unchecked")
-		List<String> storedUserMessages = (List<String>) session.getAttribute("userMessages");
-		String lastAIResponse = (String) session.getAttribute("lastAIResponse");
-
-		// 확인을 위한 출력
-		System.out.println("Stored User Messages: " + storedUserMessages);
-		System.out.println("Last AI Response: " + lastAIResponse);
 		return responseData;
 	}
 }
