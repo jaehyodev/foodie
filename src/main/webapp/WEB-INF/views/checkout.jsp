@@ -141,23 +141,23 @@
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>이름<span>*</span></p>
-                                        <input type="text" value="이승지">
+                                        <input type="text" value="${member.mem_name }">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="checkout__input">
                                         <p>연락처<span>*</span></p>
-                                        <input type="text" value="010-3011-1255">
+                                        <input type="text" value="${member.mem_phone }">
                                     </div>
                                 </div>
                             </div>
                             <div class="checkout__input">
                                 <p>이메일<span>*</span></p>
-                                <input type="text" value="seungji@smhrd.com">
+                                <input type="text" value="${member.mem_email }">
                             </div>
                             <div class="checkout__input">
                                 <p>주소<span>*</span></p>
-                                <input type="text" placeholder="도로명 주소" class="checkout__input__add">
+                                <input type="text" placeholder="${member.mem_addr }" class="checkout__input__add">
                                 <input type="text" placeholder="주소 세부사항">
                             </div>
                             <div class="checkout__input">

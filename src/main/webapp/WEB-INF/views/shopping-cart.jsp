@@ -157,7 +157,7 @@
 										</td>
 										<td class="shoping__cart__total">${list.ingre_price*list.ingre_cnt}원</td>
 										<!-- 해당항목삭제 -->
-										<td class="shoping__cart__item__close"><a href="deleteItem/${list.ingre_idx}/${list.mem_id}"><span
+										<td class="shoping__cart__item__close"><a href="delete.do/${list.ingre_idx}/${list.mem_id}"><span
 												class="icon_close"></span></a></td>
 									</tr>
 								</c:forEach>
