@@ -1,8 +1,14 @@
 package com.smhrd.foodie.model;
 
-import lombok.Data;
+import java.util.List;
 
-@Data // lombok
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Member {
 
 	private String mem_id;
@@ -16,5 +22,5 @@ public class Member {
 	private String mem_phone;
 
 	private String mem_addr;
-
+	
 }

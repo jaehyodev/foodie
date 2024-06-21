@@ -1,27 +1,43 @@
-<!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Ogani Template">
-    <meta name="keywords" content="Ogani, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Foodie</title>
+<meta charset="UTF-8">
+<meta name="description" content="Ogani Template">
+<meta name="keywords" content="Ogani, unica, creative, html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Foodie</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+	rel="stylesheet">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/jquery-ui.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+<!-- Css Styles -->
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/bootstrap.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/font-awesome.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/elegant-icons.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/jquery-ui.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/owl.carousel.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
+	type="text/css">
 </head>
 
 <body>
@@ -133,10 +149,10 @@
 						<ul>
 							<li><a href="mypage">주문 내역</a></li>
 							<li><a href="wishlist">찜 목록</a></li>
-							<li><a href="allergy">알레르기 / 비선호도</a></li>
-							<li><a href="edituserinfo">개인 정보 수정</a></li>
-							<li><a href="editpw">비밀번호 변경</a></li>
-							<li class="active"><a href="deleteuserinfo">회원탈퇴</a></li>
+							<li><a href="allergy">알레르기 / 비선호 식재료</a></li>
+							<li><a href="update">개인 정보 수정</a></li>
+							<li><a href="updatepw">비밀번호 변경</a></li>
+							<li class="active"><a href="delete">회원탈퇴</a></li>
 						</ul>
 					</div>
 				</div>
@@ -183,13 +199,13 @@
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
 
-	<script src="resources/js/jquery-3.3.1.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/jquery.nice-select.min.js"></script>
-	<script src="resources/js/jquery-ui.min.js"></script>
-	<script src="resources/js/jquery.slicknav.js"></script>
-	<script src="resources/js/mixitup.min.js"></script>
-	<script src="resources/js/owl.carousel.min.js"></script>
-	<script src="resources/js/main.js"></script>
+	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
+	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery-ui.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.slicknav.js' />"></script>
+	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
+	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
+	<script src="<c:url value='/resources/js/main.js' />"></script>
 </body>
 </html>
