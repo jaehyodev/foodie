@@ -38,20 +38,15 @@
 	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
 	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/wishlist.css'/>" type="text/css">
 </head>
 
 <body>
 
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-
-	
-
-    <!-- Header Section Begin -->
-    <%@ include file="./header.jsp"%>
-    <!-- Header Section End -->
+	<!-- Header Section Begin -->
+	<%@ include file="./header.jsp"%>
+	<!-- Header Section End -->
 
 	<!-- Hero Section Begin -->
 	<!-- 카테고리 -->
@@ -101,12 +96,6 @@
 	</section>
 	<!-- Hero Section End -->
 
-
-	<section class="hero hero-normal">
-		<div class="container">
-			<div class="row"></div>
-		</div>
-	</section>
 	<section class="wishlist-section">
 		<div class="container">
 			<div class="row">
@@ -128,33 +117,74 @@
 						<h2>찜 목록</h2>
 
 						<h3>레시피 찜</h3>
-						<table>
+						<table id="mypage__recipe">
 							<thead>
 								<tr>
-									<th>레시피 이름</th>
-									<th>등록 날짜</th>
-									<th>상세 보기</th>
-									<th>찜 해제</th>
+									<th><input type="checkbox" onclick="checkRecipesAll(this)"></th>
+									<th colspan="2"><a
+										href="javascript:deleteSelectedRecipes()"
+										class="wishlist__delete">선택된 목록 삭제</a></th>
+									<th class="wishlist__deleteText">삭제</th>
 								</tr>
 							</thead>
 							<tbody>
-								<%-- 레시피 찜 목록 데이터 출력 (DB 연동 필요) --%>
+								<!-- 레시피 찜 목록 데이터 출력 -->
+								<c:forEach items="${recipeWishlist}" var="recipe">
+									<tr>
+										<td><input type="checkbox" class="recipeCheckbox"
+											value="${recipe.recipe_idx}"></td>
+										<td>
+											<div class="wishlist__img">
+												<a href="#"><img
+													src="<c:url value='/resources/img/recipe/${recipe.recipe_title_img}'/>"
+													alt="${recipe.recipe_name}">
+												</a>
+											</div>
+										</td>
+										<td><a href="#">${recipe.recipe_name}</a><br />
+											${recipe.recipe_content}</td>
+										<td><a
+											href="javascript:deleteRecipe(${recipe.recipe_idx})"
+											class="wishlist__delete">❌</a></td>
+									</tr>
+								</c:forEach>
 							</tbody>
 						</table>
-
+						
 						<h3>재료 찜</h3>
-						<table>
+						<table id="mypage__ingre">
 							<thead>
 								<tr>
-									<th>재료 이름</th>
-									<th>등록 날짜</th>
-									<th>찜 해제</th>
+									<th><input type="checkbox" onclick="checkIngresAll(this)"></th>
+									<th colspan="2"><a
+										href="javascript:deleteSelectedIngres()"
+										class="wishlist__delete">선택된 목록 삭제</a></th>
+									<th class="wishlist__deleteText">삭제</th>
 								</tr>
 							</thead>
 							<tbody>
-								<%-- 재료 찜 목록 데이터 출력 (DB 연동 필요) --%>
+								<!-- 재료 찜 목록 데이터 출력 -->
+								<c:forEach items="${ingreWishlist}" var="ingredient">
+									<tr>
+										<td><input type="checkbox" class="ingreCheckbox"
+											value="${ingredient.ingre_idx}"></td>
+										<td>
+											<div class="wishlist__img">
+												<a href="#"><img
+													src="<c:url value='/resources/img/${ingredient.ingre_img}'/>"
+													alt="${ingredient.ingre_name}">
+												</a>
+											</div>
+										</td>
+										<td><a href="#">${ingredient.ingre_name}</a><br />
+											${ingredient.ingre_content}</td>
+										<td><a
+											href="javascript:deleteIngre(${ingredient.ingre_idx})"
+											class="wishlist__delete">❌</a></td>
+									</tr>
+								</c:forEach>
 							</tbody>
-						</table>
+						</table>		
 					</div>
 				</div>
 			</div>
@@ -173,5 +203,147 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+
+	<!-- 레시피 찜 목록 체크 시 전체 레시피 체크 -->
+	<script>
+	  function checkRecipesAll(source) {
+	    if (source.checked) {
+	      // source 체크박스가 체크되었을 때
+	      // 모든 체크박스에 체크를 설정
+	      var checkboxes = document
+	              .querySelectorAll('#mypage__recipe input[type="checkbox"]');
+	      checkboxes.forEach(function(checkbox) {
+	      	checkbox.checked = true;
+	      });
+	    } else {
+	      // source 체크박스가 체크 해제되었을 때
+	      // 모든 체크박스의 체크를 해제
+	      var checkboxes = document
+	              .querySelectorAll('#mypage__recipe input[type="checkbox"]');
+	      checkboxes.forEach(function(checkbox) {
+	      	checkbox.checked = false;
+	      });
+	    }
+	  }
+  </script>
+
+	<!-- 재료 찜 목록 체크 시 전체 재료 체크 -->
+	<script>
+	  function checkIngresAll(source) {
+	    if (source.checked) {
+			  // source 체크박스가 체크되었을 때
+			  // 모든 체크박스에 체크를 설정
+			  var checkboxes = document
+			  				.querySelectorAll('#mypage__ingre input[type="checkbox"]');
+			  checkboxes.forEach(function(checkbox) {
+					checkbox.checked = true;
+				});
+			} else {
+				// source 체크박스가 체크 해제되었을 때
+				// 모든 체크박스의 체크를 해제
+				var checkboxes = document
+				        .querySelectorAll('#mypage__ingre input[type="checkbox"]');
+				checkboxes.forEach(function(checkbox) {
+					checkbox.checked = false;
+				});
+		  }	
+	  }
+  </script>
+
+	<!-- 레시피 찜 목록 삭제 -->
+	<script>
+		// 레시피 찜 목록 개별 삭제
+	  function deleteRecipe(recipe_idx) {
+	    $.ajax({
+	      url: "wishlist/recipe/delete.do",
+	      type: "POST",
+	      data: {"recipe_idx" : recipe_idx},
+	      success: function(data) {
+	        if (data == "success") {
+	        	location.reload();
+	        }
+	      },
+	      error: function() {
+        	alert("레시피 찜 목록 삭제 실패");
+	      }
+	    })
+	  }
+    
+	  // 레시피 찜 목록 선택된 항목들 삭제
+    function deleteSelectedRecipes() {
+	    // 체크된 레시피 체크박스의 값들을 수집
+	    const checkedboxes = document.querySelectorAll('.recipeCheckbox:checked');
+	    const recipeIdxArray = Array.from(checkedboxes).map(checkedbox => parseInt(checkedbox.value, 10));
+	
+	    if (recipeIdxArray.length === 0) {
+	      alert("삭제할 레시피 항목을 선택해주세요.");
+	      return;
+	    }
+	
+	 		// Ajax 요청으로 서버에 레시피 찜 목록 선택된 항목들만 삭제 요청
+	    $.ajax({
+	      url: "wishlist/recipe/deleteSelected.do",
+	      type: "POST",
+	      contentType: "application/json",
+	      data: JSON.stringify(recipeIdxArray),
+	      success: function(data) {
+					if (data === "success") {
+		        location.reload();
+		      }
+	      },
+	      error: function() {
+	      	alert("레시피 찜 목록 삭제 실패");
+	      }
+	    });
+    }
+  </script>
+
+	<!-- 재료 찜 목록 삭제 -->
+	<script>
+		// 재료 찜 목록 개별 삭제
+	  function deleteIngre(ingre_idx) {
+	    $.ajax({
+	      url: "wishlist/ingre/delete.do",
+	      type: "POST",
+	      data: {"ingre_idx" : ingre_idx},
+	      success: function(data) {
+	        if (data == "success") {
+	        	location.reload();
+	        }
+	      },
+	      error: function() {
+        	alert("재료 찜 목록 삭제 실패");
+	      }
+	    })
+	  }
+    
+	  // 재료 찜 목록 선택된 항목들 삭제
+    function deleteSelectedIngres() {
+	    // 체크된 레시피 체크박스의 값들을 수집
+	    const checkedboxes = document.querySelectorAll('.ingreCheckbox:checked');
+	    const ingreIdxArray = Array.from(checkedboxes).map(checkedbox => parseInt(checkedbox.value, 10));
+	
+	    if (ingreIdxArray.length === 0) {
+	      alert("삭제할 재료 항목을 선택해주세요.");
+	      return;
+	    }
+	
+	    // Ajax 요청으로 서버에 재료 찜 목록 선택된 항목들만 삭제 요청
+	    $.ajax({
+	      url: "wishlist/ingre/deleteSelected.do",
+	      type: "POST",
+	      contentType: "application/json",
+	      data: JSON.stringify(ingreIdxArray),
+	      success: function(data) {
+					if (data === "success") {
+		        location.reload();
+		      }
+	      },
+	      error: function() {
+	      	alert("재료 찜 목록 삭제 실패");
+	      }
+	    });
+    }
+  </script>
 </body>
 </html>
