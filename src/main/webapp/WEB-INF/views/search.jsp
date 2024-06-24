@@ -27,6 +27,7 @@
 
 </head>
 <body>
+
  <div class="col-lg-9">
                     <div class="hero__search">
                         <div class="hero__search__form">
@@ -46,5 +47,6 @@
                             </div>
                         </div>
                     </div>
+                    
 </body>
 </html>
