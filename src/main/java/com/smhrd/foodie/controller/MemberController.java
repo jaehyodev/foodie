@@ -108,9 +108,9 @@ public class MemberController {
     	   
     	   // 기존에 존재하는 session에 key 와 value 값으로 객체를 set
     	   // 해당 값으로 사용자 구분
-          session.setAttribute("Member", member);
+          session.setAttribute("member", member);
          
-          System.out.println("Member : " + session.getAttribute("Member"));
+          System.out.println("member : " + session.getAttribute("member"));
           
           System.out.println("로그인 성공");
           return "redirect:/";
@@ -119,7 +119,7 @@ public class MemberController {
           System.out.println("로그인 실패");
           
           // 로그인 실패 시 세션의 값이 null 인지 확인
-          System.out.println(session.getAttribute("Member"));
+          System.out.println(session.getAttribute("member"));
           
           // 오류 메세지를 담고 있는 값 출력 테스트
           System.out.println(ra.getFlashAttributes());
@@ -132,12 +132,12 @@ public class MemberController {
    @RequestMapping(value = "/logout", method = RequestMethod.POST)
    public String logout(HttpSession session) {
       
-	   System.out.println("삭제 전 세션 값 : " + session.getAttribute("Member"));
+	   System.out.println("삭제 전 세션 값 : " + session.getAttribute("member"));
 	   
 	   // 기존에 존재하던 session에 저장되어 있던 객체값을 delete
-      session.removeAttribute("Member");
+      session.removeAttribute("member");
       
-      System.out.println("삭제 후 세션 값 : " + session.getAttribute("Member"));
+      System.out.println("삭제 후 세션 값 : " + session.getAttribute("member"));
       
       // redirect : /logout 이 리턴해주는 jsp로 이동하는 것이 아니라 (리턴해주는 곳으로 갈 경우 url에 /logout으로 뜸) value가 / 인 곳으로 가게 하는 것
       return "redirect:/";

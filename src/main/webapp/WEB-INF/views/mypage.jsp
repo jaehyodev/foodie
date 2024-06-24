@@ -40,14 +40,7 @@
 	type="text/css">
 </head>
 
-<body>
-
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-
-	
+<body>	
 
 	<!-- Header Section Begin -->
 	<%@ include file="./header.jsp"%>
