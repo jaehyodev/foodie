@@ -169,11 +169,25 @@
             	<c:forEach items="${recipe_ingre }" var="list">
             		<div class="col-lg-3 col-md-4 col-sm-6">
 	                    <div class="product__item">
-	                    	<input class="check" type="checkbox" checked></input>
+	                    	<!-- 알러지, 비선호 식품 필터링 -->
+	                    	<c:choose>
+								<c:when test="${list.ingre_content eq '알러지 주의 식품' }">
+									<input class="check" type="checkbox" value="${list.ingre_idx }"> 알러지 주의 식품			
+								</c:when>
+								<c:when test="${list.ingre_content eq '비선호 식품' }">
+									<input class="check" type="checkbox" value="${list.ingre_idx }"> 비선호 식품			
+								</c:when>
+								<c:when test="${list.ingre_content eq '알러지 주의, 비선호 식품' }">
+									<input class="check" type="checkbox" value="${list.ingre_idx }"> 알러지 주의, 비선호 식품			
+								</c:when>
+								<c:otherwise>
+									<input class="check" type="checkbox" checked value="${list.ingre_idx }"></input>
+								</c:otherwise>
+							</c:choose>
 	                        <div class="product__item__pic set-bg" data-setbg="<c:url value='../resources/img${list.ingre_img }'/>">
 	                            <ul class="product__item__pic__hover">
-	                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-	                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+	                                <li><a href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i class="fa fa-heart"></i></a></li>
+	                                <li><a href="<c:url value='javascript:ingreCart(${list.ingre_idx})'/>"><i class="fa fa-shopping-cart"></i></a></li>
 	                            </ul>
 	                        </div>
 	                        <div class="product__item__text">
@@ -188,7 +202,7 @@
     </section>
     <section class="related-product">
         <div class="container">
-            <a href="#" class="primary-btn float-center">선택 상품 장바구니 담기</a>
+            <a href="#" class="primary-btn float-center" id="getCheckedValues">선택 상품 장바구니 담기</a>
             <br></br>
         </div>
     </section>
@@ -207,5 +221,7 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
 </body>
 </html>

@@ -5,24 +5,24 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="com.smhrd.foodie.mapper.RecipeMapper">
- 	
- 	<!-- 레시피 -> 관련 재료 -->
- 	<select id="recipeIngre" parameterType="com.smhrd.foodie.model.Recipe" resultType="com.smhrd.foodie.model.Ingredient">
- 		SELECT B.ingre_idx, B.ingre_name, B.ingre_cat, B.ingre_price, B.ingre_img, B.ingre_weight
-		FROM recipe_ingre_info A, ingredient_info B
-		WHERE A.ingre_idx = B.ingre_idx
-		AND A.recipe_idx = #{recipe_idx}
- 	</select>
- 	
- 	<!-- 레시피 재료 페이징 리스트 -->
- 	<select id="ingreList" parameterType="com.smhrd.foodie.model.Paging" resultType="com.smhrd.foodie.model.Ingredient">
- 		select A.ingre_idx, A.ingre_name, A.ingre_cat, A.ingre_price, A.ingre_img, A.ingre_weight
-		from (
-			select *, row_number() over(order by ingre_idx) as row_num
-		    from ingredient_info
-		    where ingre_cat = #{ingre_cat}
-		) A
-		where row_num between #{start} and #{end}
- 	</select>
-    
+	<!--  레시피 -> 관련 재료  -->
+	<select id="recipeIngre" parameterType="com.smhrd.foodie.model.Recipe" resultType="com.smhrd.foodie.model.Ingredient"> SELECT B.ingre_idx, B.ingre_name, B.ingre_cat, B.ingre_content ,B.ingre_price, B.ingre_img, B.ingre_weight FROM recipe_ingre_info A, ingredient_info B WHERE A.ingre_idx = B.ingre_idx AND A.recipe_idx = #{recipe_idx} </select>
+	<!--  레시피 재료 페이징 리스트  -->
+	<select id="ingreList" parameterType="com.smhrd.foodie.model.Paging" resultType="com.smhrd.foodie.model.Ingredient"> select A.ingre_idx, A.ingre_name, A.ingre_cat, A.ingre_content, A.ingre_price, A.ingre_img, A.ingre_weight from ( select *, row_number() over(order by ingre_idx) as row_num from ingredient_info where ingre_cat = #{ingre_cat} ) A where row_num between #{start} and #{end} </select>
+	<!--  레시피 찜 목록 가져오기  -->
+	<select id="checkRecipeWish" parameterType="com.smhrd.foodie.model.Wishlist" resultType="com.smhrd.foodie.model.Wishlist"> select * from recipe_wishlist_info where mem_id = #{mem_id} and recipe_idx = #{recipe_ingre_idx} </select>
+	<!--  레시피 찜 목록 업데이트하기  -->
+	<select id="inRecipeWish" parameterType="com.smhrd.foodie.model.Wishlist"> insert into recipe_wishlist_info(mem_id,recipe_idx) values(#{mem_id},#{recipe_ingre_idx}) </select>
+	<!--  재료 찜 목록 가져오기  -->
+	<select id="checkIngreWish" parameterType="com.smhrd.foodie.model.Wishlist" resultType="com.smhrd.foodie.model.Wishlist"> select * from ingre_wishlist_info where mem_id = #{mem_id} and ingre_idx = #{recipe_ingre_idx} </select>
+	<!--  재료 찜 목록 업데이트하기  -->
+	<select id="inIngreWish" parameterType="com.smhrd.foodie.model.Wishlist"> insert into ingre_wishlist_info(mem_id,ingre_idx) values(#{mem_id},#{recipe_ingre_idx}) </select>
+	<!--  카트 목록 가져오기  -->
+	<select id="checkIngreCart" parameterType="com.smhrd.foodie.model.Wishlist" resultType="com.smhrd.foodie.model.Cart"> select * from basket_info where mem_id = #{mem_id} and ingre_idx = #{recipe_ingre_idx} </select>
+	<!--  카트 목록 업데이트하기 (재료 페이지)  -->
+	<select id="inIngreCart" parameterType="com.smhrd.foodie.model.Wishlist"> insert into basket_info(mem_id,ingre_idx,ingre_cnt) values(#{mem_id},#{recipe_ingre_idx},1) </select>
+	<!--  카트 목록 업데이트하기 (재료 디테일 페이지)  -->
+	<select id="inDetailIngreCart" parameterType="com.smhrd.foodie.model.Wishlist"> insert into basket_info(mem_id,ingre_idx,ingre_cnt) values(#{mem_id},#{recipe_ingre_idx},#{quantity}) </select>
+	<!--  레시피 -> 관련 재료 (알러지, 비선호 필터링)  -->
+	<select id="memRecipeIngre" parameterType="com.smhrd.foodie.model.RecipeAllergy" resultType="com.smhrd.foodie.model.Ingredient"> SELECT DISTINCT A.ingre_idx, A.ingre_name, A.ingre_cat, CASE WHEN F.allergy_idx IS NOT NULL AND MDI.dislike_idx IS NOT NULL THEN '알러지 주의, 비선호 식품' WHEN F.allergy_idx IS NOT NULL THEN '알러지 주의 식품' WHEN MDI.dislike_idx IS NOT NULL THEN '비선호 식품' ELSE '일반 식품' END AS ingre_content, A.ingre_price, A.ingre_img, A.ingre_weight FROM ingredient_info A JOIN recipe_ingre_info B ON A.ingre_idx = B.ingre_idx JOIN recipe_info C ON B.recipe_idx = C.recipe_idx LEFT JOIN ( SELECT DISTINCT ingre_idx, iai.allergy_idx FROM ingre_allergy_info iai JOIN member_allergy_info mai ON iai.allergy_idx = mai.allergy_idx WHERE mai.mem_id = #{mem_id} ) F ON A.ingre_idx = F.ingre_idx LEFT JOIN ingre_allergy_info D ON A.ingre_idx = D.ingre_idx LEFT JOIN ( SELECT MDI.mem_id, DI.dislike_idx, DI.dislike_name FROM member_dislike_info MDI JOIN dislike_info DI ON MDI.dislike_idx = DI.dislike_idx WHERE MDI.mem_id = #{mem_id} ) MDI ON A.ingre_name LIKE CONCAT('%', MDI.dislike_name, '%') WHERE C.recipe_name = #{recipe_name} </select>
  </mapper>
