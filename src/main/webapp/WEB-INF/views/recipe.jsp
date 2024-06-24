@@ -154,7 +154,7 @@
 	                            <div class="product__item">
 	                                <div class="product__item__pic set-bg" data-setbg="<c:url value='../resources/img${list.recipe_title_img }'/>">
 	                                    <ul class="product__item__pic__hover">
-	                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+	                                        <li><a href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"><i class="fa fa-heart"></i></a></li>
 	                                    </ul>
 	                                </div>
 	                                <div class="product__item__text">
@@ -183,6 +183,8 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
 	
 </body>
 </html>
