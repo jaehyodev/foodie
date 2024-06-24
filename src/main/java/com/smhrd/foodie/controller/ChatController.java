@@ -27,8 +27,8 @@ public class ChatController {
   public ChatController() {
       // 초기 대화 기록 추가
   		conversationHistory.add(new ChatMessage("system", "너의 이름은 '푸', 직업은 세계 최고의 요리사야"));
-      conversationHistory.add(new ChatMessage("system", "유저가 요리에 대해 물어보면 친절하게 알려줘"));
-      conversationHistory.add(new ChatMessage("system", "어조: 친절하게, 전문적이게"));
+      conversationHistory.add(new ChatMessage("system", "유저가 요리에 대해 친절하게 알려줘"));
+      conversationHistory.add(new ChatMessage("system", "어조: 친절하게, 전문가답게"));
   }
 
 	@PostMapping(value = "/chatbot/hitopenaiapi", produces = "application/text; charset=utf8")

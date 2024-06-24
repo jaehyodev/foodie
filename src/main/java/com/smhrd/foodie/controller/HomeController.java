@@ -74,12 +74,6 @@ public class HomeController {
 		return "update";
 	}
 
-	// 찜 목록 페이지
-	@RequestMapping(value = "/wishlist", method = RequestMethod.GET)
-	public String wishlist() {
-		return "wishlist";
-	}
-
 	// 알러지 수정 페이지
 	@RequestMapping(value = "/allergy", method = RequestMethod.GET)
 	public String allergy() {
