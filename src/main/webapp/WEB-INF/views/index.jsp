@@ -92,6 +92,8 @@
 		</div>
 	</section>
 	<!-- Hero Section End -->
+	
+	<!-- 메인 레시피 화면 -->
 	<section class="categories">
 		<div class="container">
 			<div class="section-title">
