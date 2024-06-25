@@ -46,14 +46,10 @@
 			</div>
 			<div class="col-lg-6"></div>
 			<div class="col-lg-3">
-				<div class="header__cart">
-					<ul>
-						<li><a href=<c:url value='/wishlist'/>><i
-								class="fa fa-heart"></i> <span>1</span></a></li>
-						<li><a href=<c:url value='/cart'/>><i
-								class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-					</ul>
-				</div>
+
+
+
+
 			</div>
 		</div>
 		<div class="humberger__open">
