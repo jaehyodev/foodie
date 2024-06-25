@@ -63,12 +63,6 @@ public class HomeController {
 	public String updatePw() {
 		return "updatepw";
 	}
-	
-	// 찜 목록 페이지
-	@RequestMapping(value = "/wishlist", method = RequestMethod.GET)
-	public String wishlist() {
-		return "wishlist";
-	}
 
 	// 회원 탈퇴 페이지
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)

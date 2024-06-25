@@ -3,7 +3,7 @@
 function search() {
 	var keyword = document.getElementById("input-search").value;
 	if (keyword.trim() !== "") {
-		var baseUrl = "<c:url value='/search/' />";
+		var baseUrl = "/foodie/search/";
 		var url = baseUrl + encodeURIComponent(keyword);
 		location.href = url;
 	} else {

@@ -286,9 +286,6 @@ public class MemberController {
 		System.out.println("member_allergy_info의 select문 반환 값 : " + joinAllergyIdx); // select문 (확인용) // 이거 사용할것
 		System.out.println("member_dislike_info의 select문 반환 값 : " + joinDislikeIdx); // select문 (확인용)
 
-		System.out.println("인덱스 0의 allergy_dix(0) : " + joinAllergyIdx.get(0).getAllergy_idx()); // 확인용 코드
-
-		model.addAttribute("allergyIdx", joinAllergyIdx.get(0).getAllergy_idx()); // jsp 전달 확인용 코드
 
 		model.addAttribute("joinAllergyIdx", joinAllergyIdx);
 		model.addAttribute("joinDislikeIdx", joinDislikeIdx);

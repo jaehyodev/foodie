@@ -34,7 +34,7 @@ public class RecipeController {
 		List<Recipe> recipeList = mapper.select(recipe_cat);
 		model.addAttribute("recipeList", recipeList);
 		
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		System.out.println(member);
 		
 		return "recipe";
@@ -43,7 +43,7 @@ public class RecipeController {
 	// 레시피, 레시피디테일 -> 찜
 	@RequestMapping(value={"/recipe/wishRecipe", "/recipedetails/wishRecipe"}, method=RequestMethod.GET)
 	public @ResponseBody String recipeWish(@RequestParam("recipe_idx") int recipe_idx, HttpSession session) {
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		if(member == null)
 			return "notLogin";
 		else {
@@ -67,7 +67,7 @@ public class RecipeController {
 	@RequestMapping(value="/recipedetails/{recipe_name}", method=RequestMethod.GET)
 	public String recipeDetail(@PathVariable("recipe_name") String recipe_name, Model model, HttpSession session) {
 		
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		// model.addAttribute("member", member);
 		
 		// 해당 레시피 불러오기
@@ -100,7 +100,7 @@ public class RecipeController {
 	// 레시피디테일 -> 관련 재료 한번에 장바구니
 	@RequestMapping(value="/recipedetails/allCart", method=RequestMethod.GET)
 	public @ResponseBody String recipeIngre(@RequestParam("checkedItems") List<Integer> checkedItems, HttpSession session) {
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		for(int i=0; i<checkedItems.size(); i++) {
 			System.out.println(checkedItems.get(i));
 		}
