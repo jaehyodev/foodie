@@ -111,75 +111,80 @@
         </div>
     </section>
     <!-- Hero Section End -->
-    
-    <!-- Product Section Begin -->
-    <section class="product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-5">
-                    <div class="sidebar">
-                        <div class="sidebar__item">
-                            <h4>레시피</h4>
-                            <ul>
-                            	<!-- 좌측 카테고리 -->
-		                    	<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
-		                        <li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
-		                        <li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
-		                        <li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
-		                        <li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
-		                        <li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
-		                        <li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-		                    </ul>
-                        </div>
-                        <div class="sidebar__item">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9 col-md-7">
-                    <div class="product__discount">
-                        <div class="section-title product__discount__title">
-                            <h2>${recipeList.get(0).getRecipe_cat() } 레시피</h2>
-                        </div>
-                    </div>
-                    <div class="filter__item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-5">
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="filter__found">
-                                    <h6><span>${recipeList.size() }</span> 개의 레시피</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" id="recipelist">
-                    	<c:forEach items="${recipeList }" var="list">
-                    		<div class="col-lg-4 col-md-6 col-sm-6">
-	                            <div class="product__item">
-	                                <div class="product__item__pic set-bg" data-setbg="<c:url value='../resources/img${list.recipe_title_img }'/>">
-	                                    <ul class="product__item__pic__hover">
-	                                        <li><a href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"><i class="fa fa-heart"></i></a></li>
-	                                    </ul>
-	                                </div>
-	                                <div class="product__item__text">
-	                                    <h6><a href="${pageContext.request.contextPath }/recipedetails/${list.recipe_idx}">${list.recipe_name }</a></h6>
-	                                </div>
-	                            </div>
-	                        </div>
-					      </c:forEach>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Product Section End -->
+  
+	<!-- Product Section Begin -->
+	<section class="product spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-5">
+					<div class="sidebar">
+						<div class="sidebar__item">
+							<h4>레시피</h4>
+							<ul>
+								<!-- 좌측 카테고리 -->
+								<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
+								<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
+								<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
+								<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
+								<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
+								<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
+								<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-9 col-md-7">
+					<div class="product__discount">
+						<div class="section-title product__discount__title">
+							<h2>${recipeList.get(0).getRecipe_cat() }레시피</h2>
+						</div>
+					</div>
+					<div class="filter__item">
+						<div class="row">
+							<div class="col-lg-4 col-md-5"></div>
+							<div class="col-lg-4 col-md-6 col-sm-6">
+								<div class="filter__found">
+									<h6>
+										<span>${recipeList.size() }</span> 개의 레시피
+									</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="recipelist">
+						<c:forEach items="${recipeList }" var="list">
+							<div class="col-lg-4 col-md-6 col-sm-6">
+								<div class="product__item">
+									<div class="product__item__pic set-bg"
+										data-setbg="<c:url value='../resources/img${list.recipe_title_img }'/>">
+										<ul class="product__item__pic__hover">
+											<li><a
+												href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"><i
+													class="fa fa-heart"></i></a></li>
+										</ul>
+									</div>
+									<div class="product__item__text">
+										<h6>
+											<a
+												href="<c:url value='/recipedetails/${list.recipe_name}'/>">${list.recipe_name }</a>
+										</h6>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Product Section End -->
 
-    <!-- Footer Section Begin -->
-    <%@ include file="./footer.jsp"%>
-    <!-- Footer Section End -->
-    
-    <!-- Js Plugins -->
-    <script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
+	<!-- Footer Section Begin -->
+	<%@ include file="./footer.jsp"%>
+	<!-- Footer Section End -->
+
+	<!-- Js Plugins -->
+	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
 	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
 	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
 	<script src="<c:url value='/resources/js/jquery-ui.min.js' />"></script>
