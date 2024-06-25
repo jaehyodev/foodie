@@ -32,7 +32,7 @@ function showPopup(message) {
     closeButton.style.transition = 'background-color 0.3s';
     closeButton.addEventListener('click', popupConfirm);
 
-    function popupConfirm() {
+  function popupConfirm() {
        if(message=="로그인을 해주세요.")
            window.location.href = '/foodie/login';
        else if(message=="수정되었습니다"){
