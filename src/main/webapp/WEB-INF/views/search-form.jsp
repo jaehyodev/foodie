@@ -9,7 +9,7 @@
 		</form>
 	</div>
 	<div class="hero__search__phone">
-		<div class="hero__search__phone__icon">
+		<div class="hero__search__phone__icon" onclick="openChatbot()">
 			<i class="fa fa-comments"></i>
 		</div>
 		<div class="hero__search__phone__text">
