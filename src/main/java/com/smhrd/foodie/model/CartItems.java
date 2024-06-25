@@ -15,5 +15,9 @@ public class CartItems {
 	private int ingre_price;
 	private String mem_id;
 	private int ingre_cnt;
+	private int basket_idx;
+	private int total_amount;
+	private String order_addr;
+	private int order_idx;
 	
 }
