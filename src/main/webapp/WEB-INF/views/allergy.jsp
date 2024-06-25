@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -157,54 +158,56 @@
 				</div>
 				<div class="col-lg-9">
 					<div class="mypage__content">
-						<form action="updateAllergy" method="post">
+
+
+						<form action="/foodie/updateAllergy" method="post">
 							<div class="allergy-container">
-							<p>session에 저장되어 있는 사용자 ID : ${Member.mem_id}</p>
-							<p>list 인덱스 0이 가지고 있는 allergy_idx의 값 : ${allergyIdx}</p>
+								<p>session에 저장되어 있는 사용자 ID : ${member.mem_id}</p>
+								<p>list 인덱스 0이 가지고 있는 allergy_idx의 값 : ${allergyIdx}</p>
 								<table>
 									<thead>
 										<tr>
 											<th colspan="4"><h3>알레르기</h3></th>
 										</tr>
 									</thead>
-									
 
-									
+									<input type="hidden" name="deleteAllergy" id="deleteAllergy"
+										value="">
+									<input type="hidden" name="deleteDislike" id="deleteDislike"
+										value="">
+
+
+
 									<tbody>
-										<tr>
-											<td><label><input type="checkbox" name="allergy_list" value="1" checked="on">알류</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="2" checked="on">우유</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="3">메밀</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="4">땅콩</label></td>
-										</tr>
-										<tr>
-											<td><label><input type="checkbox" name="allergy_list" value="5">대두</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="6">밀</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="7">고등어</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="8">게</label></td>
-										</tr>
-										<tr>
-											<td><label><input type="checkbox" name="allergy_list" value="9">새우</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="10">돼지고기</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="11">소고기</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="12">닭고기</label></td>
-										</tr>
-										<tr>
-											<td><label><input type="checkbox" name="allergy_list" value="13">복숭아</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="14">토마토</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="15">호두</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="16">잣</label></td>
-										</tr>
-										<tr>
-											<td><label><input type="checkbox" name="allergy_list" value="17">오징어</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="18">조개류</label></td>
-											<td></td>
-											<td></td>
-										</tr>
+										<c:forEach var="allergy" items="${allergyInfo}"
+											varStatus="status">
+											<c:if test="${status.index % 4 == 0}">
+												<tr>
+											</c:if>
+											<td><label> <input type="checkbox"
+													name="allergy_list" value="${status.index + 1}"
+													<c:forEach var="joinAllergyIdx" items="${joinAllergyIdx}">
+                          						 						<c:if test="${joinAllergyIdx.allergy_idx == status.index + 1}">
+                             						 						checked="on" 
+                           												</c:if>
+                       												</c:forEach>>
+													${allergy.allergy_name}
+											</label></td>
+											<c:if test="${status.index % 4 == 3 or status.last}">
+												</tr>
+											</c:if>
+										</c:forEach>
 									</tbody>
 								</table>
 
+
+
+
 								<div style="height: 55px;"></div>
+
+
+
+
 
 								<table>
 									<thead>
@@ -212,14 +215,26 @@
 											<th colspan="5"><h3>비선호 식재료</h3></th>
 										</tr>
 									</thead>
+
 									<tbody>
-										<tr>
-											<td><label><input type="checkbox" name="dislike_list" value="1">당근</label></td>
-											<td><label><input type="checkbox" name="dislike_list" value="2">버섯</label></td>
-											<td><label><input type="checkbox" name="dislike_list" value="3">생강</label></td>
-											<td><label><input type="checkbox" name="dislike_list" value="4">아보카도</label></td>
-											<td><label><input type="checkbox" name="dislike_list" value="5">오이</label></td>
-										</tr>
+										<c:forEach var="dislike" items="${dislikeInfo}"
+											varStatus="status">
+											<c:if test="${status.index % 5 == 0}">
+												<tr>
+											</c:if>
+											<td><label> <input type="checkbox"
+													name="dislike_list" value="${status.index + 1}"
+													<c:forEach var="joinDislikeIdx" items="${joinDislikeIdx}">
+                          						 						<c:if test="${joinDislikeIdx.dislike_idx == status.index + 1}">
+                             						 						checked="on" 
+                           												</c:if>
+                       												</c:forEach>>
+													${dislike.dislike_name}
+											</label></td>
+											<c:if test="${status.index % 5 == 4 or status.last}">
+												</tr>
+											</c:if>
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>
@@ -232,6 +247,39 @@
 						</form>
 
 						<p>알레르기와 비선호 식품을 필터링하여 재료를 추천합니다.</p>
+
+						  <script>
+  							  // 현재 위치에서 /foodie/updateAllergy 액션을 가진 폼을 form 변수에 저장
+  							  const form = document.querySelector('form[action="/foodie/updateAllergy"]');
+
+							  // id가 deleteAllergy인 hidden input 태그를 찾아감
+							  const deleteAllergy = document.getElementById('deleteAllergy');
+							  const deleteDislike = document.getElementById('deleteDislike');
+
+							  form.addEventListener('submit', function(event) {
+							
+							  // 현재 문서에서 name이 allergy_list인 모든 input 요소들을 선택하여 변수에 저장
+							  const allergy_list = document.querySelectorAll('input[name="allergy_list"]');
+							  // 현재 문서에서 name이 dislike_list인 모든 input 요소들을 선택하여 변수에 저장
+							  const dislike_list = document.querySelectorAll('input[name="dislike_list"]');
+							
+					          // 체크 해제된 알레르기의 value 값을 배열로 변환
+						      const uncheckAllergy = Array.from(allergy_list)
+						      .filter(checkbox => !checkbox.checked)
+						      .map(checkbox => checkbox.value);
+							
+				    		  // 체크 해제된 비선호 식재료의 value 값을 배열로 변환
+							  const uncheckDislike = Array.from(dislike_list)
+					          .filter(checkbox => !checkbox.checked)
+						      .map(checkbox => checkbox.value);
+							
+				    		  // 체크 해제된 알레르기 값들을 쉼표로 구분된 문자열로 변환하여 hidden input에 저장
+						      deleteAllergy.value = uncheckAllergy.join(',');
+							
+						      // 체크 해제된 비선호 식재료 값들을 쉼표로 구분된 문자열로 변환하여 hidden input에 저장
+						      deleteDislike.value = uncheckDislike.join(',');
+							  });
+						  </script>
 
 					</div>
 				</div>

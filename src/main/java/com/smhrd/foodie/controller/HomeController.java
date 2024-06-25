@@ -41,12 +41,6 @@ public class HomeController {
 		return "login";
 	}
 
-	// 마이페이지
-	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-	public String myPage() {
-		return "mypage";
-	}
-
 	// 마이페이지에서 회원 정보 변경 페이지
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public String update() {

@@ -17,7 +17,6 @@
 	rel="stylesheet">
 
 <!-- Css Styles -->
-<<<<<<< HEAD
 <link rel="stylesheet"
 	href="<c:url value='/resources/css/bootstrap.min.css'/>"
 	type="text/css">
@@ -202,7 +201,7 @@
 											<td><label><input type="checkbox" name="allergy_list" value="1">알류</label></td>
 											<td><label><input type="checkbox" name="allergy_list" value="2">우유</label></td>
 											<td><label><input type="checkbox" name="allergy_list" value="3">메밀</label></td>
-											<td><label><input type="checkbox" name="allergy_liste" value="4">땅콩</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="4">땅콩</label></td>
 										</tr>
 										<tr>
 											<td><label><input type="checkbox" name="allergy_list" value="5">대두</label></td>
