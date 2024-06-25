@@ -136,7 +136,7 @@
 										<td>
 											<div class="wishlist__img">
 												<a href="#"><img
-													src="<c:url value='/resources/img/recipe/${recipe.recipe_title_img}'/>"
+													src="<c:url value='/resources/img${recipe.recipe_title_img}'/>"
 													alt="${recipe.recipe_name}"> </a>
 											</div>
 										</td>
@@ -170,7 +170,7 @@
 										<td>
 											<div class="wishlist__img">
 												<a href="#"><img
-													src="<c:url value='/resources/img/${ingredient.ingre_img}'/>"
+													src="<c:url value='/resources/img${ingredient.ingre_img}'/>"
 													alt="${ingredient.ingre_name}"> </a>
 											</div>
 										</td>
