@@ -223,28 +223,4 @@
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 </body>
-<script>
-	function search() {
-		var keyword = document.getElementById("input-search").value;
-		if (keyword.trim() !== "") {
-			var baseUrl = "<c:url value='/search/' />";
-			var url = baseUrl + encodeURIComponent(keyword);
-			location.href = url;
-		} else {
-			alert("검색어를 입력해주세요.");
-		}
-	}
-
-	function setupSearch() {
-		var input = document.getElementById("input-search");
-		input.addEventListener("keydown", function(event) {
-			if (event.key === "Enter") {
-				event.preventDefault();
-				search();
-			}
-		});
-	}
-
-	window.onload = setupSearch;
-</script>
 </html>
