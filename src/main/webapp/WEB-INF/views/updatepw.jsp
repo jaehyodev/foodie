@@ -119,25 +119,31 @@
 				</div>
 				<div class="col-lg-9">
 					<div class="mypage__content">
+					
 						<h2>비밀번호 변경</h2>
-						<form action="updatePassword" method="post">
+						
+						<form action="/foodie/updatePw.do" method="post">
 							<%-- 비밀번호 변경 처리 서블릿으로 연결 --%>
+							
 							<div class="form-group">
-								<label for="currentPassword">현재 비밀번호:</label> <input
-									type="password" id="currentPassword" name="currentPassword"
-									required>
+								<label for="curPw">현재 비밀번호:</label>
+								<input type="password" id="curPw" name="curPw" required>
 							</div>
+							
 							<div class="form-group">
-								<label for="newPassword">새로운 비밀번호:</label> <input
-									type="password" id="newPassword" name="newPassword" required>
+								<label for="newPw">새로운 비밀번호:</label>
+								<input type="password" id="newPw" name="newPw" required>
 							</div>
+							
 							<div class="form-group">
-								<label for="confirmPassword">새로운 비밀번호 확인:</label> <input
-									type="password" id="confirmPassword" name="confirmPassword"
-									required>
+								<label for="pwCheck">새로운 비밀번호 확인:</label>
+								<input type="password" id="pwCheck" name="pwCheck" required>
 							</div>
+							
 							<button type="submit" class="site-btn">변경 완료</button>
+						
 						</form>
+						
 					</div>
 				</div>
 			</div>
