@@ -113,7 +113,7 @@
 
 							</div>
 							<h5>
-								<a href="<c:url value='/recipedetails/${recipe.recipe_name}'/>">${recipe.recipe_name}</a>
+								<a href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
 							</h5>
 						</div>
 					</c:forEach>
@@ -140,7 +140,7 @@
 
 							</div>
 							<h5>
-								<a href="<c:url value='/recipedetails/${recipe.recipe_name}'/>">${recipe.recipe_name}</a>
+								<a href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
 							</h5>
 						</div>
 					</c:forEach>
@@ -176,7 +176,7 @@
 								</ul>
 								<h5>
 									<!-- 레시피 이름을 동적으로 설정 -->
-									<a href="<c:url value='/recipedetails/${recipe.recipe_name}'/>">${recipe.recipe_name}</a>
+									<a href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
 								</h5>
 								<p>${recipe.recipe_content}</p>
 							</div>
