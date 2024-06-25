@@ -32,17 +32,19 @@ function showPopup(message) {
     closeButton.style.transition = 'background-color 0.3s';
     closeButton.addEventListener('click', popupConfirm);
 
-  function popupConfirm() {
-       if(message=="로그인을 해주세요.")
+    function popupConfirm() {
+       if(message=="로그인을 해주세요."){
+             popupContainer.remove();          
            window.location.href = '/foodie/login';
+       }    
        else if(message=="수정되었습니다"){
-       		popupContainer.remove();
-       		window.location.reload();
-       }else if(message=="주문이 완료되었습니다"){
-       		window.location.href = `/foodie/success/\rsp.merchant_uid`;
+             popupContainer.remove();
+             window.location.reload();
        }      
-       else
-       		popupContainer.remove(); // 예시로 현재 창을 닫는 동작만 수행
+       else{
+             popupContainer.remove(); // 예시로 현재 창을 닫는 동작만 수행
+             window.location.reload();
+       }
     }
 
     popupContainer.appendChild(popupMessage);
@@ -50,7 +52,7 @@ function showPopup(message) {
     document.body.appendChild(popupContainer);
 }
 
-function showPopup(message, merchant_uid) {
+function showIdPopup(message, merchant_uid) {
     const popupContainer = document.createElement('div');
     popupContainer.id = 'popup-container';
     popupContainer.style.position = 'fixed';
@@ -86,10 +88,10 @@ function showPopup(message, merchant_uid) {
 
     function popupConfirm() {
        if(message=="주문이 완료되었습니다"){
-       		window.location.href = '/foodie/success/'+merchant_uid;
+             window.location.href = '/foodie/success/'+merchant_uid;
        }      
        else
-       		popupContainer.remove(); // 예시로 현재 창을 닫는 동작만 수행
+             popupContainer.remove(); // 예시로 현재 창을 닫는 동작만 수행
     }
 
     popupContainer.appendChild(popupMessage);

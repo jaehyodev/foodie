@@ -118,8 +118,7 @@ h4 {
 
 h5 a {
 	font-size: 21px;
-	color: #000000d4;
-	
+	color: #000000;
 }
 
 h6 {
@@ -3725,15 +3724,29 @@ transparent
 }
 
 .header__wishlist__cart {
-	width: 200px;
+	
 	height: 48px;
-	line-height: 48px;
-	font-size: var(--text-3xl);
+	font-size: var(--text-4xl);
+	float: right;
+	display: flex;
+  justify-content: center;
 }
 .header__wishlist {
+	height: 100%;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
+	text-align: center;
+}
+.header__cart {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+}
+.header__wishlist__cart a {
+	color: #000000;
 }
 
 /* 박준식 - 마이페이지 */
@@ -3821,4 +3834,33 @@ transparent
    padding-bottom: 100%;
    position: relative;
    overflow: hidden;
+}
+
+/* 홍지연 */
+.img, input, button {
+	vertical-allign: top;
+}
+.fieldset, img, button {
+	border:0;
+}
+.img[Attributes Style] {
+	width:50px;
+}
+.img {
+	overflow-olip-margin:content-box;
+	overflow:olip;
+}
+#btn_ai {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+#btn_top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
 }

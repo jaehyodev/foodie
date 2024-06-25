@@ -101,109 +101,44 @@
                         <div class="section-title">
                         <h2>주문이 정상적으로 완료되었습니다!</h2>						
 						</div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__table">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>주문번호</th>
-                                    <th>${member.order_idx}</th>
-                                </tr>
-                            </thead>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="shoping__cart__table">
+						<table>
+							<thead>
+								<tr>
+									<th>주문번호</th>
+									<th>${cartItems.order_idx}</th>
+								</tr>
+							</thead>
 							<tbody>
 								<tr>
-								<th>배송지정보</th>
-								<td>${member.mem_addr}</td>
+									<th>배송지정보</th>
+									<td>${cartItems.order_addr}</td>
 								</tr>
 								<tr>
-								<th>주문일시</th>
-								<td>${member.ordered_at}</td>
+									<th>주문일시</th>
+									<td>${cartItems.ordered_at}</td>
 								</tr>
 								<tr>
-								<th>결제금액</th>
-								<td>${member.total_amount}원</td>
+									<th>결제금액</th>
+									<td>${cartItems.total_amount}원</td>
 								</tr>
-								
-								
-										<c:forEach items="${cartList}" var="list">
-											<tr>
-												<td class="shoping__cart__item"><img
-													src="<c:url value='./resources/img${list.ingre_img }'/>"
-													alt="${list.ingre_name}"
-													style="max-width: 30%; height: auto;">
-													<h5>${list.ingre_name}</h5></td>
-												<td class="shoping__cart__quantity">
-													<div class="quantity">
-														<div class="pro-qty">
-															<input type="text" value="${list.ingre_cnt}" name="cntValue">
-														</div><br>
-														<input type="hidden" value="${list.basket_idx}" name="idxValue">
-													</div>
-												</td>
-												<td class="shoping__cart__total">${list.ingre_price*list.ingre_cnt}원</td>
-												<!-- 해당항목삭제 -->
-												<td class="shoping__cart__item__close"><a
-													href="delete.do/${list.ingre_idx}/${list.mem_id}"><span
-														class="icon_close"></span></a></td>
-											</tr>
-										</c:forEach>
-										<!-- 반복문 끝 -->							
 							</tbody>
 						</table>
-                    </div>
-                </div>
-            </div>
-						<div class="col-lg-12">
-						<span style="display: block; text-align: center;">
-						<a href="mypage" class="primary-btn">주문내역확인하기</a>
-						</span>
-						</div>
-            
-            <c:choose>
-            	<c:when test="${empty member}"></c:when>
-            	<c:otherwise>
-            		<div class="row">
-                <div class="col-lg-12">
-                    <div class="shoping__cart__btns">
-                        <a href="javascript:continueShopping()" class="primary-btn cart-btn">쇼핑 계속하기</a>
-                      	<a href="javascript:updateCart()" class="primary-btn cart-btn cart-btn-right">장바구니 수정</a>
-                    </div>
-                </div>
-                <div class="col-lg-6"></div>
-               
-                <div class="col-lg-6">
-                    <div class="shoping__checkout">
-                        <h5>총 결제금액</h5>
-                        <ul>
-                            <c:choose>
-                            	<c:when test="${sum>=50000}">
-                            		<li>상품금액 <span>${sum}원</span></li>
-                            		<li>배송비 <span>무료배송</span></li>
-                            		<li>결제예정금액 <span>${sum}원</span></li>
-                            	</c:when>
-                            	<c:when test="${sum<50000}">
-                            		<li>상품금액 <span>${sum}원</span></li>
-                            		<li>배송비 <span>3000원</span></li>
-                            		<li>결제예정금액 <span>${sum+3000}원</span></li>
-                            	</c:when>
-                            	<c:otherwise>
-                            		<li>상품금액 <span>0원</span></li>
-                            		<li>배송비 <span>0원</span></li>
-                            		<li>결제예정금액 <span>0원</span></li>
-                            	</c:otherwise>                           	
-                            </c:choose>
-                        </ul>
-                        <a href="checkout" class="primary-btn">구매하기</a>
-                    </div>
-                </div>
-            </div>
-            	</c:otherwise>
-            </c:choose>
-            
-        </div>
-    </section>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12">
+				<span style="display: block; text-align: center;">
+					<a href="<c:url value='/mypage' />" class="primary-btn">주문내역확인하기</a>
+				</span>
+			</div>
+
+
+		</div>
+	</section>
     <!-- Shoping Cart Section End -->
 
 

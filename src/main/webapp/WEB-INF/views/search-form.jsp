@@ -9,8 +9,8 @@
 		</form>
 	</div>
 		<div class="header__wishlist__cart">
-				<div class="header__wishlist"><a href=<c:url value='/wishlist'/>><i class="fa fa-heart"></i></a><span>찜 목록</span></div>
-				<div class="header__cart"><a href=<c:url value='/cart'/>><i class="fa fa-shopping-bag"></i></a><span>장바구니</span></div>
+				<div class="header__wishlist ml-5"><a href=<c:url value='/wishlist'/>><i class="fa fa-heart"></i></a></div>
+				<div class="header__cart ml-5"><a href=<c:url value='/cart'/>><i class="fa fa-shopping-bag"></i></a></div>
 		</div>
 <!-- 		<div class="hero__search__phone__icon" onclick="openChatbot()">
 			<i class="fa fa-comments"></i>

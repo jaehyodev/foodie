@@ -192,9 +192,7 @@
                             		<li>결제예정금액 <span>${sum+3000}원</span></li>
                             	</c:when>
                             	<c:otherwise>
-                            		<li>상품금액 <span>0원</span></li>
-                            		<li>배송비 <span>0원</span></li>
-                            		<li>결제예정금액 <span>0원</span></li>
+                            		<li>로그인 후 이용해주세요</span></li>                           		
                             	</c:otherwise>                           	
                             </c:choose>
                         </ul>
@@ -226,22 +224,19 @@
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
 	
 	<script>
+	//장바구니 수정하기
 	function updateCart(){
 		
-		var cntValues = document.getElementsByName("cntValue");
+		var cntValues = document.getElementsByName("cntValue");//주문 수량
 		var cartValues = [];
-		var idxValues = document.getElementsByName("idxValue");
+		var idxValues = document.getElementsByName("idxValue");//장바구니 idx
 		var basketValues = [];
-		//console.log(cntValue);
+		
 		for(var i=0; i<cntValues.length; i++){
-			//console.log(cntValues[i].value);
 			cartValues.push(cntValues[i].value);
 			basketValues.push(idxValues[i].value);
 		}
-		//console.log(cntValues);
-		//console.log(values);
-		console.log(cartValues);
-		console.log(basketValues);
+		
 	 	 $.ajax({
 			url : "updateCart.do",
 			type : "get",
@@ -258,9 +253,9 @@
 	}
 	//계속 쇼핑하기
 	function continueShopping(){
-		history.back();//이전 페이지로 이동
-	}
-	
+		history.back(); //이전 페이지로 이동
+	}	
 	</script>
+	
 </body>
 </html>

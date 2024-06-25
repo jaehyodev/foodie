@@ -28,9 +28,5 @@
 	insert into order_info (order_idx,mem_id,total_amount,order_addr) values (#{order_idx},#{mem_id},#{total_amount},#{order_addr})
 	</insert>
 	
- 	<!-- 주문완료 정보 출력 -->
- 	<select id="orderInfo" parameterType="com.smhrd.foodie.model.CartItems" resultType="com.smhrd.foodie.model.CartItems">
- 	select order_idx,mem_id,ordered_at,order_addr from order_info where order_idx = #{order_idx}
- 	</select>
  	
  </mapper>
