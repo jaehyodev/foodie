@@ -33,21 +33,8 @@ public class MemberController {
          @RequestParam("mem_tel") String mem_tel, @RequestParam("mem_addr") String mem_addr,
          @RequestParam("allergy_list") List<String> allergy_list, @RequestParam("dislike_name") List<String> dislike_name) {
       
-      System.out.println("응답받은 mem_id : " + mem_id);
-      System.out.println("응답받은 mem_pw : " + mem_pw);
-      System.out.println("응답받은 mem_pwck : " + mem_pwck);
-      System.out.println("응답받은 mem_email : " + mem_email);
-      System.out.println("응답받은 mem_tel : " + mem_tel);
-      System.out.println("응답받은 mem_addr : " + mem_addr);
-      System.out.println("응답받은 allergy_list : " + allergy_list);
-      System.out.println("응답받은 dislike_name : " + dislike_name);
-      
       Member member = new Member(mem_id, mem_pw, mem_pwck, mem_email, mem_tel, mem_addr);
-      System.out.println("member 값 : " + member);
 
-      
-    
-      
       // sql문 실행
       // 1. mapper에 있는 userJoin 메소드 실행
       // 흐름 : contoller -> 인터페이스 -> xml -> controller로 값 반환
@@ -63,11 +50,6 @@ public class MemberController {
 //      mapper.allergy(Map.of("mem_id", member.getMem_id(), "allergy_name", member.getAllergy_name()));
 //      mapper.dislike(Map.of("mem_id", member.getMem_id(), "dislike_name", member.getDislike_name()));
 
-      
-
-      
-      System.out.println("insert 반환 값 : " + row);
-      
       if(row > 0) {
          System.out.println("회원가입 성공");
       }else {
@@ -80,10 +62,6 @@ public class MemberController {
     	  MemberAllergy memberAllergy = new MemberAllergy(mem_id, Integer.parseInt(allergy_list.get(i)));
     	  mapper.allergy(memberAllergy);
     	  rowAllergy++; 
-      }
-      // 총 몇개의 알러지가 들어갔는 지 확인하기
-      for (int i = 0; i < rowAllergy; i++) {
-          System.out.println("알러지 추가");
       }
       
       return "login";

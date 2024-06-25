@@ -59,29 +59,33 @@
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
 						<ul>
-							<li><a href="#">주부 레시피</a></li>
-							<li><a href="#">키즈 레시피</a></li>
-							<li><a href="#">자취생 레시피</a></li>
-							<li><a href="#">다이어트 레시피</a></li>
-							<li><a href="#">캠핑 레시피</a></li>
-							<li><a href="#">파티 레시피</a></li>
-							<li><a href="recipe">야식 레시피</a></li>
-							<li><a href="shopgrid">재료 사러가기</a></li>
+							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
+							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
+							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
+							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
+							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
+							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
+							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
+							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
 						</ul>
 					</div>
 				</div>
-				<!-- Header Section Begin -->
-				<%@ include file="./search.jsp"%>
-				<!-- Header Section End -->
-				<div class="hero__item set-bg"
-					data-setbg="resources/img/hero/banner.jpg">
-					<div class="hero__text">
-						<span>쉽고 빠르게 따라 할 수있는!</span>
-						<h2>
-							새내기 요리사 <br />파티 레시피
-						</h2>
-						<p></p>
-						<a href="#" class="primary-btn">파티 레시피 보기</a>
+
+				<div class="col-lg-9">
+					<!-- Search Section Begin -->
+					<%@ include file="./search-form.jsp"%>
+					<!-- Search Section End -->
+
+					<div class="hero__item set-bg"
+						data-setbg="resources/img/hero/banner.jpg">
+						<div class="hero__text">
+							<span>쉽고 빠르게 따라 할 수있는!</span>
+							<h2>
+								새내기 요리사 <br />파티 레시피
+							</h2>
+							<p></p>
+							<a href="#" class="primary-btn">파티 레시피 보기</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -98,7 +102,7 @@
 					<li>푸디에서 많은 분들이 찾아본 인기 레시피를 소개합니다.</li>
 				</ul>
 			</div>
- 			<div class="row">
+			<div class="row">
 				<div class="categories__slider owl-carousel">
 					<c:forEach var="recipe" items="${popularList}">
 						<div class="col-lg-3">
@@ -112,7 +116,7 @@
 						</div>
 					</c:forEach>
 				</div>
-			</div> 
+			</div>
 		</div>
 	</section>
 	<section class="categories">
@@ -125,7 +129,7 @@
 					<li>푸디가 제안하는 레시피로 최고의 요리를 만들어보세요.</li>
 				</ul>
 			</div>
- 			<div class="row">
+			<div class="row">
 				<div class="categories__slider owl-carousel">
 					<c:forEach var="recipe" items="${recommendedList}">
 						<div class="col-lg-3">
@@ -139,7 +143,7 @@
 						</div>
 					</c:forEach>
 				</div>
-			</div> 
+			</div>
 		</div>
 	</section>
 	<!-- Blog Section Begin -->
@@ -154,7 +158,7 @@
 			</div>
 			<div class="row">
 				<!-- JSTL을 사용하여 newList를 동적으로 렌더링합니다. -->
-				 <c:forEach var="recipe" items="${newList}">
+				<c:forEach var="recipe" items="${newList}">
 					<div class="col-lg-4 col-md-4 col-sm-6">
 						<div class="blog__item">
 							<div class="blog__item__pic">
@@ -166,7 +170,7 @@
 							<div class="blog__item__text">
 								<ul>
 									<!-- 날짜를 동적으로 설정 -->
-									<li><i class="fa fa-calendar-o"></i></li>
+									<li><i class="fa fa-calendar-o"></i> July 7,2024</li>
 								</ul>
 								<h5>
 									<!-- 레시피 이름을 동적으로 설정 -->
@@ -176,8 +180,8 @@
 							</div>
 						</div>
 					</div>
-				</c:forEach> 
-			</div> 
+				</c:forEach>
+			</div>
 		</div>
 	</section>
 	<!-- Blog Section End -->
@@ -195,11 +199,8 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
-	<script>
-		function openChatbot() {
-			window.open("/foodie/chatbot", "ChatGPT openAI Chatbot",
-					"width=400,height=600");
-		}
-	</script>
+	<script src="<c:url value='/resources/js/search.js' />"></script>
+	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+
 </body>
 </html>

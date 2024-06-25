@@ -45,8 +45,6 @@ public class HomeController {
     model.addAttribute("newList", newList);
     model.addAttribute("recommendedList", recommendedList);
     
-    // 인기 있는 레시피 목록을 콘솔에 출력합니다.
-    System.out.println("인기 리스트 : " + popularList);
 		return "index";
 	}
 

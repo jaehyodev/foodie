@@ -32,7 +32,6 @@ public class CartController {
 		List<CartItems> cartList = mapper.list(CartItems);
 		model.addAttribute("cartList",cartList);
 		
-		//System.out.println(cartList);
 		//cartList.get(0).getIngre_price()
 		
 		return "shopping-cart";
