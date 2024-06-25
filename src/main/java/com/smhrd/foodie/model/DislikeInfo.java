@@ -1,7 +1,5 @@
 package com.smhrd.foodie.model;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MemberDislike {
+public class DislikeInfo {
 	
-	private String mem_id;
+	private String dislike_name;
 	private int dislike_idx;
+	
 }

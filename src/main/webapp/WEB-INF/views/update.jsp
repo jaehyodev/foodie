@@ -116,27 +116,36 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <div class="mypage__content">
+                    <div class="mypage__content"
+                    
+                    
+                    >
                         <h2>개인 정보 수정</h2>
-                        <form action="updateUserInfo" method="post"> <%-- 수정 처리 서블릿으로 연결 --%>
+                        
+                        
+                        
+                        <form action="/foodie/update.do" method="post"> <%-- 수정 처리 서블릿으로 연결 --%>
                             <div class="form-group">
-                                <label for="username">이름:</label>
-                                <input type="text" id="username" name="username" value="<%= session.getAttribute("username") %>" required>
+                                <label for="name">이름:</label>
+                                <input type="text" id="name" name="mem_name" value="${member.mem_name}" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">이메일:</label>
-                                <input type="email" id="email" name="email" value="<%= session.getAttribute("email") %>" required>
+                                <input type="email" id="email" name="mem_email" value="${member.mem_email}" required>
                             </div>
                             <div class="form-group">
-                                <label for="phone">휴대폰 번호:</label>
-                                <input type="tel" id="phone" name="phone" value="<%= session.getAttribute("phone") %>" required>
+                                <label for="tel">휴대폰 번호:</label>
+                                <input type="tel" id="tel" name="mem_phone" value="${member.mem_phone}" required>
                             </div>
                             <div class="form-group">
-                                <label for="address">주소:</label>
-                                <input type="text" id="address" name="address" value="<%= session.getAttribute("address") %>" required>
+                                <label for="addr">주소:</label>
+                                <input type="text" id="addr" name="mem_addr" value="${member.mem_addr}" required>
                             </div>
-                            <button type="submit" class="site-btn">수정 완료</button>
+                            <button type="submit" class="site-btn">수정하기</button>
                         </form>
+                        
+                        
+                        
                     </div>
                 </div>
             </div>
