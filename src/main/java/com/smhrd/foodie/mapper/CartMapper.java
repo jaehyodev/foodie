@@ -17,10 +17,15 @@ public interface CartMapper {
 	int deleteItem(CartItems cartItems);
 	
 	//회원정보 불러오기
-	@Select("select mem_name, mem_phone, mem_email, mem_addr from member_info where mem_id = #{mem_id}")
+	@Select("select mem_name,mem_phone,mem_email,mem_addr from member_info where mem_id = #{mem_id}")
 	Member checkoutInfo(String mem_id);
-
 	
+	//장바구니 목록 수정
+	int updateItem(CartItems cartItems);
 	
+	//결제완료 시 결제정보 저장
+	int checkoutSuccess(CartItems cartItems);
 	
+	//결제완료 창 정보 출력
+	Member orderInfo(int order_idx);
 }
