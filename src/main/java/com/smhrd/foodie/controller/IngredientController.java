@@ -65,16 +65,20 @@ public class IngredientController {
 	@RequestMapping(value={"/shopgrid/{page}/wishIngre", "/shopdetail/wishIngre", "recipedetails/wishIngre"}, method=RequestMethod.GET)
 	public @ResponseBody String recipeWish(@RequestParam("ingre_idx") int ingre_idx, HttpSession session) {
 		Member member = (Member)session.getAttribute("Member");
-		System.out.println(ingre_idx);
 		if(member == null)
 			return "notLogin";
 		else {
 			Wishlist wish = new Wishlist();
 			wish.setRecipe_ingre_idx(ingre_idx);
 			wish.setMem_id(member.getMem_id());
-			if(mapper.checkIngreWish(wish) != null)
+			int row = mapper.checkIngreWish(wish);
+			if(row > 0) {
+				// 찜 목록에서 삭제
+				mapper.delIngreWish(wish);
 				return "inWish";
+			}
 			else {
+				// 찜 목록에 추가
 				mapper.inIngreWish(wish);
 				return "success";
 			}
@@ -91,21 +95,19 @@ public class IngredientController {
 			Wishlist cart = new Wishlist();
 			cart.setRecipe_ingre_idx(ingre_idx);
 			cart.setMem_id(member.getMem_id());
-			if(mapper.checkIngreCart(cart) != null)
-				return "inCart";
-
-			else {
+			int row = mapper.checkIngreCart(cart);
+			if(row > 0)
+				mapper.updateIngreCart(cart);
+			else
 				mapper.inIngreCart(cart);
-				return "success";
-			}
+			return "success";
 		}
 	}
 	
-	// shop-grid -> 카트
+	// shop-detail -> 카트
 	@RequestMapping(value="/shopdetail/currentCart", method=RequestMethod.GET)
 	public @ResponseBody String ingreDetailCart(@RequestParam("ingre_idx") int ingre_idx, @RequestParam("quantity") int quantity, HttpSession session) {
 		Member member = (Member)session.getAttribute("Member");
-		System.out.println(quantity);
 		if(member == null)
 			return "notLogin";
 		else {
@@ -113,12 +115,12 @@ public class IngredientController {
 			cart.setRecipe_ingre_idx(ingre_idx);
 			cart.setMem_id(member.getMem_id());
 			cart.setQuantity(quantity);
-			if(mapper.checkIngreCart(cart) != null)
-				return "inCart";
-				else {
+			int row = mapper.checkIngreCart(cart);
+			if(row > 0)
+				mapper.updateDetailIngreCart(cart);
+			else
 				mapper.inDetailIngreCart(cart);
-				return "success";
-			}
+			return "success";
 		}
 	}
 	

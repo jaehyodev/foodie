@@ -17,7 +17,7 @@ import com.smhrd.foodie.mapper.RecipeMapper;
 import com.smhrd.foodie.model.Ingredient;
 import com.smhrd.foodie.model.Member;
 import com.smhrd.foodie.model.Recipe;
-// import com.smhrd.foodie.model.RecipeAllergy;
+import com.smhrd.foodie.model.RecipeAllergy;
 import com.smhrd.foodie.model.Wishlist;
 
 @Controller
@@ -50,14 +50,17 @@ public class RecipeController {
 			Wishlist wish = new Wishlist();
 			wish.setRecipe_ingre_idx(recipe_idx);
 			wish.setMem_id(member.getMem_id());
-			if(mapper.checkRecipeWish(wish) != null)
+			int row = mapper.checkRecipeWish(wish);
+			if(row > 0) {
+				// 찜 목록에서 삭제
+				mapper.delRecipeWish(wish);
 				return "inWish";
-			else {
+			}else {
+				// 찜 목록에 추가
 				mapper.inRecipeWish(wish);
 				return "success";
 			}
 		}
-		
 	}
 	
 	// 레시피 디테일 페이지 로드
@@ -83,8 +86,8 @@ public class RecipeController {
 		
 		if(member != null) {
 			// 레시피 관련 재료 (회원)
-			// RecipeAllergy recipeAllergy = new RecipeAllergy(member.getMem_id(), recipe_name);
-			// recipe_ingre = mapper.memRecipeIngre(recipeAllergy);
+			RecipeAllergy recipeAllergy = new RecipeAllergy(member.getMem_id(), recipe_name);
+			recipe_ingre = mapper.memRecipeIngre(recipeAllergy);
 		}else {
 			// 레시피 관련 재료 (비회원)
 			recipe_ingre = mapper.recipeIngre(recipe);
@@ -109,8 +112,14 @@ public class RecipeController {
 				Wishlist wish = new Wishlist();
 				wish.setRecipe_ingre_idx(item);
 				wish.setMem_id(member.getMem_id());
-				if(mapper.checkIngreCart(wish) == null)
+				int row =mapper.checkIngreCart(wish);
+				if(row > 0) {
+					// 기존 상품의 수량에 추가로 더함
+					mapper.updateIngreCart(wish);
+				}else {
+					// 새로운 상품을 추가함
 					mapper.inIngreCart(wish);
+				}
 			}
 			return "success";
 		}

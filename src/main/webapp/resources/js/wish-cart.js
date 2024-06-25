@@ -8,7 +8,7 @@ function ingreWishlist(ingre_idx){
 			if (data == "notLogin")
 				showPopup("로그인을 해주세요.");
 			else if (data == "inWish")
-				showPopup("이미 찜에 담겨있습니다.");
+				showPopup("찜 목록에서 삭제되었습니다.");
 			else if (data == "success")
 				showPopup("찜 목록에 추가되었습니다.");
 			else
@@ -29,8 +29,6 @@ function ingreCart(ingre_idx){
 		success : function(data){
 			if (data == "notLogin")
 				showPopup("로그인을 해주세요.");
-			else if (data == "inCart")
-				showPopup("이미 장바구니에 담겨있습니다.");
 			else if (data == "success")
 				showPopup("장바구니 목록에 추가되었습니다.");
 			else
@@ -52,8 +50,6 @@ function ingreDetailCart(ingre_idx){
        	success : function(data){
        		if (data == "notLogin")
        			showPopup("로그인을 해주세요.");
-       	 	else if (data == "inCart")
-       		 	showPopup("이미 장바구니에 담겨있습니다.");
        	 	else if (data == "success")
        		 	showPopup("장바구니 목록에 추가되었습니다.");
        	 	else
@@ -75,7 +71,7 @@ function recipeWishlist(recipe_idx){
        		if (data == "notLogin")
        			showPopup("로그인을 해주세요.");
        	 	else if (data == "inWish")
-       		 	showPopup("이미 찜에 담겨있습니다.");
+       		 	showPopup("찜 목록에서 삭제되었습니다.");
        	 	else if (data == "success")
        		 	showPopup("찜 목록에 추가되었습니다.");
        	 	else

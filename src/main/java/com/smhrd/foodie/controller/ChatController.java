@@ -27,7 +27,7 @@ public class ChatController {
   public ChatController() {
       // 초기 대화 기록 추가
   		conversationHistory.add(new ChatMessage("system", "너의 이름은 '푸', 직업은 세계 최고의 요리사야"));
-      conversationHistory.add(new ChatMessage("system", "유저가 요리에 대해 친절하게 알려줘"));
+      conversationHistory.add(new ChatMessage("system", "유저가 요리에 대해 질문하면 친절하게 알려줘"));
       conversationHistory.add(new ChatMessage("system", "어조: 친절하게, 전문가답게"));
   }
 
@@ -45,10 +45,8 @@ public class ChatController {
 		ChatCompletionResponse response = restTemplate.postForObject("https://api.openai.com/v1/chat/completions",
 				chatCompletionRequest, ChatCompletionResponse.class);
 
-		System.out.println("ChatGPT 통신 중!!!");
 		String responseData = response.getChoices().get(0).getMessage().getContent();
 		conversationHistory.add(new ChatMessage("assistant", responseData));
-		System.out.println(conversationHistory);
 
 		return responseData;
 	}

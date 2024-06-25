@@ -9,7 +9,7 @@ import com.smhrd.foodie.model.Cart;
 import com.smhrd.foodie.model.Ingredient;
 import com.smhrd.foodie.model.Paging;
 import com.smhrd.foodie.model.Recipe;
-// import com.smhrd.foodie.model.RecipeAllergy;
+import com.smhrd.foodie.model.RecipeAllergy;
 import com.smhrd.foodie.model.Wishlist;
 
 @Mapper
@@ -24,10 +24,10 @@ public interface RecipeMapper {
 	List<Recipe> findRecommendedRecipes();
 
 	// 새로운 레시피
-    @Select("SELECT * FROM recipe_info ORDER BY recipe_views_cnt DESC LIMIT 3")
-    List<Recipe> findNewRecipes();
- 	
-    // 레시피 목록
+	@Select("SELECT * FROM recipe_info ORDER BY recipe_views_cnt DESC LIMIT 3")
+	List<Recipe> findNewRecipes();
+	
+	// 레시피 목록
 	@Select("select * from recipe_info where recipe_cat = #{recipe_cat}")
 	List<Recipe> select(String recipe_cat);
 
@@ -56,30 +56,42 @@ public interface RecipeMapper {
 
 	
 	// 레시피 - 찜 기능
-	// 레시피가 찜 목록에 있는지 확인
-	Wishlist checkRecipeWish(Wishlist wish);
+	// 레시피가 찜 목록에 존재하는지 확인
+	int checkRecipeWish(Wishlist wish);
 
-	// 레시피 찜하기
+	// 레시피 찜 추가하기
 	void inRecipeWish(Wishlist wish);
+	
+	// 레시피 찜 삭제하기
+	void delRecipeWish(Wishlist wish);
 	
 	// 재료 - 찜 기능
 	// 재료가 찜 목록에 있는지 확인
-	Wishlist checkIngreWish(Wishlist wish);
+	int checkIngreWish(Wishlist wish);
 	
-	// 재료 찜하기
+	// 재료 찜 추가하기
 	void inIngreWish(Wishlist wish);
+	
+	// 재료 찜 삭제하기
+	void delIngreWish(Wishlist wish);
 	
 	// 재료 - 장바구니 기능
 	// 재료가 장바구니 목록에 있는지 확인
-	Cart checkIngreCart(Wishlist cart);
+	int checkIngreCart(Wishlist cart);
+
+	// 재료 장바구니에 담기 (재료 페이지에서 클릭 시, 기존 상품 업데이트)
+	void updateIngreCart(Wishlist wish);
 	
-	// 재료 장바구니에 담기 (재료 페이지에서 클릭 시)
+	// 재료 장바구니에 담기 (재료 페이지에서 클릭 시, 새 상품 업데이트)
 	void inIngreCart(Wishlist cart);
 	
-	// 재료 장바구니에 담기 (재료 디테일 페이지에서 클릭 시)
+	// 재료 장바구니에 담기 (재료 디테일 페이지에서 클릭 시, 기존 상품 업데이트)
+	void updateDetailIngreCart(Wishlist cart);
+	
+	// 재료 장바구니에 담기 (재료 디테일 페이지에서 클릭 시, 새 상품 업데이트)
 	void inDetailIngreCart(Wishlist cart);
 
 	// 레시피 -> 관련 재료 (알러지 확인)
-	// List<Ingredient> memRecipeIngre(RecipeAllergy recipeAllergy);
+	List<Ingredient> memRecipeIngre(RecipeAllergy recipeAllergy);
 
 }
