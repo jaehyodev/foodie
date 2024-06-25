@@ -201,6 +201,6 @@
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/search.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
-
+	
 </body>
 </html>

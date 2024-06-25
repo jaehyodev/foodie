@@ -6,18 +6,11 @@ import java.util.Locale;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.client.RestTemplate;
 
 import com.smhrd.foodie.mapper.RecipeMapper;
 import com.smhrd.foodie.model.Recipe;
@@ -60,22 +53,21 @@ public class HomeController {
 		return "login";
 	}
 
-	// 마이페이지
-	@RequestMapping(value = "/mypage", method = RequestMethod.GET)
-	public String myPage() {
-		return "mypage";
-	}
-
 	// 마이페이지에서 회원 정보 변경 페이지
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public String update() {
 		return "update";
 	}
-
-	// 알러지 수정 페이지
-	@RequestMapping(value = "/allergy", method = RequestMethod.GET)
-	public String allergy() {
-		return "allergy";
+	
+	@RequestMapping(value = "/updatepw", method = RequestMethod.GET)
+	public String updatePw() {
+		return "updatepw";
+	}
+	
+	// 찜 목록 페이지
+	@RequestMapping(value = "/wishlist", method = RequestMethod.GET)
+	public String wishlist() {
+		return "wishlist";
 	}
 
 	// 회원 탈퇴 페이지
