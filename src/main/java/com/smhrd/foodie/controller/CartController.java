@@ -28,7 +28,6 @@ public class CartController {
 		CartItems CartItems = new CartItems();
 		CartItems.setMem_id("seung");
 		
-		
 		List<CartItems> cartList = mapper.list(CartItems);
 		model.addAttribute("cartList",cartList);
 		
