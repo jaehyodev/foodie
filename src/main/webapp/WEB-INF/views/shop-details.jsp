@@ -85,7 +85,7 @@
     <!-- Product Details Section Begin -->
     <section class="product-details spad">
         <div class="container">
-            <div class="row">
+          <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
@@ -100,17 +100,20 @@
                         <h3>${ingredient.ingre_name }</h3>
                         <!-- 가격 -->
                         <div class="product__details__price">${ingredient.ingre_price }원</div>
-                        <!-- <p>합리적으로 즐기는 오통통한 굴비</p> -->
+	                    <c:forEach items="${ingrecontent }" var="list">
+	                    	<h5 style="line-height: 2.0;">${list }</h5>
+				        </c:forEach>
+				        <br></br>
                         <!-- 수량 -->
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
-                                    <input type="text" value="1">
+                                    <input type="text" value="1" id="quantityInput">
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="primary-btn">장바구니 담기</a>
-                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+                        <a href="<c:url value='javascript:ingreDetailCart(${ingredient.ingre_idx})'/>" class="primary-btn">장바구니 담기</a>
+                        <a href="<c:url value='javascript:ingreWishlist(${ingredient.ingre_idx})'/>" class="heart-icon"><span class="icon_heart_alt"></span></a>
                         <ul>
                             <li><b>중량/용량</b> <span>${ingredient.ingre_weight }</span></li>
                             <li><b>생산연도</b> <span>2024</span></li>
@@ -139,8 +142,8 @@
 	                    <div class="product__item">
 	                        <div class="product__item__pic set-bg" data-setbg="<c:url value='../resources/img${list.ingre_img }'/>">
 	                            <ul class="product__item__pic__hover">
-	                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-	                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+	                                <li><a href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i class="fa fa-heart"></i></a></li>
+	                                <li><a href="<c:url value='javascript:ingreCart(${list.ingre_idx})'/>"><i class="fa fa-shopping-cart"></i></a></li>
 	                            </ul>
 	                        </div>
 	                        <div class="product__item__text">
@@ -168,5 +171,7 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
 </body>
 </html>

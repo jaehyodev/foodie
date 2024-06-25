@@ -101,8 +101,7 @@
 	                        	<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
                             </ul>
                         </div>
-                        <div class="sidebar__item">
-                        </div>
+                        <div class="sidebar__item"></div>
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-7">
@@ -128,8 +127,8 @@
 	                            <div class="product__item">
 	                                <div class="product__item__pic set-bg" data-setbg="<c:url value='../../resources/img${list.ingre_img}'/>">
 	                                    <ul class="product__item__pic__hover">
-	                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-	                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+	                                        <li><a href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i class="fa fa-heart"></i></a></li>
+	                                        <li><a href="<c:url value='javascript:ingreCart(${list.ingre_idx})'/>"><i class="fa fa-shopping-cart"></i></a></li>
 	                                    </ul>
 	                                </div>
 	                                <div class="product__item__text">
@@ -164,5 +163,7 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
 </body>
 </html>

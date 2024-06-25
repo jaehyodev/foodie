@@ -166,14 +166,10 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox"
-													name="allergy_list" value="1">알류</label></td>
-											<td><label><input type="checkbox"
-													name="allergy_list" value="2">우유</label></td>
-											<td><label><input type="checkbox"
-													name="allergy_list" value="3">메밀</label></td>
-											<td><label><input type="checkbox"
-													name="allergy_liste" value="4">땅콩</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="1">알류</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="2">우유</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="3">메밀</label></td>
+											<td><label><input type="checkbox" name="allergy_list" value="4">땅콩</label></td>
 										</tr>
 										<tr>
 											<td><label><input type="checkbox"
@@ -226,16 +222,11 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox"
-													name="dislike_name" value="오이">오이</label></td>
-											<td><label><input type="checkbox"
-													name="dislike_name" value="버섯">버섯</label></td>
-											<td><label><input type="checkbox"
-													name="dislike_name" value="당근">당근</label></td>
-											<td><label><input type="checkbox"
-													name="dislike_name" value="생강">생강</label></td>
-											<td><label><input type="checkbox"
-													name="dislike_name" value="아보카도">아보카도</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="1">당근</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="2">버섯</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="3">생강</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="4">아보카도</label></td>
+											<td><label><input type="checkbox" name="dislike_list" value="5">오이</label></td>
 										</tr>
 									</tbody>
 								</table>
@@ -265,27 +256,8 @@
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<!-- 다음 주소 API -->
-	<script
-		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<!-- 주소 찾기 창 띄우기 -->
-	<script>
-		function daumPost() {
-			new daum.Postcode({
-				oncomplete : function(data) {
-					// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
-					// 각 주소의 노출 규칙에 따라 주소를 조합한다.
-					// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-					var addr = data.roadAddress;
-
-					// 우편번호와 주소 정보를 해당 필드에 넣는다.
-					// document.getElementById('postcode').value = data.zonecode;
-					document.getElementById("addr").value = addr;
-					// 커서를 상세주소 필드로 이동한다.
-					document.getElementById("extraAddr").focus();
-				}
-			}).open();
-		}
-	</script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="<c:url value='/resources/js/find-addr.js' />"></script>
+	
 </body>
 </html>
