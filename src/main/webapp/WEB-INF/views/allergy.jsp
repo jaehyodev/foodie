@@ -58,15 +58,14 @@
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
 						<ul>
-							<li><a href="#">채소</a></li>
-							<li><a href="#">과일</a></li>
-							<li><a href="#">정육</a></li>
-							<li><a href="shopgrid">수산</a></li>
-							<li><a href="#">쌀ㆍ잡곡</a></li>
-							<li><a href="#">면ㆍ오일</a></li>
-							<li><a href="#">우유ㆍ유제품</a></li>
-							<li><a href="#">소스ㆍ조미료</a></li>
-							<li><a href="recipe">레시피</a></li>
+							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
+							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
+							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
+							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
+							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
+							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
+							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
+							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
 						</ul>
 					</div>
 				</div>
@@ -123,8 +122,6 @@
 
 						<form action="/foodie/updateAllergy" method="post">
 							<div class="allergy-container">
-								<p>session에 저장되어 있는 사용자 ID : ${member.mem_id}</p>
-								<p>list 인덱스 0이 가지고 있는 allergy_idx의 값 : ${allergyIdx}</p>
 								<table>
 									<thead>
 										<tr>
@@ -206,8 +203,6 @@
 								<button type="submit" class="site-btn">저장하기</button>
 							</div>
 						</form>
-
-						<p>알레르기와 비선호 식품을 필터링하여 재료를 추천합니다.</p>
 
 						  <script>
   							  // 현재 위치에서 /foodie/updateAllergy 액션을 가진 폼을 form 변수에 저장
