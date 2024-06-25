@@ -219,6 +219,8 @@
         window.scrollTo({top: 0, behavior: 'smooth'});
     });
 	</script>
-	
+	<script>
+        var contextPath = '<%= request.getContextPath() %>';
+    </script>
 </body>
 </html>
