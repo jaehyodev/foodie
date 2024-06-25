@@ -32,8 +32,8 @@ public interface RecipeMapper {
 	List<Recipe> select(String recipe_cat);
 
 	// 해당 레시피
-	@Select("select * from recipe_info where recipe_name = #{recipe_name}")
-	Recipe recipe(String recipe_name);
+	@Select("select * from recipe_info where recipe_idx = #{recipe_idx}")
+	Recipe recipe(int recipe_idx);
 
 	// 레시피 -> 관련 재료
 	List<Ingredient> recipeIngre(Recipe recipe);
@@ -47,12 +47,12 @@ public interface RecipeMapper {
 	int ingreSize(String ingre_cat);
 
 	// 해당 재료
-	@Select("select * from ingredient_info where ingre_name = #{ingre_name}")
-	Ingredient ingredient(String ingre_name);
+	@Select("select * from ingredient_info where ingre_idx = #{ingre_idx}")
+	Ingredient ingredient(int ingre_idx);
 	
 	// 재료 -> 관련 상품
-	@Select("select * from ingredient_info where ingre_cat = (select ingre_cat from ingredient_info where ingre_name = #{ingre_name}) and ingre_name != #{ingre_name} order by RAND() LIMIT 4")
-	List<Ingredient> ingre4(String ingre_name);
+	@Select("select * from ingredient_info where ingre_cat = (select ingre_cat from ingredient_info where ingre_idx = #{ingre_idx}) and ingre_idx != #{ingre_idx} order by RAND() LIMIT 4")
+	List<Ingredient> ingre4(int ingre_idx);
 
 	
 	// 레시피 - 찜 기능

@@ -27,6 +27,11 @@
 
 <body>
 
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
     <!-- Header Section Begin -->
     <%@ include file="./header.jsp"%>
     <!-- Header Section End -->
@@ -85,7 +90,7 @@
     <!-- Product Details Section Begin -->
     <section class="product-details spad">
         <div class="container">
-          <div class="row">
+            <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
@@ -147,7 +152,7 @@
 	                            </ul>
 	                        </div>
 	                        <div class="product__item__text">
-	                            <h6><a href="<c:url value='/shopdetail/${list.ingre_name }'/>">${list.ingre_name }</a></h6>
+	                            <h6><a href="<c:url value='/shopdetail/${list.ingre_idx }'/>">${list.ingre_name }</a></h6>
 	                            <h5>${list.ingre_price }원</h5>
 	                        </div>
 	                    </div>
@@ -161,7 +166,7 @@
     <!-- Footer Section Begin -->
     <%@ include file="./footer.jsp"%>
     <!-- Footer Section End -->
-
+    
     <!-- Js Plugins -->
     <script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
 	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
@@ -172,6 +177,6 @@
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
-	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
+	<script src="<c:url value='/resources/js/wish_cart.js' />"></script>
 </body>
 </html>

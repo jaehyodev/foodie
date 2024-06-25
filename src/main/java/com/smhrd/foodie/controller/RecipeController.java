@@ -34,7 +34,7 @@ public class RecipeController {
 		List<Recipe> recipeList = mapper.select(recipe_cat);
 		model.addAttribute("recipeList", recipeList);
 		
-		Member member = (Member)session.getAttribute("member");
+		Member member = (Member)session.getAttribute("Member");
 		System.out.println(member);
 		
 		return "recipe";
@@ -43,7 +43,7 @@ public class RecipeController {
 	// 레시피, 레시피디테일 -> 찜
 	@RequestMapping(value={"/recipe/wishRecipe", "/recipedetails/wishRecipe"}, method=RequestMethod.GET)
 	public @ResponseBody String recipeWish(@RequestParam("recipe_idx") int recipe_idx, HttpSession session) {
-		Member member = (Member)session.getAttribute("member");
+		Member member = (Member)session.getAttribute("Member");
 		if(member == null)
 			return "notLogin";
 		else {
@@ -64,14 +64,14 @@ public class RecipeController {
 	}
 	
 	// 레시피 디테일 페이지 로드
-	@RequestMapping(value="/recipedetails/{recipe_name}", method=RequestMethod.GET)
-	public String recipeDetail(@PathVariable("recipe_name") String recipe_name, Model model, HttpSession session) {
+	@RequestMapping(value="/recipedetails/{recipe_idx}", method=RequestMethod.GET)
+	public String recipeDetail(@PathVariable("recipe_idx") int recipe_idx, Model model, HttpSession session) {
 		
-		Member member = (Member)session.getAttribute("member");
+		Member member = (Member)session.getAttribute("Member");
 		// model.addAttribute("member", member);
 		
 		// 해당 레시피 불러오기
-		Recipe recipe = mapper.recipe(recipe_name);
+		Recipe recipe = mapper.recipe(recipe_idx);
 		model.addAttribute("recipe", recipe);
 		
 		// 레시피 조리법 \로 분리
@@ -86,11 +86,12 @@ public class RecipeController {
 		
 		if(member != null) {
 			// 레시피 관련 재료 (회원)
-			RecipeAllergy recipeAllergy = new RecipeAllergy(member.getMem_id(), recipe_name);
+			RecipeAllergy recipeAllergy = new RecipeAllergy(member.getMem_id(), recipe.getRecipe_name());
 			recipe_ingre = mapper.memRecipeIngre(recipeAllergy);
 		}else {
 			// 레시피 관련 재료 (비회원)
 			recipe_ingre = mapper.recipeIngre(recipe);
+			
 		}
 		model.addAttribute("recipe_ingre", recipe_ingre);
 		
@@ -100,7 +101,7 @@ public class RecipeController {
 	// 레시피디테일 -> 관련 재료 한번에 장바구니
 	@RequestMapping(value="/recipedetails/allCart", method=RequestMethod.GET)
 	public @ResponseBody String recipeIngre(@RequestParam("checkedItems") List<Integer> checkedItems, HttpSession session) {
-		Member member = (Member)session.getAttribute("member");
+		Member member = (Member)session.getAttribute("Member");
 		for(int i=0; i<checkedItems.size(); i++) {
 			System.out.println(checkedItems.get(i));
 		}

@@ -65,6 +65,7 @@ public class IngredientController {
 	@RequestMapping(value={"/shopgrid/{page}/wishIngre", "/shopdetail/wishIngre", "recipedetails/wishIngre"}, method=RequestMethod.GET)
 	public @ResponseBody String recipeWish(@RequestParam("ingre_idx") int ingre_idx, HttpSession session) {
 		Member member = (Member)session.getAttribute("Member");
+		System.out.println(ingre_idx);
 		if(member == null)
 			return "notLogin";
 		else {
@@ -108,6 +109,7 @@ public class IngredientController {
 	@RequestMapping(value="/shopdetail/currentCart", method=RequestMethod.GET)
 	public @ResponseBody String ingreDetailCart(@RequestParam("ingre_idx") int ingre_idx, @RequestParam("quantity") int quantity, HttpSession session) {
 		Member member = (Member)session.getAttribute("Member");
+		System.out.println(quantity);
 		if(member == null)
 			return "notLogin";
 		else {
@@ -125,11 +127,11 @@ public class IngredientController {
 	}
 	
 	// shop detail 페이지 로드
-	@RequestMapping(value="/shopdetail/{ingre_name}", method=RequestMethod.GET)
-	public String ingreDetail(@PathVariable("ingre_name") String ingre_name, Model model) {
+	@RequestMapping(value="/shopdetail/{ingre_idx}", method=RequestMethod.GET)
+	public String ingreDetail(@PathVariable("ingre_idx") int ingre_idx, Model model) {
 
 		// 재료 상세
-		Ingredient ingredient = mapper.ingredient(ingre_name);
+		Ingredient ingredient = mapper.ingredient(ingre_idx);
 		model.addAttribute("ingredient", ingredient);
 		
 		// 재료 설명 .또는!또는?로 분리
@@ -137,7 +139,7 @@ public class IngredientController {
 		model.addAttribute("ingrecontent", ingrecontent);
 		
 		// 재료 -> 관련 상품(4개)
-		List<Ingredient> ingre4 = mapper.ingre4(ingre_name);
+		List<Ingredient> ingre4 = mapper.ingre4(ingre_idx);
 		model.addAttribute("ingre4", ingre4);
 		
 		return "shop-details";

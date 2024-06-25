@@ -30,6 +30,11 @@
 
 <body>
 
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
     <!-- Header Section Begin -->
     <%@ include file="./header.jsp"%>
     <!-- Header Section End -->
@@ -100,14 +105,14 @@
                     <div class="row">
                     	<div class="col-lg-8 col-md-8">
                     		<!-- 레시피명 -->
-	                        <h3>${recipe.getRecipe_name() }</h3>
+	                        <h3>${recipe.recipe_name }</h3>
 	                        <c:forEach items="${recipecontent }" var="list">
 	                        	<h5 style="line-height: 2.0;">${list }</h5>
-				            			</c:forEach>
+				            </c:forEach>
 	                        <br></br>
                     	</div>
                     	<div class="col-lg-4 col-md-4">
-	                        <a href="#" class="heart-icon"><span class="icon_heart_alt"></span></a>
+	                        <a href="<c:url value='javascript:recipeWishlist(${recipe.recipe_idx})'/>" class="heart-icon"><span class="icon_heart_alt"></span></a>
 	                        
 	                        <ul>
 	                            <li><b>인분 <i class="fa-solid fa-utensils i-recipe"></i></b> <span>${recipe.getRecipe_portion() }인분</span></li>
@@ -144,8 +149,8 @@
                                     <c:forEach items="${recipecook }" var="recipecook" varStatus="loop">
                                     	<p>${loop.index + 1}. ${recipecook }</p>
                                     	<img src="<c:url value='../resources/img/recipe/${recipe.recipe_idx }_${loop.index + 1 }.jpg'/>" alt="">
-                                      <p></p>
-			                    					</c:forEach>
+                                    	<p></p>
+			                    	</c:forEach>
                                 </div>
                             </div>
                         </div>
@@ -193,7 +198,7 @@
 	                            </ul>
 	                        </div>
 	                        <div class="product__item__text">
-	                            <h6><a href="<c:url value='/shopdetail/${list.ingre_name }'/>">${list.ingre_name }</a></h6>
+	                            <h6><a href="<c:url value='/shopdetail/${list.ingre_idx }'/>">${list.ingre_name }</a></h6>
 	                            <h5>${list.ingre_price }원</h5>
 	                        </div>
                     	</div>
@@ -213,7 +218,7 @@
     <!-- Footer Section Begin -->
     <%@ include file="./footer.jsp"%>
     <!-- Footer Section End -->
-
+    
     <!-- Js Plugins -->
     <script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
 	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
@@ -224,6 +229,7 @@
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
-	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
+	<script src="<c:url value='/resources/js/wish_cart.js' />"></script>
+	
 </body>
 </html>

@@ -17,27 +17,14 @@
 	rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/bootstrap.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/font-awesome.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/elegant-icons.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/jquery-ui.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/owl.carousel.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
-<link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
-	type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/font-awesome.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/elegant-icons.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/jquery-ui.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/owl.carousel.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css">
 </head>
 
 <body>
@@ -101,7 +88,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb__text">
-                        <h2>장바구니</h2>
+                        <h2>주문/결제</h2>
                     </div>
                 </div>
             </div>
@@ -111,6 +98,9 @@
 
     <!-- Shoping Cart Section Begin -->
     <section class="shoping-cart spad">
+                        <div class="section-title">
+                        <h2>주문이 정상적으로 완료되었습니다!</h2>						
+						</div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -118,21 +108,25 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="shoping__product">상품</th>
-                                    <th>수량</th>
-                                    <th>가격</th>
-                                    <th></th>
+                                    <th>주문번호</th>
+                                    <th>${member.order_idx}</th>
                                 </tr>
                             </thead>
 							<tbody>
-							<!-- 로그인 시 이용가능 -->
-							<c:choose>
-								<c:when test="${empty member}">
-									<tr>
-									<td colspan=3><h5>로그인 후 이용해주세요</h5></td>
-									</tr>
-								</c:when>
-									<c:otherwise>
+								<tr>
+								<th>배송지정보</th>
+								<td>${member.mem_addr}</td>
+								</tr>
+								<tr>
+								<th>주문일시</th>
+								<td>${member.ordered_at}</td>
+								</tr>
+								<tr>
+								<th>결제금액</th>
+								<td>${member.total_amount}원</td>
+								</tr>
+								
+								
 										<c:forEach items="${cartList}" var="list">
 											<tr>
 												<td class="shoping__cart__item"><img
@@ -155,14 +149,17 @@
 														class="icon_close"></span></a></td>
 											</tr>
 										</c:forEach>
-										<!-- 반복문 끝 -->
-									</c:otherwise>
-								</c:choose>								
+										<!-- 반복문 끝 -->							
 							</tbody>
 						</table>
                     </div>
                 </div>
             </div>
+						<div class="col-lg-12">
+						<span style="display: block; text-align: center;">
+						<a href="mypage" class="primary-btn">주문내역확인하기</a>
+						</span>
+						</div>
             
             <c:choose>
             	<c:when test="${empty member}"></c:when>
@@ -223,44 +220,6 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
-	<script src="<c:url value='/resources/js/popup.js' />"></script>
 	
-	<script>
-	function updateCart(){
-		
-		var cntValues = document.getElementsByName("cntValue");
-		var cartValues = [];
-		var idxValues = document.getElementsByName("idxValue");
-		var basketValues = [];
-		//console.log(cntValue);
-		for(var i=0; i<cntValues.length; i++){
-			//console.log(cntValues[i].value);
-			cartValues.push(cntValues[i].value);
-			basketValues.push(idxValues[i].value);
-		}
-		//console.log(cntValues);
-		//console.log(values);
-		console.log(cartValues);
-		console.log(basketValues);
-	 	 $.ajax({
-			url : "updateCart.do",
-			type : "get",
-			dataType : "json",
-			traditional : true,
-			data : {"cartValues":cartValues,"basketValues":basketValues},
-			success :function(data){
-				console.log(data);
-			},
-			error : function(){
-				showPopup("수정되었습니다");
-			}
-		})   
-	}
-	//계속 쇼핑하기
-	function continueShopping(){
-		history.back();//이전 페이지로 이동
-	}
-	
-	</script>
 </body>
 </html>
