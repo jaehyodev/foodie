@@ -55,7 +55,6 @@
 				<div class="col-lg-3">
 					<div class="hero__categories">
 						<div class="hero__categories__all">
-
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
 						<ul>
@@ -187,6 +186,13 @@
 		</div>
 	</section>
 	<!-- Blog Section End -->
+	
+	<div id="btn_ai">
+		<img src="resources/img/btn_ai.png" alt="인공지능" width="50">
+	</div>
+	<div id="btn_top">
+		<img src="resources/img/btn_top.png" alt="위로" width="50">
+	</div>
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
@@ -203,6 +209,16 @@
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/search.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+	<script>
+    document.getElementById('btn_ai').addEventListener('click', function() {
+        openChatbot();
+    });
+	</script>
+	<script>
+    document.getElementById('btn_top').addEventListener('click', function() {
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+	</script>
 	
 </body>
 </html>
