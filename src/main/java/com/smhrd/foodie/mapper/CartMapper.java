@@ -17,7 +17,7 @@ public interface CartMapper {
 	int deleteItem(CartItems cartItems);
 	
 	//회원정보 불러오기
-	@Select("select mem_name,mem_phone,mem_email,mem_addr from member_info where mem_id = #{mem_id}")
+	@Select("select mem_name, mem_phone, mem_email, mem_addr from member_info where mem_id = #{mem_id}")
 	Member checkoutInfo(String mem_id);
 
 	

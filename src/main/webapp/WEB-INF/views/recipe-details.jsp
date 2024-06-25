@@ -103,7 +103,7 @@
 	                        <h3>${recipe.getRecipe_name() }</h3>
 	                        <c:forEach items="${recipecontent }" var="list">
 	                        	<h5 style="line-height: 2.0;">${list }</h5>
-				            </c:forEach>
+				            			</c:forEach>
 	                        <br></br>
                     	</div>
                     	<div class="col-lg-4 col-md-4">
@@ -143,7 +143,9 @@
                                     <h6>조리순서</h6>
                                     <c:forEach items="${recipecook }" var="recipecook" varStatus="loop">
                                     	<p>${loop.index + 1}. ${recipecook }</p>
-			                    	</c:forEach>
+                                    	<img src="<c:url value='../resources/img/recipe/${recipe.recipe_idx }_${loop.index + 1 }.jpg'/>" alt="">
+                                      <p></p>
+			                    					</c:forEach>
                                 </div>
                             </div>
                         </div>
