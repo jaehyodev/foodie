@@ -166,7 +166,7 @@
 									<div class="product__item__text">
 										<h6>
 											<a
-												href="<c:url value='/recipedetails/${list.recipe_name}'/>">${list.recipe_name }</a>
+												href="<c:url value='/recipedetails/${list.recipe_idx}'/>">${list.recipe_name }</a>
 										</h6>
 									</div>
 								</div>
