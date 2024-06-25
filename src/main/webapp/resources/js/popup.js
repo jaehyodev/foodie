@@ -33,13 +33,15 @@ function showPopup(message) {
     closeButton.addEventListener('click', popupConfirm);
 
 	function popupConfirm() {
-       if(message=="로그인을 해주세요.")
+       if(message=="로그인을 해주세요.") {
            window.location.href = '/foodie/login';
-       else if(message=="수정되었습니다"){
            popupContainer.remove();
+        }
+       else if(message=="수정되었습니다"){
              window.location.reload();
+             popupContainer.remove();
        }else
-           popupContainer.remove(); // 예시로 현재 창을 닫는 동작만 수행
+       		   popupContainer.remove();
     }
 
     popupContainer.appendChild(popupMessage);
