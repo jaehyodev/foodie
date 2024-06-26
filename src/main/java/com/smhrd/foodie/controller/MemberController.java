@@ -175,9 +175,8 @@ public class MemberController {
 
 		// session에 저장되어 있는 사용자의 *현재* 정보 memeber 객체에 set
 		Member member = (Member) session.getAttribute("member");
-
-		System.out.println("현재 session의 값 : " + member);
-
+		System.out.println(member);
+		
 		// RequestParam으로 가져온 값들 member에 set
 		member.setMem_name(mem_name);
 		member.setMem_email(mem_email);
@@ -190,9 +189,13 @@ public class MemberController {
 		if (row > 0) {
 			System.out.println("회원 정보 수정 성공");
 			
+			ra.addFlashAttribute("updateStatus", "success");
 			ra.addFlashAttribute("massage", "회원 정보가 수정되었습니다.");
 
-			System.out.println("변경된 session의 값 : " + member);
+		} else {
+			System.out.println("회원 정보 수정 실패");
+
+			ra.addFlashAttribute("updateStatus", "failure");
 		}
 
 		return "redirect:/update";
@@ -388,6 +391,9 @@ public class MemberController {
 		// session에 담긴 member 객체의 id값 가져오기
 		Member member = (Member)session.getAttribute("member");
 		
+		if (member == null) {
+			return "login";
+		}
 		
 		// 주문 내역 불러오는 sql문 실행 후 반환되는 값 orderInfo 객체에 담기
 		List<OrderInfo> orderInfo = mapper.orderInfo(member);

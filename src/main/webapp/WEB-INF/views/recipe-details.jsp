@@ -187,7 +187,6 @@
 	<!-- Product Details Section End -->
 
 	<!-- Related Product Section Begin -->
-	<!-- 관련상품 -->
 	<section class="related-product">
 		<div class="container">
 			<div class="row">
