@@ -16,7 +16,6 @@
 	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
 	rel="stylesheet">
 
-<<<<<<< HEAD
 <!-- Css Styles -->
 <link rel="stylesheet"
 	href="<c:url value='/resources/css/bootstrap.min.css'/>"
@@ -39,7 +38,6 @@
 	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
 	type="text/css">
-=======
     <!-- Css Styles -->
     <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>" type="text/css">
     <link rel="stylesheet" href="<c:url value='/resources/css/font-awesome.min.css'/>" type="text/css">
@@ -50,7 +48,6 @@
     <link rel="stylesheet" href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
     <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css">
     
->>>>>>> 5e32112c85048702b1a13cc7b8270339ab11da40
 </head>
 
 <body>
@@ -105,7 +102,6 @@
 	</section>
 	<!-- Hero Section End -->
 
-<<<<<<< HEAD
 	<!-- Product Section Begin -->
 	<section class="product spad">
 		<div class="container">
@@ -183,126 +179,14 @@
 		</div>
 	</section>
 	<!-- Product Section End -->
-=======
-    <!-- Hero Section Begin -->
-    <section class="hero hero-normal">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>카테고리</span>
-                        </div>
-                        <ul>
-                        	<!-- 상단 카테고리 -->
-	                    	<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
-	                        <li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
-	                        <li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
-	                        <li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
-	                        <li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
-	                        <li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
-	                        <li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-	                        <li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
-	                    </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <input type="text" placeholder="검색어를 입력하세요">
-                                <button type="submit" class="site-btn">검색</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-comments"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>재료 추천받기</h5>
-                                <span>24시간 챗봇 상담</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero Section End -->
->>>>>>> 5e32112c85048702b1a13cc7b8270339ab11da40
 
 	<!-- Bottom Buttons (AI, Scroll up) Begin -->
 	<%@ include file="./bottom-buttons.jsp"%>
 	<!-- Bottom Buttons (AI, Scroll up) End -->
 
-<<<<<<< HEAD
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
-=======
-    <!-- Product Section Begin -->
-    <section class="product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-5">
-                    <div class="sidebar">
-                        <div class="sidebar__item">
-                            <h4>레시피</h4>
-                            <ul>
-                            	<!-- 좌측 카테고리 -->
-		                    	<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
-		                        <li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
-		                        <li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
-		                        <li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
-		                        <li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
-		                        <li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
-		                        <li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-		                    </ul>
-                        </div>
-                        <div class="sidebar__item">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9 col-md-7">
-                    <div class="product__discount">
-                        <div class="section-title product__discount__title">
-                            <h2>${recipeList.get(0).getRecipe_cat() } 레시피</h2>
-                        </div>
-                    </div>
-                    <div class="filter__item">
-                        <div class="row">
-                            <div class="col-lg-4 col-md-5">
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-6">
-                                <div class="filter__found">
-                                    <h6><span>${recipeList.size() }</span> 개의 레시피</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" id="recipelist">
-                    	<c:forEach items="${recipeList }" var="list">
-                    		<div class="col-lg-4 col-md-6 col-sm-6">
-	                            <div class="product__item">
-	                                <div class="product__item__pic set-bg" data-setbg="<c:url value='../resources/img${list.recipe_title_img }'/>">
-	                                    <ul class="product__item__pic__hover">
-	                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-	                                    </ul>
-	                                </div>
-	                                <div class="product__item__text">
-	                                    <h6><a href="${pageContext.request.contextPath }/recipedetails/${list.recipe_name}">${list.recipe_name }</a></h6>
-	                                </div>
-	                            </div>
-	                        </div>
-					      </c:forEach>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Product Section End -->
->>>>>>> 5e32112c85048702b1a13cc7b8270339ab11da40
 
 	<!-- Js Plugins -->
 	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
@@ -313,14 +197,10 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
-<<<<<<< HEAD
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
 	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 
-=======
-	
->>>>>>> 5e32112c85048702b1a13cc7b8270339ab11da40
 </body>
 </html>
