@@ -42,37 +42,6 @@
 
 <body>
 
-	<!-- Humberger Begin -->
-	<div class="humberger__menu__overlay"></div>
-	<div class="humberger__menu__wrapper">
-		<div class="humberger__menu__logo">
-			<a href="index"><img
-				src="<c:url value='/resources/img/logo.png'/>" alt=""></a>
-		</div>
-		<div class="humberger__menu__cart">
-			<ul>
-				<li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-				<li><a href="cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-			</ul>
-			<!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
-		</div>
-		<div class="humberger__menu__widget">
-			<div class="header__top__right__auth">
-				<a href="#"><i class="fa fa-user"></i> 로그아웃 </a>
-			</div>
-			<div class="header__top__right__auth">
-				<a href="#"><i class="fa fa-address-card"></i> 마이페이지</a>
-			</div>
-		</div>
-		<div class="humberger__menu__contact">
-			<ul>
-				<li><i class="fa fa-envelope"></i> hello@smhrd.com</li>
-				<li>5만원 이상 구매 시 무료배송</li>
-			</ul>
-		</div>
-	</div>
-	<!-- Humberger End -->
-
 	<!-- Header Section Begin -->
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
@@ -163,15 +132,27 @@
 						</div>
 					</div>
 					<div class="row" id="recipelist">
-						<c:forEach items="${recipeList }" var="list">
+						<c:forEach items="${recipeList }" var="list" varStatus="loop">
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
-										data-setbg="<c:url value='../resources/img${list.recipe_title_img }'/>">
+										data-setbg="<c:url value='../resources/img${list.recipe_title_img }'/>"
+										onclick="window.location.href = '<c:url value='/recipedetails/${list.recipe_idx}'/>'"
+										style="cursor: pointer;">
 										<ul class="product__item__pic__hover">
-											<li><a
-												href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"><i
-													class="fa fa-heart"></i></a></li>
+											<li><c:choose>
+													<c:when
+														test="${not empty member and wishlist.get(loop.index) == 1}">
+														<a
+															href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"
+															style="color: #D03737;"><i class="fa fa-heart"></i></a>
+													</c:when>
+													<c:otherwise>
+														<a
+															href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"><i
+															class="fa fa-heart"></i></a>
+													</c:otherwise>
+												</c:choose></li>
 										</ul>
 									</div>
 									<div class="product__item__text">
