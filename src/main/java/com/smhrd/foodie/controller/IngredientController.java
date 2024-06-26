@@ -1,5 +1,6 @@
 package com.smhrd.foodie.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -30,7 +31,7 @@ public class IngredientController {
 	
 	// shop-grid 페이지 로드
 	@RequestMapping(value="/shopgrid/{ingre_cat}/{page}", method=RequestMethod.GET)
-	public String ingreCat(@PathVariable("ingre_cat") String ingre_cat, @PathVariable("page") int page , Model model) {
+	public String ingreCat(@PathVariable("ingre_cat") String ingre_cat, @PathVariable("page") int page , Model model, HttpSession session) {
 		
 		int total = mapper.ingreSize(ingre_cat); // 해당 카테고리 재료 목록 전체 개수
 		int cntPerPage = 12; // 페이지당 글 갯수
@@ -57,6 +58,22 @@ public class IngredientController {
 		List<Ingredient> ingrelist = mapper.ingreList(paging);
 		model.addAttribute("ingrelist", ingrelist);
 		
+		Member member = (Member)session.getAttribute("member");
+		model.addAttribute("member", member);
+		
+		// 찜 확인
+		List<Integer> row = new ArrayList<Integer>();
+		if(member != null) {
+			// 찜되어 있는지 안되어 있는지 확인
+			for(int i=0; i<ingrelist.size(); i++) {
+				Wishlist wish = new Wishlist();
+				wish.setRecipe_ingre_idx(ingrelist.get(i).getIngre_idx());
+				wish.setMem_id(member.getMem_id());
+				row.add(mapper.checkIngreWish(wish));
+			}
+		}
+		model.addAttribute("wishlist", row);
+		
 		
 		return "shop-grid";
 	}
@@ -64,7 +81,7 @@ public class IngredientController {
 	// shop-grid & shop detail & Recipe detail 각 재료 -> 찜
 	@RequestMapping(value={"/shopgrid/{page}/wishIngre", "/shopdetail/wishIngre", "recipedetails/wishIngre"}, method=RequestMethod.GET)
 	public @ResponseBody String recipeWish(@RequestParam("ingre_idx") int ingre_idx, HttpSession session) {
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		System.out.println(ingre_idx);
 		if(member == null)
 			return "notLogin";
@@ -89,7 +106,7 @@ public class IngredientController {
 	// shop-grid & Recipe Detail 각 재료 & shop detail 관련 재료 -> 카트
 	@RequestMapping(value={"/shopgrid/{ingre_cat}/cart", "/recipedetails/cart", "/shopdetail/cart"}, method=RequestMethod.GET)
 	public @ResponseBody String ingreCart(@RequestParam("ingre_idx") int ingre_idx, HttpSession session) {
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		if(member == null)
 			return "notLogin";
 		else {
@@ -105,10 +122,40 @@ public class IngredientController {
 		}
 	}
 	
+	// shop detail 페이지 로드
+	@RequestMapping(value="/shopdetail/{ingre_idx}", method=RequestMethod.GET)
+	public String ingreDetail(@PathVariable("ingre_idx") int ingre_idx, Model model, HttpSession session) {
+
+		// 재료 상세
+		Ingredient ingredient = mapper.ingredient(ingre_idx);
+		model.addAttribute("ingredient", ingredient);
+		
+		// 재료 설명 .또는!또는?로 분리
+		String[] ingrecontent = ingredient.getIngre_content().split("(?<=[.!?])");
+		model.addAttribute("ingrecontent", ingrecontent);
+		
+		// 재료 -> 관련 상품(4개)
+		List<Ingredient> ingre4 = mapper.ingre4(ingre_idx);
+		model.addAttribute("ingre4", ingre4);
+		
+		// 찜 확인
+		Member member = (Member)session.getAttribute("member");
+		if (member != null) {
+			// 해당 상품 찜되어 있는지 안되어 있는지 확인
+			Wishlist wish = new Wishlist();
+			wish.setRecipe_ingre_idx(ingre_idx);
+			wish.setMem_id(member.getMem_id());
+			int row = mapper.checkIngreWish(wish);
+			model.addAttribute("wish", row);
+		}
+		
+		return "shop-details";
+	}
+	
 	// shop-detail -> 카트
 	@RequestMapping(value="/shopdetail/currentCart", method=RequestMethod.GET)
 	public @ResponseBody String ingreDetailCart(@RequestParam("ingre_idx") int ingre_idx, @RequestParam("quantity") int quantity, HttpSession session) {
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		System.out.println(quantity);
 		if(member == null)
 			return "notLogin";
@@ -126,22 +173,5 @@ public class IngredientController {
 		}
 	}
 	
-	// shop detail 페이지 로드
-	@RequestMapping(value="/shopdetail/{ingre_idx}", method=RequestMethod.GET)
-	public String ingreDetail(@PathVariable("ingre_idx") int ingre_idx, Model model) {
 
-		// 재료 상세
-		Ingredient ingredient = mapper.ingredient(ingre_idx);
-		model.addAttribute("ingredient", ingredient);
-		
-		// 재료 설명 .또는!또는?로 분리
-		String[] ingrecontent = ingredient.getIngre_content().split("(?<=[.!?])");
-		model.addAttribute("ingrecontent", ingrecontent);
-		
-		// 재료 -> 관련 상품(4개)
-		List<Ingredient> ingre4 = mapper.ingre4(ingre_idx);
-		model.addAttribute("ingre4", ingre4);
-		
-		return "shop-details";
-	}
 }

@@ -42,11 +42,6 @@
 
 <body>
 
-	<!-- Page Preloder -->
-	<!-- <div id="preloder">
-        <div class="loader"></div>
-    </div> -->
-
 	<!-- Header Section Begin -->
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
@@ -142,15 +137,27 @@
 						</div>
 					</div>
 					<div class="row">
-						<c:forEach items="${ingrelist }" var="list">
+						<c:forEach items="${ingrelist }" var="list" varStatus="loop">
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
-										data-setbg="<c:url value='../../resources/img${list.ingre_img}'/>">
+										data-setbg="<c:url value='../../resources/img${list.ingre_img}'/>"
+										onclick="window.location.href = '<c:url value='/shopdetail/${list.ingre_idx }'/>'"
+										style="cursor: pointer;">
 										<ul class="product__item__pic__hover">
-											<li><a
-												href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i
-													class="fa fa-heart"></i></a></li>
+											<c:choose>
+												<c:when
+													test="${not empty member and wishlist.get(loop.index) == 1}">
+													<li><a
+														href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"
+														style="color: #D03737;"><i class="fa fa-heart"></i></a></li>
+												</c:when>
+												<c:otherwise>
+													<li><a
+														href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i
+															class="fa fa-heart"></i></a></li>
+												</c:otherwise>
+											</c:choose>
 											<li><a
 												href="<c:url value='javascript:ingreCart(${list.ingre_idx})'/>"><i
 													class="fa fa-shopping-cart"></i></a></li>
@@ -199,6 +206,6 @@
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
 	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
-	
+
 </body>
 </html>
