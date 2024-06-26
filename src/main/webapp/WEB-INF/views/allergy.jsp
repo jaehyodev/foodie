@@ -148,7 +148,7 @@
 										</c:forEach>
 									</tbody>
 								</table>
-								<div style="height: 55px;"></div>
+							
 								<table>
 									<thead>
 										<tr>
