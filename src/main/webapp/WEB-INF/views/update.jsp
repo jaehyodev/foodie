@@ -117,11 +117,8 @@
 				<div class="col-lg-9">
 					<div class="mypage__content">
 						<h2>개인 정보 수정</h2>
-
-
-
 						<form action="/foodie/update.do" method="post">
-							<%-- 수정 처리 서블릿으로 연결 --%>
+							<!-- 수정 처리 서블릿으로 연결 -->
 							<div class="form-group">
 								<label for="name">이름:</label> <input type="text" id="name"
 									name="mem_name" value="${member.mem_name}" required>
@@ -138,14 +135,14 @@
 								<label for="addr">주소:</label> <input type="text" id="addr"
 									name="mem_addr" value="${member.mem_addr}" required>
 							</div>
-							<button type="submit" class="site-btn">수정하기</button>
+							<button type="submit" id="updateBtn" class="site-btn">수정하기</button>
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	
+
 	<!-- Bottom Buttons (AI, Scroll up) Begin -->
 	<%@ include file="./bottom-buttons.jsp"%>
 	<!-- Bottom Buttons (AI, Scroll up) End -->
@@ -166,6 +163,21 @@
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
 	<script src="<c:url value='/resources/js/member.js' />"></script>
-
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+	    // JSP에서 자바스크립트로 플래시 속성을 전달
+	    var updateStatus = '<c:out value="${updateStatus}" />';
+	
+	    // 회원 정보 수정 성공
+	    if (updateStatus === 'success') {
+				// 새 창을 엽니다.
+				var popupWidth = 400;
+				var popupHeight = 300;
+				var popupX = (window.screen.width / 2) - (popupWidth / 2);
+				var popupY = (window.screen.height / 2) - (popupHeight / 2);
+				showPopup("회원가입에 성공했습니다.");
+	    }
+    });
+	</script>
 </body>
 </html>

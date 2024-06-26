@@ -56,38 +56,32 @@
 					<div class="hero__categories">
 						<div class="hero__categories__all">
 							<i class="fa fa-bars"></i> <span>카테고리</span>
-
 						</div>
-						<ul>
-							<li><a href="recipe/housewife">주부 레시피</a></li>
-							<li><a href="#">키즈 레시피</a></li>
-							<li><a href="#">자취생 레시피</a></li>
-							<li><a href="#">다이어트 레시피</a></li>
-							<li><a href="#">캠핑 레시피</a></li>
-							<li><a href="#">파티 레시피</a></li>
-							<li><a href="recipe">야식 레시피</a></li>
-							<li><a href="shopgrid">재료 사러가기</a></li>
+						<ul id="categories-list">
+							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
+							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
+							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
+							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
+							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
+							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
+							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
+							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
+						</ul>
+						<ul id="additional-categories">
+							<li><a href="#">채소</a></li>
+							<li><a href="#">과일</a></li>
+							<li><a href="#">정육</a></li>
+							<li><a href="#">수산</a></li>
+							<li><a href="#">쌀ㆍ잡곡</a></li>
+							<li><a href="#">면ㆍ오일</a></li>
+							<li><a href="#">우유ㆍ유제품</a></li>
+							<li><a href="#">소스ㆍ조미료</a></li>
+							<li><a href="#" id="view-recipes">레시피 보기</a></li>
 						</ul>
 					</div>
 				</div>
-
 				<div class="col-lg-9">
-					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
-					<!-- Search Section End -->
-
-					<div class="hero__item set-bg"
-						data-setbg="resources/img/hero/banner.jpg">
-						<div class="hero__text">
-							<span>쉽고 빠르게 따라 할 수있는!</span>
-							<h2>
-								새내기 요리사 <br />파티 레시피
-							</h2>
-							<p></p>
-							<a href="<c:url value='/recipe/파티'/>" class="primary-btn">파티
-								레시피 보기</a>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -98,24 +92,7 @@
 	<section class="product spad">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-5">
-					<div class="sidebar">
-						<div class="sidebar__item">
-							<!-- <h4>레시피</h4>
-							<ul>
-								<li><a href="recipe/housewife">주부 레시피</a></li>
-								<li><a href="#">키즈 레시피</a></li>
-								<li><a href="#">자취생 레시피</a></li>
-								<li><a href="#">다이어트 레시피</a></li>
-								<li><a href="#">캠핑 레시피</a></li>
-								<li><a href="#">파티 레시피</a></li>
-								<li><a href="recipe">야식 레시피</a></li>
-							</ul> -->
-						</div>
-						<div class="sidebar__item"></div>
-					</div>
-				</div>
-				<div class="col-lg-9 col-md-7">
+				<div class="col-lg-12 col-md-7">
 					<div class="product__discount">
 						<div class="section-title product__discount__title">
 							<h2>레시피</h2>
@@ -143,14 +120,14 @@
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
-										data-setbg="resources/img/recipe/recipe1.jpg">
+										data-setbg="<c:url value='/resources/img${list.recipe_title_img }'/>">
 										<ul class="product__item__pic__hover">
 											<li><a href="#"><i class="fa fa-heart"></i></a></li>
 										</ul>
 									</div>
 									<div class="product__item__text">
 										<h6>
-											<a href="recipedetail">${list.recipe_name }</a>
+											<a href="<c:url value='/recipedetails/${list.recipe_idx}'/>">${list.recipe_name }</a>
 										</h6>
 									</div>
 								</div>
@@ -185,14 +162,14 @@
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
-										data-setbg="resources/img/recipe/recipe1.jpg">
+										data-setbg="<c:url value='/resources/img${list.ingre_img}'/>">
 										<ul class="product__item__pic__hover">
 											<li><a href="#"><i class="fa fa-heart"></i></a></li>
 										</ul>
 									</div>
 									<div class="product__item__text">
 										<h6>
-											<a href="recipedetail">${list.ingre_name }</a>
+											<a href="<c:url value='/shopdetail/${list.ingre_idx }'/>">${list.ingre_name }</a>
 										</h6>
 									</div>
 								</div>
@@ -225,6 +202,7 @@
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/search.js' />"></script>
+	<script src="<c:url value='/resources/js/otherCategoriesList.js' />"></script>
 
 </body>
 </html>
