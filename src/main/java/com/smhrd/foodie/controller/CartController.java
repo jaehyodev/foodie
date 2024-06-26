@@ -67,8 +67,7 @@ public class CartController {
 	
 	//장바구니 목록 수정
 	@RequestMapping(value="/updateCart.do",method=RequestMethod.GET)
-	public String updateItem(@RequestParam("cartValues") int[] cartValues, @RequestParam("basketValues") int[] basketValues) {
-		
+	public String updateItem(@RequestParam("cartValues") int[] cartValues, @RequestParam("basketValues") int[] basketValues) {		
 
 		CartItems cartItems = new CartItems();
 
@@ -124,6 +123,7 @@ public class CartController {
 		mapper.checkoutSuccess(CartItems);
 		
 	}
+	
 	//주문 내역 출력
 	@RequestMapping(value="/success/{merchant_uid}", method=RequestMethod.GET)
 	public String success(@PathVariable("merchant_uid") int merchant_uid,Model model) {
@@ -132,6 +132,20 @@ public class CartController {
 		model.addAttribute("cartItems",cartItems);
 					
 		return "checkoutSuccess";
+	}
+	
+	//장바구니 삭제
+	@RequestMapping(value="/deleteCart.do", method = RequestMethod.GET)
+	public String deleteCart(HttpSession session) {
+		
+		CartItems CartItems = new CartItems();
+		Member member = (Member)session.getAttribute("member");
+		
+		CartItems.setMem_id(member.getMem_id());
+		System.out.println(member.getMem_name());
+		mapper.deleteCart(CartItems);
+		
+		return "redirect:/mypage";
 	}
 	
 }
