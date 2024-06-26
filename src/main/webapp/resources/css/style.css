@@ -158,7 +158,11 @@ ul, ol {
 }
 
 .check {
-	accent-color: rgb(126, 173, 57);
+	accent-color: #D03737;
+}
+
+.i-recipe {
+	color: #D03737;
 }
 
 .site-btn:hover {
@@ -1801,7 +1805,7 @@ transparent
 }
 
 .product__item__pic {
-	height: 270px;
+	padding-bottom: 100%;
 	position: relative;
 	overflow: hidden;
 }

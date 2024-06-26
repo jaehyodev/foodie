@@ -2,7 +2,6 @@ package com.smhrd.foodie.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,12 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.smhrd.foodie.mapper.MemberMapper;
 import com.smhrd.foodie.mapper.RecipeMapper;
 import com.smhrd.foodie.model.Ingredient;
 import com.smhrd.foodie.model.Member;
 import com.smhrd.foodie.model.Paging;
-import com.smhrd.foodie.model.Recipe;
 import com.smhrd.foodie.model.Wishlist;
 
 @Controller
@@ -173,5 +170,4 @@ public class IngredientController {
 		}
 	}
 	
-
 }
