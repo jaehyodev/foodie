@@ -56,37 +56,6 @@
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-    <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="<c:url value='index'/>"><img src="<c:url value='resources/img/logo.png'/>" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-            	<!-- 찜 -->
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <!-- 장바구니 -->
-                <li><a href="cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <!-- 장바구니 총 금액 -->
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__auth">
-                <a href="#"><i class="fa fa-user"></i> Login</a>
-            </div>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-        <div class="humberger__menu__contact">
-            <ul>
-            	<!-- 이메일 -->
-                <li><i class="fa fa-envelope"></i> hello@smhrd.com</li>
-                <li>5만원 이상 구매 시 무료배송</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Humberger End -->
-
 	<!-- Hero Section Begin -->
 	<!-- 상단 카테고리 -->
 	<section class="hero hero-normal">
@@ -113,24 +82,9 @@
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<!-- 검색창 -->
-							<form action="#">
-								<input type="text" placeholder="검색어를 입력하세요">
-								<button type="submit" class="site-btn">검색</button>
-							</form>
-						</div>
-						<div class="hero__search__phone">
-							<div class="hero__search__phone__icon">
-								<i class="fa fa-comments"></i>
-							</div>
-							<div class="hero__search__phone__text">
-								<h5>재료 추천받기</h5>
-								<span>24시간 챗봇 상담</span>
-							</div>
-						</div>
-					</div>
+					<!-- Search Section Begin -->
+					<%@ include file="./search-form.jsp"%>
+					<!-- Search Section End -->
 				</div>
 			</div>
 		</div>

@@ -81,23 +81,9 @@
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<form action="#">
-								<input type="text" placeholder="검색어를 입력하세요">
-								<button type="submit" class="site-btn">검색</button>
-							</form>
-						</div>
-						<div class="hero__search__phone">
-							<div class="hero__search__phone__icon">
-								<i class="fa fa-comments"></i>
-							</div>
-							<div class="hero__search__phone__text">
-								<h5>재료 추천받기</h5>
-								<span>24시간 챗봇 상담</span>
-							</div>
-						</div>
-					</div>
+					<!-- Search Section Begin -->
+					<%@ include file="./search-form.jsp"%>
+					<!-- Search Section End -->
 				</div>
 			</div>
 		</div>
