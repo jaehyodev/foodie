@@ -123,10 +123,19 @@
 							<br></br>
 						</div>
 						<div class="col-lg-4 col-md-4">
-							<a
-								href="<c:url value='javascript:recipeWishlist(${recipe.recipe_idx})'/>"
-								class="heart-icon"><span class="icon_heart_alt"></span></a>
-
+							<c:choose>
+								<c:when test="${wish == 1}">
+									<a
+										href="<c:url value='javascript:recipeWishlist(${recipe.recipe_idx})'/>"
+										class="heart-icon" style="color: #D03737;"><span
+										class="fa fa-heart"></span></a>
+								</c:when>
+								<c:otherwise>
+									<a
+										href="<c:url value='javascript:recipeWishlist(${recipe.recipe_idx})'/>"
+										class="heart-icon"><span class="fa fa-heart"></span></a>
+								</c:otherwise>
+							</c:choose>
 							<ul>
 								<li><b>인분 <i class="fa-solid fa-utensils i-recipe"></i></b>
 									<span>${recipe.getRecipe_portion() }인분</span></li>
@@ -209,7 +218,9 @@
 								</c:otherwise>
 							</c:choose>
 							<div class="product__item__pic set-bg"
-								data-setbg="<c:url value='../resources/img${list.ingre_img }'/>">
+								data-setbg="<c:url value='../resources/img${list.ingre_img }'/>"
+								onclick="window.location.href = '<c:url value='/shopdetail/${list.ingre_idx }'/>'"
+								style="cursor: pointer;">
 								<ul class="product__item__pic__hover">
 									<li><a
 										href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i

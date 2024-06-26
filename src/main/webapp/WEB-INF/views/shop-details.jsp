@@ -129,9 +129,20 @@
 						</div>
 						<a
 							href="<c:url value='javascript:ingreDetailCart(${ingredient.ingre_idx})'/>"
-							class="primary-btn">장바구니 담기</a> <a
-							href="<c:url value='javascript:ingreWishlist(${ingredient.ingre_idx})'/>"
-							class="heart-icon"><span class="icon_heart_alt"></span></a>
+							class="primary-btn">장바구니 담기</a>
+						<c:choose>
+							<c:when test="${wish == 1}">
+								<a
+									href="<c:url value='javascript:ingreWishlist(${ingredient.ingre_idx})'/>"
+									class="heart-icon" style="color: #D03737;"><span
+									class="fa fa-heart"></span></a>
+							</c:when>
+							<c:otherwise>
+								<a
+									href="<c:url value='javascript:ingreWishlist(${ingredient.ingre_idx})'/>"
+									class="heart-icon"><span class="fa fa-heart"></span></a>
+							</c:otherwise>
+						</c:choose>
 						<ul>
 							<li><b>중량/용량</b> <span>${ingredient.ingre_weight }</span></li>
 							<li><b>생산연도</b> <span>2024</span></li>
@@ -155,20 +166,13 @@
 				</div>
 			</div>
 			<div class="row">
-				<c:forEach items="${ingre4 }" var="list">
+				<c:forEach items="${ingre4 }" var="list" varStatus="loop">
 					<div class="col-lg-3 col-md-4 col-sm-6">
 						<div class="product__item">
 							<div class="product__item__pic set-bg"
-								data-setbg="<c:url value='../resources/img${list.ingre_img }'/>">
-								<ul class="product__item__pic__hover">
-									<li><a
-										href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i
-											class="fa fa-heart"></i></a></li>
-									<li><a
-										href="<c:url value='javascript:ingreCart(${list.ingre_idx})'/>"><i
-											class="fa fa-shopping-cart"></i></a></li>
-								</ul>
-							</div>
+								data-setbg="<c:url value='../resources/img${list.ingre_img }'/>"
+								onclick="window.location.href = '<c:url value='/shopdetail/${list.ingre_idx }'/>'"
+								style="cursor: pointer;"></div>
 							<div class="product__item__text">
 								<h6>
 									<a href="<c:url value='/shopdetail/${list.ingre_idx }'/>">${list.ingre_name }</a>
@@ -202,6 +206,6 @@
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
 	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
-	
+
 </body>
 </html>
