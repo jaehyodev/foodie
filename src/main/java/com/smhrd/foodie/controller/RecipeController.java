@@ -1,5 +1,6 @@
 package com.smhrd.foodie.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -34,8 +35,21 @@ public class RecipeController {
 		List<Recipe> recipeList = mapper.select(recipe_cat);
 		model.addAttribute("recipeList", recipeList);
 		
-		Member member = (Member)session.getAttribute("Member");
-		System.out.println(member);
+		Member member = (Member)session.getAttribute("member");
+		model.addAttribute("member", member);
+		
+		List<Integer> row = new ArrayList<Integer>();
+		if(member != null) {
+			// 찜되어 있는지 안되어 있는지 확인
+			for(int i=0; i<recipeList.size(); i++) {
+				Wishlist wish = new Wishlist();
+				wish.setRecipe_ingre_idx(recipeList.get(i).getRecipe_idx());
+				wish.setMem_id(member.getMem_id());
+				row.add(mapper.checkRecipeWish(wish));
+			}
+		}
+		
+		model.addAttribute("wishlist", row);
 		
 		return "recipe";
 	}
@@ -43,7 +57,7 @@ public class RecipeController {
 	// 레시피, 레시피디테일 -> 찜
 	@RequestMapping(value={"/recipe/wishRecipe", "/recipedetails/wishRecipe"}, method=RequestMethod.GET)
 	public @ResponseBody String recipeWish(@RequestParam("recipe_idx") int recipe_idx, HttpSession session) {
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		if(member == null)
 			return "notLogin";
 		else {
@@ -67,7 +81,7 @@ public class RecipeController {
 	@RequestMapping(value="/recipedetails/{recipe_idx}", method=RequestMethod.GET)
 	public String recipeDetail(@PathVariable("recipe_idx") int recipe_idx, Model model, HttpSession session) {
 		
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		// model.addAttribute("member", member);
 		
 		// 해당 레시피 불러오기
@@ -88,10 +102,16 @@ public class RecipeController {
 			// 레시피 관련 재료 (회원)
 			RecipeAllergy recipeAllergy = new RecipeAllergy(member.getMem_id(), recipe.getRecipe_name());
 			recipe_ingre = mapper.memRecipeIngre(recipeAllergy);
+			
+			// 찜되어 있는지 안되어 있는지 확인
+			Wishlist wish = new Wishlist();
+			wish.setRecipe_ingre_idx(recipe_idx);
+			wish.setMem_id(member.getMem_id());
+			int row = mapper.checkRecipeWish(wish);
+			model.addAttribute("wish", row);
 		}else {
 			// 레시피 관련 재료 (비회원)
 			recipe_ingre = mapper.recipeIngre(recipe);
-			
 		}
 		model.addAttribute("recipe_ingre", recipe_ingre);
 		
@@ -101,7 +121,7 @@ public class RecipeController {
 	// 레시피디테일 -> 관련 재료 한번에 장바구니
 	@RequestMapping(value="/recipedetails/allCart", method=RequestMethod.GET)
 	public @ResponseBody String recipeIngre(@RequestParam("checkedItems") List<Integer> checkedItems, HttpSession session) {
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		for(int i=0; i<checkedItems.size(); i++) {
 			System.out.println(checkedItems.get(i));
 		}
