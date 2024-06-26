@@ -69,11 +69,11 @@
 					</div>
 				</div>
 				<div class="col-lg-9">
-				
+
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
-					
+
 				</div>
 			</div>
 		</div>
@@ -103,9 +103,10 @@
 				</div>
 				<div class="col-lg-9">
 					<div class="mypage__content">
-
-
 						<form action="/foodie/updateAllergy" method="post">
+							<input type="hidden" name="deleteAllergy" id="deleteAllergy"
+								value=""> <input type="hidden" name="deleteDislike"
+								id="deleteDislike" value="">
 							<div class="allergy-container">
 								<table>
 									<thead>
@@ -113,14 +114,6 @@
 											<th colspan="4"><h3>알레르기</h3></th>
 										</tr>
 									</thead>
-
-									<input type="hidden" name="deleteAllergy" id="deleteAllergy"
-										value="">
-									<input type="hidden" name="deleteDislike" id="deleteDislike"
-										value="">
-
-
-
 									<tbody>
 										<c:forEach var="allergy" items="${allergyInfo}"
 											varStatus="status">
@@ -130,10 +123,10 @@
 											<td><label> <input type="checkbox"
 													name="allergy_list" value="${status.index + 1}"
 													<c:forEach var="joinAllergyIdx" items="${joinAllergyIdx}">
-                                                               <c:if test="${joinAllergyIdx.allergy_idx == status.index + 1}">
-                                                                  checked="on" 
-                                                               </c:if>
-                                                           </c:forEach>>
+	                               	<c:if test="${joinAllergyIdx.allergy_idx == status.index + 1}">
+	                                 	checked="on" 
+	                                 </c:if>
+	                               </c:forEach>>
 													${allergy.allergy_name}
 											</label></td>
 											<c:if test="${status.index % 4 == 3 or status.last}">
@@ -142,23 +135,13 @@
 										</c:forEach>
 									</tbody>
 								</table>
-
-
-
-
 								<div style="height: 55px;"></div>
-
-
-
-
-
 								<table>
 									<thead>
 										<tr>
 											<th colspan="5"><h3>비선호 식재료</h3></th>
 										</tr>
 									</thead>
-
 									<tbody>
 										<c:forEach var="dislike" items="${dislikeInfo}"
 											varStatus="status">
@@ -168,10 +151,10 @@
 											<td><label> <input type="checkbox"
 													name="dislike_list" value="${status.index + 1}"
 													<c:forEach var="joinDislikeIdx" items="${joinDislikeIdx}">
-                                                               <c:if test="${joinDislikeIdx.dislike_idx == status.index + 1}">
-                                                                  checked="on" 
-                                                               </c:if>
-                                                           </c:forEach>>
+		                          	<c:if test="${joinDislikeIdx.dislike_idx == status.index + 1}">
+		                            	checked="on" 
+		                            </c:if>
+		                          </c:forEach>>
 													${dislike.dislike_name}
 											</label></td>
 											<c:if test="${status.index % 5 == 4 or status.last}">
@@ -181,9 +164,7 @@
 									</tbody>
 								</table>
 							</div>
-
 							<br></br>
-
 							<div class="form-group">
 								<button type="submit" class="site-btn">저장하기</button>
 							</div>

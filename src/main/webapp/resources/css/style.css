@@ -3945,3 +3945,64 @@ transparent
 	overflow-olip-margin:content-box;
 	overflow:olip;
 }
+.hero__categories ul li a:hover {
+    color: red; /* 마우스를 가져다 댔을 때 글씨 색 */
+    font-weight: bold; /* 마우스를 가져다 댔을 때 글씨 두께 */
+}
+#ingredient-categories ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#ingredient-categories ul li {
+    margin: 5px 0;
+}
+#ingredient-categories ul li a {
+    color: #333;
+    text-decoration: none;
+}
+#ingredient-categories ul li a:hover {
+    color: #f64646;
+}
+#additional-categories {
+	border: 1px solid #ebebeb;
+	padding-left: 40px;
+	padding-top: 10px;
+	padding-bottom: 12px;
+   }
+   #additional-categories li {
+       margin: 5px 0;
+   }
+   #additional-categories li a {
+       color: #000000;
+       text-decoration: none;
+   }
+   #additional-categories li a:hover {
+       color: #f64646;
+   }
+#categories-list {
+    display: block;
+}
+
+  .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .prev {
+            left: 15px;
+            border-radius: 3px 0 0 3px;
+        }
+        .next {
+            right: 15px;
+            border-radius: 3px 0 0 3px;
+        }
