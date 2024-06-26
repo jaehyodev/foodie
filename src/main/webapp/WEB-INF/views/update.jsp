@@ -175,7 +175,7 @@
 				var popupHeight = 300;
 				var popupX = (window.screen.width / 2) - (popupWidth / 2);
 				var popupY = (window.screen.height / 2) - (popupHeight / 2);
-				showPopup("회원가입에 성공했습니다.");
+				showPopup("회원 정보 수정에 성공했습니다.");
 	    }
     });
 	</script>

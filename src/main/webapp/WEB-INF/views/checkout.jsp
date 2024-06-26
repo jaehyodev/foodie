@@ -38,19 +38,63 @@
 	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
 	type="text/css">
-<style>
-#checkoutInfo .checkoutInfo {
-	color: black;
-}
-</style>
 </head>
 
 <body>
+
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
 
 	<!-- Header Section Begin -->
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
+	<!-- Hero Section Begin -->
+	<section class="hero hero-normal">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="hero__categories">
+						<div class="hero__categories__all">
+							<i class="fa fa-bars"></i> <span>카테고리</span>
+						</div>
+						<ul>
+							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
+							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
+							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
+							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
+							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
+							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
+							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
+							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-9">
+					<div class="hero__search">
+						<div class="hero__search__form">
+							<form action="#">
+								<input type="text" placeholder="검색어를 입력하세요">
+								<button type="submit" class="site-btn">검색</button>
+							</form>
+						</div>
+						<div class="hero__search__phone">
+							<div class="hero__search__phone__icon">
+								<i class="fa fa-comments"></i>
+							</div>
+							<div class="hero__search__phone__text">
+								<h5>재료 추천받기</h5>
+								<span>24시간 챗봇 상담</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero Section End -->
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-section set-bg"
 		data-setbg="resources/img/breadcrumb.jpg">
@@ -58,7 +102,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>결제</h2>
+						<h2>장바구니</h2>
 					</div>
 				</div>
 			</div>
@@ -66,216 +110,130 @@
 	</section>
 	<!-- Breadcrumb Section End -->
 
-    <!-- Checkout Section Begin -->
-    <section class="checkout spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h6>
-                    <span class="icon_tag_alt"></span>
-                     먹고 싶은 메뉴에 맞게 편리하게 쇼핑해보세요! 
-                     <a href="<c:url value='/' />">계속 쇼핑하기</a>
-                    </h6>
-                </div>
-            </div>
-            <div class="checkout__form">
-                <h4>주문/결제</h4>
-                    <div class="row">
-                        <div class="col-lg-8 col-md-6">
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input" id="checkoutInfo">
-                                        <p>이름<span>*</span></p>
-                                        <input type="text" value="${member.mem_name}" id="member-name" class="checkoutInfo">
-                                    </div>
-                                </div>
-                                
-                                <div class="col-lg-6">
-                                    <div class="checkout__input" id="checkoutInfo">
-                                        <p>연락처<span>*</span></p>
-                                        <input type="text" value="${member.mem_phone}" id="member-phone" class="checkoutInfo">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input" id="checkoutInfo">
-                                <p>이메일<span>*</span></p>
-                                <input type="text" value="${member.mem_email}" id="member-email" class="checkoutInfo">
-                            </div>
-                            <div class="checkout__input" id="checkoutInfo">
-                                <p>주소<span>*</span></p>
-                                <input type="text" value="${member.mem_addr}" id="member-addr" class="checkoutInfo">
-                            </div>
-                            <div class="checkout__input">
-                                <p>배송요청사항<span></span></p>
-                                <input type="text" placeholder="부재시 문앞에 놓아주세요">
-                            </div>                                                      
-                        </div>
-                        <!-- 결제예정목록 출력 -->
-                        <div class="col-lg-4 col-md-6">
-							<div class="checkout__order">
-								<h4>총 결제금액</h4>
-								<div class="checkout__order__products">
-									상품 <span>가격</span>
-								</div>
-								<ul>
-									<!-- 장바구니 목록 출력 -->
-									<c:forEach items="${cartList}" var="list">
-										<li>${list.ingre_name}<span>${list.ingre_price*list.ingre_cnt}원</span></li>
-									</c:forEach>
-								</ul>
-								<!-- 50000원 이상 무료배송 로직 -->
-								<c:choose>
-									<c:when test="${sum>=50000}">
-										<div class="checkout__order__subtotal">
-											배송비 <span>무료배송</span>
-										</div>
-										<div class="checkout__order__total">
-											총 상품금액 <span id="member-sum">${sum}원</span>
-										</div>
-									</c:when>
-									<c:when test="${sum<50000 }">
-										<div class="checkout__order__subtotal">
-											배송비 <span>3000원</span>
-										</div>
-										<div class="checkout__order__total">
-											총 상품금액 <span id="member-sum">${sum+3000}원</span>
-										</div>
-									</c:when>
-									<c:otherwise/>
-								</c:choose>
+	<!-- 장바구니 Section Begin -->
+	<section class="shoping-cart spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="shoping__cart__table">
 
-								<c:choose>
-									<c:when test="${empty member }"></c:when>
-									<c:otherwise>
-										<div class="checkout__input__checkbox">
-											<label for="acc-or"> 결제에 동의하십니까? 
-												<input type="checkbox" id="acc-or"> <span class="checkmark"></span>
-											</label>
-										</div>
-										<p><b>5만원 이상 구매시 무료배송</b>입니다 .<br> 주문 내용을 다시 한 번 확인해주세요</p>
-										<div class="checkout__input__checkbox">
-											<label for="payment"> 카드결제 <input type="radio" name="pay" id="payment" value="card">
-												<span class="checkmark"></span>
-											</label>
-										</div>
-										<div class="checkout__input__checkbox">
-											<label for="kakaopay"> 카카오페이 <input type="radio" name="pay" id="kakaopay" value="kakao">
-												<span class="checkmark"></span>
-											</label>
-											<button onclick="requestPay()" class="site-btn">결제하기</button>
-										</div>
-									</c:otherwise>
-								</c:choose>
-							<div class="col-lg-6">
-								<div class="checkout__input" id="checkoutInfo">
-									<p>
-										연락처<span>*</span>
-									</p>
-									<input type="text" value="${member.mem_phone}"
-										id="member-phone" class="checkoutInfo">
-								</div>
-							</div>
-						</div>
-						<div class="checkout__input" id="checkoutInfo">
-							<p>
-								이메일<span>*</span>
-							</p>
-							<input type="text" value="${member.mem_email}" id="member-email"
-								class="checkoutInfo">
-						</div>
-						<div class="checkout__input" id="checkoutInfo">
-							<p>
-								주소<span>*</span>
-							</p>
-							<input type="text" value="${member.mem_addr}" id="member-addr"
-								class="checkoutInfo"> <input type="text"
-								placeholder="주소 세부사항" class="checkoutInfo">
-						</div>
-						<div class="checkout__input">
-							<p>
-								배송요청사항<span></span>
-							</p>
-							<input type="text" placeholder="부재시 문앞에 놓아주세요">
-						</div>
-					</div>
-					<!-- 결제예정목록 출력 -->
-					<div class="col-lg-4 col-md-6">
-						<div class="checkout__order">
-							<h4>총 결제금액</h4>
-							<div class="checkout__order__products">
-								상품 <span>가격</span>
-							</div>
-							<ul>
-								<!-- 장바구니 목록 출력 -->
-								<c:forEach items="${cartList}" var="list">
-									<li>${list.ingre_name}<span>${list.ingre_price*list.ingre_cnt}원</span></li>
-								</c:forEach>
-							</ul>
-							<!-- 50000원 이상 무료배송 로직 -->
-							<c:choose>
-								<c:when test="${sum>=50000}">
-									<div class="checkout__order__subtotal">
-										배송비 <span>무료배송</span>
+						<c:choose>
+							<c:when test="${empty member}">
+								<!-- 로그인 시 이용가능 -->
+								<section class="shoping-cart spad">
+									<div class="section-title">
+										<h2>로그인 후 이용해주세요.</h2>
 									</div>
-									<div class="checkout__order__total">
-										총 상품금액 <span id="member-sum">${sum}원</span>
+									<div class="col-lg-12"
+										style="display: block; text-align: center;">
+										<a href="<c:url value='/login' />" class="primary-btn">로그인하러가기</a>
 									</div>
-								</c:when>
-								<c:when test="${sum<50000 }">
-									<div class="checkout__order__subtotal">
-										배송비 <span>3000원</span>
+								</section>
+							</c:when>
+							<c:when test="${empty cartList}">
+								<!-- 장바구니가 비었을 때 -->
+								<section class="shoping-cart spad">
+									<div class="section-title">
+										<h2>장바구니에 담긴 상품이 없습니다.</h2>
 									</div>
-									<div class="checkout__order__total">
-										총 상품금액 <span id="member-sum">${sum+3000}원</span>
+									<div class="col-lg-12"
+										style="display: block; text-align: center;">
+										<a href="javascript:continueShopping()" class="primary-btn">쇼핑하러가기</a>
 									</div>
-								</c:when>
-								<c:otherwise />
-							</c:choose>
+								</section>
+							</c:when>
+							<c:otherwise>
+								<table>
+									<thead>
+										<tr>
+											<th class="shoping__product">상품</th>
+											<th>수량</th>
+											<th>가격</th>
+											<th></th>
+										</tr>
+									</thead>
+									<tbody>
+										<c:forEach items="${cartList}" var="list">
+											<tr>
+												<td class="shoping__cart__item"><img
+													src="<c:url value='./resources/img${list.ingre_img }'/>"
+													alt="${list.ingre_name}"
+													style="max-width: 30%; height: auto;">
+													<h5>${list.ingre_name}</h5> <span>💚주의💚</span></td>
+												<td class="shoping__cart__quantity">
+													<div class="quantity">
+														<div class="pro-qty">
+															<input type="text" value="${list.ingre_cnt}"
+																name="cntValue">
+														</div>
+														<input type="hidden" value="${list.basket_idx}"
+															name="idxValue">
+													</div>
+												</td>
+												<td class="shoping__cart__total">${list.ingre_price*list.ingre_cnt}원</td>
+												<!-- 해당항목삭제 -->
+												<td class="shoping__cart__item__close"><a
+													href="delete.do/${list.ingre_idx}/${list.mem_id}"> <span
+														class="icon_close"></span></a></td>
+											</tr>
+										</c:forEach>
+									</tbody>
+								</table>
+							</c:otherwise>
+						</c:choose>
 
-							<c:choose>
-								<c:when test="${empty member }"></c:when>
-								<c:otherwise>
-									<div class="checkout__input__checkbox">
-										<label for="acc-or"> 결제에 동의하십니까? <input
-											type="checkbox" id="acc-or"> <span class="checkmark"></span>
-										</label>
-									</div>
-									<p>
-										<b>5만원 이상 구매시 무료배송</b>입니다 .<br> 주문 내용을 다시 한 번 확인해주세요
-									</p>
-									<div class="checkout__input__checkbox">
-										<label for="payment"> 카드결제 <input type="radio"
-											name="pay" id="payment" value="card"> <span
-											class="checkmark"></span>
-										</label>
-									</div>
-									<div class="checkout__input__checkbox">
-										<label for="kakaopay"> 카카오페이 <input type="radio"
-											name="pay" id="kakaopay" value="kakao"> <span
-											class="checkmark"></span>
-										</label>
-										<button onclick="requestPay()" class="site-btn">결제하기</button>
-									</div>
-								</c:otherwise>
-							</c:choose>
-
-						</div>
 					</div>
 				</div>
 			</div>
+
+			<c:choose>
+				<c:when test="${empty member}" />
+				<c:when test="${empty cartList}" />
+				<c:otherwise>
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="shoping__cart__btns">
+								<a href="javascript:continueShopping()"
+									class="primary-btn cart-btn">쇼핑 계속하기</a> <a
+									href="javascript:updateCart()"
+									class="primary-btn cart-btn cart-btn-right">장바구니 수정</a>
+							</div>
+						</div>
+						<div class="col-lg-6"></div>
+
+						<div class="col-lg-6">
+							<div class="shoping__checkout">
+								<h5>총 결제금액</h5>
+								<ul>
+									<c:choose>
+										<c:when test="${sum>=50000}">
+											<li>상품금액 <span>${sum}원</span></li>
+											<li>배송비 <span>무료배송</span></li>
+											<li>결제예정금액 <span>${sum}원</span></li>
+										</c:when>
+
+										<c:when test="${sum<50000}">
+											<li>상품금액 <span>${sum}원</span></li>
+											<li>배송비 <span>3000원</span></li>
+											<li>결제예정금액 <span>${sum+3000}원</span></li>
+										</c:when>
+										<c:otherwise />
+									</c:choose>
+								</ul>
+								<a href="checkout" class="primary-btn">구매하기</a>
+							</div>
+						</div>
+					</div>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</section>
-	<!-- Checkout Section End -->
-
-	<!-- Bottom Buttons (AI, Scroll up) Begin -->
-	<%@ include file="./bottom-buttons.jsp"%>
-	<!-- Bottom Buttons (AI, Scroll up) End -->
+	<!-- 장바구니 Section End -->
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
 
-	</body>
 	<!-- Js Plugins -->
 	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
 	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
@@ -285,99 +243,44 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
-	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
-	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
-	<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
-  <script>
-		//결제 API
-		var IMP = window.IMP; 
-		IMP.init("imp51542456");
-		var payInfo = '';
 
-		//user정보 불러오기
-		var merchant_uid = Math.floor(new Date().getTime() / 1000); //주문번호
-		var userSum = parseInt(document.querySelector('#member-sum').innerText); //결제 총액
-		var userName = document.querySelector('#member-name').value;
-		var userPhone = document.querySelector('#member-phone').value;
-		var userEmail = document.querySelector('#member-email').value;
-		var userAddr = document.querySelector('#member-addr').value;
-		
-		//사용자 입력값으로 저장
-		document.querySelector('#member-name').addEventListener('input', function() {
-			userName = this.value;
-		});
+	<script>
+		//장바구니 수정하기
+		function updateCart() {
 
-		document.querySelector('#member-phone').addEventListener('input', function() {
-			userPhone = this.value;
-		});
+			var cntValues = document.getElementsByName("cntValue");//주문 수량
+			var cartValues = [];
+			var idxValues = document.getElementsByName("idxValue");//장바구니 idx
+			var basketValues = [];
 
-		document.querySelector('#member-email').addEventListener('input', function() {
-			userEmail = this.value;
-		});
-
-		document.querySelector('#member-addr').addEventListener('input', function() {
-			userAddr = this.value;
-		});
-		
-		function requestPay() {
-			
-			event.preventDefault();//새로고침 방지
-			var checkbox = document.getElementById('acc-or'); //결제동의 체크 시 결제가능
-			var selectedOption = document.querySelector('input[name="pay"]:checked'); //결제방법 선택			
-
-			if(selectedOption){
-				var selectedValue = selectedOption.value;
-				if(selectedValue === 'card'){ //카드결제
-					payInfo = 'html5_inicis';
-				}else if (selectedValue === 'kakao'){ //카카오페이
-					payInfo = 'kakaopay';
-				}else{
-					showPopup("결제 방법을 선택해주세요")
-				}
+			for (var i = 0; i < cntValues.length; i++) {
+				cartValues.push(cntValues[i].value);
+				basketValues.push(idxValues[i].value);
 			}
-			if(checkbox.checked){ //결제 동의 시
-				IMP.request_pay({
-					pg : payInfo,
-					pay_method : 'card',
-					merchant_uid : merchant_uid, // 주문번호
-					name : 'Foodie',
-					amount : userSum, // 결제 총액
-					buyer_email : userEmail, // email
-					buyer_name : userName, // 이름
-					buyer_tel : userPhone, // 번호
-					buyer_addr : userAddr, // 주소
-					buyer_postcode : '01181',
-				}, function(rsp) { // callback
-					//rsp.imp_uid 값으로 결제 단건조회 API를 호출하여 결제결과를 판단
-					
-					if(rsp.success){ //주문완료
-					
-						$.ajax({
-							url : "checkoutSuccess",
-							type : "get",
-							data : {
-									"merchant_uid":rsp.merchant_uid,
-									"userAddr":rsp.buyer_addr,
-									"userSum":rsp.paid_amount
-									},//주문번호,주소,총액
-							success : function(){
-								showIdPopup("주문이 완료되었습니다", rsp.merchant_uid);
-							},
-							error : function(){
-								console.log("전송실패")
-							}
-						})						
-					}else{
-						if(!selectedValue){ // 결제방법선택 X
-							showPopup("결제 방법을 선택해주세요")
-						}else{ //결제 X
-							showPopup("결제가 취소되었습니다")							
-						}
-					}												
-				});
-			}			
+
+			$.ajax({
+				url : "updateCart.do",
+				type : "get",
+				dataType : "json",
+				traditional : true,
+				data : {
+					"cartValues" : cartValues,
+					"basketValues" : basketValues
+				},
+				success : function(data) {
+					showPopup("수정되었습니다")
+				},
+				error : function() {
+					console.log("수정실패")
+				}
+			})
+		}
+		//계속 쇼핑하기
+		function continueShopping() {
+			history.back(); //이전 페이지로 이동
 		}
 	</script>
+
 </body>
 </html>
