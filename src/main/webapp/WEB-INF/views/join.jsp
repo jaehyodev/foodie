@@ -147,6 +147,7 @@
 									name="mem_addr" required readonly> <input type="text"
 									class="form-control" id="extraAddr" name="mem_extraAddr"
 									placeholder="나머지 주소를 입력하세요" required>
+
 							</div>
 
 							<label>알레르기 또는 비선호 식재료를 선택해주세요!</label>
@@ -235,7 +236,7 @@
 							</div>
 
 							<br></br>
-							<button type="submit" class="site-btn float-center">회원가입</button>
+							<button id="joinBtn" type="submit" class="site-btn float-center">회원가입</button>
 							<br></br>
 						</form>
 						<!-- form 끝 -->
@@ -262,8 +263,13 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+<<<<<<< HEAD
+	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/member.js' />"></script>
+=======
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+>>>>>>> b24a22e41feaab5eefc4694cdfef95de2533bc5f
 	<!-- 다음 주소 API -->
 	<script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
