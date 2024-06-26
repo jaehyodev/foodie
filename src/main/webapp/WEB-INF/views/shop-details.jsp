@@ -38,6 +38,16 @@
 	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
 	type="text/css">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/font-awesome.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/elegant-icons.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/jquery-ui.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/owl.carousel.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css">
 </head>
 
 <body>
@@ -45,6 +55,37 @@
 	<!-- Header Section Begin -->
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
+
+    <!-- Humberger Begin -->
+    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="<c:url value='index'/>"><img src="<c:url value='resources/img/logo.png'/>" alt=""></a>
+        </div>
+        <div class="humberger__menu__cart">
+            <ul>
+            	<!-- 찜 -->
+                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <!-- 장바구니 -->
+                <li><a href="cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            </ul>
+            <!-- 장바구니 총 금액 -->
+        </div>
+        <div class="humberger__menu__widget">
+            <div class="header__top__right__auth">
+                <a href="#"><i class="fa fa-user"></i> Login</a>
+            </div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="humberger__menu__contact">
+            <ul>
+            	<!-- 이메일 -->
+                <li><i class="fa fa-envelope"></i> hello@smhrd.com</li>
+                <li>5만원 이상 구매 시 무료배송</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Humberger End -->
 
 	<!-- Hero Section Begin -->
 	<!-- 상단 카테고리 -->
