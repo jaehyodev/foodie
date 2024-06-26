@@ -123,34 +123,43 @@
 						<!-- form 시작 -->
 						<form action="/foodie/join.do" method="post">
 							<div class="form-group">
-								<label for="id">아이디</label> <input type="text"
-									class="form-control" id="id" name="mem_id"
-									placeholder="아이디를 입력하세요" required>
+								<label for="id">아이디</label> <label id="label1"></label>
+								<input type="text" class="form-control" id="id" name="mem_id"
+									   placeholder="아이디를 입력하세요" required>
 							</div>
+		
+							
 							<div class="form-group">
-								<label for="password">비밀번호</label> <input type="password"
-									class="form-control" id="pw" name="mem_pw"
-									placeholder="비밀번호를 입력하세요" required>
+								<label for="password">비밀번호</label>
+								<input type="password" class="form-control" id="pw" name="mem_pw"
+									   placeholder="비밀번호를 입력하세요" required>
+									   
 							</div>
+							
 							<div class="form-group">
-								<label for="pwck">비밀번호 확인</label> <input type="password"
-									class="form-control" id="pwck" name="mem_pwck"
-									placeholder="비밀번호를 다시 입력하세요" required>
+								<label for="pwck">비밀번호 확인</label> <label id="label2"></label>
+								<input type="password" class="form-control" id="pwck" name="mem_pwck"
+									   placeholder="비밀번호를 다시 입력하세요" required>
 							</div>
+							
 							<div class="form-group">
-								<label for="email">이메일</label> <input type="email"
+								<label for="email">이메일</label> <label id="label3"></label>
+								<input type="email"
 									class="form-control" id="email" name="mem_email"
 									placeholder="이메일을 입력하세요" required>
 							</div>
+							
 							<div class="form-group">
-								<label for="phoneNumber">전화번호</label> <input type="tel"
+								<label for="phoneNumber">전화번호</label> <label id="label4"></label>
+								<input type="tel"
 									class="form-control" id="tel" name="mem_tel"
 									placeholder="전화번호를 입력하세요" required>
 							</div>
+							
 							<div class="form-group">
 								<label for="addr">주소</label>
-								<button type="button" onclick="findPost()">주소 찾기</button>
-								<input type="text" class="form-control" id="addr" name="mem_addr" required readonly>
+								<button type="button" onclick="find-addr()">주소 찾기</button>
+								<input type="text" class="form-control" id="addr" name="mem_addr" required>
 								<input type="text" class="form-control" id="extraAddr" name="mem_extraAddr" placeholder="나머지 주소를 입력하세요" required>
 							</div>
 
@@ -231,7 +240,7 @@
 							</div>
 
 							<br></br>
-							<button type="submit" class="site-btn float-center">회원가입</button>
+							<button id="joinBtn" type="submit" class="site-btn float-center">회원가입</button>
 							<br></br>
 						</form>
 						<!-- form 끝 -->
@@ -253,6 +262,8 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/member.js' />"></script>
 	<!-- 다음 주소 API -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="<c:url value='/resources/js/find-addr.js' />"></script>

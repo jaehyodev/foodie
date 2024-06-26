@@ -9,6 +9,21 @@
  4. SQL문 실행 결과 (영향을 받은 행 수)를 다시 반환-->
  <mapper namespace="com.smhrd.foodie.mapper.MemberMapper">
     
+    <!-- 회원가입 시 중복되는 mem_id 확인 -->
+    <select id="idCheck" parameterType="String" resultType="int">
+    	select  COUNT(*) from member_info where mem_id = #{mem_id}
+    </select>
+    
+      <!-- 회원가입 시 중복되는 mem_email 확인 -->
+    <select id="emailCheck" parameterType="String" resultType="int">
+    	select  COUNT(*) from member_info where mem_email = #{mem_email}
+    </select>
+    
+      <!-- 회원가입 시 중복되는 mem_phone 확인 -->
+    <select id="phoneCheck" parameterType="String" resultType="int">
+    	select  COUNT(*) from member_info where mem_phone = #{mem_phone}
+    </select>
+    
     <!-- 회원가입 -->
     <insert id="join" parameterType="com.smhrd.foodie.model.Member">
         insert ignore into member_info (mem_id, mem_pw, mem_name, mem_email, mem_phone, mem_addr)
