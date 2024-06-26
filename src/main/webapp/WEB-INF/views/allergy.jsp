@@ -56,7 +56,7 @@
 						<div class="hero__categories__all">
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
-						<ul>
+						<ul id="categories-list">
 							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
 							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
 							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
@@ -64,7 +64,20 @@
 							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
 							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
 							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
+							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
+						</ul>
+						<ul id="additional-categories">
+							<li><a href="<c:url value='/shopgrid/채소/1'/>">채소</a></li>
+							<li><a href="<c:url value='/shopgrid/과일/1'/>">과일</a></li>
+							<li><a href="<c:url value='/shopgrid/수산/1'/>">수산</a></li>
+							<li><a href="<c:url value='/shopgrid/정육ㆍ계란류/1'/>">정육ㆍ계란류</a></li>
+							<li><a href="<c:url value='/shopgrid/쌀ㆍ잡곡/1'/>">쌀ㆍ잡곡</a></li>
+							<li><a href="<c:url value='/shopgrid/면ㆍ오일/1'/>">면ㆍ오일</a></li>
+							<li><a href="<c:url value='/shopgrid/우유ㆍ유제품/1'/>">우유ㆍ유제품</a></li>
+							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
+							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
+							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
+							<li><a href="<c:url value='/recipe/주부'/>">레시피 보러가기</a></li>
 						</ul>
 					</div>
 				</div>
@@ -191,6 +204,7 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script>
