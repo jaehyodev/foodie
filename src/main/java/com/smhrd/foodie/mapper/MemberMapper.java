@@ -27,7 +27,13 @@ public interface MemberMapper {
    // 2. 얘가 실행이 되면 Mybatis의 프록시 객체가
    // 해당 인터페이스의 namespace와 userJoin 메서드 이름에 해당하는 xml파일 찾음
    int join(Member member); // 회원가입
-
+   
+   int idCheck(String mem_id); // 회원가입 시 id 중복 확인
+   
+   int emailCheck(String mem_email); // 회원가입 시 email 중복 확인
+   
+   int phoneCheck(String mem_phone); // 회원가입 시 phone 중복 확인
+   
    void allergy(MemberAllergy memberAllergy); // 회원가입 시 알러지 추가
    
    void dislike(MemberDislike memberDislike); // 회원가입 시 비선호 식재료 추가
