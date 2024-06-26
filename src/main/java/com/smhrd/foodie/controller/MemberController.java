@@ -169,7 +169,7 @@ public class MemberController {
 	@RequestMapping(value = "/update.do", method = RequestMethod.POST)
 	public String update(HttpSession session, @RequestParam("mem_name") String mem_name,
 			@RequestParam("mem_email") String mem_email, @RequestParam("mem_phone") String mem_phone,
-			@RequestParam("mem_addr") String mem_addr) {
+			@RequestParam("mem_addr") String mem_addr, RedirectAttributes ra) {
 
 		// session에 저장되어 있는 사용자의 *현재* 정보 memeber 객체에 set
 		Member member = (Member) session.getAttribute("member");
@@ -187,6 +187,8 @@ public class MemberController {
 
 		if (row > 0) {
 			System.out.println("회원 정보 수정 성공");
+			
+			ra.addFlashAttribute("massage", "회원 정보가 수정되었습니다.");
 
 			System.out.println("변경된 session의 값 : " + member);
 		}
@@ -302,7 +304,7 @@ public class MemberController {
 	@RequestMapping(value = "/updateAllergy", method = RequestMethod.POST)
 	public String updateAllergy(HttpSession session, Model model,
 			@RequestParam(name = "allergy_list", required = false) List<String> allergy_list, @RequestParam(name = "dislike_list", required = false) List<String> dislike_list,
-			@RequestParam("deleteAllergy") String deleteAllergy, @RequestParam("deleteDislike") String deleteDislike) {
+			@RequestParam(name = "deleteAllergy", required = false) String deleteAllergy, @RequestParam(name = "deleteDislike", required = false) String deleteDislike) {
 
 		Member member = (Member) session.getAttribute("member");
 		
@@ -349,17 +351,21 @@ public class MemberController {
 		String[] deleteDislikeList = deleteDislike.split(",");
 		
 		
-		
-		for(int i=0; i<deleteAllergyList.length; i++) {
-			MemberAllergy memberAllergy = new MemberAllergy(member.getMem_id(), Integer.parseInt(deleteAllergyList[i]));
-			mapper.deleteAllergy(memberAllergy);
+		if(deleteAllergyList != null) {
+			for(int i=0; i<deleteAllergyList.length; i++) {
+				MemberAllergy memberAllergy = new MemberAllergy(member.getMem_id(), Integer.parseInt(deleteAllergyList[i]));
+				mapper.deleteAllergy(memberAllergy);
+			}
 		}
-		
-		for(int i=0; i<deleteDislikeList.length; i++) {
-			MemberDislike memberDislike = new MemberDislike(member.getMem_id(), Integer.parseInt(deleteDislikeList[i]));
-			mapper.deleteDislike(memberDislike);
+			
+		if(deleteDislikeList != null) {
+			for(int i=0; i<deleteDislikeList.length; i++) {
+				MemberDislike memberDislike = new MemberDislike(member.getMem_id(), Integer.parseInt(deleteDislikeList[i]));
+				mapper.deleteDislike(memberDislike);
+			}
 		}
-		
+			
+			
 		
 		List<MemberAllergy> joinAllergyIdx = mapper.allergyMypage(member);
 		List<MemberDislike> joinDislikeIdx = mapper.dislikeMypage(member);
