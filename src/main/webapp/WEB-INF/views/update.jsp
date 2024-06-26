@@ -94,63 +94,65 @@
 	</section>
 	<!-- Hero Section End -->
 
-	  <section class="hero hero-normal">
-	     <div class="container">
-	        <div class="row"></div>
-	     </div>
-	  </section>
-	  <section class="userinfo-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="mypage__sidebar">
-                        <h2>마이 페이지</h2>
-                        <ul>
+	<section class="hero hero-normal">
+		<div class="container">
+			<div class="row"></div>
+		</div>
+	</section>
+	<section class="userinfo-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="mypage__sidebar">
+						<h2>마이 페이지</h2>
+						<ul>
 							<li><a href="mypage">주문 내역</a></li>
-                            <li><a href="wishlist">찜 목록</a></li>
-                            <li><a href="allergy">알레르기 / 비선호 식재료</a></li>
-                            <li class="active"><a href="update">개인 정보 수정</a></li>
-                            <li><a href="updatepw">비밀번호 변경</a></li>
-                            <li><a href="delete">회원탈퇴</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <div class="mypage__content"
-                    
-                    
-                    >
-                        <h2>개인 정보 수정</h2>
-                        
-                        
-                        
-                        <form action="/foodie/update.do" method="post"> <%-- 수정 처리 서블릿으로 연결 --%>
-                            <div class="form-group">
-                                <label for="name">이름:</label>
-                                <input type="text" id="name" name="mem_name" value="${member.mem_name}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">이메일:</label>
-                                <input type="email" id="email" name="mem_email" value="${member.mem_email}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="tel">휴대폰 번호:</label>
-                                <input type="tel" id="tel" name="mem_phone" value="${member.mem_phone}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="addr">주소:</label>
-                                <input type="text" id="addr" name="mem_addr" value="${member.mem_addr}" required>
-                            </div>
-                            <button type="submit" class="site-btn">수정하기</button>
-                        </form>
-                        
-                        
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+							<li><a href="wishlist">찜 목록</a></li>
+							<li><a href="allergy">알레르기 / 비선호 식재료</a></li>
+							<li class="active"><a href="update">개인 정보 수정</a></li>
+							<li><a href="updatepw">비밀번호 변경</a></li>
+							<li><a href="delete">회원탈퇴</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-9">
+					<div class="mypage__content">
+						<h2>개인 정보 수정</h2>
+
+
+
+						<form action="/foodie/update.do" method="post">
+							<%-- 수정 처리 서블릿으로 연결 --%>
+							<div class="form-group">
+								<label for="name">이름:</label> <input type="text" id="name"
+									name="mem_name" value="${member.mem_name}" required>
+							</div>
+							<div class="form-group">
+								<label for="email">이메일:</label> <input type="email" id="email"
+									name="mem_email" value="${member.mem_email}" required>
+							</div>
+							<div class="form-group">
+								<label for="tel">휴대폰 번호:</label> <input type="tel" id="tel"
+									name="mem_phone" value="${member.mem_phone}" required>
+							</div>
+							<div class="form-group">
+								<label for="addr">주소:</label> <input type="text" id="addr"
+									name="mem_addr" value="${member.mem_addr}" required>
+							</div>
+							<button type="submit" class="site-btn">수정하기</button>
+						</form>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
@@ -164,5 +166,8 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+	
 </body>
 </html>

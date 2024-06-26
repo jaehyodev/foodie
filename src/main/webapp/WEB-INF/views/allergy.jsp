@@ -209,7 +209,7 @@
 
 						<p>알레르기와 비선호 식품을 필터링하여 재료를 추천합니다.</p>
 
-						  <script>
+						<script>
   							  // 현재 위치에서 /foodie/updateAllergy 액션을 가진 폼을 form 변수에 저장
   							  const form = document.querySelector('form[action="/foodie/updateAllergy"]');
 
@@ -248,6 +248,10 @@
 		</div>
 	</section>
 
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->
+
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
@@ -260,5 +264,7 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 </body>
 </html>
