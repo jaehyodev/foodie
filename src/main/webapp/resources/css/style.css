@@ -3748,6 +3748,7 @@ transparent
 .header__wishlist__cart a {
 	color: #000000;
 }
+
 /* AI 챗봇 열기 & 화면 상단으로 올리는 버튼 */
 #btn_ai {
   position: fixed;

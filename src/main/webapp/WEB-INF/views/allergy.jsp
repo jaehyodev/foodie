@@ -58,15 +58,14 @@
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
 						<ul>
-							<li><a href="#">채소</a></li>
-							<li><a href="#">과일</a></li>
-							<li><a href="#">정육</a></li>
-							<li><a href="shopgrid">수산</a></li>
-							<li><a href="#">쌀ㆍ잡곡</a></li>
-							<li><a href="#">면ㆍ오일</a></li>
-							<li><a href="#">우유ㆍ유제품</a></li>
-							<li><a href="#">소스ㆍ조미료</a></li>
-							<li><a href="recipe">레시피</a></li>
+							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
+							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
+							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
+							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
+							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
+							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
+							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
+							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
 						</ul>
 					</div>
 				</div>
@@ -123,8 +122,6 @@
 
 						<form action="/foodie/updateAllergy" method="post">
 							<div class="allergy-container">
-								<p>session에 저장되어 있는 사용자 ID : ${member.mem_id}</p>
-								<p>list 인덱스 0이 가지고 있는 allergy_idx의 값 : ${allergyIdx}</p>
 								<table>
 									<thead>
 										<tr>
@@ -206,42 +203,6 @@
 								<button type="submit" class="site-btn">저장하기</button>
 							</div>
 						</form>
-
-						<p>알레르기와 비선호 식품을 필터링하여 재료를 추천합니다.</p>
-
-						<script>
-  							  // 현재 위치에서 /foodie/updateAllergy 액션을 가진 폼을 form 변수에 저장
-  							  const form = document.querySelector('form[action="/foodie/updateAllergy"]');
-
-							  // id가 deleteAllergy인 hidden input 태그를 찾아감
-							  const deleteAllergy = document.getElementById('deleteAllergy');
-							  const deleteDislike = document.getElementById('deleteDislike');
-
-							  form.addEventListener('submit', function(event) {
-							
-							  // 현재 문서에서 name이 allergy_list인 모든 input 요소들을 선택하여 변수에 저장
-							  const allergy_list = document.querySelectorAll('input[name="allergy_list"]');
-							  // 현재 문서에서 name이 dislike_list인 모든 input 요소들을 선택하여 변수에 저장
-							  const dislike_list = document.querySelectorAll('input[name="dislike_list"]');
-							
-					          // 체크 해제된 알레르기의 value 값을 배열로 변환
-						      const uncheckAllergy = Array.from(allergy_list)
-						      .filter(checkbox => !checkbox.checked)
-						      .map(checkbox => checkbox.value);
-							
-				    		  // 체크 해제된 비선호 식재료의 value 값을 배열로 변환
-							  const uncheckDislike = Array.from(dislike_list)
-					          .filter(checkbox => !checkbox.checked)
-						      .map(checkbox => checkbox.value);
-							
-				    		  // 체크 해제된 알레르기 값들을 쉼표로 구분된 문자열로 변환하여 hidden input에 저장
-						      deleteAllergy.value = uncheckAllergy.join(',');
-							
-						      // 체크 해제된 비선호 식재료 값들을 쉼표로 구분된 문자열로 변환하여 hidden input에 저장
-						      deleteDislike.value = uncheckDislike.join(',');
-							  });
-						  </script>
-
 					</div>
 				</div>
 			</div>
@@ -266,5 +227,37 @@
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+	<script>
+	  // 현재 위치에서 /foodie/updateAllergy 액션을 가진 폼을 form 변수에 저장
+	  const form = document.querySelector('form[action="/foodie/updateAllergy"]');
+
+	  // id가 deleteAllergy인 hidden input 태그를 찾아감
+	  const deleteAllergy = document.getElementById('deleteAllergy');
+	  const deleteDislike = document.getElementById('deleteDislike');
+
+	  form.addEventListener('submit', function(event) {
+	
+		  // 현재 문서에서 name이 allergy_list인 모든 input 요소들을 선택하여 변수에 저장
+		  const allergy_list = document.querySelectorAll('input[name="allergy_list"]');
+		  // 현재 문서에서 name이 dislike_list인 모든 input 요소들을 선택하여 변수에 저장
+		  const dislike_list = document.querySelectorAll('input[name="dislike_list"]');
+		
+	    // 체크 해제된 알레르기의 value 값을 배열로 변환
+	    const uncheckAllergy = Array.from(allergy_list)
+	      .filter(checkbox => !checkbox.checked)
+	      .map(checkbox => checkbox.value);
+		
+		  // 체크 해제된 비선호 식재료의 value 값을 배열로 변환
+		  const uncheckDislike = Array.from(dislike_list)
+	      .filter(checkbox => !checkbox.checked)
+	      .map(checkbox => checkbox.value);
+	
+ 		  // 체크 해제된 알레르기 값들을 쉼표로 구분된 문자열로 변환하여 hidden input에 저장
+      deleteAllergy.value = uncheckAllergy.join(',');
+	
+      // 체크 해제된 비선호 식재료 값들을 쉼표로 구분된 문자열로 변환하여 hidden input에 저장
+      deleteDislike.value = uncheckDislike.join(',');
+	  });
+  </script>
 </body>
 </html>
