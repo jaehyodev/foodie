@@ -56,45 +56,35 @@
 					<div class="hero__categories">
 						<div class="hero__categories__all">
 							<i class="fa fa-bars"></i> <span>카테고리</span>
-
 						</div>
-						<ul>
-							<li><a href="recipe/housewife">주부 레시피</a></li>
-							<li><a href="#">키즈 레시피</a></li>
-							<li><a href="#">자취생 레시피</a></li>
-							<li><a href="#">다이어트 레시피</a></li>
-							<li><a href="#">캠핑 레시피</a></li>
-							<li><a href="#">파티 레시피</a></li>
-							<li><a href="recipe">야식 레시피</a></li>
-							<li><a href="shopgrid">재료 사러가기</a></li>
+						<ul id="categories-list">
+							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
+							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
+							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
+							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
+							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
+							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
+							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
+							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
+						</ul>
+						<ul id="additional-categories">
+							<li><a href="#">채소</a></li>
+							<li><a href="#">과일</a></li>
+							<li><a href="#">정육</a></li>
+							<li><a href="#">수산</a></li>
+							<li><a href="#">쌀ㆍ잡곡</a></li>
+							<li><a href="#">면ㆍ오일</a></li>
+							<li><a href="#">우유ㆍ유제품</a></li>
+							<li><a href="#">소스ㆍ조미료</a></li>
+							<li><a href="#" id="view-recipes">레시피 보기</a></li>
 						</ul>
 					</div>
 				</div>
-
 				<div class="col-lg-9">
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<form action="#">
-								<input type="text" placeholder="푸디 제품, 요리명 등 다양하게 검색해보세요 !"
-									id="input-search">
-								<button type="button" class="site-btn" onclick="search()">검색</button>
-							</form>
-						</div>
-						<div class="hero__search__phone">
-							<div class="hero__search__phone__icon">
-								<i class="fa fa-comments"></i>
-							</div>
-							<div class="hero__search__phone__text">
-								<h5>재료 추천받기</h5>
-								<span>24시간 챗봇 상담</span>
-							</div>
-						</div>
-					</div>
+					<%@ include file="./search-form.jsp"%>
 				</div>
 			</div>
 		</div>
-
-
 	</section>
 	<!-- Hero Section End -->
 
@@ -102,24 +92,7 @@
 	<section class="product spad">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-5">
-					<div class="sidebar">
-						<div class="sidebar__item">
-							<!-- <h4>레시피</h4>
-							<ul>
-								<li><a href="recipe/housewife">주부 레시피</a></li>
-								<li><a href="#">키즈 레시피</a></li>
-								<li><a href="#">자취생 레시피</a></li>
-								<li><a href="#">다이어트 레시피</a></li>
-								<li><a href="#">캠핑 레시피</a></li>
-								<li><a href="#">파티 레시피</a></li>
-								<li><a href="recipe">야식 레시피</a></li>
-							</ul> -->
-						</div>
-						<div class="sidebar__item"></div>
-					</div>
-				</div>
-				<div class="col-lg-9 col-md-7">
+				<div class="col-lg-12 col-md-7">
 					<div class="product__discount">
 						<div class="section-title product__discount__title">
 							<h2>레시피</h2>
@@ -147,14 +120,14 @@
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
-										data-setbg="resources/img/recipe/recipe1.jpg">
+										data-setbg="<c:url value='/resources/img${list.recipe_title_img }'/>">
 										<ul class="product__item__pic__hover">
 											<li><a href="#"><i class="fa fa-heart"></i></a></li>
 										</ul>
 									</div>
 									<div class="product__item__text">
 										<h6>
-											<a href="recipedetail">${list.recipe_name }</a>
+											<a href="<c:url value='/recipedetails/${list.recipe_idx}'/>">${list.recipe_name }</a>
 										</h6>
 									</div>
 								</div>
@@ -189,14 +162,14 @@
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
-										data-setbg="resources/img/recipe/recipe1.jpg">
+										data-setbg="<c:url value='/resources/img${list.ingre_img}'/>">
 										<ul class="product__item__pic__hover">
 											<li><a href="#"><i class="fa fa-heart"></i></a></li>
 										</ul>
 									</div>
 									<div class="product__item__text">
 										<h6>
-											<a href="recipedetail">${list.ingre_name }</a>
+											<a href="<c:url value='/shopdetail/${list.ingre_idx }'/>">${list.ingre_name }</a>
 										</h6>
 									</div>
 								</div>
@@ -208,6 +181,10 @@
 			</div>
 		</div>
 	</section>
+
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
@@ -222,5 +199,10 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+	<script src="<c:url value='/resources/js/search.js' />"></script>
+	<script src="<c:url value='/resources/js/otherCategoriesList.js' />"></script>
+
 </body>
 </html>

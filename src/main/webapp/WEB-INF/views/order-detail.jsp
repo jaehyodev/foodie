@@ -68,11 +68,11 @@
 					</div>
 				</div>
 				<div class="col-lg-9">
-				
+
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
-					
+
 				</div>
 			</div>
 		</div>
@@ -151,7 +151,6 @@
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
-	<script src="<c:url value='/resources/js/search.js' />"></script>
 
 </body>
 </html>
