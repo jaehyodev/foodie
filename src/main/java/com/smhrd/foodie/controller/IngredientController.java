@@ -64,7 +64,7 @@ public class IngredientController {
 	// shop-grid & shop detail & Recipe detail 각 재료 -> 찜
 	@RequestMapping(value={"/shopgrid/{page}/wishIngre", "/shopdetail/wishIngre", "recipedetails/wishIngre"}, method=RequestMethod.GET)
 	public @ResponseBody String recipeWish(@RequestParam("ingre_idx") int ingre_idx, HttpSession session) {
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		System.out.println(ingre_idx);
 		if(member == null)
 			return "notLogin";
@@ -89,7 +89,7 @@ public class IngredientController {
 	// shop-grid & Recipe Detail 각 재료 & shop detail 관련 재료 -> 카트
 	@RequestMapping(value={"/shopgrid/{ingre_cat}/cart", "/recipedetails/cart", "/shopdetail/cart"}, method=RequestMethod.GET)
 	public @ResponseBody String ingreCart(@RequestParam("ingre_idx") int ingre_idx, HttpSession session) {
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		if(member == null)
 			return "notLogin";
 		else {
@@ -108,7 +108,7 @@ public class IngredientController {
 	// shop-detail -> 카트
 	@RequestMapping(value="/shopdetail/currentCart", method=RequestMethod.GET)
 	public @ResponseBody String ingreDetailCart(@RequestParam("ingre_idx") int ingre_idx, @RequestParam("quantity") int quantity, HttpSession session) {
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		System.out.println(quantity);
 		if(member == null)
 			return "notLogin";
