@@ -23,18 +23,14 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/owl.carousel.min.css'/>" type="text/css">
 <link rel="stylesheet" href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css">
-   <style>
-   #checkoutInfo .checkoutInfo{
-      color: black;
-   }
-   </style>
+<style>
+  #checkoutInfo .checkoutInfo{
+    color: black;
+  }
+</style>
 </head>
 
 <body>
-   <!-- Page Preloder -->
-   <div id="preloder">
-      <div class="loader"></div>
-   </div>
 
    <!-- Header Section Begin -->
    <%@ include file="./header.jsp"%>
@@ -180,8 +176,7 @@
    <script src="<c:url value='/resources/js/popup.js' />"></script>
    <script src="https://cdn.iamport.kr/v1/iamport.js"></script><!-- 결제 api -->
 
-   <script>
-   
+   <script> 
       //결제 API
       var IMP = window.IMP; 
       IMP.init("imp51542456");
@@ -271,4 +266,5 @@
          }         
       }
    </script>
+  </body>
 </html>

@@ -28,14 +28,57 @@
 
 <body>
 
-   <!-- Page Preloder -->
-   <div id="preloder">
-      <div class="loader"></div>
-   </div>
-
    <!-- Header Section Begin -->
    <%@ include file="./header.jsp"%>
    <!-- Header Section End -->
+
+	<!-- Hero Section Begin -->
+	<section class="hero hero-normal">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="hero__categories">
+						<div class="hero__categories__all">
+							<i class="fa fa-bars"></i> <span>카테고리</span>
+						</div>
+						<ul>
+							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
+							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
+							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
+							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
+							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
+							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
+							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
+							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-9">
+				
+					<!-- Search Section Begin -->
+					<%@ include file="./search-form.jsp"%>
+					<!-- Search Section End -->
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero Section End -->
+	
+	<!-- Breadcrumb Section Begin -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="resources/img/breadcrumb.jpg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>장바구니</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Breadcrumb Section End -->
 
    <!-- Hero Section Begin -->
    <section class="hero hero-normal">
@@ -213,7 +256,6 @@
         </div>
     </section>
     <!-- 장바구니 Section End -->
-
 
    <!-- Footer Section Begin -->
    <%@ include file="./footer.jsp"%>
