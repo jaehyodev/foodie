@@ -46,8 +46,7 @@
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
-	<!-- 카테고리 -->
+	<!-- Category Section Begin -->
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row">
@@ -70,29 +69,16 @@
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<!-- 검색창 -->
-							<form action="#">
-								<input type="text" placeholder="검색어를 입력하세요">
-								<button type="submit" class="site-btn">검색</button>
-							</form>
-						</div>
-						<div class="hero__search__phone">
-							<div class="hero__search__phone__icon">
-								<i class="fa fa-comments"></i>
-							</div>
-							<div class="hero__search__phone__text">
-								<h5>재료 추천받기</h5>
-								<span>24시간 챗봇 상담</span>
-							</div>
-						</div>
-					</div>
+				
+					<!-- Search Section Begin -->
+					<%@ include file="./search-form.jsp"%>
+					<!-- Search Section End -->
+					
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Hero Section End -->
+	<!-- Category Section End -->
 
 	<!-- Breadcrumb Section Begin 바꿔야 할 부분-->
 	<section class="breadcrumb-section set-bg"
@@ -164,10 +150,14 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox" name="allergy_list" value="1">알류</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="2">우유</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="3">메밀</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="4">땅콩</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="1">알류</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="2">우유</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="3">메밀</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="4">땅콩</label></td>
 										</tr>
 										<tr>
 											<td><label><input type="checkbox"
@@ -220,11 +210,16 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox" name="dislike_list" value="1">당근</label></td>
-											<td><label><input type="checkbox" name="dislike_list" value="2">버섯</label></td>
-											<td><label><input type="checkbox" name="dislike_list" value="3">생강</label></td>
-											<td><label><input type="checkbox" name="dislike_list" value="4">아보카도</label></td>
-											<td><label><input type="checkbox" name="dislike_list" value="5">오이</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_list" value="1">당근</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_list" value="2">버섯</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_list" value="3">생강</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_list" value="4">아보카도</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_list" value="5">오이</label></td>
 										</tr>
 									</tbody>
 								</table>
@@ -241,10 +236,15 @@
 		</div>
 	</section>
 
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->
+
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
 
+	<!-- Js Plugins -->
 	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
 	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
 	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
@@ -253,9 +253,12 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<!-- 다음 주소 API -->
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="<c:url value='/resources/js/find-addr.js' />"></script>
-	
+
 </body>
 </html>

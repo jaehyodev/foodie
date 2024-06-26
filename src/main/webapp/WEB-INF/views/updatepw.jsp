@@ -118,36 +118,40 @@
 				</div>
 				<div class="col-lg-9">
 					<div class="mypage__content">
-					
+
 						<h2>비밀번호 변경</h2>
-						
+
 						<form action="/foodie/updatePw.do" method="post">
 							<%-- 비밀번호 변경 처리 서블릿으로 연결 --%>
-							
+
 							<div class="form-group">
-								<label for="curPw">현재 비밀번호:</label>
-								<input type="password" id="curPw" name="curPw" required>
+								<label for="curPw">현재 비밀번호:</label> <input type="password"
+									id="curPw" name="curPw" required>
 							</div>
-							
+
 							<div class="form-group">
-								<label for="newPw">새로운 비밀번호:</label>
-								<input type="password" id="newPw" name="newPw" required>
+								<label for="newPw">새로운 비밀번호:</label> <input type="password"
+									id="newPw" name="newPw" required>
 							</div>
-							
+
 							<div class="form-group">
-								<label for="pwCheck">새로운 비밀번호 확인:</label>
-								<input type="password" id="pwCheck" name="pwCheck" required>
+								<label for="pwCheck">새로운 비밀번호 확인:</label> <input type="password"
+									id="pwCheck" name="pwCheck" required>
 							</div>
-							
+
 							<button type="submit" class="site-btn">변경 완료</button>
-						
+
 						</form>
-						
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+	
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
@@ -161,5 +165,8 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+
 </body>
 </html>

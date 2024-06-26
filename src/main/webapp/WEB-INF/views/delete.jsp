@@ -129,22 +129,20 @@
 						정말 회원탈퇴를 진행하시겠습니까? 알림창 출력 후 사용자가 '확인'버튼 클릭 시
 						회원탈퇴가 완료되었습니다! 알림창 출력 후 메인 페이지로 이동
 						-->
-							
+
 						<form action="/foodie/delete.do" method="post">
 							<%-- 탈퇴 처리 서블릿으로 연결 --%>
 
 							<!-- label for="id" 해당 id값과 연결된다. 
 							id 가 id 인 input 태그와 연결되므로 label을 클릭시 인풋 입력이 활성화됨.
 							-->
-								
+
 							<div class="form-group">
-								<label for="id">아이디 : </label>
-								<input type="text" id="id" name="input_id" required>
-								<br>
-								<label for="pw">비밀번호 : </label>
-								<input type="password" id="pw" name="input_pw" required>
+								<label for="id">아이디 : </label> <input type="text" id="id"
+									name="input_id" required> <br> <label for="pw">비밀번호
+									: </label> <input type="password" id="pw" name="input_pw" required>
 							</div>
-							
+
 							<button type="submit" class="#">탈퇴하기</button>
 
 						</form>
@@ -153,6 +151,10 @@
 			</div>
 		</div>
 	</section>
+
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
@@ -166,5 +168,8 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+
 </body>
 </html>
