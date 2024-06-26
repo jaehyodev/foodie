@@ -13,40 +13,13 @@
 					</div>
 				</div>
 				<div class="col-lg-6">
-					<div class="header__top__right">
-					
-					
-					
-					
-					
-			<%-- 			<div class="header__top__right__auth">
-
-							<form action="logout" method="post">
-								<c:choose>
-									<c:when test="${empty member}">
-										<span class="auth-link"><a href=<c:url value='/join'/>>회원가입</a></span>
-										<span class="auth-link"><a href=<c:url value='/login'/>>로그인</a></span>
-										<span class="auth-link"><a
-											href=<c:url value='/mypage'/>>마이페이지</a></span>
-									</c:when>
-									<c:otherwise>
-										<h6>${member.mem_id}님환영합니다.</h6>
-										<a href="mypage">마이페이지</a>
-										<button type="submit">로그아웃</button>
-									</c:otherwise>
-								</c:choose>
-							</form>
-
-						</div> --%>
-						
-						
-						
-						
+					<div class="header__top__right">			
 						<div class="header__top__right__auth">
 						   	<c:choose>
 						        <c:when test="${empty member}">
 						            <span class="auth-link"><a href=<c:url value='/join'/>>회원가입</a></span>
 						            <span class="auth-link"><a href=<c:url value='/login'/>>로그인</a></span>
+						            
 						        </c:when>
 						        <c:otherwise>
 						            <div class="login-section"> 
@@ -59,16 +32,10 @@
 						        </c:otherwise>
 						    </c:choose>
 						</div>
-						
-						
-						
-						
-						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 	<div class="container">
 		<div class="row">
