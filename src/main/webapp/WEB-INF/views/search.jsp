@@ -72,22 +72,20 @@
 				</div>
 
 				<div class="col-lg-9">
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<form action="#">
-								<input type="text" placeholder="푸디 제품, 요리명 등 다양하게 검색해보세요 !"
-									id="input-search">
-								<button type="button" class="site-btn" onclick="search()">검색</button>
-							</form>
-						</div>
-						<div class="hero__search__phone">
-							<div class="hero__search__phone__icon">
-								<i class="fa fa-comments"></i>
-							</div>
-							<div class="hero__search__phone__text">
-								<h5>재료 추천받기</h5>
-								<span>24시간 챗봇 상담</span>
-							</div>
+					<!-- Search Section Begin -->
+					<%@ include file="./search-form.jsp"%>
+					<!-- Search Section End -->
+
+					<div class="hero__item set-bg"
+						data-setbg="resources/img/hero/banner.jpg">
+						<div class="hero__text">
+							<span>쉽고 빠르게 따라 할 수있는!</span>
+							<h2>
+								새내기 요리사 <br />파티 레시피
+							</h2>
+							<p></p>
+							<a href="<c:url value='/recipe/파티'/>" class="primary-btn">파티
+								레시피 보기</a>
 						</div>
 					</div>
 				</div>
@@ -207,6 +205,10 @@
 		</div>
 	</section>
 
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->
+
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
@@ -220,5 +222,9 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+	<script src="<c:url value='/resources/js/search.js' />"></script>
+
 </body>
 </html>

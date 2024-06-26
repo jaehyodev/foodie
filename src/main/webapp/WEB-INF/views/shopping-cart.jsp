@@ -96,18 +96,19 @@
 	</section>
 	<!-- Hero Section End -->
 	<!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="resources/img/breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>장바구니</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="resources/img/breadcrumb.jpg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>장바구니</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Breadcrumb Section End -->
 
     <!-- 장바구니 Section Begin -->
     <section class="shoping-cart spad">
@@ -227,6 +228,40 @@
     </section>
     <!-- 장바구니 Section End -->
 
+						<div class="col-lg-6">
+							<div class="shoping__checkout">
+								<h5>총 결제금액</h5>
+								<ul>
+									<c:choose>
+										<c:when test="${sum>=50000}">
+											<li>상품금액 <span>${sum}원</span></li>
+											<li>배송비 <span>무료배송</span></li>
+											<li>결제예정금액 <span>${sum}원</span></li>
+										</c:when>
+										<c:when test="${sum<50000}">
+											<li>상품금액 <span>${sum}원</span></li>
+											<li>배송비 <span>3000원</span></li>
+											<li>결제예정금액 <span>${sum+3000}원</span></li>
+										</c:when>
+										<c:otherwise>
+											<li>로그인 후 이용해주세요</span></li>
+										</c:otherwise>
+									</c:choose>
+								</ul>
+								<a href="checkout" class="primary-btn">구매하기</a>
+							</div>
+						</div>
+					</div>
+				</c:otherwise>
+			</c:choose>
+
+		</div>
+	</section>
+	<!-- Shoping Cart Section End -->
+
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
@@ -241,8 +276,10 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
-	
+
 	<script>
 	//장바구니 수정하기
 	function updateCart(){
@@ -269,13 +306,29 @@
 			error : function(){
 				showPopup("수정되었습니다");				
 			}
-		})   
-	}
-	//계속 쇼핑하기
-	function continueShopping(){
-		history.back(); //이전 페이지로 이동
-	}	
+
+			$.ajax({
+				url : "updateCart.do",
+				type : "get",
+				dataType : "json",
+				traditional : true,
+				data : {
+					"cartValues" : cartValues,
+					"basketValues" : basketValues
+				},
+				success : function(data) {
+					console.log(data);
+				},
+				error : function() {
+					showPopup("수정되었습니다");
+				}
+			})
+		}
+		//계속 쇼핑하기
+		function continueShopping() {
+			history.back(); //이전 페이지로 이동
+		}
 	</script>
-	
+
 </body>
 </html>

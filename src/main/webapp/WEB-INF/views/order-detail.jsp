@@ -12,10 +12,8 @@
 <title>Foodie</title>
 
 <!-- Google Font -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
-	href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
 	rel="stylesheet">
 
 <!-- Css Styles -->
@@ -48,8 +46,8 @@
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
-	<section class="hero">
+	<!-- Category Section Begin -->
+	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
@@ -69,124 +67,71 @@
 						</ul>
 					</div>
 				</div>
-
 				<div class="col-lg-9">
+
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
 
-					<div class="hero__item set-bg"
-						data-setbg="resources/img/hero/banner.jpg">
-						<div class="hero__text">
-							<span>쉽고 빠르게 따라 할 수있는!</span>
-							<h2>
-								새내기 요리사 <br />파티 레시피
-							</h2>
-							<p></p>
-							<a href="<c:url value='/recipe/파티'/>" class="primary-btn">파티
-								레시피 보기</a>
-						</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Category Section End -->
+
+
+	<section class="hero hero-normal">
+		<div class="container">
+			<div class="row"></div>
+		</div>
+	</section>
+	<section class="mypage-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="mypage__sidebar">
+						<h2>마이 페이지</h2>
+						<ul>
+							<li class="active"><a href="mypage">주문 내역</a></li>
+							<li><a href="wishlist">찜 목록</a></li>
+							<li><a href="allergy">알레르기 / 비선호 식재료</a></li>
+							<li><a href="update">개인 정보 수정</a></li>
+							<li><a href="updatepw">비밀번호 변경</a></li>
+							<li><a href="delete">회원탈퇴</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-9">
+					<div class="mypage__content">
+						<h2>주문 내역</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>주문 번호</th>
+									<th>주문 날짜</th>
+									<th>주문 상태</th>
+									<th>주문 금액</th>
+									<th>상세 정보</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${orderInfo}" var="orderInfo">
+									<tr>
+										<td>${orderInfo.order_idx}</td>
+										<td>${orderInfo.ordered_at}</td>
+										<td>${orderInfo.order_status}</td>
+										<td>${orderInfo.total_amount}</td>
+										<td><button class="site-btn">보기</button></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- Hero Section End -->
-
-	<!-- 메인 레시피 화면 -->
-	<section class="categories">
-		<div class="container">
-			<div class="section-title">
-				<h2>인기 레시피👍</h2>
-			</div>
-			<div class="featured__controls">
-				<ul>
-					<li>푸디에서 많은 분들이 찾아본 인기 레시피를 소개합니다.</li>
-				</ul>
-			</div>
-			<div class="row">
-				<div class="categories__slider owl-carousel">
-					<c:forEach var="recipe" items="${popularList}">
-						<div class="col-lg-3">
-							<div class="categories__item set-bg"
-								data-setbg="<c:url value='resources/img${recipe.recipe_title_img}'/>">
-
-							</div>
-							<h5>
-								<a href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
-							</h5>
-						</div>
-					</c:forEach>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="categories">
-		<div class="container">
-			<div class="section-title">
-				<h2>추천 레시피💕</h2>
-			</div>
-			<div class="featured__controls">
-				<ul>
-					<li>푸디가 제안하는 레시피로 최고의 요리를 만들어보세요.</li>
-				</ul>
-			</div>
-			<div class="row">
-				<div class="categories__slider owl-carousel">
-					<c:forEach var="recipe" items="${recommendedList}">
-						<div class="col-lg-3">
-							<div class="categories__item set-bg"
-								data-setbg="<c:url value= 'resources/img${recipe.recipe_title_img}'/>">
-
-							</div>
-							<h5>
-								<a href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
-							</h5>
-						</div>
-					</c:forEach>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Blog Section Begin -->
-	<section class="from-blog spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-title from-blog__title">
-						<h2>✨new 레시피✨</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<!-- JSTL을 사용하여 newList를 동적으로 렌더링합니다. -->
-				<c:forEach var="recipe" items="${newList}">
-					<div class="col-lg-4 col-md-4 col-sm-6">
-						<div class="blog__item">
-							<div class="blog__item__pic">
-								<!-- 이미지 URL을 동적으로 설정 -->
-								<img
-									src="<c:url value='/resources/img/${recipe.recipe_title_img}' />"
-									alt="">
-							</div>
-							<div class="blog__item__text">
-								<ul>
-									<!-- 날짜를 동적으로 설정 -->
-									<li><i class="fa fa-calendar-o"></i> July 7,2024</li>
-								</ul>
-								<h5>
-									<!-- 레시피 이름을 동적으로 설정 -->
-									<a href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
-								</h5>
-								<p>${recipe.recipe_content}</p>
-							</div>
-						</div>
-					</div>
-				</c:forEach>
-			</div>
-		</div>
-	</section>
-	<!-- Blog Section End -->
 
 	<!-- Bottom Buttons (AI, Scroll up) Begin -->
 	<%@ include file="./bottom-buttons.jsp"%>
@@ -196,7 +141,6 @@
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
 
-	<!-- Js Plugins -->
 	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
 	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
 	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
@@ -205,7 +149,6 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
-	<script src="<c:url value='/resources/js/search.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 
