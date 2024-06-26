@@ -27,7 +27,7 @@ public class CartController {
 	public String cartList(Model model,HttpSession session ) {
 		
 		CartItems CartItems = new CartItems();
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		model.addAttribute("member",member);
 		
 		if(member != null) {
@@ -38,15 +38,14 @@ public class CartController {
 			
 			int sum = 0;
 			for(int i=0;i<cartList.size();i++) {
-				sum += cartList.get(i).getIngre_price()*cartList.get(i).getIngre_cnt();
-				//System.out.println(cartList.get(i).getBasket_idx()+"번호:수량"+cartList.get(i).getIngre_cnt());
-			}
+				sum += cartList.get(i).getIngre_price()*cartList.get(i).getIngre_cnt();				
+			}			
 			model.addAttribute("sum",sum);
 		}
-		
-		
+				
 		return "shopping-cart";
 	}
+	
 	//장바구니 목록 삭제
 	@RequestMapping(value="/delete.do/{ingre_idx}/{mem_id}",method=RequestMethod.GET)
 	public String deleteItem(@PathVariable("ingre_idx") int ingre_idx,@PathVariable("mem_id") String mem_id) {
@@ -65,6 +64,7 @@ public class CartController {
 			return "redirect:/";
 		}
 	}
+	
 	//장바구니 목록 수정
 	@RequestMapping(value="/updateCart.do",method=RequestMethod.GET)
 	public String updateItem(@RequestParam("cartValues") int[] cartValues, @RequestParam("basketValues") int[] basketValues) {
@@ -86,7 +86,7 @@ public class CartController {
 	public String checkoutCartList(Model model,HttpSession session) {
 				
 		CartItems CartItems = new CartItems();
-		Member member = (Member)session.getAttribute("Member");
+		Member member = (Member)session.getAttribute("member");
 		model.addAttribute("member",member);
 		
 		if(member != null) {
@@ -106,17 +106,15 @@ public class CartController {
 						
 		return "checkout";
 	}
-	//결제 완료 정보(주문번호,주소,주문일시,총액)저장
+	
+	//결제 완료 정보(주문번호,아이디,총액,주소)저장
 	@RequestMapping(value="/checkoutSuccess",method=RequestMethod.GET)
-	public void checkoutSuccess(@RequestParam("merchant_uid") String merchant_uid,@RequestParam("userAddr") String userAddr,
-			@RequestParam("userSum") int userSum,HttpSession session) {
-		//order_idx,mem_id,total_amount,order_addr
-		CartItems CartItems = new CartItems();
-		Member member = (Member)session.getAttribute("member");	
+	public void checkoutSuccess(@RequestParam("merchant_uid") String merchant_uid,
+								@RequestParam("userAddr") String userAddr,
+								@RequestParam("userSum") int userSum,HttpSession session) {
 		
-		System.out.println(merchant_uid);//ok
-		System.out.println(userAddr);//ok
-		System.out.println(userSum);//ok
+		CartItems CartItems = new CartItems();
+		Member member = (Member)session.getAttribute("member");
 		
 		CartItems.setOrder_idx(Integer.parseInt(merchant_uid));
 		CartItems.setMem_id(member.getMem_id());
@@ -124,20 +122,15 @@ public class CartController {
 		CartItems.setOrder_addr(userAddr);
 		
 		mapper.checkoutSuccess(CartItems);
-		if(member !=null) {
-			
-//			mapper.orderInfo(member.getMem_id());
-//			model.addAttribute("member", member);
-		}
 		
 	}
-	
+	//주문 내역 출력
 	@RequestMapping(value="/success/{merchant_uid}", method=RequestMethod.GET)
 	public String success(@PathVariable("merchant_uid") int merchant_uid,Model model) {
-				
-		mapper.orderInfo(merchant_uid);
-			
 		
+		CartItems cartItems = mapper.orderInfo(merchant_uid);
+		model.addAttribute("cartItems",cartItems);
+					
 		return "checkoutSuccess";
 	}
 	
