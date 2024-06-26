@@ -56,91 +56,82 @@
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
 						<ul>
-							<li><a href="#">채소</a></li>
-							<li><a href="#">과일</a></li>
-							<li><a href="#">정육</a></li>
-							<li><a href="shopgrid">수산</a></li>
-							<li><a href="#">쌀ㆍ잡곡</a></li>
-							<li><a href="#">면ㆍ오일</a></li>
-							<li><a href="#">우유ㆍ유제품</a></li>
-							<li><a href="#">소스ㆍ조미료</a></li>
-							<li><a href="recipe">레시피</a></li>
+							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
+							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
+							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
+							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
+							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
+							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
+							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
+							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
-				
+
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
-					
+
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- Category Section End -->
 
-	<!-- Breadcrumb Section Begin 바꿔야 할 부분-->
-	<section class="breadcrumb-section set-bg"
-		data-setbg="resources/img/breadcrumb.jpg">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<div class="breadcrumb__text">
-						<h2>로그인</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Breadcrumb Section End -->
 
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row"></div>
 		</div>
 	</section>
-
-	<section class="login-section spad">
+	<section class="mypage-section">
 		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-6 col-md-8">
-
-					<!-- 로그인 실패 시 나오는 멘트 -->
-					<c:if test="${not empty flash.error}">
-						<div class="logion-error-message">${flash.error}</div>
-						<script>
-							console.log("${flash.error}");
-						</script>
-					</c:if>
-
-
-
-					<div class="login__form">
-
-						<form action="/foodie/loginCheck" method="post">
-							<div class="form-group">
-								<label for="username">아이디</label> <input type="text"
-									class="form-control" id="username" name="id"
-									placeholder="아이디를 입력하세요">
-							</div>
-							<div class="form-group">
-								<label for="password">비밀번호</label> <input type="password"
-									class="form-control" id="password" name="pw"
-									placeholder="비밀번호를 입력하세요">
-							</div>
-							<br></br>
-							<button type="submit" class="site-btn float-center">로그인</button>
-						</form>
-						<br></br> <br></br>
-						<div class="login__register float-center">
-							아직 회원이 아니신가요? <a href="join">회원가입</a>
-						</div>
+			<div class="row">
+				<div class="col-lg-3">
+					<div class="mypage__sidebar">
+						<h2>마이 페이지</h2>
+						<ul>
+							<li class="active"><a href="mypage">주문 내역</a></li>
+							<li><a href="wishlist">찜 목록</a></li>
+							<li><a href="allergy">알레르기 / 비선호 식재료</a></li>
+							<li><a href="update">개인 정보 수정</a></li>
+							<li><a href="updatepw">비밀번호 변경</a></li>
+							<li><a href="delete">회원탈퇴</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-9">
+					<div class="mypage__content">
+						<h2>주문 내역</h2>
+						<table>
+							<thead>
+								<tr>
+									<th>주문 번호</th>
+									<th>주문 날짜</th>
+									<th>주문 상태</th>
+									<th>주문 금액</th>
+									<th>상세 정보</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${orderInfo}" var="orderInfo">
+									<tr>
+										<td>${orderInfo.order_idx}</td>
+										<td>${orderInfo.ordered_at}</td>
+										<td>${orderInfo.order_status}</td>
+										<td>${orderInfo.total_amount}</td>
+										<td><button class="site-btn">보기</button></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+	<!-- Hero Section End -->
 
 	<!-- Bottom Buttons (AI, Scroll up) Begin -->
 	<%@ include file="./bottom-buttons.jsp"%>
@@ -150,7 +141,6 @@
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
 
-	<!-- Js Plugins -->
 	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
 	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
 	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
@@ -161,5 +151,6 @@
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+
 </body>
 </html>

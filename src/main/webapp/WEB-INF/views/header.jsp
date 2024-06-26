@@ -26,7 +26,7 @@
 									<div class="login-section">
 										<h6>${member.mem_id}님,환영합니다!</h6>
 										<a href="mypage" class="mypage-btn">마이페이지</a>
-										<form action="logout" method="post" class="logout-form">
+										<form action="/foodie/logout" method="post" class="logout-form">
 											<button type="submit" class="logout-btn">로그아웃</button>
 										</form>
 									</div>

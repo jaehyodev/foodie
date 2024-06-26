@@ -46,8 +46,7 @@
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
-	<!-- 카테고리 -->
+	<!-- Category Section Begin -->
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row">
@@ -70,29 +69,16 @@
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<!-- 검색창 -->
-							<form action="#">
-								<input type="text" placeholder="검색어를 입력하세요">
-								<button type="submit" class="site-btn">검색</button>
-							</form>
-						</div>
-						<div class="hero__search__phone">
-							<div class="hero__search__phone__icon">
-								<i class="fa fa-comments"></i>
-							</div>
-							<div class="hero__search__phone__text">
-								<h5>재료 추천받기</h5>
-								<span>24시간 챗봇 상담</span>
-							</div>
-						</div>
-					</div>
+				
+					<!-- Search Section Begin -->
+					<%@ include file="./search-form.jsp"%>
+					<!-- Search Section End -->
+					
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Hero Section End -->
+	<!-- Category Section End -->
 
 	<!-- Breadcrumb Section Begin 바꿔야 할 부분-->
 	<section class="breadcrumb-section set-bg"
