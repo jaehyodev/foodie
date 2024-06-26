@@ -3936,6 +3936,10 @@ transparent
    position: relative;
    overflow: hidden;
 }
+#getCheckedValues:hover {
+	color: #000000;
+}
+
 
 /* 홍지연 */
 .img, input, button {

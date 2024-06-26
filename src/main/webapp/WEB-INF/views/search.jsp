@@ -81,7 +81,11 @@
 					</div>
 				</div>
 				<div class="col-lg-9">
+				
+					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
+					<!-- Search Section End -->
+					
 				</div>
 			</div>
 		</div>
