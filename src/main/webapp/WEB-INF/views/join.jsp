@@ -166,10 +166,14 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox" name="allergy_list" value="1">알류</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="2">우유</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="3">메밀</label></td>
-											<td><label><input type="checkbox" name="allergy_list" value="4">땅콩</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="1">알류</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="2">우유</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="3">메밀</label></td>
+											<td><label><input type="checkbox"
+													name="allergy_list" value="4">땅콩</label></td>
 										</tr>
 										<tr>
 											<td><label><input type="checkbox"
@@ -222,11 +226,16 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox" name="dislike_list" value="1">당근</label></td>
-											<td><label><input type="checkbox" name="dislike_list" value="2">버섯</label></td>
-											<td><label><input type="checkbox" name="dislike_list" value="3">생강</label></td>
-											<td><label><input type="checkbox" name="dislike_list" value="4">아보카도</label></td>
-											<td><label><input type="checkbox" name="dislike_list" value="5">오이</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_list" value="1">당근</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_list" value="2">버섯</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_list" value="3">생강</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_list" value="4">아보카도</label></td>
+											<td><label><input type="checkbox"
+													name="dislike_list" value="5">오이</label></td>
 										</tr>
 									</tbody>
 								</table>
@@ -243,10 +252,15 @@
 		</div>
 	</section>
 
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->
+
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
 
+	<!-- Js Plugins -->
 	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
 	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
 	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
@@ -255,9 +269,12 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<!-- 다음 주소 API -->
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="<c:url value='/resources/js/find-addr.js' />"></script>
-	
+
 </body>
 </html>

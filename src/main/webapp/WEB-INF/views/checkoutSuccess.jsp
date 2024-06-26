@@ -17,14 +17,27 @@
 	rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>" type="text/css">
-<link rel="stylesheet" href="<c:url value='/resources/css/font-awesome.min.css'/>" type="text/css">
-<link rel="stylesheet" href="<c:url value='/resources/css/elegant-icons.css'/>" type="text/css">
-<link rel="stylesheet" href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
-<link rel="stylesheet" href="<c:url value='/resources/css/jquery-ui.min.css'/>" type="text/css">
-<link rel="stylesheet" href="<c:url value='/resources/css/owl.carousel.min.css'/>" type="text/css">
-<link rel="stylesheet" href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
-<link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/bootstrap.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/font-awesome.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/elegant-icons.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/jquery-ui.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/owl.carousel.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
+	type="text/css">
 </head>
 
 <body>
@@ -83,24 +96,25 @@
 	</section>
 	<!-- Hero Section End -->
 	<!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="resources/img/breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>주문/결제</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="resources/img/breadcrumb.jpg">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>주문/결제</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Breadcrumb Section End -->
 
-    <!-- Shoping Cart Section Begin -->
-    <section class="shoping-cart spad">
-                        <div class="section-title">
-                        <h2>주문이 정상적으로 완료되었습니다!</h2>						
-						</div>
+	<!-- Shoping Cart Section Begin -->
+	<section class="shoping-cart spad">
+		<div class="section-title">
+			<h2>주문이 정상적으로 완료되었습니다!</h2>
+		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -131,16 +145,19 @@
 				</div>
 			</div>
 			<div class="col-lg-12">
-				<span style="display: block; text-align: center;">
-					<a href="<c:url value='/mypage' />" class="primary-btn">주문내역확인하기</a>
+				<span style="display: block; text-align: center;"> <a
+					href="<c:url value='/mypage' />" class="primary-btn">주문내역확인하기</a>
 				</span>
 			</div>
 
 
 		</div>
 	</section>
-    <!-- Shoping Cart Section End -->
+	<!-- Shoping Cart Section End -->
 
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
@@ -155,6 +172,8 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
-	
+	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+
 </body>
 </html>
