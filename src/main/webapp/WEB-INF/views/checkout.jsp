@@ -12,32 +12,17 @@
 <title>Foodie</title>
 
 <!-- Google Font -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/bootstrap.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/font-awesome.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/elegant-icons.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/jquery-ui.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/owl.carousel.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
-<link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
-	type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/font-awesome.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/elegant-icons.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/jquery-ui.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/owl.carousel.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css">
 	<style>
 	#checkoutInfo .checkoutInfo{
 		color: black;
@@ -121,7 +106,7 @@
 									상품 <span>가격</span>
 								</div>
 								<ul>
-									<!-- 장바구니 목록 출력 -->
+								<!-- 장바구니 목록 출력 -->
 									<c:forEach items="${cartList}" var="list">
 										<li>${list.ingre_name}<span>${list.ingre_price*list.ingre_cnt}원</span></li>
 									</c:forEach>
@@ -148,7 +133,7 @@
 								</c:choose>
 
 								<c:choose>
-									<c:when test="${empty member }"></c:when>
+									<c:when test="${empty member}"></c:when>
 									<c:otherwise>
 										<div class="checkout__input__checkbox">
 											<label for="acc-or"> 결제에 동의하십니까? 
@@ -261,7 +246,7 @@
 					if(rsp.success){ //주문완료
 					
 						$.ajax({
-							url : "checkoutSuccess",
+							url : "checkoutSuccess.do",
 							type : "get",
 							data : {
 									"merchant_uid":rsp.merchant_uid,

@@ -12,32 +12,17 @@
 <title>Foodie</title>
 
 <!-- Google Font -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
 <!-- Css Styles -->
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/bootstrap.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/font-awesome.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/elegant-icons.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/jquery-ui.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/owl.carousel.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
-<link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
-	type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/font-awesome.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/elegant-icons.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/jquery-ui.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/owl.carousel.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css">
 </head>
 
 <body>
@@ -61,14 +46,14 @@
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
 						<ul>
-							<li><a href="#">주부 레시피</a></li>
-							<li><a href="#">키즈 레시피</a></li>
-							<li><a href="#">자취생 레시피</a></li>
-							<li><a href="#">다이어트 레시피</a></li>
-							<li><a href="#">캠핑 레시피</a></li>
-							<li><a href="recipe">파티 레시피</a></li>
-							<li><a href="#">야식 레시피</a></li>
-							<li><a href="shopgrid">재료 사러가기</a></li>
+							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
+							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
+							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
+							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
+							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
+							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
+							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
+							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
 						</ul>
 					</div>
 				</div>
@@ -157,14 +142,14 @@
 													alt="${list.ingre_name}"
 													style="max-width: 30%; height: auto;">
 													<h5>${list.ingre_name}</h5>
-													<span>💚💚💚💚</span>
+													<span>💚주의💚</span>
 												</td>
 												<td class="shoping__cart__quantity">
 													<div class="quantity">
 														<div class="pro-qty">
 															<input type="text" value="${list.ingre_cnt}" name="cntValue">
 														</div>
-														<br> <input type="hidden" value="${list.basket_idx}" name="idxValue">
+														<input type="hidden" value="${list.basket_idx}" name="idxValue">
 													</div>
 												</td>
 												<td class="shoping__cart__total">${list.ingre_price*list.ingre_cnt}원</td>
@@ -263,12 +248,12 @@
 			dataType : "json",
 			traditional : true,
 			data : {"cartValues":cartValues,"basketValues":basketValues},
-			success :function(){
-				console.log(data);
+			success :function(data){
+				showPopup("수정되었습니다")
 			},
-			error : function(){
-				showPopup("수정되었습니다");				
-			}
+			error: function() {
+		        console.log("수정실패")
+		    }
 		})   
 	}
 	//계속 쇼핑하기
