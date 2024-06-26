@@ -27,6 +27,5 @@
 	<insert id="checkoutSuccess" parameterType="com.smhrd.foodie.model.CartItems">
 	insert into order_info (order_idx,mem_id,total_amount,order_addr) values (#{order_idx},#{mem_id},#{total_amount},#{order_addr})
 	</insert>
-	
- 	
+		
  </mapper>

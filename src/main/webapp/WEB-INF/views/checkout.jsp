@@ -74,7 +74,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h6><span class="icon_tag_alt"></span> 먹고 싶은 메뉴에 맞게 편리하게 쇼핑해보세요! <a href="shopgrid">계속 쇼핑하기</a>
+                    <h6>
+                    <span class="icon_tag_alt"></span>
+                     먹고 싶은 메뉴에 맞게 편리하게 쇼핑해보세요! 
+                     <a href="<c:url value='/' />">계속 쇼핑하기</a>
                     </h6>
                 </div>
             </div>
@@ -104,7 +107,6 @@
                             <div class="checkout__input" id="checkoutInfo">
                                 <p>주소<span>*</span></p>
                                 <input type="text" value="${member.mem_addr}" id="member-addr" class="checkoutInfo">
-                                <input type="text" placeholder="주소 세부사항" class="checkoutInfo">
                             </div>
                             <div class="checkout__input">
                                 <p>배송요청사항<span></span></p>
@@ -149,8 +151,8 @@
 									<c:when test="${empty member }"></c:when>
 									<c:otherwise>
 										<div class="checkout__input__checkbox">
-											<label for="acc-or"> 결제에 동의하십니까? <input
-												type="checkbox" id="acc-or"> <span class="checkmark"></span>
+											<label for="acc-or"> 결제에 동의하십니까? 
+												<input type="checkbox" id="acc-or"> <span class="checkmark"></span>
 											</label>
 										</div>
 										<p><b>5만원 이상 구매시 무료배송</b>입니다 .<br> 주문 내용을 다시 한 번 확인해주세요</p>
@@ -180,6 +182,7 @@
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
 
+	</body>
 	<!-- Js Plugins -->
 	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
 	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
@@ -192,54 +195,52 @@
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
 	<script src="https://cdn.iamport.kr/v1/iamport.js"></script><!-- 결제 api -->
 
-	<!-- jQuery -->
-	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-
+	<script>
 	
-</body>
-<script>
-		
 		//결제 API
 		var IMP = window.IMP; 
 		IMP.init("imp51542456");
+		var payInfo = '';
 
 		//user정보 불러오기
 		var merchant_uid = Math.floor(new Date().getTime() / 1000); //주문번호
 		var userSum = parseInt(document.querySelector('#member-sum').innerText); //결제 총액
-		var userName = '';
-		var userPhone = '';
-		var userEmail = '';
-		var userAddr = '';
+		var userName = document.querySelector('#member-name').value;
+		var userPhone = document.querySelector('#member-phone').value;
+		var userEmail = document.querySelector('#member-email').value;
+		var userAddr = document.querySelector('#member-addr').value;
+		
 		//사용자 입력값으로 저장
 		document.querySelector('#member-name').addEventListener('input', function() {
-		    userName = this.value;
+			userName = this.value;
 		});
 
 		document.querySelector('#member-phone').addEventListener('input', function() {
-		    userPhone = this.value;
+			userPhone = this.value;
 		});
 
 		document.querySelector('#member-email').addEventListener('input', function() {
-		    userEmail = this.value;
+			userEmail = this.value;
 		});
 
 		document.querySelector('#member-addr').addEventListener('input', function() {
-		    userAddr = this.value;
+			userAddr = this.value;
 		});
 		
 		function requestPay() {
-			console.log(document.querySelector('#member-sum'));
+			
 			event.preventDefault();//새로고침 방지
 			var checkbox = document.getElementById('acc-or'); //결제동의 체크 시 결제가능
-			var selectedOption = document.querySelector('input[name="pay"]:checked'); //결제방법 선택
-			var selectedValue = selectedOption.value;
+			var selectedOption = document.querySelector('input[name="pay"]:checked'); //결제방법 선택			
+
 			if(selectedOption){
+				var selectedValue = selectedOption.value;
 				if(selectedValue === 'card'){ //카드결제
 					payInfo = 'html5_inicis';
 				}else if (selectedValue === 'kakao'){ //카카오페이
 					payInfo = 'kakaopay';
 				}else{
-					alert("결제방법을 선택해주세요");
+					showPopup("결제 방법을 선택해주세요")
 				}
 			}
 			if(checkbox.checked){ //결제 동의 시
@@ -258,30 +259,31 @@
 					//rsp.imp_uid 값으로 결제 단건조회 API를 호출하여 결제결과를 판단
 					
 					if(rsp.success){ //주문완료
-						console.log(userAddr)
+					
 						$.ajax({
 							url : "checkoutSuccess",
 							type : "get",
 							data : {
-								"merchant_uid":rsp.merchant_uid,
-								"userAddr":rsp.buyer_addr,
-								"userSum":rsp.paid_amount
-								},//주문번호,주소,총액
+									"merchant_uid":rsp.merchant_uid,
+									"userAddr":rsp.buyer_addr,
+									"userSum":rsp.paid_amount
+									},//주문번호,주소,총액
 							success : function(){
-								showPopup("주문이 완료되었습니다", rsp.merchant_uid);
+								showIdPopup("주문이 완료되었습니다", rsp.merchant_uid);
 							},
 							error : function(){
 								console.log("전송실패")
 							}
-						})
-						
-					}else{//결제 X
-						showPopup("결제가 취소되었습니다")
-					}						
-						
+						})						
+					}else{
+						if(!selectedValue){ // 결제방법선택 X
+							showPopup("결제 방법을 선택해주세요")
+						}else{ //결제 X
+							showPopup("결제가 취소되었습니다")							
+						}
+					}												
 				});
-			}
-			
+			}			
 		}
 	</script>
 </html>

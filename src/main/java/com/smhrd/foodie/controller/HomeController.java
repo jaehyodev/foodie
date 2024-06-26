@@ -70,11 +70,6 @@ public class HomeController {
 		return "delete";
 	}
 
-	@RequestMapping(value = "/cartTest", method = RequestMethod.GET)
-	public String cart() {
-		return "shopping-cart";
-	}
-
 	@RequestMapping(value = "/shopgrid", method = RequestMethod.GET)
 	public String shopGrid() {
 		return "shop-grid";
@@ -93,11 +88,6 @@ public class HomeController {
 	@RequestMapping(value = "/recipedetail", method = RequestMethod.GET)
 	public String recipeDetail() {
 		return "recipe-details";
-	}
-
-	@RequestMapping(value="/checkoutTest", method=RequestMethod.GET)
-	public String checkout() {
-		return "checkout";
 	}
 
 	// 챗봇 페이지
