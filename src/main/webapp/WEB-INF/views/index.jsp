@@ -48,17 +48,16 @@
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
+	<!-- Category Section Begin -->
 	<section class="hero">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
 					<div class="hero__categories">
 						<div class="hero__categories__all">
-
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
-						<ul>
+						<ul id="categories-list">
 							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
 							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
 							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
@@ -66,32 +65,80 @@
 							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
 							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
 							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
+							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
+						</ul>
+						<ul id="additional-categories">
+							<li><a href="#">채소</a></li>
+							<li><a href="#">과일</a></li>
+							<li><a href="#">정육</a></li>
+							<li><a href="#">수산</a></li>
+							<li><a href="#">쌀ㆍ잡곡</a></li>
+							<li><a href="#">면ㆍ오일</a></li>
+							<li><a href="#">우유ㆍ유제품</a></li>
+							<li><a href="#">소스ㆍ조미료</a></li>
+							<li><a href="#" id="view-recipes">레시피 보기</a></li>
 						</ul>
 					</div>
-				</div>
+            </div>
 
 				<div class="col-lg-9">
+
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
 
-					<div class="hero__item set-bg"
-						data-setbg="resources/img/hero/banner.jpg">
-						<div class="hero__text">
-							<span>쉽고 빠르게 따라 할 수있는!</span>
-							<h2>
-								새내기 요리사 <br />파티 레시피
-							</h2>
-							<p></p>
-							<a href="<c:url value='/recipe/파티'/>" class="primary-btn">파티 레시피 보기</a>
+					<div class="slideshow-container">
+					<div class="mySlides fade2">
+						<div class="hero__item set-bg main_slideImg"
+							data-setbg="<c:url value='/resources/img/recipe/1479_title.jpg' />">
+							<div class="hero__text">
+								<span>쉽고 빠르게 따라 할 수 있는!</span>
+								<h2>
+									새내기 요리사 <br />파티 레시피
+								</h2>
+								<p></p>
+								<a href="#" class="primary-btn">파티 레시피 보기</a>
+							</div>
+						</div>
+					</div>
+					<div class="mySlides fade2">
+						<div class="hero__item set-bg main_slideImg"
+							data-setbg="<c:url value='/resources/img/recipe/1071_title.jpg' />">
+							<div class="hero__text">
+								<span>간편하지만 정성스러운 한끼!</span>
+								<h2>
+									맛있고 든든하게 <br /> 영양 챙기기
+								</h2>
+								<p></p>
+								<a href="#" class="primary-btn">자취생 레시피 보기</a>
+							</div>
+						</div>
+					</div>
+					<div class="mySlides fade2">
+						<div class="hero__item set-bg main_slideImg"
+							data-setbg="<c:url value='/resources/img/recipe/1143_title.jpg' />">
+							<div class="hero__text">
+								<span>아이들이 사랑하는 맛!</span>
+								<h2>
+									간편하게 준비하는 <br />키즈 레시피
+								</h2>
+								<p></p>
+								<a href="#" class="primary-btn">키즈 레시피 보기</a>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Hero Section End -->
+				<br>
+				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+				<a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+         </div>
+      </div>
+   </section>
+	<!-- Category Section End -->
+
+	<!-- Main Recipe Section Begin -->
+	<!-- Main Recipe - Popular Recipe Section Begin -->
 	<section class="categories">
 		<div class="container">
 			<div class="section-title">
@@ -108,10 +155,9 @@
 						<div class="col-lg-3">
 							<div class="categories__item set-bg"
 								data-setbg="<c:url value='resources/img${recipe.recipe_title_img}'/>">
-
 							</div>
 							<h5>
-								<a href="<c:url value='/recipedetails/${recipe.recipe_name}'/>">${recipe.recipe_name}</a>
+								<a href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
 							</h5>
 						</div>
 					</c:forEach>
@@ -119,6 +165,8 @@
 			</div>
 		</div>
 	</section>
+	<!-- Main Recipe - Popular Recipe Section End -->
+	<!-- Main Recipe - Recommended Recipe Section Begin -->
 	<section class="categories">
 		<div class="container">
 			<div class="section-title">
@@ -138,7 +186,7 @@
 
 							</div>
 							<h5>
-								<a href="<c:url value='/recipedetails/${recipe.recipe_name}'/>">${recipe.recipe_name}</a>
+								<a href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
 							</h5>
 						</div>
 					</c:forEach>
@@ -146,7 +194,9 @@
 			</div>
 		</div>
 	</section>
-	<!-- Blog Section Begin -->
+	<!-- Main Recipe - Recommended Recipe Section End -->
+
+	<!-- Main Recipe - New Recipe Section Begin -->
 	<section class="from-blog spad">
 		<div class="container">
 			<div class="row">
@@ -174,7 +224,7 @@
 								</ul>
 								<h5>
 									<!-- 레시피 이름을 동적으로 설정 -->
-									<a href="<c:url value='/recipedetails/${recipe.recipe_name}'/>">${recipe.recipe_name}</a>
+									<a href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
 								</h5>
 								<p>${recipe.recipe_content}</p>
 							</div>
@@ -184,7 +234,12 @@
 			</div>
 		</div>
 	</section>
-	<!-- Blog Section End -->
+	<!-- Main Recipe - New Recipe Section End -->
+	<!-- Main Recipe Section End -->
+
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
@@ -199,8 +254,9 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
-	<script src="<c:url value='/resources/js/search.js' />"></script>
+	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
-	
+	<script src="<c:url value='/resources/js/categoriesList.js' />"></script>
+	<script src="<c:url value='/resources/js/mainSlide.js' />"></script>
 </body>
 </html>

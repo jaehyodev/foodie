@@ -27,5 +27,12 @@ public interface CartMapper {
 	int checkoutSuccess(CartItems cartItems);
 	
 	//결제완료 창 정보 출력
-	Member orderInfo(int order_idx);
+	@Select("select a.order_idx,a.order_addr,a.ordered_at,a.total_amount,b.mem_name,b.mem_phone "
+			+ "from order_info a,member_info b "
+			+ "where a.mem_id =b.mem_id and a.order_idx = #{order_idx}")
+	CartItems orderInfo(int order_idx);
+	
+	//결제 완료 시 장바구니 삭제
+	@Delete("delete from basket_info where mem_id = #{mem_id}")
+	int deleteCart(CartItems cartItems);
 }
