@@ -8,15 +8,12 @@
 			<button type="button" class="site-btn" onclick="search()">검색</button>
 		</form>
 	</div>
-		<div class="header__wishlist__cart">
-				<div class="header__wishlist ml-5"><a href=<c:url value='/wishlist'/>><i class="fa fa-heart"></i></a></div>
-				<div class="header__cart ml-5"><a href=<c:url value='/cart'/>><i class="fa fa-shopping-bag"></i></a></div>
+	<div class="header__wishlist__cart">
+		<div class="header__wishlist ml-5">
+			<a href=<c:url value='/wishlist'/>><i class="fa fa-heart"></i></a>
 		</div>
-<!-- 		<div class="hero__search__phone__icon" onclick="openChatbot()">
-			<i class="fa fa-comments"></i>
+		<div class="header__cart ml-5">
+			<a href=<c:url value='/cart'/>><i class="fa fa-shopping-bag"></i></a>
 		</div>
-		<div class="hero__search__phone__text">
-			<span>AI 챗봇 상담</span>
-		</div> -->
-
+	</div>
 </div>

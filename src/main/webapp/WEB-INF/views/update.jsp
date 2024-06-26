@@ -121,6 +121,7 @@
 
 
 						<form action="/foodie/update.do" method="post">
+							<%-- 수정 처리 서블릿으로 연결 --%>
 							<div class="form-group">
 								<label for="name">이름:</label> <input type="text" id="name"
 									name="mem_name" value="${member.mem_name}" required>
@@ -139,19 +140,19 @@
 							</div>
 							<button type="submit" class="site-btn">수정하기</button>
 						</form>
-
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+	
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
 	<!-- Footer Section End -->
-
-
 
 	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
 	<script src="<c:url value='/resources/js/bootstrap.min.js' />"></script>
@@ -161,7 +162,10 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
 	<script src="<c:url value='/resources/js/member.js' />"></script>
+
 </body>
 </html>
