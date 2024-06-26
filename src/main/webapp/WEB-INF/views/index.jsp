@@ -83,7 +83,8 @@
 								새내기 요리사 <br />파티 레시피
 							</h2>
 							<p></p>
-							<a href="<c:url value='/recipe/파티'/>" class="primary-btn">파티 레시피 보기</a>
+							<a href="<c:url value='/recipe/파티'/>" class="primary-btn">파티
+								레시피 보기</a>
 						</div>
 					</div>
 				</div>
@@ -91,7 +92,7 @@
 		</div>
 	</section>
 	<!-- Hero Section End -->
-	
+
 	<!-- 메인 레시피 화면 -->
 	<section class="categories">
 		<div class="container">
@@ -186,13 +187,10 @@
 		</div>
 	</section>
 	<!-- Blog Section End -->
-	
-	<div id="btn_ai">
-		<img src="resources/img/btn_ai.png" alt="인공지능" width="50">
-	</div>
-	<div id="btn_top">
-		<img src="resources/img/btn_top.png" alt="위로" width="50">
-	</div>
+
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>
@@ -208,19 +206,8 @@
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/search.js' />"></script>
+	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
-	<script>
-    document.getElementById('btn_ai').addEventListener('click', function() {
-        openChatbot();
-    });
-	</script>
-	<script>
-    document.getElementById('btn_top').addEventListener('click', function() {
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    });
-	</script>
-	<script>
-        var contextPath = '<%= request.getContextPath() %>';
-    </script>
+
 </body>
 </html>
