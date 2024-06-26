@@ -17,3 +17,15 @@
 		</div>
 	</div>
 </div>
+<script src="<c:url value='/resources/js/search.js' />"></script>
+
+<script>
+	function openLoginPopup() {
+	    // 새 창을 엽니다.
+	    var popupWidth = 400;
+	    var popupHeight = 300;
+	    var popupX = (window.screen.width / 2) - (popupWidth / 2);
+	    var popupY = (window.screen.height / 2) - (popupHeight / 2);
+	    window.open('/login-popup', 'loginPopup', 'width=' + popupWidth + ', height=' + popupHeight + ', top=' + popupY + ', left=' + popupX);
+	}
+</script>

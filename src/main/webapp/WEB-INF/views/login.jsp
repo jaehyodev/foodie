@@ -114,10 +114,7 @@
 						</script>
 					</c:if>
 
-
-
 					<div class="login__form">
-
 						<form action="/foodie/loginCheck" method="post">
 							<div class="form-group">
 								<label for="username">아이디</label> <input type="text"

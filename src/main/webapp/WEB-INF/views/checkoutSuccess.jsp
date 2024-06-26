@@ -110,10 +110,10 @@
 	</section>
 	<!-- Breadcrumb Section End -->
 
-	<!-- Shoping Cart Section Begin -->
-	<section class="shoping-cart spad">
+    <!-- 결제정보 Section Begin -->
+    <section class="shoping-cart spad">
 		<div class="section-title">
-			<h2>주문이 정상적으로 완료되었습니다!</h2>
+			<h2>주문이 정상적으로 완료되었습니다 !</h2>						
 		</div>
 		<div class="container">
 			<div class="row">
@@ -128,7 +128,11 @@
 							</thead>
 							<tbody>
 								<tr>
-									<th>배송지정보</th>
+									<th>받는 사람</th>
+									<td>${cartItems.mem_name} ( ${cartItems.mem_phone} )</td>
+								</tr>
+								<tr>
+									<th>받는 주소</th>
 									<td>${cartItems.order_addr}</td>
 								</tr>
 								<tr>
@@ -145,15 +149,13 @@
 				</div>
 			</div>
 			<div class="col-lg-12">
-				<span style="display: block; text-align: center;"> <a
-					href="<c:url value='/mypage' />" class="primary-btn">주문내역확인하기</a>
-				</span>
+				<span style="display: block; text-align: center;">
+					<a href="<c:url value='/deleteCart.do' />" class="primary-btn">주문 상세보기</a><!-- 장바구니 내역 삭제 -->					
+				</span>				
 			</div>
-
-
 		</div>
 	</section>
-	<!-- Shoping Cart Section End -->
+  <!-- 결제정보 Section End -->
 
 	<!-- Bottom Buttons (AI, Scroll up) Begin -->
 	<%@ include file="./bottom-buttons.jsp"%>
