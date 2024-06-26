@@ -149,11 +149,9 @@
 							</div>
 							<div class="form-group">
 								<label for="addr">주소</label>
-								<button type="button" onclick="daumPost()">주소 찾기</button>
-								<input type="text" class="form-control" id="addr"
-									name="mem_addr" required readonly> <input type="text"
-									class="form-control" id="extraAddr" name="mem_extraAddr"
-									placeholder="나머지 주소를 입력하세요" required>
+								<button type="button" onclick="findPost()">주소 찾기</button>
+								<input type="text" class="form-control" id="addr" name="mem_addr" required readonly>
+								<input type="text" class="form-control" id="extraAddr" name="mem_extraAddr" placeholder="나머지 주소를 입력하세요" required>
 							</div>
 
 							<label>알레르기 또는 비선호 식재료를 선택해주세요!</label>
