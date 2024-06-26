@@ -20,7 +20,7 @@
 									<span class="auth-link"><a href=<c:url value='/join'/>>회원가입</a></span>
 									<span class="auth-link"><a href=<c:url value='/login'/>>로그인</a></span>
 									<span class="auth-link"><a
-										href=<c:url value='/mypage-btn'/>>마이페이지</a></span>
+										href=<c:url value='/mypage'/>>마이페이지</a></span>
 								</c:when>
 								<c:otherwise>
 									<div class="login-section">
