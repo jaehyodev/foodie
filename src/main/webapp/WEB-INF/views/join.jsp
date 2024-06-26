@@ -69,11 +69,11 @@
 					</div>
 				</div>
 				<div class="col-lg-9">
-				
+
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
-					
+
 				</div>
 			</div>
 		</div>
@@ -109,33 +109,40 @@
 						<!-- form 시작 -->
 						<form action="/foodie/join.do" method="post">
 							<div class="form-group">
-								<label for="id">아이디</label> <input type="text"
-									class="form-control" id="id" name="mem_id"
+								<label for="id">아이디</label> <label id="label1"></label> <input
+									type="text" class="form-control" id="id" name="mem_id"
 									placeholder="아이디를 입력하세요" required>
 							</div>
+
+
 							<div class="form-group">
 								<label for="password">비밀번호</label> <input type="password"
 									class="form-control" id="pw" name="mem_pw"
 									placeholder="비밀번호를 입력하세요" required>
+
 							</div>
+
 							<div class="form-group">
-								<label for="pwck">비밀번호 확인</label> <input type="password"
-									class="form-control" id="pwck" name="mem_pwck"
+								<label for="pwck">비밀번호 확인</label> <label id="label2"></label> <input
+									type="password" class="form-control" id="pwck" name="mem_pwck"
 									placeholder="비밀번호를 다시 입력하세요" required>
 							</div>
+
 							<div class="form-group">
-								<label for="email">이메일</label> <input type="email"
-									class="form-control" id="email" name="mem_email"
+								<label for="email">이메일</label> <label id="label3"></label> <input
+									type="email" class="form-control" id="email" name="mem_email"
 									placeholder="이메일을 입력하세요" required>
 							</div>
+
 							<div class="form-group">
-								<label for="phoneNumber">전화번호</label> <input type="tel"
-									class="form-control" id="tel" name="mem_tel"
+								<label for="phoneNumber">전화번호</label> <label id="label4"></label>
+								<input type="tel" class="form-control" id="tel" name="mem_tel"
 									placeholder="전화번호를 입력하세요" required>
 							</div>
+
 							<div class="form-group">
 								<label for="addr">주소</label>
-								<button type="button" onclick="daumPost()">주소 찾기</button>
+								<button type="button" onclick="findAddr()">주소 찾기</button>
 								<input type="text" class="form-control" id="addr"
 									name="mem_addr" required readonly> <input type="text"
 									class="form-control" id="extraAddr" name="mem_extraAddr"
