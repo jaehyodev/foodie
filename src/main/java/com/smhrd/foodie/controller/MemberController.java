@@ -32,10 +32,13 @@ public class MemberController {
 	@RequestMapping(value = "/join.do", method = RequestMethod.POST)
 	public String join(@RequestParam("mem_id") String mem_id, @RequestParam("mem_pw") String mem_pw,
 			@RequestParam("mem_pwck") String mem_pwck, @RequestParam("mem_email") String mem_email,
-			@RequestParam("mem_tel") String mem_tel, @RequestParam("mem_addr") String mem_addr,
+			@RequestParam("mem_tel") String mem_tel, @RequestParam("mem_addr") String mem_addr, 
+			@RequestParam("mem_extraAddr") String mem_extraAddr,
 			@RequestParam(name = "allergy_list", required = false) List<String> allergy_list,
 			@RequestParam(name = "dislike_list", required = false) List<String> dislike_list) {
 
+		// 상세 주소 합치기
+		mem_addr = mem_addr + mem_extraAddr;
 		Member member = new Member(mem_id, mem_pw, mem_pwck, mem_email, mem_tel, mem_addr);
 
 		// sql문 실행
@@ -60,7 +63,6 @@ public class MemberController {
 
 				}
 			}
-			
 			
 			if(dislike_list != null) {
 				// 비선호 식재료
