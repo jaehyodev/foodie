@@ -17,7 +17,7 @@
 	rel="stylesheet">
 
 <!-- Font Awesome -->
-<script src="https://kit.fontawesome.com/3a115195d8.js"
+<script src="https://kit.fontawesome.com/a076d05399.js"
 	crossorigin="anonymous"></script>
 
 <!-- Css Styles -->
@@ -42,7 +42,7 @@
 	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
 	type="text/css">
-	
+
 </head>
 
 <body>
@@ -50,37 +50,6 @@
 	<!-- Header Section Begin -->
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
-	
-    <!-- Humberger Begin -->
-    <div class="humberger__menu__overlay"></div>
-    <div class="humberger__menu__wrapper">
-        <div class="humberger__menu__logo">
-            <a href="index"><img src="resources/img/logo.png" alt=""></a>
-        </div>
-        <div class="humberger__menu__cart">
-            <ul>
-            	<!-- 찜 -->
-                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <!-- 장바구니 -->
-                <li><a href="cart"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
-            </ul>
-            <!-- 장바구니 총 금액 -->
-        </div>
-        <div class="humberger__menu__widget">
-            <div class="header__top__right__auth">
-                <a href="login"><i class="fa fa-user"></i> 로그인 / 회원가입</a>
-            </div>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-        <div class="humberger__menu__contact">
-            <ul>
-            	<!-- 이메일 -->
-                <li><i class="fa fa-envelope"></i> hello@smhrd.com</li>
-                <li>5만원 이상 구매 시 무료배송</li>
-            </ul>
-        </div>
-    </div>
-    <!-- Humberger End -->
 
 	<!-- Hero Section Begin -->
 	<!-- 상단 카테고리 -->
@@ -105,24 +74,11 @@
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<!-- 검색창 -->
-							<form action="#">
-								<input type="text" placeholder="검색어를 입력하세요">
-								<button type="submit" class="site-btn">검색</button>
-							</form>
-						</div>
-						<div class="hero__search__phone">
-							<div class="hero__search__phone__icon">
-								<i class="fa fa-comments"></i>
-							</div>
-							<div class="hero__search__phone__text">
-								<h5>재료 추천받기</h5>
-								<span>24시간 챗봇 상담</span>
-							</div>
-						</div>
-					</div>
+
+					<!-- Search Section Begin -->
+					<%@ include file="./search-form.jsp"%>
+					<!-- Search Section End -->
+
 				</div>
 			</div>
 		</div>
@@ -251,16 +207,15 @@
 							<div class="product__item__pic set-bg"
 								data-setbg="<c:url value='../resources/img${list.ingre_img }'/>"
 								onclick="window.location.href = '<c:url value='/shopdetail/${list.ingre_idx }'/>'"
-								style="cursor: pointer;">
-							</div>
-								<ul class="product__item__pic__hover">
-									<li><a
-										href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i
-											class="fa fa-heart"></i></a></li>
-									<li><a
-										href="<c:url value='javascript:ingreCart(${list.ingre_idx})'/>"><i
-											class="fa fa-shopping-cart"></i></a></li>
-								</ul>
+								style="cursor: pointer;"></div>
+							<ul class="product__item__pic__hover">
+								<li><a
+									href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i
+										class="fa fa-heart"></i></a></li>
+								<li><a
+									href="<c:url value='javascript:ingreCart(${list.ingre_idx})'/>"><i
+										class="fa fa-shopping-cart"></i></a></li>
+							</ul>
 							<div class="product__item__text">
 								<h6>
 									<a href="<c:url value='/shopdetail/${list.ingre_idx }'/>">${list.ingre_name }</a>
@@ -275,8 +230,9 @@
 	</section>
 	<section class="related-product">
 		<div class="container">
-			<a href="#" class="primary-btn float-center" id="getCheckedValues">선택
-				상품 장바구니 담기</a> <br></br>
+			<button class="primary-btn float-center" id="getCheckedValues">선택
+				상품 장바구니 담기</button>
+			<br></br>
 		</div>
 	</section>
 	<!-- Related Product Section End -->

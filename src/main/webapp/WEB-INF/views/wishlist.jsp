@@ -71,24 +71,11 @@
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<!-- 검색창 -->
-							<form action="#">
-								<input type="text" placeholder="검색어를 입력하세요">
-								<button type="submit" class="site-btn">검색</button>
-							</form>
-						</div>
-						<div class="hero__search__phone">
-							<div class="hero__search__phone__icon">
-								<i class="fa fa-comments"></i>
-							</div>
-							<div class="hero__search__phone__text">
-								<h5>재료 추천받기</h5>
-								<span>24시간 챗봇 상담</span>
-							</div>
-						</div>
-					</div>
+				
+					<!-- Search Section Begin -->
+					<%@ include file="./search-form.jsp"%>
+					<!-- Search Section End -->
+					
 				</div>
 			</div>
 		</div>
@@ -113,8 +100,9 @@
 				</div>
 				<div class="col-lg-9">
 					<div class="mypage__content">
+						
 						<h2>찜 목록</h2>
-
+						<!-- 레시피 찜 목록 데이터 출력 -->
 						<h3>레시피 찜</h3>
 						<table id="mypage__recipe">
 							<thead>
@@ -127,85 +115,59 @@
 								</tr>
 							</thead>
 							<tbody>
-								<!-- 로그인 시 이용가능 -->
-								<c:choose>
-									<c:when test="${empty member}">
-										<tr>
-											<td colspan="3"><h5>로그인 후 이용해주세요</h5></td>
-										</tr>
-									</c:when>
-									<c:otherwise>
-										<!-- 레시피 찜 목록 데이터 출력 -->
-										<h3>레시피 찜</h3>
-										<table id="mypage__recipe">
-											<thead>
-												<tr>
-													<th><input type="checkbox"
-														onclick="checkRecipesAll(this)"></th>
-													<th colspan="2"><a
-														href="javascript:deleteSelectedRecipes()"
-														class="wishlist__delete">선택된 목록 삭제</a></th>
-													<th class="wishlist__deleteText">삭제</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach items="${recipeWishlist}" var="recipe">
-													<tr>
-														<td><input type="checkbox" class="recipeCheckbox"
-															value="${recipe.recipe_idx}"></td>
-														<td>
-															<div class="wishlist__img">
-																<a href="#"><img
-																	src="<c:url value='/resources/img${recipe.recipe_title_img}'/>"
-																	alt="${recipe.recipe_name}"> </a>
-															</div>
-														</td>
-														<td><a href="#">${recipe.recipe_name}</a><br />${recipe.recipe_content}</td>
-														<td><a
-															href="javascript:deleteRecipe(${recipe.recipe_idx})"
-															class="wishlist__delete">❌</a></td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-
-										<h3>재료 찜</h3>
-										<table id="mypage__ingre">
-											<thead>
-												<tr>
-													<th><input type="checkbox"
-														onclick="checkIngresAll(this)"></th>
-													<th colspan="2"><a
-														href="javascript:deleteSelectedIngres()"
-														class="wishlist__delete">선택된 목록 삭제</a></th>
-													<th class="wishlist__deleteText">삭제</th>
-												</tr>
-											</thead>
-											<tbody>
-												<!-- 재료 찜 목록 데이터 출력 -->
-												<c:forEach items="${ingreWishlist}" var="ingredient">
-													<tr>
-														<td><input type="checkbox" class="ingreCheckbox"
-															value="${ingredient.ingre_idx}"></td>
-														<td>
-															<div class="wishlist__img">
-																<a href="#"><img
-																	src="<c:url value='/resources/img${ingredient.ingre_img}'/>"
-																	alt="${ingredient.ingre_name}"> </a>
-															</div>
-														</td>
-														<td><a href="#">${ingredient.ingre_name}</a><br />${ingredient.ingre_content}</td>
-														<td><a
-															href="javascript:deleteIngre(${ingredient.ingre_idx})"
-															class="wishlist__delete">❌</a></td>
-													</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-									</c:otherwise>
-								</c:choose>
-
+								<c:forEach items="${recipeWishlist}" var="recipe">
+									<tr>
+										<td><input type="checkbox" class="recipeCheckbox"
+											value="${recipe.recipe_idx}"></td>
+										<td>
+											<div class="wishlist__img">
+												<a href="#"><img
+													src="<c:url value='/resources/img${recipe.recipe_title_img}'/>"
+													alt="${recipe.recipe_name}"> </a>
+											</div>
+										</td>
+										<td><a href="#">${recipe.recipe_name}</a><br />${recipe.recipe_content}</td>
+										<td><a
+											href="javascript:deleteRecipe(${recipe.recipe_idx})"
+											class="wishlist__delete">❌</a></td>
+									</tr>
+								</c:forEach>
 							</tbody>
+						</table>
+
+						<h3>재료 찜</h3>
+						<table id="mypage__ingre">
+							<thead>
+								<tr>
+									<th><input type="checkbox" onclick="checkIngresAll(this)"></th>
+									<th colspan="2"><a
+										href="javascript:deleteSelectedIngres()"
+										class="wishlist__delete">선택된 목록 삭제</a></th>
+									<th class="wishlist__deleteText">삭제</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- 재료 찜 목록 데이터 출력 -->
+								<c:forEach items="${ingreWishlist}" var="ingredient">
+									<tr>
+										<td><input type="checkbox" class="ingreCheckbox"
+											value="${ingredient.ingre_idx}"></td>
+										<td>
+											<div class="wishlist__img">
+												<a href="#"><img
+													src="<c:url value='/resources/img${ingredient.ingre_img}'/>"
+													alt="${ingredient.ingre_name}"> </a>
+											</div>
+										</td>
+										<td><a href="#">${ingredient.ingre_name}</a><br />${ingredient.ingre_content}</td>
+										<td><a
+											href="javascript:deleteIngre(${ingredient.ingre_idx})"
+											class="wishlist__delete">❌</a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+						</tbody>
 						</table>
 					</div>
 				</div>
