@@ -139,22 +139,22 @@
 										data-setbg="<c:url value='../resources/img${list.recipe_title_img }'/>"
 										onclick="window.location.href = '<c:url value='/recipedetails/${list.recipe_idx}'/>'"
 										style="cursor: pointer;">
-										<ul class="product__item__pic__hover">
-											<li><c:choose>
-													<c:when
-														test="${not empty member and wishlist.get(loop.index) == 1}">
-														<a
-															href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"
-															style="color: #D03737;"><i class="fa fa-heart"></i></a>
-													</c:when>
-													<c:otherwise>
-														<a
-															href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"><i
-															class="fa fa-heart"></i></a>
-													</c:otherwise>
-												</c:choose></li>
-										</ul>
 									</div>
+									<ul class="product__item__pic__hover">
+										<li><c:choose>
+											<c:when
+												test="${not empty member and wishlist.get(loop.index) == 1}">
+												<a
+													href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"
+													style="color: #D03737;"><i class="fa fa-heart"></i></a>
+											</c:when>
+											<c:otherwise>
+												<a
+													href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"><i
+													class="fa fa-heart"></i></a>
+												</c:otherwise>
+											</c:choose></li>
+									</ul>
 									<div class="product__item__text">
 										<h6>
 											<a href="<c:url value='/recipedetails/${list.recipe_idx}'/>">${list.recipe_name }</a>

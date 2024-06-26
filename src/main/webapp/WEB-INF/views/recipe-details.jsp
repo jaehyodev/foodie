@@ -221,6 +221,7 @@
 								data-setbg="<c:url value='../resources/img${list.ingre_img }'/>"
 								onclick="window.location.href = '<c:url value='/shopdetail/${list.ingre_idx }'/>'"
 								style="cursor: pointer;">
+							</div>
 								<ul class="product__item__pic__hover">
 									<li><a
 										href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i
@@ -229,7 +230,6 @@
 										href="<c:url value='javascript:ingreCart(${list.ingre_idx})'/>"><i
 											class="fa fa-shopping-cart"></i></a></li>
 								</ul>
-							</div>
 							<div class="product__item__text">
 								<h6>
 									<a href="<c:url value='/shopdetail/${list.ingre_idx }'/>">${list.ingre_name }</a>
