@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,9 +37,9 @@ public class CartController {
 			List<CartItems> cartList = mapper.list(CartItems);
 			model.addAttribute("cartList",cartList);
 			
-			int sum = 0;
+			int sum = 0; // 상품 총액
 			for(int i=0;i<cartList.size();i++) {
-				sum += cartList.get(i).getIngre_price()*cartList.get(i).getIngre_cnt();				
+				sum += cartList.get(i).getIngre_price()*cartList.get(i).getIngre_cnt();
 			}			
 			model.addAttribute("sum",sum);
 		}
@@ -54,20 +55,14 @@ public class CartController {
 		cartItems.setMem_id(mem_id);
 		cartItems.setIngre_idx(ingre_idx);
 		
-		int row = mapper.deleteItem(cartItems);
-		
-		if(row>0) {
-			System.out.println("삭제성공");
-			return "redirect:/cart";
-		}else {
-			System.out.println("삭제실패");
-			return "redirect:/";
-		}
+		mapper.deleteItem(cartItems);
+
+		return "redirect:/cart";
 	}
 	
 	//장바구니 목록 수정
 	@RequestMapping(value="/updateCart.do",method=RequestMethod.GET)
-	public String updateItem(@RequestParam("cartValues") int[] cartValues, @RequestParam("basketValues") int[] basketValues) {		
+	public ResponseEntity<String> updateItem(@RequestParam("cartValues") int[] cartValues, @RequestParam("basketValues") int[] basketValues) {		
 
 		CartItems cartItems = new CartItems();
 
@@ -77,7 +72,7 @@ public class CartController {
 			mapper.updateItem(cartItems);
 		}						
 		
-		return "redirect:/cart";
+		return ResponseEntity.ok().body("{}");
 	}
 	
 	//결제창 장바구니 목록 출력
@@ -107,7 +102,7 @@ public class CartController {
 	}
 	
 	//결제 완료 정보(주문번호,아이디,총액,주소)저장
-	@RequestMapping(value="/checkoutSuccess",method=RequestMethod.GET)
+	@RequestMapping(value="/checkoutSuccess.do",method=RequestMethod.GET)
 	public void checkoutSuccess(@RequestParam("merchant_uid") String merchant_uid,
 								@RequestParam("userAddr") String userAddr,
 								@RequestParam("userSum") int userSum,HttpSession session) {
