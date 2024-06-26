@@ -27,5 +27,6 @@ public interface CartMapper {
 	int checkoutSuccess(CartItems cartItems);
 	
 	//결제완료 창 정보 출력
-	Member orderInfo(int order_idx);
+	@Select("select order_idx,mem_id,ordered_at,order_addr,total_amount from order_info where order_idx = #{order_idx}")
+	CartItems orderInfo(int order_idx);
 }

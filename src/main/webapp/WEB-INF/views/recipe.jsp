@@ -193,7 +193,7 @@
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
-	<script src="<c:url value='/resources/js/wish_cart.js' />"></script>
+	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
 	
 </body>
 </html>
