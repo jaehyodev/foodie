@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.smhrd.foodie.mapper.MemberMapper;
@@ -27,10 +27,38 @@ public class MemberController {
 
 	@Autowired
 	MemberMapper mapper;
-
+	
+	// ajax를 이용한 로그인 중복 확인
+	@RequestMapping(value = "idCheck", method = RequestMethod.POST)
+	public @ResponseBody boolean idCheck(String mem_id) {
+		
+		System.out.println(mapper.idCheck(mem_id));
+		
+		return 0 == mapper.idCheck(mem_id);
+	}
+	
+	// ajax를 이용한 이메일 중복 확인
+	@RequestMapping(value = "emailCheck", method = RequestMethod.POST)
+	public @ResponseBody boolean emailCheck(String mem_email) {
+		
+		System.out.println(mapper.idCheck(mem_email));
+		
+		return 0 == mapper.idCheck(mem_email);
+	}
+	
+	// ajax를 이용한 전화번호 중복 확인
+	@RequestMapping(value = "phoneCheck", method = RequestMethod.POST)
+	public @ResponseBody boolean phoneCheck(String mem_phone) {
+		
+		System.out.println(mapper.idCheck(mem_phone));
+		
+		return 0 == mapper.idCheck(mem_phone);
+	}
+	
+	
 	// 회원가입 실행 메소드
 	@RequestMapping(value = "/join.do", method = RequestMethod.POST)
-	public String join(@RequestParam("mem_id") String mem_id, @RequestParam("mem_pw") String mem_pw,
+	public @ResponseBody String join(@RequestParam("mem_id") String mem_id, @RequestParam("mem_pw") String mem_pw,
 			@RequestParam("mem_pwck") String mem_pwck, @RequestParam("mem_email") String mem_email,
 			@RequestParam("mem_tel") String mem_tel, @RequestParam("mem_addr") String mem_addr, 
 			@RequestParam("mem_extraAddr") String mem_extraAddr,
@@ -47,7 +75,7 @@ public class MemberController {
 		
 		int row = 0;
 		
-		// 비밀번호 확인
+		// 비밀번호 확인 후 회원가입
 		if(mem_pw.equals(mem_pwck)) {
 			
 			row = mapper.join(member);
@@ -80,18 +108,20 @@ public class MemberController {
 				}
 			}
 			
-		} // 비밀번호 확인 끝 중괄호
+		} // 비밀번호 확인 후 회원가입 끝 중괄호
 			
 		
 		System.out.println("insert 반환 값 : " + row);
 
 		if (row > 0) {
 			System.out.println("회원가입 성공");
+			return "success";
 		} else {
 			System.out.println("회원가입 실패");
+			return "fail";
 		}
 
-		return "redirect:/login";
+		
 	}
 
 	// 로그인 확인 메소드
@@ -405,4 +435,14 @@ public class MemberController {
 		
 		return "mypage";
 	}
+	
+	// 회원가입 성공 여부에 따른 알림창
+	@RequestMapping(value = "/joinCheck", method = RequestMethod.GET)
+	public String joinCheck() {
+		
+		
+		
+		return "";
+	}
+	
 }
