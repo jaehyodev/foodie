@@ -173,15 +173,14 @@
 					<div class="product__details__tab">
 						<ul class="nav nav-tabs" role="tablist">
 							<li class="nav-item"><a class="nav-link active"
-								data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">조리 순서</a>
-							</li>
+								data-toggle="tab" href="#tabs-1" role="tab" aria-selected="true">조리
+									순서</a></li>
 							<li class="nav-item"><a class="nav-link" data-toggle="tab"
 								href="#tabs-3" role="tab" aria-selected="false">재료</a></li>
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane active" id="tabs-1" role="tabpanel">
 								<div class="product__details__tab__desc">
-									<h4 style="line-height: 3.0;">조리순서</h4>
 									<c:forEach items="${recipecook }" var="recipecook"
 										varStatus="loop">
 										<h5 style="line-height: 2; color: #D03737;">Step
@@ -196,7 +195,6 @@
 							</div>
 							<div class="tab-pane" id="tabs-3" role="tabpanel">
 								<div class="product__details__tab__desc">
-									<h4 style="line-height: 3.0;">재료</h4>
 									<c:forEach items="${recipe.getRecipe_all_ingre().split(', ') }"
 										var="recipe">
 										<p style="line-height: 2; color: #666; font-size: 1.25em;">${recipe }</p>
@@ -222,7 +220,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<c:forEach items="${recipe_ingre }" var="list">
+				<c:forEach items="${recipe_ingre }" var="list" varStatus="loop">
 					<div class="col-lg-3 col-md-4 col-sm-6">
 						<div class="product__item">
 							<!-- 알러지, 비선호 식품 필터링 -->
@@ -267,9 +265,19 @@
 							</div>
 
 							<ul class="product__item__pic__hover">
-								<li><a
-									href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i
-										class="fa fa-heart"></i></a></li>
+								<c:choose>
+									<c:when
+										test="${not empty member and allIngreWishlist.get(loop.index) == 1}">
+										<li><a
+											href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"
+											style="color: #D03737;"><i class="fa fa-heart"></i></a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a
+											href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i
+												class="fa fa-heart"></i></a></li>
+									</c:otherwise>
+								</c:choose>
 								<li><a
 									href="<c:url value='javascript:ingreCart(${list.ingre_idx})'/>"><i
 										class="fa fa-shopping-cart"></i></a></li>

@@ -59,7 +59,7 @@ public class RecipeController {
 		}
 
 		model.addAttribute("wishlist", row);
-
+		
 		return "recipe";
 	}
 
@@ -134,6 +134,19 @@ public class RecipeController {
 			recipe_ingre = mapper.recipeIngre(recipe);
 		}
 		model.addAttribute("recipe_ingre", recipe_ingre);
+		
+	// 찜 확인
+			List<Integer> row = new ArrayList<Integer>();
+			if(member != null) {
+				// 찜되어 있는지 안되어 있는지 확인
+				for(int i=0; i<recipe_ingre.size(); i++) {
+					Wishlist wish = new Wishlist();
+					wish.setRecipe_ingre_idx(recipe_ingre.get(i).getIngre_idx());
+					wish.setMem_id(member.getMem_id());
+					row.add(mapper.checkIngreWish(wish));
+				}
+			}
+			model.addAttribute("allIngreWishlist", row);
 
 		return "recipe-details";
 	}
@@ -166,6 +179,31 @@ public class RecipeController {
 			return "success";
 		}
 
+	}
+	
+	// Recipe detail 각 재료 -> 찜
+	@RequestMapping(value="recipedetails/wishIngre", method=RequestMethod.GET)
+	public @ResponseBody String ingreWish(@RequestParam("ingre_idx") int ingre_idx, HttpSession session) {
+		Member member = (Member)session.getAttribute("member");
+		System.out.println(ingre_idx);
+		if(member == null)
+			return "notLogin";
+		else {
+			Wishlist wish = new Wishlist();
+			wish.setRecipe_ingre_idx(ingre_idx);
+			wish.setMem_id(member.getMem_id());
+			int row = mapper.checkIngreWish(wish);
+			if(row > 0) {
+				// 찜 목록에서 삭제
+				mapper.delIngreWish(wish);
+				return "inWish";
+			}
+			else {
+				// 찜 목록에 추가
+				mapper.inIngreWish(wish);
+				return "success";
+			}
+		}
 	}
 
 	//조회수 증가하기 전 쿠키로 검증
