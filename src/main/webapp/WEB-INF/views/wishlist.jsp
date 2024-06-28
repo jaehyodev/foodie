@@ -132,7 +132,7 @@
 
 						<!-- 레시피 찜 목록 데이터 출력 -->
 						<h3>레시피 찜</h3>
-						<table class="mypage__wishlist">
+						<table id="mypage__recipe" class="mypage__wishlist">
 							<thead>
 								<tr>
 									<th><input class="check" type="checkbox"
@@ -170,7 +170,7 @@
 						</table>
 
 						<h3>재료 찜</h3>
-						<table class="mypage__wishlist">
+						<table id="mypage__ingre" class="mypage__wishlist">
 							<thead>
 								<tr>
 									<th><input class="check" type="checkbox"

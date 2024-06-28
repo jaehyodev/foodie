@@ -64,7 +64,7 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<!-- 챗봇 토글 기능 -->
 	<script>
-		let isChatGPT = false; // ChatGPT(푸)인지 Chatbase(디)인지 확인!
+		let isChatGPT = true; // ChatGPT(푸)인지 Chatbase(디)인지 확인!
 		
 		$(document).ready(function() {
 		    $('#toggleButton').click(function() {
