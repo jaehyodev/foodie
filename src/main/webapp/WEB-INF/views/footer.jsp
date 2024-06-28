@@ -37,8 +37,6 @@
 			</div>
 			<div class="col-lg-4 col-md-12">
 				<div class="footer__widget">
-
-					</form>
 					<div class="footer__widget__social">
 						<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
 							class="fa fa-instagram"></i></a> <a href="#"><i
@@ -48,7 +46,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
+<%-- 		<div class="row">
 			<div class="col-lg-12">
 				<div class="footer__copyright">
 					<div class="footer__copyright__text">
@@ -61,6 +59,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --%>
 	</div>
 </footer>

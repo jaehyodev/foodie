@@ -24,6 +24,7 @@ public class SearchController {
     	List<Recipe> recipeList = mapper.searchRecipes(keyword);
     	List<Ingredient> ingreList = mapper.searchIngredients(keyword);
     	
+    	model.addAttribute("keyword", keyword);
     	model.addAttribute("recipeList", recipeList);
     	model.addAttribute("ingreList", ingreList);
     	

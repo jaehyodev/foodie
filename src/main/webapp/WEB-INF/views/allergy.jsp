@@ -77,7 +77,7 @@
 							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
 							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
 							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
-							<li><a href="<c:url value='/recipe/주부'/>">레시피 보러가기</a></li>
+							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
 						</ul>
 					</div>
 				</div>
@@ -93,11 +93,27 @@
 	</section>
 	<!-- Category Section End -->
 
+	<!-- Wide Banner Section Begin -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="<c:url value='/resources/img/breadcrumb.jpg'/>">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>알레르기 / 비선호 식재료</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Wide Banner Section End -->
+
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row"></div>
 		</div>
 	</section>
+	
 	<section class="allergy-section">
 		<div class="container">
 			<div class="row">
@@ -120,11 +136,11 @@
 							<input type="hidden" name="deleteAllergy" id="deleteAllergy"
 								value=""> <input type="hidden" name="deleteDislike"
 								id="deleteDislike" value="">
-							<div class="allergy-container">
+							<div class="allergy__dislike__container">
 								<table>
 									<thead>
 										<tr>
-											<th colspan="4"><h3>알레르기</h3></th>
+											<th colspan="4"><h4>알레르기</h4></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -133,7 +149,7 @@
 											<c:if test="${status.index % 4 == 0}">
 												<tr>
 											</c:if>
-											<td><label> <input type="checkbox"
+											<td><label> <input class="check" type="checkbox"
 													name="allergy_list" value="${status.index + 1}"
 													<c:forEach var="joinAllergyIdx" items="${joinAllergyIdx}">
 	                               	<c:if test="${joinAllergyIdx.allergy_idx == status.index + 1}">
@@ -148,11 +164,11 @@
 										</c:forEach>
 									</tbody>
 								</table>
-							
+
 								<table>
 									<thead>
 										<tr>
-											<th colspan="5"><h3>비선호 식재료</h3></th>
+											<th colspan="5"><h4>비선호 식재료</h4></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -161,7 +177,7 @@
 											<c:if test="${status.index % 5 == 0}">
 												<tr>
 											</c:if>
-											<td><label> <input type="checkbox"
+											<td><label> <input class="check" type="checkbox"
 													name="dislike_list" value="${status.index + 1}"
 													<c:forEach var="joinDislikeIdx" items="${joinDislikeIdx}">
 		                          	<c:if test="${joinDislikeIdx.dislike_idx == status.index + 1}">
@@ -207,6 +223,10 @@
 
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
+	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/search.js' />"></script>
+
 	<script>
 	  // 현재 위치에서 /foodie/updateAllergy 액션을 가진 폼을 form 변수에 저장
 	  const form = document.querySelector('form[action="/foodie/updateAllergy"]');
@@ -239,5 +259,22 @@
       deleteDislike.value = uncheckDislike.join(',');
 	  });
   </script>
+	<!-- 알레르기/비선호 수정하기 클릭 시 팝업창 띄우기 -->
+	<script>
+      document.addEventListener('DOMContentLoaded', function() {
+       // JSP에서 자바스크립트로 플래시 속성을 전달
+       var updateStatus = '<c:out value="${updateStatus}" />';
+   
+       // 회원 정보 수정 성공
+       if (updateStatus === 'success') {
+            // 새 창을 엽니다.
+            var popupWidth = 400;
+            var popupHeight = 300;
+            var popupX = (window.screen.width / 2) - (popupWidth / 2);
+            var popupY = (window.screen.height / 2) - (popupHeight / 2);
+            showPopup("알레르기 및 비선호 식재료 수정에 성공했습니다.");
+       }
+    });
+   </script>
 </body>
 </html>
