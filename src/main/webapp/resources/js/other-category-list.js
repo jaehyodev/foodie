@@ -1,3 +1,4 @@
+/* index.jsp외 파일에 적용 */
 document.addEventListener('DOMContentLoaded', function() {
     var categoriesList = document.getElementById('categories-list');
     var additionalCategories = document.getElementById('additional-categories');

@@ -48,7 +48,7 @@
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
+	<!-- Category Section Begin -->
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row">
@@ -68,30 +68,46 @@
 							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
 						</ul>
 						<ul id="additional-categories">
-							<li><a href="#">채소</a></li>
-							<li><a href="#">과일</a></li>
-							<li><a href="#">정육</a></li>
-							<li><a href="#">수산</a></li>
-							<li><a href="#">쌀ㆍ잡곡</a></li>
-							<li><a href="#">면ㆍ오일</a></li>
-							<li><a href="#">우유ㆍ유제품</a></li>
-							<li><a href="#">소스ㆍ조미료</a></li>
-							<li><a href="#" id="view-recipes">레시피 보기</a></li>
+							<li><a href="<c:url value='/shopgrid/채소/1'/>">채소</a></li>
+							<li><a href="<c:url value='/shopgrid/과일/1'/>">과일</a></li>
+							<li><a href="<c:url value='/shopgrid/수산/1'/>">수산</a></li>
+							<li><a href="<c:url value='/shopgrid/정육ㆍ계란류/1'/>">정육ㆍ계란류</a></li>
+							<li><a href="<c:url value='/shopgrid/쌀ㆍ잡곡/1'/>">쌀ㆍ잡곡</a></li>
+							<li><a href="<c:url value='/shopgrid/면ㆍ오일/1'/>">면ㆍ오일</a></li>
+							<li><a href="<c:url value='/shopgrid/우유ㆍ유제품/1'/>">우유ㆍ유제품</a></li>
+							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
+							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
+							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
+							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
-				
+
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
-					
+
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Hero Section End -->
+	<!-- Category Section End -->
 
+	<!-- Wide Banner Section Begin -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="<c:url value='/resources/img/breadcrumb.jpg'/>">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>'${keyword}'에 대한 검색 결과</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Wide Banner Section End -->
 
 	<section class="product spad">
 		<div class="container">
@@ -110,11 +126,6 @@
 									<h6>
 										<span>${recipeList.size() }</span> 개의 레시피
 									</h6>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-3">
-								<div class="filter__option">
-									<span class="icon_grid-2x2"></span> <span class="icon_ul"></span>
 								</div>
 							</div>
 						</div>
@@ -152,11 +163,6 @@
 									<h6>
 										<span>${ingreList.size() }</span> 개의 재료
 									</h6>
-								</div>
-							</div>
-							<div class="col-lg-4 col-md-3">
-								<div class="filter__option">
-									<span class="icon_grid-2x2"></span> <span class="icon_ul"></span>
 								</div>
 							</div>
 						</div>
@@ -205,8 +211,8 @@
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
 	<script src="<c:url value='/resources/js/search.js' />"></script>
-	<script src="<c:url value='/resources/js/otherCategoriesList.js' />"></script>
 
 </body>
 </html>

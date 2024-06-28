@@ -38,18 +38,13 @@
 	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
 	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/wishlist.css'/>" type="text/css">
-</head>
-
 <body>
 
 	<!-- Header Section Begin -->
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
-	<!-- 카테고리 -->
+	<!-- Category Section Begin -->
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row">
@@ -58,7 +53,7 @@
 						<div class="hero__categories__all">
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
-						<ul>
+						<ul id="categories-list">
 							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
 							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
 							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
@@ -66,21 +61,55 @@
 							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
 							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
 							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
+							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
+						</ul>
+						<ul id="additional-categories">
+							<li><a href="<c:url value='/shopgrid/채소/1'/>">채소</a></li>
+							<li><a href="<c:url value='/shopgrid/과일/1'/>">과일</a></li>
+							<li><a href="<c:url value='/shopgrid/수산/1'/>">수산</a></li>
+							<li><a href="<c:url value='/shopgrid/정육ㆍ계란류/1'/>">정육ㆍ계란류</a></li>
+							<li><a href="<c:url value='/shopgrid/쌀ㆍ잡곡/1'/>">쌀ㆍ잡곡</a></li>
+							<li><a href="<c:url value='/shopgrid/면ㆍ오일/1'/>">면ㆍ오일</a></li>
+							<li><a href="<c:url value='/shopgrid/우유ㆍ유제품/1'/>">우유ㆍ유제품</a></li>
+							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
+							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
+							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
+							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
-				
+
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
-					
+
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Hero Section End -->
+	<!-- Category Section End -->
+
+	<!-- Wide Banner Section Begin -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="<c:url value='/resources/img/breadcrumb.jpg'/>">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>찜 목록</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Wide Banner Section End -->
+
+	<section class="hero hero-normal">
+		<div class="container">
+			<div class="row"></div>
+		</div>
+	</section>
 
 	<section class="wishlist-section">
 		<div class="container">
@@ -100,14 +129,14 @@
 				</div>
 				<div class="col-lg-9">
 					<div class="mypage__content">
-						
-						<h2>찜 목록</h2>
+
 						<!-- 레시피 찜 목록 데이터 출력 -->
 						<h3>레시피 찜</h3>
-						<table id="mypage__recipe">
+						<table class="mypage__wishlist">
 							<thead>
 								<tr>
-									<th><input type="checkbox" onclick="checkRecipesAll(this)"></th>
+									<th><input class="check" type="checkbox"
+										onclick="checkRecipesAll(this)"></th>
 									<th colspan="2"><a
 										href="javascript:deleteSelectedRecipes()"
 										class="wishlist__delete">선택된 목록 삭제</a></th>
@@ -117,16 +146,21 @@
 							<tbody>
 								<c:forEach items="${recipeWishlist}" var="recipe">
 									<tr>
-										<td><input type="checkbox" class="recipeCheckbox"
+										<td><input type="checkbox" class="recipeCheckbox check"
 											value="${recipe.recipe_idx}"></td>
 										<td>
 											<div class="wishlist__img">
-												<a href="#"><img
+												<a
+													href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>"><img
 													src="<c:url value='/resources/img${recipe.recipe_title_img}'/>"
 													alt="${recipe.recipe_name}"> </a>
 											</div>
 										</td>
-										<td><a href="#">${recipe.recipe_name}</a><br />${recipe.recipe_content}</td>
+										<td><a
+											href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>"
+											class="wishlist__name"> ${recipe.recipe_name} </a> <br />
+											<div class="wishlist__content">${recipe.recipe_content}</div>
+										</td>
 										<td><a
 											href="javascript:deleteRecipe(${recipe.recipe_idx})"
 											class="wishlist__delete">❌</a></td>
@@ -136,10 +170,11 @@
 						</table>
 
 						<h3>재료 찜</h3>
-						<table id="mypage__ingre">
+						<table class="mypage__wishlist">
 							<thead>
 								<tr>
-									<th><input type="checkbox" onclick="checkIngresAll(this)"></th>
+									<th><input class="check" type="checkbox"
+										onclick="checkIngresAll(this)"></th>
 									<th colspan="2"><a
 										href="javascript:deleteSelectedIngres()"
 										class="wishlist__delete">선택된 목록 삭제</a></th>
@@ -150,24 +185,27 @@
 								<!-- 재료 찜 목록 데이터 출력 -->
 								<c:forEach items="${ingreWishlist}" var="ingredient">
 									<tr>
-										<td><input type="checkbox" class="ingreCheckbox"
+										<td><input type="checkbox" class="ingreCheckbox check"
 											value="${ingredient.ingre_idx}"></td>
 										<td>
 											<div class="wishlist__img">
-												<a href="#"><img
+												<a
+													href="<c:url value='/shopdetail/${ingredient.ingre_idx}'/>"><img
 													src="<c:url value='/resources/img${ingredient.ingre_img}'/>"
 													alt="${ingredient.ingre_name}"> </a>
 											</div>
 										</td>
-										<td><a href="#">${ingredient.ingre_name}</a><br />${ingredient.ingre_content}</td>
+										<td><a
+											href="<c:url value='/shopdetail/${ingredient.ingre_idx}'/>"
+											class="wishlist__name">${ingredient.ingre_name}</a> <br />
+											<div class="wishlist__content">${ingredient.ingre_content}</div>
+										</td>
 										<td><a
 											href="javascript:deleteIngre(${ingredient.ingre_idx})"
 											class="wishlist__delete">❌</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>
-						</table>
-						</tbody>
 						</table>
 					</div>
 				</div>
@@ -193,6 +231,8 @@
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
+	<script src="<c:url value='/resources/js/search.js' />"></script>
 	<script src="<c:url value='/resources/js/wishlist.js' />"></script>
 
 </body>

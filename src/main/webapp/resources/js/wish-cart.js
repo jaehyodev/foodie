@@ -30,9 +30,9 @@ function ingreCart(ingre_idx){
 			if (data == "notLogin")
 				showPopup("로그인을 해주세요.");
 			else if (data == "success")
-				showPopup("장바구니 목록에 추가되었습니다.");
+				showCartPopup("장바구니에 추가되었습니다.");
 			else
-				showPopup("오류 발생");
+				showCartPopup("오류 발생");
 		},
 		error : function(){
 			alert("실패");
@@ -51,9 +51,9 @@ function ingreDetailCart(ingre_idx){
        		if (data == "notLogin")
        			showPopup("로그인을 해주세요.");
        	 	else if (data == "success")
-       		 	showPopup("장바구니 목록에 추가되었습니다.");
+       		 	showCartPopup("장바구니에 추가되었습니다.");
        	 	else
-       		 	showPopup("오류 발생");
+       		 	showCartPopup("오류 발생");
        	},
        	error : function(){
         	alert("실패");
@@ -99,9 +99,9 @@ $(document).ready(function() {
 	 			if (data == "notLogin")
 	 				showPopup("로그인을 해주세요.");
 				else if (data == "success")
-					showPopup("장바구니에 추가되었습니다.");
+					showCartPopup("장바구니에 추가되었습니다.");
 				else
-					showPopup("오류 발생");
+					showCartPopup("오류 발생");
 			},
 	        error: function() {
 	        	alert("장바구니 담기 실패");
