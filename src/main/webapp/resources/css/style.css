@@ -913,7 +913,7 @@ transparent
 }
 
 .hero__search__form {
-	width: 900px;
+	width: 80%;
 	height: 50px;
 	border: 1px solid #ebebeb;
 	position: relative;
