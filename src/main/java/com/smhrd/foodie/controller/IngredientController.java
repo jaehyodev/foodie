@@ -36,9 +36,10 @@ public class IngredientController {
 		int start; // 재료 start 번호
 		int end; // 재료 end 번호
 		
-		// 전체 항목 수, 마지막 페이지 번호
+		// 전체 항목 수, 마지막 페이지 번호, 현재 페이지
 		model.addAttribute("total", total);
 		model.addAttribute("endPage", endPage);
+		model.addAttribute("nowPage", page);
 		
 		// 재료 뽑아낼 start 번호, end 번호
 		start = cntPerPage*(page-1)+1;

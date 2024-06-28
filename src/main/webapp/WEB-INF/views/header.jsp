@@ -52,8 +52,5 @@
          <div class="col-lg-6"></div>
          <div class="col-lg-3"></div>
       </div>
-      <div class="humberger__open">
-         <i class="fa fa-bars"></i>
-      </div>
    </div>
 </header>
