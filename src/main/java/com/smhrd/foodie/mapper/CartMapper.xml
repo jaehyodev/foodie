@@ -7,10 +7,25 @@
     
     <!-- 장바구니 목록 출력 -->
     <select id="list" parameterType="com.smhrd.foodie.model.Cart" resultType="com.smhrd.foodie.model.Cart">
-   select b.basket_idx,a.ingre_idx,a.ingre_img, a.ingre_name,a.ingre_price,b.mem_id,b.ingre_cnt
-   from ingredient_info a,basket_info b
-   where a.ingre_idx = b.ingre_idx
-   and b.mem_id = #{mem_id}
+	   SELECT DISTINCT b.basket_idx, b.ingre_idx, i.ingre_img, i.ingre_name, i.ingre_price, b.mem_id, b.ingre_cnt,
+	       CASE
+	           WHEN a.mem_id IS NOT NULL THEN '알레르기 주의 식품'
+	           WHEN d.mem_id IS NOT NULL THEN '비선호 식품'
+	           ELSE '일반 식품'
+	       END AS ingre_status
+	   FROM basket_info b JOIN ingredient_info i ON b.ingre_idx = i.ingre_idx
+	   LEFT JOIN (
+	       SELECT mai.mem_id, iai.ingre_idx
+	      FROM member_allergy_info mai JOIN ingre_allergy_info iai ON mai.allergy_idx = iai.allergy_idx
+	       WHERE mai.mem_id = #{mem_id}
+	   ) a ON b.ingre_idx = a.ingre_idx AND b.mem_id = a.mem_id
+	   LEFT JOIN (
+	       SELECT mdi.mem_id, ii.ingre_idx
+	       FROM member_dislike_info mdi
+	       JOIN ingredient_info ii ON ii.ingre_name LIKE CONCAT('%', (SELECT di.dislike_name FROM dislike_info di WHERE di.dislike_idx = mdi.dislike_idx), '%')
+	       WHERE mdi.mem_id = #{mem_id}
+	   ) d ON b.ingre_idx = d.ingre_idx AND b.mem_id = d.mem_id
+	   WHERE b.mem_id = #{mem_id}
    </select>
    
    <!-- 장바구니 항목 삭제 -->
@@ -23,9 +38,10 @@
    update basket_info set ingre_cnt = #{ingre_cnt} where basket_idx = #{basket_idx}
    </update>
    
-   <!-- 주문완료 시 order info에 저장 -->
-   <insert id="checkoutSuccess" parameterType="com.smhrd.foodie.model.Cart">
-   insert into order_info (order_idx,mem_id,total_amount,order_addr) values (#{order_idx},#{mem_id},#{total_amount},#{order_addr})
-   </insert>
+   <!--  주문완료 시 order info에 저장  -->
+	 <insert id="checkoutSuccess" parameterType="com.smhrd.foodie.model.Cart"> insert into order_info (order_idx,mem_id,total_amount,order_addr) values (#{order_idx},#{mem_id},#{total_amount},#{order_addr}) </insert>
+	
+	 <!--  장바구니 목록 저장  -->
+	 <insert id="checkoutCart" parameterType="com.smhrd.foodie.model.Cart"> insert into order_detail_info (order_idx,ingre_idx,order_cnt) values (#{order_idx},#{ingre_idx},#{order_cnt}) </insert>
       
  </mapper>

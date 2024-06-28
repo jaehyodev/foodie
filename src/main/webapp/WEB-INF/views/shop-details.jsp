@@ -79,7 +79,7 @@
 						<div class="hero__categories__all">
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
-						<ul id="categories-list">
+						<ul id="additional-categories">
 							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
 							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
 							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
@@ -89,7 +89,7 @@
 							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
 							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
 						</ul>
-						<ul id="additional-categories">
+						<ul id="categories-list">
 							<li><a href="<c:url value='/shopgrid/채소/1'/>">채소</a></li>
 							<li><a href="<c:url value='/shopgrid/과일/1'/>">과일</a></li>
 							<li><a href="<c:url value='/shopgrid/수산/1'/>">수산</a></li>
@@ -115,6 +115,21 @@
 		</div>
 	</section>
 	<!-- Category Section End -->
+	
+	<!-- Wide Banner Section Begin -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="<c:url value='/resources/img/breadcrumb.jpg'/>">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>${ingredient.ingre_cat }</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Wide Banner Section End -->	
 
 	<!-- Product Details Section Begin -->
 	<section class="product-details spad">

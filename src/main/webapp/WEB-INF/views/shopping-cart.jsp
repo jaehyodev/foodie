@@ -43,7 +43,6 @@
 
 <body>
 
-<<<<<<< HEAD
 	<!-- Header Section Begin -->
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
@@ -87,118 +86,6 @@
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
-=======
-   <!-- Header Section Begin -->
-   <%@ include file="./header.jsp"%>
-   <!-- Header Section End -->
-
-	<!-- Hero Section Begin -->
-	<section class="hero hero-normal">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3">
-					<div class="hero__categories">
-						<div class="hero__categories__all">
-							<i class="fa fa-bars"></i> <span>카테고리</span>
-						</div>
-						<ul>
-							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
-							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
-							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
-							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
-							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
-							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
-							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-9">
-				
-					<!-- Search Section Begin -->
-					<%@ include file="./search-form.jsp"%>
-					<!-- Search Section End -->
-					
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Hero Section End -->
-	
-	<!-- Breadcrumb Section Begin -->
-	<section class="breadcrumb-section set-bg"
-		data-setbg="resources/img/breadcrumb.jpg">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<div class="breadcrumb__text">
-						<h2>장바구니</h2>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Breadcrumb Section End -->
-
-   <!-- Hero Section Begin -->
-   <section class="hero hero-normal">
-      <div class="container">
-         <div class="row">
-            <div class="col-lg-3">
-               <div class="hero__categories">
-                  <div class="hero__categories__all">
-                     <i class="fa fa-bars"></i> <span>카테고리</span>
-                  </div>
-                  <ul>
-                     <li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
-                     <li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
-                     <li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
-                     <li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
-                     <li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
-                     <li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
-                     <li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-                     <li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
-                  </ul>
-               </div>
-            </div>
-            <div class="col-lg-9">
-               <div class="hero__search">
-                  <div class="hero__search__form">
-                     <form action="#">
-                        <input type="text" placeholder="검색어를 입력하세요">
-                        <button type="submit" class="site-btn">검색</button>
-                     </form>
-                  </div>
-                  <div class="hero__search__phone">
-                     <div class="hero__search__phone__icon">
-                        <i class="fa fa-comments"></i>
-                     </div>
-                     <div class="hero__search__phone__text">
-                        <h5>재료 추천받기</h5>
-                        <span>24시간 챗봇 상담</span>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
-   <!-- Hero Section End -->
-   
-   <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="resources/img/breadcrumb.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>장바구니</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
->>>>>>> main
 
 				</div>
 			</div>
@@ -206,7 +93,6 @@
 	</section>
 	<!-- Category Section End -->
 
-<<<<<<< HEAD
 	<!-- Wide Banner Section Begin -->
 	<section class="breadcrumb-section set-bg"
 		data-setbg="resources/img/breadcrumb.jpg">
@@ -258,40 +144,74 @@
 								<div class="cartCheckbox">
 									<input id="checkAll" class="check" type="checkbox" checked
 										onclick="toggleCheckboxes(this)"> <a
-										href="javascript:deleteSelectedItems()"><span class="deleteCart" >선택 삭제</span></a>
+										href="javascript:deleteSelectedItems()"><span
+										class="deleteCart">선택 삭제</span></a>
 								</div>
 								<table>
 									<thead>
 										<tr>
 											<th class="shoping__product">상품</th>
+											<th>알레르기/비선호</th>
 											<th>수량</th>
 											<th>가격</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${cartList}" var="list">
-											<tr>
-												<td class="shoping__cart__item"><input id="checkEach"
-													class="check" type="checkbox" checked
-													data-ingre-idx="${list.ingre_idx}"
-													data-mem-id="${list.mem_id}"> <img
-													src="<c:url value='./resources/img${list.ingre_img }'/>"
-													alt="${list.ingre_name}"
-													style="max-width: 30%; height: auto;">
-													<h5>${list.ingre_name}</h5></td>
-												<td class="shoping__cart__quantity">
-													<div class="quantity">
-														<div class="pro-qty">
-															<input type="text" value="${list.ingre_cnt}"
-																name="cntValue">
-														</div>
-														<input type="hidden" value="${list.basket_idx}"
-															name="idxValue">
-													</div>
-												</td>
-												<td class="shoping__cart__total"><fmt:formatNumber
-														value="${list.ingre_price*list.ingre_cnt}" pattern="#,###" />원</td>
-
+												<c:forEach items="${cartList}" var="list">
+													<tr>
+														<c:choose>
+															<c:when test="${list.ingre_status eq '알레르기 주의 식품' }">
+																<td class="shoping__cart__item"><input
+																	id="checkEach" class="check mr-3" type="checkbox" checked
+																	data-ingre-idx="${list.ingre_idx}"
+																	data-mem-id="${list.mem_id}"> <img
+																	src="<c:url value='./resources/img${list.ingre_img }'/>"
+																	alt="${list.ingre_name}"
+																	style="max-width: 30%; height: auto;">
+																	<h5>${list.ingre_name}</h5></td>
+																	<td class="shoping__cart__allergy__dislike"><span><img
+																		src="<c:url value='/resources/img/warn.svg'/>"
+																		style="margin-top: -2px;"></span></td>
+															</c:when>
+															<c:when test="${list.ingre_status eq '비선호 식품' }">
+																<td class="shoping__cart__item"><input
+																	id="checkEach" class="check mr-3" type="checkbox" checked
+																	data-ingre-idx="${list.ingre_idx}"
+																	data-mem-id="${list.mem_id}"> <img
+																	src="<c:url value='./resources/img${list.ingre_img }'/>"
+																	alt="${list.ingre_name}"
+																	style="max-width: 30%; height: auto;">
+																	<h5>${list.ingre_name}</h5></td>
+																	<td class="shoping__cart__allergy__dislike"><span><img
+																		src="<c:url value='/resources/img/dislike.svg'/>"
+																		style="margin-top: -2px;"></span></td>
+															</c:when>
+															<c:otherwise>
+																<td class="shoping__cart__item"><input
+																	id="checkEach" class="check mr-3" type="checkbox" checked
+																	data-ingre-idx="${list.ingre_idx}"
+																	data-mem-id="${list.mem_id}"> <img
+																	src="<c:url value='./resources/img${list.ingre_img }'/>"
+																	alt="${list.ingre_name}"
+																	style="max-width: 30%; height: auto;">
+																	<h5>${list.ingre_name}</h5></td>
+																	<td class="shoping__cart__allergy__dislike"></td>
+															</c:otherwise>
+														</c:choose>
+														<td class="shoping__cart__quantity">
+															<div class="quantity">
+																<div class="pro-qty">
+																	<input type="text" value="${list.ingre_cnt}"
+																		name="cntValue">
+																</div>
+																<input type="hidden" value="${list.basket_idx}"
+																	name="idxValue"> <input type="hidden"
+																	value="${list.ingre_idx}" name="ingreValue">
+															</div>
+														</td>
+														<td class="shoping__cart__total"><fmt:formatNumber
+																value="${list.ingre_price*list.ingre_cnt}"
+																pattern="#,###" />원</td>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -351,6 +271,10 @@
 		</div>
 	</section>
 	<!-- 장바구니 Section End -->
+	
+	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<%@ include file="./bottom-buttons.jsp"%>
+	<!-- Bottom Buttons (AI, Scroll up) End -->	
 
 	<!-- Footer Section Begin -->
 	<%@ include file="./footer.jsp"%>

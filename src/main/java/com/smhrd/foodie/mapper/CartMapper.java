@@ -23,6 +23,9 @@ public interface CartMapper {
    //장바구니 목록 수정
    int updateItem(Cart cart);
    
+   //장바구니 목록 저장
+   int checkoutCart(Cart cart);   
+   
    //결제완료 시 결제정보 저장
    int checkoutSuccess(Cart cart);
    

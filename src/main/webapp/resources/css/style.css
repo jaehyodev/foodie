@@ -2214,7 +2214,11 @@ transparent
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__quantity {
-	width: 225px;
+	width: 110px;
+}
+
+.shoping__cart__table table tbody tr td.shoping__cart__allergy__dislike {
+	width: 110px;
 }
 
 .shoping__cart__table table tbody tr td.shoping__cart__quantity .pro-qty
@@ -3721,6 +3725,9 @@ transparent
 }
 
 /* 김재효 */
+#logoutBtn {
+	all: unset;
+}
 .header__icons {
    height: 48px;
    font-size: var(--text-4xl);
@@ -3734,7 +3741,7 @@ transparent
    flex-direction: column;
 }
 .header__mypage svg:hover {
-  fill: red; /* 호버 시 색상 변경 */
+  fill: var(--primary-hover-color); /* 호버 시 색상 변경 */
 }
 .header__wishlist {
    height: 100%;
@@ -3742,11 +3749,18 @@ transparent
    justify-content: center;
    flex-direction: column;
 }
+
+.header__wishlist svg:hover {
+  fill: var(--primary-hover-color); /* 호버 시 색상 변경 */
+}
 .header__cart {
    height: 100%;
    display: flex;
    justify-content: center;
    flex-direction: column;
+}
+.header__cart svg:hover {
+  fill: var(--primary-hover-color);
 }
 
 /* AI 챗봇 열기 & 화면 상단으로 올리는 버튼 */
@@ -3988,6 +4002,17 @@ transparent
 	border-bottom: 0;
 }
 
+/* 마이페이지 - 주문 내역 */
+.mypage__content .mypage__content__order th {
+	text-align: center;
+}
+.mypage__content .mypage__content__order td {
+	text-align: center;
+}
+.mypage__sidebar ul li a:hover {
+	color: var(--primary-color);
+	font-weight: bold;
+}
 /* 로그인 영역 */
 .header__top__right__auth .login-section {
     display: flex;
@@ -4085,7 +4110,7 @@ transparent
 
 /* Category Begin */
 .hero__categories ul li a:hover {
-    color: red; /* 마우스를 가져다 댔을 때 글씨 색 */
+    color: var(--primary-color); /* 마우스를 가져다 댔을 때 글씨 색 */
     font-weight: bold; /* 마우스를 가져다 댔을 때 글씨 두께 */
 }
 #ingredient-categories ul {
@@ -4101,7 +4126,7 @@ transparent
     text-decoration: none;
 }
 #ingredient-categories ul li a:hover {
-    color: #f64646;
+    color: var(--primary-color);
 }
 #additional-categories {
    border: 1px solid #ebebeb;
@@ -4117,7 +4142,7 @@ transparent
     text-decoration: none;
 }
 #additional-categories li a:hover {
-    color: #f64646;
+    color: var(--primary-color);
 }
 #categories-list, #additional-categories {
     display: none;
@@ -4148,6 +4173,10 @@ transparent
 .next {
   right: 15px;
   border-radius: 3px 0 0 3px;
+}
+
+h5 a:hover {
+	color: var(--primary-color);
 }
 
 /* 장바구니 선택 삭제 */
