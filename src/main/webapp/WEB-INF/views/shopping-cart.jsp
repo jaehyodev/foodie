@@ -136,7 +136,7 @@
 									</div>
 									<div class="col-lg-12"
 										style="display: block; text-align: center;">
-										<a href="javascript:continueShopping()" class="primary-btn">쇼핑하러가기</a>
+										<a href="<c:url value='/' />" class="primary-btn">쇼핑하러가기</a>
 									</div>
 								</section>
 							</c:when>

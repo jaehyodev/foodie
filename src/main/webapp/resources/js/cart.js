@@ -73,7 +73,7 @@
          var payInfo = '';
          //user정보 불러오기
          var merchant_uid = Math.floor(new Date().getTime() / 1000); //주문번호
-         var userSum = parseInt(document.querySelector('#member-sum').innerText.replace(/,/g, '')); //결제 총액
+         var userSum = parseInt(document.querySelector('#member-sum').innerText.replace(/,/g, '')); //결제 총액z
          var userName = document.querySelector('#member-name').value;
          var userPhone = document.querySelector('#member-phone').value;
          var userEmail = document.querySelector('#member-email').value;

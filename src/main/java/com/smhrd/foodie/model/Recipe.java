@@ -19,4 +19,9 @@ public class Recipe {
 	   private String recipe_title_img;
 	   private String recipe_posted_at;
 	   private int recipe_views_cnt;
+	   
+	   public void addViewCount() {
+	  	 System.out.println("조회수 증가");
+       this.recipe_views_cnt++;
+   }
 }

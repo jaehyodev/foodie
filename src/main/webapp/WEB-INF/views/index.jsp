@@ -108,7 +108,8 @@
 										새내기 요리사 <br />파티 레시피
 									</h2>
 									<p></p>
-									<button class="site-btn" onclick="partyRecipe()">파티 레시피 보기</button>
+									<button class="site-btn" onclick="partyRecipe()">파티
+										레시피 보기</button>
 								</div>
 							</div>
 						</div>
@@ -121,7 +122,8 @@
 										맛있고 든든하게 <br /> 영양 챙기기
 									</h2>
 									<p></p>
-									<button id="bannerBtn2" class="site-btn" onclick="aloneRecipe()">자취생 레시피 보기</button>
+									<button id="bannerBtn2" class="site-btn"
+										onclick="aloneRecipe()">자취생 레시피 보기</button>
 								</div>
 							</div>
 						</div>
@@ -134,7 +136,8 @@
 										간편하게 준비하는 <br />키즈 레시피
 									</h2>
 									<p></p>
-									<button id="bannerBtn3" class="site-btn" onclick="Recipe()">키즈 레시피 보기</button>
+									<button id="bannerBtn3" class="site-btn" onclick="kidsRecipe()">키즈
+										레시피 보기</button>
 								</div>
 							</div>
 						</div>
@@ -147,12 +150,7 @@
 	</section>
 	<!-- Hero Section End -->
 
-
-	<!-- Hero Section End -->
-
 	<!-- 메인 레시피 화면 -->
-
-	<!-- Hero Section End -->
 	<section class="categories">
 		<div class="container main-page">
 			<div class="section-title1">
@@ -169,8 +167,8 @@
 						<div class="col-lg-3">
 							<div class="categories__item set-bg"
 								data-setbg="<c:url value='resources/img${recipe.recipe_title_img}'/>"
-								onclick="window.location.href = '<c:url value='/recipedetails/${recipe.recipe_idx}'/>'" style="cursor: pointer;">
-							</div>
+								onclick="window.location.href = '<c:url value='/recipedetails/${recipe.recipe_idx}'/>'"
+								style="cursor: pointer;"></div>
 							<h5>
 								<a href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
 							</h5>
@@ -196,8 +194,8 @@
 						<div class="col-lg-3">
 							<div class="categories__item set-bg"
 								data-setbg="<c:url value= 'resources/img${recipe.recipe_title_img}'/>"
-								onclick="window.location.href = '<c:url value='/recipedetails/${recipe.recipe_idx}'/>'" style="cursor: pointer;">
-							</div>
+								onclick="window.location.href = '<c:url value='/recipedetails/${recipe.recipe_idx}'/>'"
+								style="cursor: pointer;"></div>
 							<h5>
 								<a href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
 							</h5>
@@ -223,7 +221,9 @@
 				<c:forEach var="recipe" items="${newList}">
 					<div class="col-lg-4 col-md-4 col-sm-6">
 						<div class="blog__item">
-							<div class="blog__item__pic" onclick="window.location.href = '<c:url value='/recipedetails/${recipe.recipe_idx}'/>'" style="cursor: pointer;">
+							<div class="blog__item__pic"
+								onclick="window.location.href = '<c:url value='/recipedetails/${recipe.recipe_idx}'/>'"
+								style="cursor: pointer;">
 								<!-- 이미지 URL을 동적으로 설정 -->
 								<img
 									src="<c:url value='/resources/img/${recipe.recipe_title_img}' />"
@@ -247,7 +247,7 @@
 		</div>
 	</section>
 	<!-- Blog Section End -->
-	
+
 	<!-- Bottom Buttons (AI, Scroll up) Begin -->
 	<%@ include file="./bottom-buttons.jsp"%>
 	<!-- Bottom Buttons (AI, Scroll up) End -->
@@ -272,7 +272,6 @@
 	<script src="<c:url value='/resources/js/search.js' />"></script>
 	<script>
 		function partyRecipe() {
-			console.log("파티 레시피")
 			window.location.href = '/foodie/recipe/파티';
 		}
 		function aloneRecipe() {

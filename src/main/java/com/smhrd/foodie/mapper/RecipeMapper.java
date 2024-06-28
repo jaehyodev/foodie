@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.smhrd.foodie.model.Cart;
 import com.smhrd.foodie.model.Ingredient;
@@ -93,5 +94,9 @@ public interface RecipeMapper {
 
 	// 레시피 -> 관련 재료 (알러지 확인)
 	List<Ingredient> memRecipeIngre(RecipeAllergy recipeAllergy);
+	
+	// 레시피 조회수 증가
+	@Update("update recipe_info set recipe_views_cnt = #{recipe_views_cnt} where recipe_idx = #{recipe_idx}")
+	void increaseRecipeViewsCnt(Recipe recipe);
 
 }
