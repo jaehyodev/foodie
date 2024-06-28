@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -133,7 +134,7 @@
 				</div>
 				<div class="col-lg-9">
 					<div class="mypage__content">
-						<table>
+						<table class="mypage__content__order">
 							<thead>
 								<tr>
 									<th>주문 번호</th>
@@ -159,7 +160,9 @@
 						                    <td>${orderDetailList.ingre_name}</td>
 						                    <td>${orderDetailList.order_cnt}</td>
 						                    <c:if test="${isFirstOrderDetail}"> <%-- 첫 번째 상세 정보일 때만 주문 상태 표시 --%>
-						                        <td rowspan="${detailSize.get(orderCnt.index) }">${orderInfo.total_amount}</td>         
+						                        <td rowspan="${detailSize.get(orderCnt.index) }">
+						                        <fmt:formatNumber value="${orderInfo.total_amount}" pattern="#,###" />원
+						                        </td>         
 						                    </c:if>
 						                    <c:if test="${isFirstOrderDetail}"> <%-- 첫 번째 상세 정보일 때만 주문 상태 표시 --%>
 						                        <td rowspan="${detailSize.get(orderCnt.index) }">${orderInfo.order_status}</td>

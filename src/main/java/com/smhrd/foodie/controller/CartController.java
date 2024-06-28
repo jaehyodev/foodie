@@ -83,7 +83,7 @@ public class CartController {
       
       return ResponseEntity.ok().body("{}");
    }
-   
+
    //결제창 장바구니 목록 출력
    @RequestMapping(value="/checkout",method=RequestMethod.GET)
    public String checkoutCartList(Model model,HttpSession session) {
@@ -114,7 +114,10 @@ public class CartController {
    @RequestMapping(value="/checkoutSuccess.do",method=RequestMethod.GET)
    public void checkoutSuccess(@RequestParam("merchant_uid") String merchant_uid,
                         @RequestParam("userAddr") String userAddr,
-                        @RequestParam("userSum") int userSum,HttpSession session) {
+                        @RequestParam("userSum") int userSum,
+                        @RequestParam("ingreidxValues") String[] ingreidxValues,
+                        @RequestParam("countValues") String[] countValues,
+                        HttpSession session) {
       
       Cart cart = new Cart();
       Member member = (Member)session.getAttribute("member");
@@ -125,31 +128,27 @@ public class CartController {
       cart.setOrder_addr(userAddr);
       
       mapper.checkoutSuccess(cart);
-      
+      //order_detail_info저장
+      for(int i=0;i<ingreidxValues.length; i++) {
+         cart.setOrder_idx(Integer.parseInt(merchant_uid));
+         cart.setIngre_idx(Integer.parseInt(ingreidxValues[i]));
+         cart.setOrder_cnt(Integer.parseInt(countValues[i]));
+         mapper.checkoutCart(cart);
+      }                  
    }
    
-   //주문 내역 출력
+   //주문 내역 출력(장바구니 삭제)
    @RequestMapping(value="/success/{merchant_uid}", method=RequestMethod.GET)
-   public String success(@PathVariable("merchant_uid") int merchant_uid,Model model) {
+   public String success(@PathVariable("merchant_uid") int merchant_uid,Model model,HttpSession session) {
       
       Cart cart = mapper.orderInfo(merchant_uid);
       model.addAttribute("cart",cart);
+      
+      Member member = (Member)session.getAttribute("member");
+      cart.setMem_id(member.getMem_id());
+      mapper.deleteCart(cart);
                
       return "checkoutSuccess";
-   }
-   
-   //장바구니 삭제
-   @RequestMapping(value="/deleteCart.do", method = RequestMethod.GET)
-   public String deleteCart(HttpSession session) {
-      
-      Cart cart = new Cart();
-      Member member = (Member)session.getAttribute("member");
-      
-      cart.setMem_id(member.getMem_id());
-      System.out.println(member.getMem_name());
-      mapper.deleteCart(cart);
-      
-      return "redirect:/mypage";
-   }
+   }   
    
 }

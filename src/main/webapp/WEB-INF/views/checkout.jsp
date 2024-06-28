@@ -179,8 +179,12 @@
 							<ul>
 								<!-- 장바구니 목록 출력 -->
 								<c:forEach items="${cartList}" var="list">
-									<li>${list.ingre_name}<span><fmt:formatNumber
-												value="${list.ingre_price*list.ingre_cnt}" pattern="#,###" />원</span>
+									<li>${list.ingre_name}<span> <fmt:formatNumber
+												value="${list.ingre_price*list.ingre_cnt}" pattern="#,###" />원
+											<input type="hidden" value="${list.ingre_idx}"
+											name="ingreValue"> <input type="hidden"
+											value="${list.ingre_cnt}" name="cntValue">
+									</span>
 									</li>
 								</c:forEach>
 							</ul>
@@ -191,9 +195,9 @@
 										배송비 <span>무료배송</span>
 									</div>
 									<div class="checkout__order__total">
-										총 상품금액 <span id="member-sum"><fmt:formatNumber
-												value="${sum}" pattern="#,###" /> <input type="hidden"
-											value="${sum}"> 원</span>
+										총 상품금액 <span id="member-sum"> <fmt:formatNumber
+												value="${sum}" pattern="#,###" /> 원
+										</span>
 									</div>
 								</c:when>
 								<c:when test="${sum<50000}">
@@ -242,7 +246,6 @@
 		</div>
 	</section>
 	<!-- Checkout Section End -->
-
 
 	<!-- Bottom Buttons (AI, Scroll up) Begin -->
 	<%@ include file="./bottom-buttons.jsp"%>

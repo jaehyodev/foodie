@@ -23,4 +23,7 @@ public class Cart {
    private String ordered_at; //주문 일시
    private String mem_name;
    private String mem_phone;
+   private int order_cnt; // 주문 수량
+   
+   private String ingre_status; // 알러지, 비선호 상태
 }
