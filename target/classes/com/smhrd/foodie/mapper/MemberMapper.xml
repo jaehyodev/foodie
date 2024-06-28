@@ -3,113 +3,146 @@
 <!DOCTYPE mapper
  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
- 
- <!-- 3. 찾은 후 해당 sql문 실행
- 4. SQL문 실행 결과 (영향을 받은 행 수)를 다시 반환-->
- <mapper namespace="com.smhrd.foodie.mapper.MemberMapper">
-    
-    <!-- 회원가입 시 중복되는 mem_id 확인 -->
-    <select id="idCheck" parameterType="String" resultType="int">
-       select  COUNT(*) from member_info where mem_id = #{mem_id}
-    </select>
-    
-      <!-- 회원가입 시 중복되는 mem_email 확인 -->
-    <select id="emailCheck" parameterType="String" resultType="int">
-       select  COUNT(*) from member_info where mem_email = #{mem_email}
-    </select>
-    
-      <!-- 회원가입 시 중복되는 mem_phone 확인 -->
-    <select id="phoneCheck" parameterType="String" resultType="int">
-       select  COUNT(*) from member_info where mem_phone = #{mem_phone}
-    </select>
-    
-    <!-- 회원가입 -->
-    <insert id="join" parameterType="com.smhrd.foodie.model.Member">
-        insert ignore into member_info (mem_id, mem_pw, mem_name, mem_email, mem_phone, mem_addr)
-        values (#{mem_id}, #{mem_pw}, #{mem_name}, #{mem_email}, #{mem_phone}, #{mem_addr})
-    </insert>
-    
-    <!-- 회원가입 시 알러지 정보 추가 -->
-    <insert id="allergy" parameterType="com.smhrd.foodie.model.MemberAllergy">
-        insert into member_allergy_info (mem_id, allergy_idx) values (#{mem_id}, #{allergy_idx})
-    </insert>
-    
-        <!-- 회원가입 시 비선호 식재료 정보 추가 -->
-    <insert id="dislike" parameterType="com.smhrd.foodie.model.MemberDislike">
-        insert into member_dislike_info (mem_id, dislike_idx) values (#{mem_id}, #{dislike_idx})
-    </insert>
-    
-   
-    
-    <!-- 로그인 -->
-    <select id="loginCheck" parameterType="com.smhrd.foodie.model.Member" resultType="com.smhrd.foodie.model.Member">
-       select mem_id, mem_pw, mem_name, mem_email, mem_phone, mem_addr from member_info where mem_id = #{mem_id} and mem_pw = #{mem_pw}
-    </select>
-    
-    <!-- 사용자 비밀번호 변경 -->
-    <update id="updatePw" parameterType="com.smhrd.foodie.model.Member">
-       update member_info set mem_pw = #{mem_pw} where mem_id = #{mem_id}
-    </update>
-    
-    <!-- 회원 정보 수정 -->
-    <update id="update" parameterType="com.smhrd.foodie.model.Member">
-       update member_info set mem_name = #{mem_name}, mem_email = #{mem_email}, mem_phone = #{mem_phone}, mem_addr = #{mem_addr} where mem_id = #{mem_id}
-    </update>
-    
-    <!-- 회원탈퇴 -->
-    <delete id="delete" parameterType="com.smhrd.foodie.model.Member">
-       delete from member_info where mem_id = #{mem_id}
-    </delete>
-    
-    
-    
-    <!-- allergy_info -->
-    <select id="allergyInfo" resultType="com.smhrd.foodie.model.AllergyInfo">
-       select * from allergy_info
-    </select>
-    
-    <!-- dislike_info -->
-    <select id="dislikeInfo" resultType="com.smhrd.foodie.model.DislikeInfo">
-       select * from dislike_info
-    </select>
-    
-    
-    
-    <!-- 회원가입했을 때 입력받은 알러지 정보를 마이페이지 체크박스에 반영 -->
-    <!-- 조회된 값만 리턴해줌 -->
-    <select id="allergyMypage" parameterType="com.smhrd.foodie.model.Member" resultType="com.smhrd.foodie.model.MemberAllergy">
-       select * from member_allergy_info where mem_id = #{mem_id}
-    </select>
-    
-    <!-- 회원가입 했을 때 입력받은 비선호 식재료 정보 -->
-    <select id="dislikeMypage" parameterType="com.smhrd.foodie.model.Member" resultType="com.smhrd.foodie.model.MemberDislike">
-       select * from member_dislike_info where mem_id = #{mem_id}
-    </select>
-    
-    
-    
-    <!-- 알러지 정보 수정 -->
-   <insert id="updateAllergy" parameterType="com.smhrd.foodie.model.MemberAllergy">
-       insert ignore into member_allergy_info (mem_id, allergy_idx) values (#{mem_id},#{allergy_idx})
-    </insert>
-    
-     <delete id="deleteAllergy" parameterType="com.smhrd.foodie.model.MemberAllergy">
-       delete from member_allergy_info where mem_id = #{mem_id} and allergy_idx = #{allergy_idx}
-    </delete>
-    
-    <!-- 비선호 정보 수정 -->
-   <insert id="updateDislike" parameterType="com.smhrd.foodie.model.MemberDislike">
-       insert ignore into member_dislike_info (mem_id, dislike_idx) values (#{mem_id},#{dislike_idx})
-    </insert>
-    
-    <delete id="deleteDislike" parameterType="com.smhrd.foodie.model.MemberDislike">
-       delete from member_dislike_info where mem_id = #{mem_id} and dislike_idx = #{dislike_idx}
-    </delete>
-    
-    <!-- 주문 내역 -->
-    <select id="orderInfo" parameterType="com.smhrd.foodie.model.OrderInfo" resultType="com.smhrd.foodie.model.OrderInfo"> 
-    	select order_idx, mem_id, date(ordered_at) as ordered_at, order_status, total_amount, order_addr from order_info where mem_id = #{mem_id}
-    </select>
-    
+
+
+<!-- 3. 찾은 후 해당 sql문 실행 4. SQL문 실행 결과 (영향을 받은 행 수)를 다시 반환 -->
+<mapper namespace="com.smhrd.foodie.mapper.MemberMapper">
+
+	<!-- 회원가입 시 중복되는 mem_id 확인 -->
+	<select id="idCheck" parameterType="String" resultType="int">
+		select COUNT(*) from member_info where mem_id = #{mem_id}
+	</select>
+
+	<!-- 회원가입 시 중복되는 mem_email 확인 -->
+	<select id="emailCheck" parameterType="String" resultType="int">
+		select COUNT(*) from member_info where mem_email = #{mem_email}
+	</select>
+
+	<!-- 회원가입 시 중복되는 mem_phone 확인 -->
+	<select id="phoneCheck" parameterType="String" resultType="int">
+		select COUNT(*) from member_info where mem_phone = #{mem_phone}
+	</select>
+
+	<!-- 회원가입 -->
+	<insert id="join" parameterType="com.smhrd.foodie.model.Member">
+		insert ignore into member_info (mem_id, mem_pw, mem_name, mem_email,
+		mem_phone, mem_addr)
+		values (#{mem_id}, #{mem_pw}, #{mem_name}, #{mem_email}, #{mem_phone},
+		#{mem_addr})
+	</insert>
+
+	<!-- 회원가입 시 알러지 정보 추가 -->
+	<insert id="allergy"
+		parameterType="com.smhrd.foodie.model.MemberAllergy">
+		insert into member_allergy_info (mem_id, allergy_idx) values (#{mem_id},
+		#{allergy_idx})
+	</insert>
+
+	<!-- 회원가입 시 비선호 식재료 정보 추가 -->
+	<insert id="dislike"
+		parameterType="com.smhrd.foodie.model.MemberDislike">
+		insert into member_dislike_info (mem_id, dislike_idx) values (#{mem_id},
+		#{dislike_idx})
+	</insert>
+
+
+
+	<!-- 로그인 -->
+	<select id="loginCheck"
+		parameterType="com.smhrd.foodie.model.Member"
+		resultType="com.smhrd.foodie.model.Member">
+		select mem_id, mem_pw, mem_name, mem_email, mem_phone, mem_addr from
+		member_info where mem_id = #{mem_id} and mem_pw = #{mem_pw}
+	</select>
+
+	<!-- 사용자 비밀번호 변경 -->
+	<update id="updatePw"
+		parameterType="com.smhrd.foodie.model.Member">
+		update member_info set mem_pw = #{mem_pw} where mem_id = #{mem_id}
+	</update>
+
+	<!-- 회원 정보 수정 -->
+	<update id="update"
+		parameterType="com.smhrd.foodie.model.Member">
+		update member_info set mem_name = #{mem_name}, mem_email = #{mem_email},
+		mem_phone = #{mem_phone}, mem_addr = #{mem_addr} where mem_id =
+		#{mem_id}
+	</update>
+
+	<!-- 회원탈퇴 -->
+	<delete id="delete"
+		parameterType="com.smhrd.foodie.model.Member">
+		delete from member_info where mem_id = #{mem_id}
+	</delete>
+
+
+
+	<!-- allergy_info -->
+	<select id="allergyInfo"
+		resultType="com.smhrd.foodie.model.AllergyInfo">
+		select * from allergy_info
+	</select>
+
+	<!-- dislike_info -->
+	<select id="dislikeInfo"
+		resultType="com.smhrd.foodie.model.DislikeInfo">
+		select * from dislike_info
+	</select>
+
+
+
+	<!-- 회원가입했을 때 입력받은 알러지 정보를 마이페이지 체크박스에 반영 -->
+	<!-- 조회된 값만 리턴해줌 -->
+	<select id="allergyMypage"
+		parameterType="com.smhrd.foodie.model.Member"
+		resultType="com.smhrd.foodie.model.MemberAllergy">
+		select * from member_allergy_info where mem_id = #{mem_id}
+	</select>
+
+	<!-- 회원가입 했을 때 입력받은 비선호 식재료 정보 -->
+	<select id="dislikeMypage"
+		parameterType="com.smhrd.foodie.model.Member"
+		resultType="com.smhrd.foodie.model.MemberDislike">
+		select * from member_dislike_info where mem_id = #{mem_id}
+	</select>
+
+
+
+	<!-- 알러지 정보 수정 -->
+	<insert id="updateAllergy"
+		parameterType="com.smhrd.foodie.model.MemberAllergy">
+		insert ignore into member_allergy_info (mem_id, allergy_idx) values
+		(#{mem_id},#{allergy_idx})
+	</insert>
+
+	<delete id="deleteAllergy"
+		parameterType="com.smhrd.foodie.model.MemberAllergy">
+		delete from member_allergy_info where mem_id = #{mem_id} and allergy_idx =
+		#{allergy_idx}
+	</delete>
+
+	<!-- 비선호 정보 수정 -->
+	<insert id="updateDislike"
+		parameterType="com.smhrd.foodie.model.MemberDislike">
+		insert ignore into member_dislike_info (mem_id, dislike_idx) values
+		(#{mem_id},#{dislike_idx})
+	</insert>
+
+	<delete id="deleteDislike"
+		parameterType="com.smhrd.foodie.model.MemberDislike">
+		delete from member_dislike_info where mem_id = #{mem_id} and dislike_idx =
+		#{dislike_idx}
+	</delete>
+
+	<!-- 주문 내역 -->
+	<select id="orderInfo"
+		parameterType="com.smhrd.foodie.model.OrderInfo"
+		resultType="com.smhrd.foodie.model.OrderInfo">
+		SELECT order_idx, mem_id, DATE(ordered_at) AS ordered_at, order_status,
+		total_amount, order_addr
+		FROM order_info
+		WHERE mem_id = #{mem_id}
+		ORDER BY order_idx DESC;
+	</select>
+
 </mapper>

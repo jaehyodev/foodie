@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -147,7 +148,7 @@
          </div>
          <div class="col-lg-12">
             <span style="display: block; text-align: center;">
-               <a href="<c:url value='/deleteCart.do' />" class="primary-btn">주문 상세보기</a><!-- 장바구니 내역 삭제 -->               
+               <a href="<c:url value='/mypage' />" class="primary-btn">주문 상세보기</a>               
             </span>            
          </div>
       </div>
