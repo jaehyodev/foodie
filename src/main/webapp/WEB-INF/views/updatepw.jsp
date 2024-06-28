@@ -46,8 +46,7 @@
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
-	<!-- 카테고리 -->
+	<!-- Category Section Begin -->
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row">
@@ -56,7 +55,7 @@
 						<div class="hero__categories__all">
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
-						<ul>
+						<ul id="categories-list">
 							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
 							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
 							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
@@ -64,22 +63,49 @@
 							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
 							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
 							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
+							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
+						</ul>
+						<ul id="additional-categories">
+							<li><a href="<c:url value='/shopgrid/채소/1'/>">채소</a></li>
+							<li><a href="<c:url value='/shopgrid/과일/1'/>">과일</a></li>
+							<li><a href="<c:url value='/shopgrid/수산/1'/>">수산</a></li>
+							<li><a href="<c:url value='/shopgrid/정육ㆍ계란류/1'/>">정육ㆍ계란류</a></li>
+							<li><a href="<c:url value='/shopgrid/쌀ㆍ잡곡/1'/>">쌀ㆍ잡곡</a></li>
+							<li><a href="<c:url value='/shopgrid/면ㆍ오일/1'/>">면ㆍ오일</a></li>
+							<li><a href="<c:url value='/shopgrid/우유ㆍ유제품/1'/>">우유ㆍ유제품</a></li>
+							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
+							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
+							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
+							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
-				
+
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
-					
+
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Hero Section End -->
+	<!-- Category Section End -->
 
+	<!-- Wide Banner Section Begin -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="<c:url value='/resources/img/breadcrumb.jpg'/>">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>장바구니</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Wide Banner Section End -->
 
 	<section class="hero hero-normal">
 		<div class="container">
@@ -109,33 +135,31 @@
 						<h2>비밀번호 변경</h2>
 
 						<form action="/foodie/updatePw.do" method="post">
-							<%-- 비밀번호 변경 처리 서블릿으로 연결 --%>
-
-							<div class="form-group">
-								<label for="curPw">현재 비밀번호:</label> <input type="password"
-									id="curPw" name="curPw" required>
-							</div>
-
-							<div class="form-group">
-								<label for="newPw">새로운 비밀번호:</label> <input type="password"
-									id="newPw" name="newPw" required>
-							</div>
-
-							<div class="form-group">
-								<label for="pwCheck">새로운 비밀번호 확인:</label> <input type="password"
-									id="pwCheck" name="pwCheck" required>
-							</div>
-
+							<table class="mypage__updatepw">
+								<tr>
+									<td><label for="curPw">현재 비밀번호</label></td>
+									<td><input type="password"
+									id="curPw" name="curPw" required></td>
+								</tr>
+								<tr>
+									<td><label for="newPw">새로운 비밀번호</label></td>
+									<td><input type="password"
+									id="newPw" name="newPw" required></td>
+								</tr>
+								<tr>
+									<td><label for="pwCheck">새로운 비밀번호 확인</label></td>
+									<td><input type="password"
+									id="pwCheck" name="pwCheck" required></td>
+								</tr>
+							</table>
 							<button type="submit" class="site-btn">변경 완료</button>
-
 						</form>
-
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	
+
 	<!-- Bottom Buttons (AI, Scroll up) Begin -->
 	<%@ include file="./bottom-buttons.jsp"%>
 	<!-- Bottom Buttons (AI, Scroll up) End -->
@@ -151,9 +175,12 @@
 	<script src="<c:url value='/resources/js/jquery.slicknav.js' />"></script>
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
-	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+	<script src="<c:url value='/resources/js/main.js' />"></script>
+	<script src="<c:url value='/resources/js/member.js' />"></script>
+	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
+	<script src="<c:url value='/resources/js/search.js' />"></script>
 
 </body>
 </html>

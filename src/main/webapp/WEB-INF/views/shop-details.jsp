@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,15 +40,28 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
 	type="text/css">
 
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/font-awesome.min.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/elegant-icons.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/jquery-ui.min.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/owl.carousel.min.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css">
+<!-- Css Styles -->
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/bootstrap.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/font-awesome.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/elegant-icons.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/jquery-ui.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/owl.carousel.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
+	type="text/css">
 </head>
 
 <body>
@@ -56,8 +70,7 @@
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
-	<!-- 상단 카테고리 -->
+	<!-- Category Section Begin -->
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row">
@@ -66,7 +79,17 @@
 						<div class="hero__categories__all">
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
-						<ul>
+						<ul id="categories-list">
+							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
+							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
+							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
+							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
+							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
+							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
+							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
+							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
+						</ul>
+						<ul id="additional-categories">
 							<li><a href="<c:url value='/shopgrid/채소/1'/>">채소</a></li>
 							<li><a href="<c:url value='/shopgrid/과일/1'/>">과일</a></li>
 							<li><a href="<c:url value='/shopgrid/수산/1'/>">수산</a></li>
@@ -77,19 +100,21 @@
 							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
 							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
 							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
-							<li><a href="<c:url value='/recipe/주부'/>">레시피 보러가기</a></li>
+							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
+
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
+
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Hero Section End -->
+	<!-- Category Section End -->
 
 	<!-- Product Details Section Begin -->
 	<section class="product-details spad">
@@ -109,7 +134,11 @@
 					<div class="product__details__text">
 						<h3>${ingredient.ingre_name }</h3>
 						<!-- 가격 -->
-						<div class="product__details__price">${ingredient.ingre_price }원</div>
+						<div class="product__details__price">
+							<fmt:formatNumber value="${ingredient.ingre_price }"
+								pattern="#,###" />
+							원
+						</div>
 						<c:forEach items="${ingrecontent }" var="list">
 							<h5 style="line-height: 2.0;">${list }</h5>
 						</c:forEach>
@@ -124,7 +153,7 @@
 						</div>
 						<a
 							href="<c:url value='javascript:ingreDetailCart(${ingredient.ingre_idx})'/>"
-							class="primary-btn">장바구니 담기</a>
+							class="site-btn">장바구니 담기</a>
 						<c:choose>
 							<c:when test="${wish == 1}">
 								<a
@@ -172,7 +201,10 @@
 								<h6>
 									<a href="<c:url value='/shopdetail/${list.ingre_idx }'/>">${list.ingre_name }</a>
 								</h6>
-								<h5>${list.ingre_price }원</h5>
+								<h5>
+									<fmt:formatNumber value="${list.ingre_price }" pattern="#,###" />
+									원
+								</h5>
 							</div>
 						</div>
 					</div>
@@ -201,7 +233,9 @@
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/search.js' />"></script>
 	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
 
 </body>

@@ -7,7 +7,7 @@ function search() {
 		var url = baseUrl + encodeURIComponent(keyword);
 		location.href = url;
 	} else {
-		alert("검색어를 입력해주세요.");
+		showPopup("검색어를 입력해주세요.");
 	}
 }
 
