@@ -169,7 +169,7 @@
 						<div class="col-lg-3">
 							<div class="categories__item set-bg"
 								data-setbg="<c:url value='resources/img${recipe.recipe_title_img}'/>"
-								onclick="window.location.href = '<c:url value='/recipedetails/${recipe.recipe_idx}'/>'">
+								onclick="window.location.href = '<c:url value='/recipedetails/${recipe.recipe_idx}'/>'" style="cursor: pointer;">
 							</div>
 							<h5>
 								<a href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
@@ -196,7 +196,7 @@
 						<div class="col-lg-3">
 							<div class="categories__item set-bg"
 								data-setbg="<c:url value= 'resources/img${recipe.recipe_title_img}'/>"
-								onclick="window.location.href = '<c:url value='/recipedetails/${recipe.recipe_idx}'/>'">
+								onclick="window.location.href = '<c:url value='/recipedetails/${recipe.recipe_idx}'/>'" style="cursor: pointer;">
 							</div>
 							<h5>
 								<a href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
@@ -223,7 +223,7 @@
 				<c:forEach var="recipe" items="${newList}">
 					<div class="col-lg-4 col-md-4 col-sm-6">
 						<div class="blog__item">
-							<div class="blog__item__pic" onclick="window.location.href = '<c:url value='/recipedetails/${recipe.recipe_idx}'/>'">
+							<div class="blog__item__pic" onclick="window.location.href = '<c:url value='/recipedetails/${recipe.recipe_idx}'/>'" style="cursor: pointer;">
 								<!-- 이미지 URL을 동적으로 설정 -->
 								<img
 									src="<c:url value='/resources/img/${recipe.recipe_title_img}' />"

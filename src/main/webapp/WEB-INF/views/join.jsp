@@ -248,7 +248,7 @@
 									</tbody>
 								</table>
 						</div>
-						<button type="submit" class="site-btn joinBtn float-center">회원가입</button>
+						<button id="joinBtn" type="submit" class="site-btn joinBtn float-center">회원가입</button>
 						<br></br>
 						<br></br>
 						</form>

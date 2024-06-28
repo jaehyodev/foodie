@@ -57,6 +57,11 @@ function showPopup(message) {
        }
        else if(message=="현재 비밀번호가 일치하지 않습니다."){
               popupContainer.remove();
+       }else if(message=="회원탈퇴가 완료되었습니다."){
+       				 popupContainer.remove();
+       				 window.location.href = '/foodie/';
+       }else if(message=="아이디 또는 비밀번호가 일치하지 않습니다."){
+       				popupContainer.remove();
        }
        
        else{

@@ -28,9 +28,9 @@
                         <c:otherwise>
                            <div class="login-section">
                               <span>${member.mem_name}님</span>
-                              <span class="auth-link"><a href=<c:url value='/mypage'/>>마이페이지</a></span>
+                              <span><a href=<c:url value='/mypage'/>>마이페이지</a></span>
                               <form action="/foodie/logout" method="post" class="logout-form">
-                                 <button type="submit" class="auth-link">로그아웃</button>
+                                 <button type="submit" id ="logoutBtn" class="auth-link" style="cursor: pointer;">로그아웃</button>
                               </form>
                            </div>
                         </c:otherwise>

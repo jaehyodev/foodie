@@ -77,7 +77,7 @@ public class IngredientController {
 	
 	// shop-grid & shop detail & Recipe detail 각 재료 -> 찜
 	@RequestMapping(value={"/shopgrid/{page}/wishIngre", "/shopdetail/wishIngre", "recipedetails/wishIngre"}, method=RequestMethod.GET)
-	public @ResponseBody String recipeWish(@RequestParam("ingre_idx") int ingre_idx, HttpSession session) {
+	public @ResponseBody String ingreWish(@RequestParam("ingre_idx") int ingre_idx, HttpSession session) {
 		Member member = (Member)session.getAttribute("member");
 		System.out.println(ingre_idx);
 		if(member == null)

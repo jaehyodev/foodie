@@ -275,6 +275,7 @@ $.ajax({
 // 회원탈퇴
 $("#deleteBtn").click(function(event) {
 event.preventDefault();
+
     
 // 1. 탈퇴 확인 팝업
 if (!confirm("정말 회원탈퇴를 진행하시겠습니까?")) {
@@ -318,15 +319,15 @@ $.ajax({
 $("#loginBtn").click(function(event) {
 event.preventDefault();
 
-// 입력값 가져오기
-const login_id = $("#login_id").val();
-const login_pw = $("#login_pw").val();
+	// 입력값 가져오기
+	const login_id = $("#login_id").val();
+	const login_pw = $("#login_pw").val();
 
-// 필수 입력값 확인
-if (!login_id || !login_pw) {
-  $("#label10").css("color", "red").text("아이디 또는 비밀번호를 입력해주세요.");
-  return;
-}
+	// 필수 입력값 확인
+	if (!login_id || !login_pw) {
+  	$("#label10").css("color", "red").text("아이디 또는 비밀번호를 입력해주세요.");
+  	return;
+	}
 
 
 // AJAX 요청

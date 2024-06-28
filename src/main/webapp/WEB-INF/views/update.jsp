@@ -99,7 +99,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>장바구니</h2>
+						<h2>개인정보 수정</h2>
 					</div>
 				</div>
 			</div>

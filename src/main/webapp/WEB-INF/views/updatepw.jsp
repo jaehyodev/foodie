@@ -99,7 +99,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>장바구니</h2>
+						<h2>비밀번호 변경</h2>
 					</div>
 				</div>
 			</div>
@@ -152,7 +152,7 @@
 									id="pwCheck" name="pwCheck" required></td>
 								</tr>
 							</table>
-							<button type="submit" class="site-btn">변경 완료</button>
+							<button id="updatePwBtn" type="submit" class="site-btn">변경 완료</button>
 						</form>
 					</div>
 				</div>

@@ -97,7 +97,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>장바구니</h2>
+						<h2>회원탈퇴</h2>
 					</div>
 				</div>
 			</div>
@@ -158,7 +158,7 @@
 										required></td>
 								</tr>
 							</table>
-							<button type="submit" class="site-btn">탈퇴하기</button>
+							<button id="deleteBtn" type="submit" class="site-btn">탈퇴하기</button>
 						</form>
 					</div>
 				</div>
@@ -183,6 +183,8 @@
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/member.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
 	<script src="<c:url value='/resources/js/search.js' />"></script>

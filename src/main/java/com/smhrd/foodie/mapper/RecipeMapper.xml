@@ -82,38 +82,26 @@
  	
  	<!-- 레시피 -> 관련 재료 (알러지, 비선호 필터링) -->
 	<select id="memRecipeIngre" parameterType="com.smhrd.foodie.model.RecipeAllergy" resultType="com.smhrd.foodie.model.Ingredient">
-		SELECT DISTINCT 
-		    A.ingre_idx, 
-		    A.ingre_name, 
-		    A.ingre_cat,
+		SELECT DISTINCT A.ingre_idx, A.ingre_name, A.ingre_cat,
 		    CASE
-		        WHEN F.allergy_idx IS NOT NULL AND MDI.dislike_idx IS NOT NULL THEN '알러지 주의, 비선호 식품'
 		        WHEN F.allergy_idx IS NOT NULL THEN '알러지 주의 식품'
 		        WHEN MDI.dislike_idx IS NOT NULL THEN '비선호 식품'
 		        ELSE '일반 식품'
-		    END AS ingre_content,
-		    A.ingre_price, 
-		    A.ingre_img, 
-		    A.ingre_weight
-		FROM 
-		    ingredient_info A
-		    JOIN recipe_ingre_info B ON A.ingre_idx = B.ingre_idx
+		    END AS ingre_content, A.ingre_price, A.ingre_img, A.ingre_weight
+		FROM ingredient_info A JOIN recipe_ingre_info B ON A.ingre_idx = B.ingre_idx
 		    JOIN recipe_info C ON B.recipe_idx = C.recipe_idx
 		    LEFT JOIN (
 		        SELECT DISTINCT ingre_idx, iai.allergy_idx
-		        FROM ingre_allergy_info iai
-		        JOIN member_allergy_info mai ON iai.allergy_idx = mai.allergy_idx
+		        FROM ingre_allergy_info iai JOIN member_allergy_info mai ON iai.allergy_idx = mai.allergy_idx
 		        WHERE mai.mem_id = #{mem_id}
 		    ) F ON A.ingre_idx = F.ingre_idx
 		    LEFT JOIN ingre_allergy_info D ON A.ingre_idx = D.ingre_idx
 		    LEFT JOIN (
 		        SELECT MDI.mem_id, DI.dislike_idx, DI.dislike_name
-		        FROM member_dislike_info MDI
-		        JOIN dislike_info DI ON MDI.dislike_idx = DI.dislike_idx
+		        FROM member_dislike_info MDI JOIN dislike_info DI ON MDI.dislike_idx = DI.dislike_idx
 		        WHERE MDI.mem_id = #{mem_id}
 		    ) MDI ON A.ingre_name LIKE CONCAT('%', MDI.dislike_name, '%')
-		WHERE 
-		    C.recipe_name = #{recipe_name}
+		WHERE  C.recipe_name = #{recipe_name}
 	</select>
     
  </mapper>

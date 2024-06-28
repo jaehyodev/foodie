@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -131,15 +132,28 @@
 						</div>
 					</div>
 					<div class="row">
-						<c:forEach items="${recipeList }" var="list">
+						<c:forEach items="${recipeList }" var="list" varStatus="loop">
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
-										data-setbg="<c:url value='/resources/img${list.recipe_title_img }'/>">
-										<ul class="product__item__pic__hover">
-											<li><a href="#"><i class="fa fa-heart"></i></a></li>
-										</ul>
-									</div>
+										data-setbg="<c:url value='../resources/img${list.recipe_title_img }'/>"
+										onclick="window.location.href = '<c:url value='/recipedetails/${list.recipe_idx}'/>'"
+										style="cursor: pointer;"></div>
+									<ul class="product__item__pic__hover">
+										<li><c:choose>
+												<c:when
+													test="${not empty member and wishlist.get(loop.index) == 1}">
+													<a
+														href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"
+														style="color: #D03737;"><i class="fa fa-heart"></i></a>
+												</c:when>
+												<c:otherwise>
+													<a
+														href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"><i
+														class="fa fa-heart"></i></a>
+												</c:otherwise>
+											</c:choose></li>
+									</ul>
 									<div class="product__item__text">
 										<h6>
 											<a href="<c:url value='/recipedetails/${list.recipe_idx}'/>">${list.recipe_name }</a>
@@ -168,24 +182,44 @@
 						</div>
 					</div>
 					<div class="row">
-						<c:forEach items="${ingreList }" var="list">
+						<c:forEach items="${ingreList }" var="list" varStatus="loop">
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
-										data-setbg="<c:url value='/resources/img${list.ingre_img}'/>">
-										<ul class="product__item__pic__hover">
-											<li><a href="#"><i class="fa fa-heart"></i></a></li>
-										</ul>
-									</div>
+										data-setbg="<c:url value='/resources/img${list.ingre_img}'/>"
+										onclick="window.location.href = '<c:url value='/shopdetail/${list.ingre_idx }'/>'"
+										style="cursor: pointer;"></div>
+									<ul class="product__item__pic__hover">
+										<c:choose>
+											<c:when
+												test="${not empty member and wishlist.get(loop.index) == 1}">
+												<li><a
+													href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"
+													style="color: #D03737;"><i class="fa fa-heart"></i></a></li>
+											</c:when>
+											<c:otherwise>
+												<li><a
+													href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i
+														class="fa fa-heart"></i></a></li>
+											</c:otherwise>
+										</c:choose>
+										<li><a
+											href="<c:url value='javascript:ingreCart(${list.ingre_idx})'/>"><i
+												class="fa fa-shopping-cart"></i></a></li>
+									</ul>
 									<div class="product__item__text">
 										<h6>
 											<a href="<c:url value='/shopdetail/${list.ingre_idx }'/>">${list.ingre_name }</a>
 										</h6>
+										<h5>
+											<fmt:formatNumber value="${list.ingre_price }"
+												pattern="#,###" />
+											원
+										</h5>
 									</div>
 								</div>
 							</div>
 						</c:forEach>
-
 					</div>
 				</div>
 			</div>
@@ -213,6 +247,8 @@
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
 	<script src="<c:url value='/resources/js/search.js' />"></script>
+	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
+	<script src="<c:url value='/resources/js/popup.js' />"></script>
 
 </body>
 </html>
