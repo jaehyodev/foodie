@@ -146,7 +146,7 @@
 					
 						<br></br> <br></br>
 						<div class="login__register float-center">
-							아직 회원이 아니신가요? <a href="join">회원가입</a>
+							아직 회원이 아니신가요? <a href="join" id="joinA">회원가입</a>
 						</div>
 					</div>
 				</div>

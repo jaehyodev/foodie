@@ -36,9 +36,10 @@ public class IngredientController {
 		int start; // 재료 start 번호
 		int end; // 재료 end 번호
 		
-		// 전체 항목 수, 마지막 페이지 번호
+		// 전체 항목 수, 마지막 페이지 번호, 현재 페이지
 		model.addAttribute("total", total);
 		model.addAttribute("endPage", endPage);
+		model.addAttribute("nowPage", page);
 		
 		// 재료 뽑아낼 start 번호, end 번호
 		start = cntPerPage*(page-1)+1;
@@ -76,7 +77,7 @@ public class IngredientController {
 	}
 	
 	// shop-grid & shop detail & Recipe detail 각 재료 -> 찜
-	@RequestMapping(value={"/shopgrid/{page}/wishIngre", "/shopdetail/wishIngre", "recipedetails/wishIngre"}, method=RequestMethod.GET)
+	@RequestMapping(value={"/shopgrid/{page}/wishIngre", "/shopdetail/wishIngre"}, method=RequestMethod.GET)
 	public @ResponseBody String ingreWish(@RequestParam("ingre_idx") int ingre_idx, HttpSession session) {
 		Member member = (Member)session.getAttribute("member");
 		System.out.println(ingre_idx);

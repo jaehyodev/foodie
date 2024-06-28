@@ -160,7 +160,8 @@
 								주소<span>*</span>
 							</p>
 							<input type="text" value="${member.mem_addr}" id="member-addr"
-								class="checkoutInfo">
+								class="checkoutInfo" readonly>
+								
 						</div>
 						<div class="checkout__input">
 							<p>

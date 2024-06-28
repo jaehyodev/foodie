@@ -913,7 +913,7 @@ transparent
 }
 
 .hero__search__form {
-	width: 900px;
+	width: 80%;
 	height: 50px;
 	border: 1px solid #ebebeb;
 	position: relative;
@@ -2060,10 +2060,22 @@ transparent
 	cursor: pointer;
 	display: inline-block;
 }
-
+.tab-content {
+	display: flex;
+	justify-content: center;
+}
 .product__details__tab {
 	padding-top: 85px;
 }
+
+.product__details__tab__desc {
+	display: flex;
+  flex-direction: column;
+}
+product__details__tab__desc h5, product__details__tab__desc p {
+	text-align: left;
+}
+
 
 .product__details__tab .nav-tabs {
 	border-bottom: none;
@@ -2123,6 +2135,7 @@ transparent
 .product__details__tab .product__details__tab__desc p {
 	color: #666666;
 }
+
 
 /*---------------------
   Shop Details
@@ -4193,4 +4206,8 @@ h5 a:hover {
 }
 .cartCheckbox input {
 	margin-right: 10px;
+}
+
+#joinA:hover {
+	color: var(--primary-color);
 }
