@@ -46,8 +46,7 @@
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
-	<!-- 카테고리 -->
+	<!-- Category Section Begin -->
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row">
@@ -56,7 +55,7 @@
 						<div class="hero__categories__all">
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
-						<ul>
+						<ul id="categories-list">
 							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
 							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
 							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
@@ -64,27 +63,56 @@
 							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
 							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
 							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
+							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
+						</ul>
+						<ul id="additional-categories">
+							<li><a href="<c:url value='/shopgrid/채소/1'/>">채소</a></li>
+							<li><a href="<c:url value='/shopgrid/과일/1'/>">과일</a></li>
+							<li><a href="<c:url value='/shopgrid/수산/1'/>">수산</a></li>
+							<li><a href="<c:url value='/shopgrid/정육ㆍ계란류/1'/>">정육ㆍ계란류</a></li>
+							<li><a href="<c:url value='/shopgrid/쌀ㆍ잡곡/1'/>">쌀ㆍ잡곡</a></li>
+							<li><a href="<c:url value='/shopgrid/면ㆍ오일/1'/>">면ㆍ오일</a></li>
+							<li><a href="<c:url value='/shopgrid/우유ㆍ유제품/1'/>">우유ㆍ유제품</a></li>
+							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
+							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
+							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
+							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
-				
+
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
-					
+
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Hero Section End -->
+	<!-- Category Section End -->
+
+	<!-- Wide Banner Section Begin -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="<c:url value='/resources/img/breadcrumb.jpg'/>">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>장바구니</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Wide Banner Section End -->
 
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row"></div>
 		</div>
 	</section>
+
 	<section class="userinfo-section">
 		<div class="container">
 			<div class="row">
@@ -105,23 +133,35 @@
 					<div class="mypage__content">
 						<h2>개인 정보 수정</h2>
 						<form action="/foodie/update.do" method="post">
-							<!-- 수정 처리 서블릿으로 연결 -->
-							<div class="form-group">
-								<label for="name">이름:</label> <input type="text" id="name"
-									name="mem_name" value="${member.mem_name}" required>
-							</div>
-							<div class="form-group">
-								<label for="email">이메일:</label> <input type="email" id="email"
-									name="mem_email" value="${member.mem_email}" required>
-							</div>
-							<div class="form-group">
-								<label for="tel">휴대폰 번호:</label> <input type="tel" id="tel"
-									name="mem_phone" value="${member.mem_phone}" required>
-							</div>
-							<div class="form-group">
-								<label for="addr">주소:</label> <input type="text" id="addr"
-									name="mem_addr" value="${member.mem_addr}" required>
-							</div>
+							<table class="mypage__update">
+								<tr>
+									<td><label for="name">이름</label></td>
+									<td><input type="text" id="name" name="mem_name" value="${member.mem_name}" required></td>
+								
+								</tr>
+								<tr>
+									<td><label for="email">이메일</label></td>
+									<td><input type="email" id="email" 
+											name="mem_email" value="${member.mem_email}" required></td>
+								</tr>
+								<tr>
+									<td><label for="tel">휴대폰 번호</label></td>
+									<td><input type="tel" id="tel" 
+											name="mem_phone" value="${member.mem_phone}" required></td>
+								</tr>
+								<tr>
+									<td><label for="addr">주소</label></td>
+									<td><input type="text" id="addr"
+											name="mem_addr" value="${member.mem_addr}" readonly required><button  type="button" onclick="findAddr()" class="site-btn findAddrBtn">주소 찾기</button></td>
+								</tr>
+								<tr>
+									<td></td>
+									<td><input type="text" id="extraAddr"
+											name="mem_extraAddr" placeholder="나머지 주소를 입력하세요" required></td>	 
+								</tr>
+							</table>
+
+
 							<button type="submit" id="updateBtn" class="site-btn">수정하기</button>
 						</form>
 					</div>
@@ -148,8 +188,14 @@
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
-	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/find-addr.js' />"></script>
 	<script src="<c:url value='/resources/js/member.js' />"></script>
+	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
+	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/search.js' />"></script>
+	<!-- 다음 주소 API -->
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
 	    // JSP에서 자바스크립트로 플래시 속성을 전달

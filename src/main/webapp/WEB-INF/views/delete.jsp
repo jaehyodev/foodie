@@ -46,8 +46,7 @@
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
-	<!-- 카테고리 -->
+	<!-- Category Section Begin -->
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row">
@@ -77,35 +76,34 @@
 							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
 							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
 							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
-							<li><a href="<c:url value='/recipe/주부'/>">레시피 보러가기</a></li>
+							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
-					<div class="hero__search">
-						<div class="hero__search__form">
-							<!-- 검색창 -->
-							<form action="#">
-								<input type="text" placeholder="검색어를 입력하세요">
-								<button type="submit" class="site-btn">검색</button>
-							</form>
-						</div>
-						<div class="hero__search__phone">
-							<div class="hero__search__phone__icon">
-								<i class="fa fa-comments"></i>
-							</div>
-							<div class="hero__search__phone__text">
-								<h5>재료 추천받기</h5>
-								<span>24시간 챗봇 상담</span>
-							</div>
-						</div>
+					<!-- Search Section Begin -->
+					<%@ include file="./search-form.jsp"%>
+					<!-- Search Section End -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Category Section End -->
+
+	<!-- Wide Banner Section Begin -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="<c:url value='/resources/img/breadcrumb.jpg'/>">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>장바구니</h2>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Hero Section End -->
-
+	<!-- Wide Banner Section End -->
 
 	<section class="hero hero-normal">
 		<div class="container">
@@ -113,7 +111,7 @@
 		</div>
 	</section>
 
-	<section class="logout-section">
+	<section class="delete-section">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
@@ -149,15 +147,18 @@
 							<!-- label for="id" 해당 id값과 연결된다. 
 							id 가 id 인 input 태그와 연결되므로 label을 클릭시 인풋 입력이 활성화됨.
 							-->
-
-							<div class="form-group">
-								<label for="id">아이디 : </label> <input type="text" id="id"
-									name="input_id" required> <br> <label for="pw">비밀번호
-									: </label> <input type="password" id="pw" name="input_pw" required>
-							</div>
-
-							<button type="submit" class="#">탈퇴하기</button>
-
+							<table class="mypage__delete">
+								<tr>
+									<td><label for="id">아이디</label></td>
+									<td><input type="text" id="id" name="input_id" required></td>
+								</tr>
+								<tr>
+									<td><label for="pw">비밀번호</label></td>
+									<td><input type="password" id="pw" name="input_pw"
+										required></td>
+								</tr>
+							</table>
+							<button type="submit" class="site-btn">탈퇴하기</button>
 						</form>
 					</div>
 				</div>
@@ -183,6 +184,8 @@
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
+	<script src="<c:url value='/resources/js/search.js' />"></script>
 
 </body>
 </html>

@@ -38,16 +38,29 @@
 	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
 	type="text/css">
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="<c:url value='/resources/css/bootstrap.min.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/font-awesome.min.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/elegant-icons.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/jquery-ui.min.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/owl.carousel.min.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
-    <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>" type="text/css">
-    
+<!-- Css Styles -->
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/bootstrap.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/font-awesome.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/elegant-icons.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/jquery-ui.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/owl.carousel.min.css'/>"
+	type="text/css">
+<link rel="stylesheet"
+	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
+	type="text/css">
+
 </head>
 
 <body>
@@ -56,7 +69,7 @@
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-	<!-- Hero Section Begin -->
+	<!-- Category Section Begin -->
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row">
@@ -65,8 +78,7 @@
 						<div class="hero__categories__all">
 							<i class="fa fa-bars"></i> <span>카테고리</span>
 						</div>
-						<ul>
-							<!-- 상단 카테고리 -->
+						<ul id="categories-list">
 							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
 							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
 							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
@@ -74,54 +86,55 @@
 							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
 							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
 							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-							<li><a href="<c:url value='/shopgrid/채소/1'/>">재료 사러가기</a></li>
+							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
+						</ul>
+						<ul id="additional-categories">
+							<li><a href="<c:url value='/shopgrid/채소/1'/>">채소</a></li>
+							<li><a href="<c:url value='/shopgrid/과일/1'/>">과일</a></li>
+							<li><a href="<c:url value='/shopgrid/수산/1'/>">수산</a></li>
+							<li><a href="<c:url value='/shopgrid/정육ㆍ계란류/1'/>">정육ㆍ계란류</a></li>
+							<li><a href="<c:url value='/shopgrid/쌀ㆍ잡곡/1'/>">쌀ㆍ잡곡</a></li>
+							<li><a href="<c:url value='/shopgrid/면ㆍ오일/1'/>">면ㆍ오일</a></li>
+							<li><a href="<c:url value='/shopgrid/우유ㆍ유제품/1'/>">우유ㆍ유제품</a></li>
+							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
+							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
+							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
+							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-9">
+
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
+
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Hero Section End -->
-   <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="<c:url value='/resources/img/breadcrumb.jpg'/>">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>장바구니</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
+	<!-- Category Section End -->
+
+	<!-- Wide Banner Section Begin -->
+	<section class="breadcrumb-section set-bg"
+		data-setbg="<c:url value='/resources/img/breadcrumb.jpg'/>">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<div class="breadcrumb__text">
+						<h2>레시피</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Wide Banner Section End -->
+
 	<!-- Product Section Begin -->
 	<section class="product spad">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-5">
-					<div class="sidebar">
-						<div class="sidebar__item">
-							<h4>레시피</h4>
-							<ul>
-								<!-- 좌측 카테고리 -->
-								<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
-								<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
-								<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
-								<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
-								<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
-								<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
-								<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-9 col-md-7">
+				<div class="col-lg-12 col-md-7">
 					<div class="product__discount">
 						<div class="section-title product__discount__title">
 							<h2>${recipeList.get(0).getRecipe_cat() }레시피</h2>
@@ -146,20 +159,19 @@
 									<div class="product__item__pic set-bg"
 										data-setbg="<c:url value='../resources/img${list.recipe_title_img }'/>"
 										onclick="window.location.href = '<c:url value='/recipedetails/${list.recipe_idx}'/>'"
-										style="cursor: pointer;">
-									</div>
+										style="cursor: pointer;"></div>
 									<ul class="product__item__pic__hover">
 										<li><c:choose>
-											<c:when
-												test="${not empty member and wishlist.get(loop.index) == 1}">
-												<a
-													href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"
-													style="color: #D03737;"><i class="fa fa-heart"></i></a>
-											</c:when>
-											<c:otherwise>
-												<a
-													href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"><i
-													class="fa fa-heart"></i></a>
+												<c:when
+													test="${not empty member and wishlist.get(loop.index) == 1}">
+													<a
+														href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"
+														style="color: #D03737;"><i class="fa fa-heart"></i></a>
+												</c:when>
+												<c:otherwise>
+													<a
+														href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"><i
+														class="fa fa-heart"></i></a>
 												</c:otherwise>
 											</c:choose></li>
 									</ul>
@@ -195,10 +207,12 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
-	<script src="<c:url value='/resources/js/popup.js' />"></script>
-	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
+	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/search.js' />"></script>
+	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
 
 </body>
 </html>

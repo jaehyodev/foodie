@@ -76,7 +76,7 @@
 							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
 							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
 							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
-							<li><a href="<c:url value='/recipe/주부'/>">레시피 보러가기</a></li>
+							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
 						</ul>
 					</div>
 				</div>
@@ -94,7 +94,7 @@
 
 	<!-- Wide Banner Section Begin -->
 	<section class="breadcrumb-section set-bg"
-		data-setbg="resources/img/breadcrumb.jpg">
+		data-setbg="<c:url value='/resources/img/breadcrumb.jpg'/>">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -118,103 +118,107 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-6 col-md-8">
 					<div class="register-container">
-						<!-- form 시작 -->
-						<form action="/foodie/join.do" method="post">
-							<div class="form-group">
-								<label for="id">아이디</label> <label id="label1"></label> <input
-									type="text" class="form-control" id="id" name="mem_id"
-									placeholder="아이디를 입력하세요" required>
-							</div>
+						<div class="mypage__content">
+							<!-- form 시작 -->
+							<form action="/foodie/join.do" method="post">
+								<div class="form-group">
+									<label for="id">아이디</label> <label id="label1"></label> <input
+										type="text" class="form-control" id="id" name="mem_id"
+										placeholder="아이디를 입력하세요" required>
+								</div>
 
 
-							<div class="form-group">
-								<label for="password">비밀번호</label> <input type="password"
-									class="form-control" id="pw" name="mem_pw"
-									placeholder="비밀번호를 입력하세요" required>
+								<div class="form-group">
+									<label for="password">비밀번호</label> <input type="password"
+										class="form-control" id="pw" name="mem_pw"
+										placeholder="비밀번호를 입력하세요" required>
 
-							</div>
+								</div>
 
-							<div class="form-group">
-								<label for="pwck">비밀번호 확인</label> <label id="label2"></label> <input
-									type="password" class="form-control" id="pwck" name="mem_pwck"
-									placeholder="비밀번호를 다시 입력하세요" required>
-							</div>
+								<div class="form-group">
+									<label for="pwck">비밀번호 확인</label> <label id="label2"></label> <input
+										type="password" class="form-control" id="pwck" name="mem_pwck"
+										placeholder="비밀번호를 다시 입력하세요" required>
+								</div>
 
-							<div class="form-group">
-								<label for="email">이메일</label> <label id="label3"></label> <input
-									type="email" class="form-control" id="email" name="mem_email"
-									placeholder="이메일을 입력하세요" required>
-							</div>
+								<div class="form-group">
+									<label for="name">이름</label> <label id="label2-1"></label> <input
+										type="text" class="form-control" id="name" name="mem_name"
+										placeholder="이름를 입력하세요" required>
+								</div>
 
-							<div class="form-group">
-								<label for="phoneNumber">전화번호</label> <label id="label4"></label>
-								<input type="tel" class="form-control" id="tel" name="mem_tel"
-									placeholder="전화번호를 입력하세요" required>
-							</div>
+								<div class="form-group">
+									<label for="email">이메일</label> <label id="label3"></label> <input
+										type="email" class="form-control" id="email" name="mem_email"
+										placeholder="이메일을 입력하세요" required>
+								</div>
+								<div class="form-group">
+									<label for="phoneNumber">전화번호</label> <label id="label4"></label>
+									<input type="tel" class="form-control" id="tel" name="mem_tel"
+										placeholder="전화번호를 입력하세요" required>
+								</div>
+								<div class="form-group">
+									<label for="addr">주소</label>
+									<button type="button" class="site-btn findAddrBtn"
+										onclick="findAddr()">주소 찾기</button>
+									<input type="text" class="form-control" id="addr"
+										name="mem_addr" readonly required> <input type="text"
+										class="form-control" id="extraAddr" name="mem_extraAddr"
+										placeholder="나머지 주소를 입력하세요" required>
 
-							<div class="form-group">
-								<label for="addr">주소</label>
-								<button type="button" onclick="findAddr()">주소 찾기</button>
-								<input type="text" class="form-control" id="addr"
-									name="mem_addr" required readonly> <input type="text"
-									class="form-control" id="extraAddr" name="mem_extraAddr"
-									placeholder="나머지 주소를 입력하세요" required>
+								</div>
 
-							</div>
-
-							<label>알레르기 또는 비선호 식재료를 선택해주세요!</label>
-							<div class="mypage__content">
-								<table>
+								<table class="join__allergy__dislike">
 									<thead>
 										<tr>
-											<th colspan="4"><h3>알레르기</h3></th>
+											<th colspan="4"><h4>알레르기</h4></th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="1">알류</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="2">우유</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="3">메밀</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="4">땅콩</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="5">대두</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="6">밀</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="7">고등어</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="8">게</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="9">새우</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="10">돼지고기</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="11">소고기</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="12">닭고기</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="13">복숭아</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="14">토마토</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="15">호두</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="16">잣</label></td>
 										</tr>
 										<tr>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="17">오징어</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="allergy_list" value="18">조개류</label></td>
 											<td></td>
 											<td></td>
@@ -222,34 +226,31 @@
 									</tbody>
 								</table>
 
-								<div style="height: 55px;"></div>
-
-								<table>
+								<table class="join__allergy__dislike">
 									<thead>
 										<tr>
-											<th colspan="5"><h3>비선호 식재료</h3></th>
+											<th colspan="5"><h4>비선호 식재료</h4></th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="dislike_list" value="1">당근</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="dislike_list" value="2">버섯</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="dislike_list" value="3">생강</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="dislike_list" value="4">아보카도</label></td>
-											<td><label><input type="checkbox"
+											<td><label><input type="checkbox" class="check"
 													name="dislike_list" value="5">오이</label></td>
 										</tr>
 									</tbody>
 								</table>
-							</div>
-
-							<br></br>
-							<button id="joinBtn" type="submit" class="site-btn float-center">회원가입</button>
-							<br></br>
+						</div>
+						<button type="submit" class="site-btn joinBtn float-center">회원가입</button>
+						<br></br>
+						<br></br>
 						</form>
 						<!-- form 끝 -->
 					</div>
@@ -275,17 +276,17 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
-<<<<<<< HEAD
-	<script src="<c:url value='/resources/js/popup.js' />"></script>
-	<script src="<c:url value='/resources/js/member.js' />"></script>
-=======
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
->>>>>>> b24a22e41feaab5eefc4694cdfef95de2533bc5f
+	<script src="<c:url value='/resources/js/find-addr.js' />"></script>
+	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
+	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/member.js' />"></script>
+	<script src="<c:url value='/resozrces/js/search.js' />"></script>
 	<!-- 다음 주소 API -->
 	<script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script src="<c:url value='/resources/js/find-addr.js' />"></script>
 
 </body>
 </html>
+
