@@ -71,5 +71,4 @@ public interface MemberMapper {
 			+ "JOIN order_info oi ON od.order_idx = oi.order_idx\r\n"
 			+ "WHERE od.order_idx = #{order_idx}")
 	List<OrderDetail> orderDetail(int order_idx); // 주문 내역
-	
 }
