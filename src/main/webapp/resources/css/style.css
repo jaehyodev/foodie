@@ -204,8 +204,8 @@ table {
 }
 
 .spad {
-	padding-top: 100px;
-	padding-bottom: 100px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .text-white h1, .text-white h2, .text-white h3, .text-white h4,
@@ -2893,7 +2893,6 @@ product__details__tab__desc h5, product__details__tab__desc p {
 -----------------------*/
 .footer {
 	background: #F3F6FA;
-	padding-top: 20px;
 	padding-bottom: 0;
 }
 
@@ -2920,6 +2919,18 @@ product__details__tab__desc h5, product__details__tab__desc p {
 	margin-bottom: 30px;
 	overflow: hidden;
 }
+
+
+.footer__widget ul {
+	font-size: var(--text-3xl);
+}
+.footer__widget ul li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 32px;
+}
+
 
 .footer__widget h6 {
 	color: #1c1c1c;
@@ -3775,6 +3786,12 @@ product__details__tab__desc h5, product__details__tab__desc p {
 .header__cart svg:hover {
   fill: var(--primary-hover-color);
 }
+
+/* Footer Github link */
+.footer svg:hover {
+  fill: var(--primary-color);
+}
+
 
 /* AI 챗봇 열기 & 화면 상단으로 올리는 버튼 */
 #btn_ai {
