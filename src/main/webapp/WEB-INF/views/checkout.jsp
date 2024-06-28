@@ -138,7 +138,6 @@
 										class="checkoutInfo">
 								</div>
 							</div>
-
 							<div class="col-lg-6">
 								<div class="checkout__input" id="checkoutInfo">
 									<p>
@@ -209,7 +208,6 @@
 								</c:when>
 								<c:otherwise />
 							</c:choose>
-
 							<c:choose>
 								<c:when test="${empty member}"></c:when>
 								<c:otherwise>

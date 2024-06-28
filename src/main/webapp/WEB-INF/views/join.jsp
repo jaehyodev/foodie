@@ -152,13 +152,11 @@
 										type="email" class="form-control" id="email" name="mem_email"
 										placeholder="이메일을 입력하세요" required>
 								</div>
-
 								<div class="form-group">
 									<label for="phoneNumber">전화번호</label> <label id="label4"></label>
 									<input type="tel" class="form-control" id="tel" name="mem_tel"
 										placeholder="전화번호를 입력하세요" required>
 								</div>
-
 								<div class="form-group">
 									<label for="addr">주소</label>
 									<button type="button" class="site-btn findAddrBtn"
@@ -250,7 +248,6 @@
 									</tbody>
 								</table>
 						</div>
-
 						<button type="submit" class="site-btn joinBtn float-center">회원가입</button>
 						<br></br>
 						<br></br>
@@ -279,14 +276,13 @@
 	<script src="<c:url value='/resources/js/mixitup.min.js' />"></script>
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
-
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/find-addr.js' />"></script>
 	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
 	<script src="<c:url value='/resources/js/member.js' />"></script>
-	<script src="<c:url value='/resources/js/search.js' />"></script>
+	<script src="<c:url value='/resozrces/js/search.js' />"></script>
 	<!-- 다음 주소 API -->
 	<script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

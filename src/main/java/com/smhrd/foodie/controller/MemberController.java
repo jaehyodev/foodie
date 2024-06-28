@@ -243,3 +243,5 @@ public class MemberController {
 		return "mypage";
 	}
 }
+
+
