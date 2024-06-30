@@ -59,7 +59,7 @@ public class MemberRestController {
          @RequestParam(name = "dislike_list[]", required = false) List<String> dislike_list) {
 
       // 상세 주소 합치기
-      mem_addr = mem_addr + mem_extraAddr;
+      mem_addr = mem_addr + " " + mem_extraAddr;
       Member member = new Member(mem_id, mem_pw, mem_name, mem_email, mem_tel, mem_addr);
 
       // sql문 실행
