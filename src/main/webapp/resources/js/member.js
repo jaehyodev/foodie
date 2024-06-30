@@ -279,7 +279,7 @@ event.preventDefault();
     
 // 1. 탈퇴 확인 팝업
 if (!confirm("정말 회원탈퇴를 진행하시겠습니까?")) {
-return; // 취소 시 실행 종료
+	return; // 취소 시 실행 종료
 }
 
 // 2. 입력값 가져오기
@@ -310,7 +310,7 @@ $.ajax({
        }
      },
      error: function() {
-    showPopup("회원탈퇴 중 오류가 발생했습니다.");
+     	showPopup("회원탈퇴 중 오류가 발생했습니다.");
      }
  });
  });
@@ -346,7 +346,7 @@ $.ajax({
        }
      },
      error: function() {
-    showPopup("로그인 중 오류가 발생했습니다.");
+     	showPopup("로그인 중 오류가 발생했습니다.");
      }
  });
 });
