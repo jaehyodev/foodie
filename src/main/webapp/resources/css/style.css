@@ -2072,7 +2072,7 @@ transparent
 	display: flex;
   flex-direction: column;
 }
-product__details__tab__desc h5, product__details__tab__desc p {
+.product__details__tab__desc h5, .product__details__tab__desc p {
 	text-align: left;
 }
 
