@@ -274,9 +274,10 @@
 	<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 	<!-- 결제 api -->
 	<script>
-		//결제 API
+		// 결제 API
 		var IMP = window.IMP;
 		IMP.init("imp51542456");
+		
 	</script>
 </body>
 </html>
