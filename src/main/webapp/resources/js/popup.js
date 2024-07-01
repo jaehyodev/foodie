@@ -62,8 +62,15 @@ function showPopup(message) {
        				 window.location.href = '/foodie/';
        }else if(message=="아이디 또는 비밀번호가 일치하지 않습니다."){
        				popupContainer.remove();
+       } else if (message=="현재 비밀번호를 입력하세요.") {
+       				popupContainer.remove();
+       } else if (message=="새로운 비밀번호를 입력하세요.") {
+       				popupContainer.remove();
+       } else if (message=="새로운 비밀번호 확인을 입력하세요.") {
+       				popupContainer.remove();
+       } else if (message=="새로운 비밀번호와 확인이 일치하지 않습니다.") {
+       				popupContainer.remove();
        }
-       
        else{
              popupContainer.remove(); // 예시로 현재 창을 닫는 동작만 수행
              window.location.reload();

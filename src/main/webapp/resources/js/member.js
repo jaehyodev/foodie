@@ -220,16 +220,16 @@ const newPw = $("#newPw").val();
 const pwCheck = $("#pwCheck").val();
 
 if (curPw === '') {
-    alert("현재 비밀번호를 입력하세요.");
+    showPopup("현재 비밀번호를 입력하세요.");
     return;
 } else if (newPw === '') {
-    alert("새로운 비밀번호를 입력하세요.");
+    showPopup("새로운 비밀번호를 입력하세요.");
     return;
 } else if (pwCheck === '') {
-    alert("새로운 비밀번호 확인을 입력하세요.");
+    showPopup("새로운 비밀번호 확인을 입력하세요.");
     return;
 } else if (newPw !== pwCheck) {
-    alert("새로운 비밀번호와 확인이 일치하지 않습니다.");
+    showPopup("새로운 비밀번호와 확인이 일치하지 않습니다.");
     return;
 }
 
