@@ -142,6 +142,7 @@
 									<th>수량</th>
 									<th>주문 금액</th>
 									<th>주문 상태</th>
+									<th>주문 취소</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -166,6 +167,10 @@
 						                    </c:if>
 						                    <c:if test="${isFirstOrderDetail}"> <%-- 첫 번째 상세 정보일 때만 주문 상태 표시 --%>
 						                        <td rowspan="${detailSize.get(orderCnt.index) }">${orderInfo.order_status}</td>
+						                        <td rowspan="${detailSize.get(orderCnt.index) }">
+																				<a id="delete__order" href="<c:url value='javascript:confirmDeleteOrder(${orderInfo.order_idx})'/>">
+                                             주문취소하기</a>	
+																		</td>
 						                        <c:set var="isFirstOrderDetail" value="false" />
 						                    </c:if>
 						                </tr>
@@ -201,6 +206,30 @@
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
 	<script src="<c:url value='/resources/js/search.js' />"></script>
+	
+	<script>
+    function confirmDeleteOrder(order_idx) {
+        showConfirmPopup('결제를 취소하시겠습니까?', function() {
+            deleteOrder(order_idx);
+        });
+    }
+   
+   function deleteOrder(order_idx) {
+      $.ajax({
+         url : "deleteOrder",
+         type : "get",
+         data : {"merchant_uid":order_idx, "reason":"결제 취소"},
+         success : function(data){
+            showPopup("결제가 취소되었습니다.");
+         },
+         error : function(){
+            let errorMessage = `Error: ${textStatus}\nMessage: ${errorThrown}\nResponse: ${jqXHR.responseText}`;
+            console.error(errorMessage);
+          }
+      })
+   }
+   </script>
+	
 
 </body>
 </html>

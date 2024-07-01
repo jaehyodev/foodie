@@ -38,4 +38,12 @@ public interface CartMapper {
    //결제 완료 시 장바구니 삭제
    @Delete("delete from basket_info where mem_id = #{mem_id}")
    int deleteCart(Cart cart);
+   
+   //주문 취소 시 order_info 데이터베이스 삭제
+   @Delete("delete from order_info where order_idx = #{merchant_uid}")
+   void deleteOrder(String merchant_uid);
+   
+   //주문 취소 시 order_detail_info 데이터베이스 삭제
+   @Delete("delete from order_detail_info where order_idx = #{merchant_uid}")
+   void deleteOrderDetail(String merchant_uid);
 }
