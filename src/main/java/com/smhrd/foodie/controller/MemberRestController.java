@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,6 +50,7 @@ public class MemberRestController {
    }
    
    // 회원가입 실행 메소드
+   @Transactional
    @RequestMapping(value = "/join.do", method = RequestMethod.POST)
    public String join(@RequestParam("mem_id") String mem_id, @RequestParam("mem_pw") String mem_pw,
          @RequestParam("mem_pwck") String mem_pwck, @RequestParam("mem_email") String mem_email,
@@ -74,35 +76,36 @@ public class MemberRestController {
       // 비밀번호 확인 후 회원가입
       if(mem_pw.equals(mem_pwck)) {
          
-         row = mapper.join(member);
+      	row = mapper.join(member);
          
-         if(allergy_list != null) {
-            
-            // 회원가입 mapper 코드보다 뒤에 와야함. 외래키 제 약 때문에 회원가입이 먼저 되어야 테이블에 insert 가능함
-            for (int i = 0; i < allergy_list.size(); i++) {
-               // jsp에서 받아온 mem_id와 allergy_list의 value(allergy_idx로 사용되는 것)를 MemberAllergy에
-               // set
-               MemberAllergy memberAllergy = new MemberAllergy(mem_id, Integer.parseInt(allergy_list.get(i)));
-               mapper.allergy(memberAllergy);
-
-            }
-         }
          
-         if(dislike_list != null) {
-            // 비선호 식재료
-            int rowDislike = 0; // 알러지가 총 몇개 들어갔는 지 카운트
-            
-            for (int i = 0; i < dislike_list.size(); i++) {
-               MemberDislike memberDislike = new MemberDislike(mem_id, Integer.parseInt(dislike_list.get(i)));
-               mapper.dislike(memberDislike);
-               rowDislike++;
-            }
-            
-            // 총 몇개의 비선호 식재료가 들어갔는 지 확인하기
-            for (int i = 0; i < rowDislike; i++) {
-               System.out.println("비선호 식재료 추가" + (i + 1));
-            }
+         if(row > 0) {
+        	 
+        	 if(allergy_list != null) {
+        		 // 회원가입 mapper 코드보다 뒤에 와야함. 외래키 제 약 때문에 회원가입이 먼저 되어야 테이블에 insert 가능함
+        		 for (int i = 0; i < allergy_list.size(); i++) {
+        			 // jsp에서 받아온 mem_id와 allergy_list의 value(allergy_idx로 사용되는 것)를 MemberAllergy에
+        			 // set
+        			 MemberAllergy memberAllergy = new MemberAllergy(mem_id, Integer.parseInt(allergy_list.get(i)));
+        			 mapper.allergy(memberAllergy);
+        			 
+        		 }
+        		 
+        		 if(dislike_list != null) {
+        			 // 비선호 식재료
+        			 for (int i = 0; i < dislike_list.size(); i++) {
+        				 MemberDislike memberDislike = new MemberDislike(mem_id, Integer.parseInt(dislike_list.get(i)));
+        				 mapper.dislike(memberDislike);
+        			 }
+        		 }
+        		 
+        	 }
+         }else {
+        	 System.out.println("mapper.join 실패");
          }
+        	 
+         
+         
          
       } // 비밀번호 확인 후 회원가입 끝 중괄호
          

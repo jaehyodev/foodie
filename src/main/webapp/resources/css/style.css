@@ -1885,6 +1885,11 @@ transparent
 	font-weight: 700;
 }
 
+.product__pagination {
+	display: flex;
+	justify-content: center;	
+}
+
 .product__pagination, .blog__pagination {
 	padding-top: 10px;
 }
@@ -3977,6 +3982,10 @@ transparent
 .mypage__content .mypage__wishlist .wishlist__content {
 	margin-top: 10px;
 }
+/* 마이페이지 주문취소 호버 색깔 */
+#delete__order:hover {
+   color: var(--primary-color);
+}
 /* 마이페이지 input 전체 색깔 */
 .mypage__content input {
     height: calc(1.5em + .75rem + 2px);
@@ -4075,11 +4084,17 @@ transparent
     transition: background-color 0.3s ease;
 }
 
-.mypage__content #mypage__recipe th {
+.mypage__content #mypage__recipe th:nth-child(1) {
 	width: 50px;	
 }
-.mypage__content #mypage__ingre th {
+.mypage__content #mypage__ingre th:nth-child(1) {
 	width: 50px;	
+}
+.mypage__content #mypage__recipe th:nth-child(3) {
+	width: 70px;	
+}
+.mypage__content #mypage__ingre th:nth-child(3) {
+	width: 70px;	
 }
 
 .header__top__right__auth .mypage-btn:hover {

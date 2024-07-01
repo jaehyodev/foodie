@@ -135,11 +135,13 @@
 	
 	    let currentAjaxRequest = null; // 현재 진행 중인 AJAX 요청
 	
+	  
 		// ChatGPT 실제 사용자의 메시지를 서버로 보내고 답변을 받아오는 함수
 		function sendChatToServer(chatToSend) {
 			// 현재 진행 중인 AJAX 요청을 저장
 			if (currentAjaxRequest) {
-			    currentAjaxRequest.abort(); // 이전 요청 취소
+			  // abort()는 AJAX 요청을 취소하는 JavaScript의 메서드  
+				currentAjaxRequest.abort(); // 이전 요청 취소
 			}
 			
 			currentAjaxRequest = $.ajax({
