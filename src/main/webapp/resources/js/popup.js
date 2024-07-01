@@ -199,4 +199,65 @@ function showCartPopup(message) {
     popupContainer.appendChild(goToCartButton); // 장바구니로 가기 버튼 추가
     document.body.appendChild(popupContainer);
 }
+function showConfirmPopup(message, onConfirm) {
+    const popupContainer = document.createElement('div');
+    popupContainer.id = 'popup-container';
+    popupContainer.style.position = 'fixed';
+    popupContainer.style.top = '50%';
+    popupContainer.style.left = '50%';
+    popupContainer.style.transform = 'translate(-50%, -50%)';
+    popupContainer.style.backgroundColor = 'white';
+    popupContainer.style.padding = '30px';
+    popupContainer.style.borderRadius = '10px';
+    popupContainer.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.1)';
+    popupContainer.style.maxWidth = '90%';
+    popupContainer.style.width = '500px';
+    popupContainer.style.textAlign = 'center';
 
+    const popupMessage = document.createElement('p');
+    popupMessage.id = 'popup-message';
+    popupMessage.textContent = message;
+    popupMessage.style.fontSize = '18px';
+    popupMessage.style.margin = '20px 0';
+
+    const closeButton = document.createElement('button');
+    closeButton.id = 'popup-confirm';
+    closeButton.textContent = '확인';
+    closeButton.style.padding = '10px 20px';
+    closeButton.style.fontSize = '16px';
+    closeButton.style.backgroundColor = '#D03737';
+    closeButton.style.color = 'white';
+    closeButton.style.border = 'none';
+    closeButton.style.borderRadius = '5px';
+    closeButton.style.cursor = 'pointer';
+    closeButton.style.transition = 'background-color 0.3s';
+
+    closeButton.addEventListener('click', function() {
+    	popupContainer.remove();
+      	if (typeof onConfirm === 'function') {
+        	onConfirm();
+        }
+      });
+
+    const cancelButton = document.createElement('button');
+    cancelButton.textContent = '취소';
+    cancelButton.style.padding = '10px 20px';
+    cancelButton.style.fontSize = '16px';
+    cancelButton.style.backgroundColor = '#888888';
+    cancelButton.style.marginLeft = '10px';
+    cancelButton.style.color = 'white';
+    cancelButton.style.border = 'none';
+    cancelButton.style.borderRadius = '5px';
+    cancelButton.style.cursor = 'pointer';
+    cancelButton.style.transition = 'background-color 0.3s';
+    cancelButton.style.marginLeft = '10px';
+
+    cancelButton.addEventListener('click', function() {
+    	popupContainer.remove();
+    });
+
+    popupContainer.appendChild(popupMessage);
+    popupContainer.appendChild(closeButton);
+    popupContainer.appendChild(cancelButton);
+    document.body.appendChild(popupContainer);
+}

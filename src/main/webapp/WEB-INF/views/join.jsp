@@ -159,10 +159,14 @@
 								</div>
 								<div class="form-group">
 									<label for="addr">주소</label>
+									
 									<button type="button" class="site-btn findAddrBtn"
 										onclick="findAddr()">주소 찾기</button>
+									
 									<input type="text" class="form-control" id="addr"
-										name="mem_addr" readonly required> <input type="text"
+										name="mem_addr" readonly required>
+									
+									<input type="text"
 										class="form-control" id="extraAddr" name="mem_extraAddr"
 										placeholder="나머지 주소를 입력하세요" required>
 
