@@ -4100,6 +4100,28 @@ transparent
 .header__top__right__auth .mypage-btn:hover {
     background-color: #E9ECEF; /* 더 연한 회색 호버 효과 */
 }
+ 
+/* 로그인 화면 */
+.login__form .form-group {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.login__input {
+	width: 40%;
+}
+.login__label {
+	width: 15%;
+	margin: 0;
+}
+.login__warn {
+	min-height: 40px;
+	text-align: center;
+}
+.login__block {
+	min-height: 35px;
+}
+
 
 /* 로그아웃 버튼 */
 .header__top__right__auth .logout-btn {
