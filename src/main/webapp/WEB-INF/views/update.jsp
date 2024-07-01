@@ -157,7 +157,7 @@
 								<tr>
 									<td></td>
 									<td><input type="text" id="extraAddr"
-											name="mem_extraAddr" placeholder="나머지 주소를 입력하세요"></td>	 
+											name="mem_extraAddr" value="" placeholder="나머지 주소를 입력하세요" ></td>	 
 								</tr>
 							</table>
 
