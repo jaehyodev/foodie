@@ -127,26 +127,33 @@
 					</c:if>
 
 					<div class="login__form">
-					<form action="/foodie/loginCheck" method="post">
-                     <div class="form-group">
-                        <label for="login_id">아이디</label> <input type="text"
-                           class="form-control" id="login_id" name="login_id"
-                           placeholder="아이디를 입력하세요">
-                     </div>
-                     <div class="form-group">
-                        <label for="login_pw">비밀번호</label> <input type="password"
-                           class="form-control" id="login_pw" name="login_pw"
-                           placeholder="비밀번호를 입력하세요">
-                           <label id="label10"></label>
-                     </div>
-                     <br></br>
-                              
-                     <button id="loginBtn" type="submit" class="site-btn float-center">로그인</button>
-                  </form>
-					
-						<br></br> <br></br>
+						<form action="/foodie/loginCheck" method="post">
+							<div class="form-group">
+								<label for="login_id" class="login__label">아이디</label> <input
+									type="text" class="form-control login__input" id="login_id"
+									name="login_id" placeholder="아이디를 입력하세요">
+							</div>
+							<div class="form-group">
+								<label for="login_pw" class="login__label">비밀번호</label> <input
+									type="password" class="form-control  login__input"
+									id="login_pw" name="login_pw" placeholder="비밀번호를 입력하세요">
+								<br>
+
+							</div>
+							<div class="login__warn">
+								<label id="label10" style="margin-top: 0.5rem;"></label>
+							</div>
+							<br>
+							<br>
+							<button id="loginBtn" type="submit" class="site-btn float-center">로그인</button>
+						</form>
+						<br>
+						<br>
+						<br>
 						<div class="login__register float-center">
 							아직 회원이 아니신가요? <a href="join" id="joinA">회원가입</a>
+						</div>
+						<div class="login__block">
 						</div>
 					</div>
 				</div>
@@ -177,6 +184,6 @@
 	<script src="<c:url value='/resources/js/member.js' />"></script>
 	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
 	<script src="<c:url value='/resources/js/search.js' />"></script>
-	
+
 </body>
 </html>
