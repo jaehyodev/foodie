@@ -65,7 +65,7 @@ public interface MemberMapper {
 
 	void delete(Member member); // 회원탈퇴
 
-	@Select("SELECT od.order_idx, ii.ingre_img, ii.ingre_name, od.order_cnt\r\n"
+	@Select("SELECT od.order_idx, ii.ingre_idx, ii.ingre_img, ii.ingre_name, od.order_cnt\r\n"
 			+ "FROM order_detail_info od\r\n"
 			+ "JOIN ingredient_info ii ON od.ingre_idx = ii.ingre_idx\r\n"
 			+ "JOIN order_info oi ON od.order_idx = oi.order_idx\r\n"

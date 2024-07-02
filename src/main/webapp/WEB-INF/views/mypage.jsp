@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
@@ -115,7 +115,7 @@
 			<div class="row"></div>
 		</div>
 	</section>
-	
+
 	<section class="mypage-section">
 		<div class="container">
 			<div class="row">
@@ -138,7 +138,7 @@
 							<thead>
 								<tr>
 									<th>주문 번호</th>
-									<th colspan = "2">주문 상품</th>
+									<th colspan="2">주문 상품</th>
 									<th>수량</th>
 									<th>주문 금액</th>
 									<th>주문 상태</th>
@@ -146,38 +146,50 @@
 								</tr>
 							</thead>
 							<tbody>
-						    <c:forEach items="${orderInfo}" var="orderInfo" varStatus="orderCnt">
-						        <c:set var="isFirstOrderDetail" value="true" />
-						        <c:forEach items="${orderDetailList}" var="orderDetailList" varStatus="orderDetailCnt">
-						            <c:if test="${orderInfo.order_idx == orderDetailList.order_idx }">
-						                <tr>
-						                    <c:if test="${isFirstOrderDetail}">
-						                        <td rowspan="${detailSize.get(orderCnt.index) }">${orderInfo.ordered_at}<br/><br/>${orderDetailList.order_idx}</td>
-						                    </c:if>
-						                    <td><img class="orderDetailImg"
-																		src="<c:url value='/resources/img${orderDetailList.ingre_img }'/>"
-																		alt="">
-																		</td>
-						                    <td>${orderDetailList.ingre_name}</td>
-						                    <td>${orderDetailList.order_cnt}</td>
-						                    <c:if test="${isFirstOrderDetail}"> <%-- 첫 번째 상세 정보일 때만 주문 상태 표시 --%>
-						                        <td rowspan="${detailSize.get(orderCnt.index) }">
-						                        <fmt:formatNumber value="${orderInfo.total_amount}" pattern="#,###" />원
-						                        </td>         
-						                    </c:if>
-						                    <c:if test="${isFirstOrderDetail}"> <%-- 첫 번째 상세 정보일 때만 주문 상태 표시 --%>
-						                        <td rowspan="${detailSize.get(orderCnt.index) }">${orderInfo.order_status}</td>
-						                        <td rowspan="${detailSize.get(orderCnt.index) }">
-																				<a id="delete__order" href="<c:url value='javascript:confirmDeleteOrder(${orderInfo.order_idx})'/>">
-                                             주문취소하기</a>	
-																		</td>
-						                        <c:set var="isFirstOrderDetail" value="false" />
-						                    </c:if>
-						                </tr>
-						            </c:if>
-						        </c:forEach>
-						    </c:forEach>
-						</tbody>
+								<c:forEach items="${orderInfo}" var="orderInfo"
+									varStatus="orderCnt">
+									<c:set var="isFirstOrderDetail" value="true" />
+									<c:forEach items="${orderDetailList}" var="orderDetailList"
+										varStatus="orderDetailCnt">
+										<c:if
+											test="${orderInfo.order_idx == orderDetailList.order_idx }">
+											<tr>
+												<c:if test="${isFirstOrderDetail}">
+													<td rowspan="${detailSize.get(orderCnt.index) }">${orderInfo.ordered_at}<br />
+													<br />${orderDetailList.order_idx}</td>
+												</c:if>
+												
+												<td><img class="orderDetailImg"
+													src="<c:url value='/resources/img${orderDetailList.ingre_img }'/>"
+													alt=""
+													onclick="window.location.href = '<c:url value='/shopdetail/${orderDetailList.ingre_idx}'/>'"
+													style="cursor: pointer;"></td>
+												
+												<td
+													onclick="window.location.href = '<c:url value='/shopdetail/${orderDetailList.ingre_idx}'/>'"
+													style="cursor: pointer;">${orderDetailList.ingre_name}</td>
+												
+												
+												<td>${orderDetailList.order_cnt}</td>
+												<c:if test="${isFirstOrderDetail}">
+													<%-- 첫 번째 상세 정보일 때만 주문 상태 표시 --%>
+													<td rowspan="${detailSize.get(orderCnt.index) }"><fmt:formatNumber
+															value="${orderInfo.total_amount}" pattern="#,###" />원</td>
+												</c:if>
+												<c:if test="${isFirstOrderDetail}">
+													<%-- 첫 번째 상세 정보일 때만 주문 상태 표시 --%>
+													<td rowspan="${detailSize.get(orderCnt.index) }">${orderInfo.order_status}</td>
+													<td rowspan="${detailSize.get(orderCnt.index) }"><a
+														id="delete__order"
+														href="<c:url value='javascript:confirmDeleteOrder(${orderInfo.order_idx})'/>">
+															주문취소하기</a></td>
+													<c:set var="isFirstOrderDetail" value="false" />
+												</c:if>
+											</tr>
+										</c:if>
+									</c:forEach>
+								</c:forEach>
+							</tbody>
 						</table>
 					</div>
 				</div>
@@ -206,7 +218,7 @@
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
 	<script src="<c:url value='/resources/js/search.js' />"></script>
-	
+
 	<script>
     function confirmDeleteOrder(order_idx) {
         showConfirmPopup('결제를 취소하시겠습니까?', function() {
@@ -229,7 +241,7 @@
       })
    }
    </script>
-	
+
 
 </body>
 </html>
