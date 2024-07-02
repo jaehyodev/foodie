@@ -144,7 +144,6 @@
 								<label id="label10" style="margin-top: 0.5rem;"></label>
 							</div>
 							<br>
-							<br>
 							<button id="loginBtn" type="submit" class="site-btn float-center">로그인</button>
 						</form>
 						<br>

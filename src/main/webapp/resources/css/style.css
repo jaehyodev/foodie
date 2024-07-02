@@ -4119,9 +4119,8 @@ transparent
 	text-align: center;
 }
 .login__block {
-	min-height: 35px;
+  min-height: 90px;
 }
-
 
 /* 로그아웃 버튼 */
 .header__top__right__auth .logout-btn {
@@ -4275,4 +4274,26 @@ h5 a:hover {
 
 #joinA:hover {
 	color: var(--primary-color);
+}
+
+/* 회원가입 전화번호 css */
+
+.phone-input-group {
+  display: flex;
+}
+
+.phone-input-group input {
+  width: 30%; /* 각 입력 칸의 너비를 1/3로 설정 */
+}
+.phone-input-group span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 5%;
+	margin-left: 10px; 
+	margin-right: 10px; 
+	text-align: center;
+}
+.phone-input-group input:last-child {
+  margin-right: 0; /* 마지막 입력 칸에는 간격 없음 */
 }

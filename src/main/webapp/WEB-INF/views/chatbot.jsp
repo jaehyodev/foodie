@@ -98,13 +98,13 @@
 	        var chatbotContent = $('#chatbot__content');
 	        var whoChatClass = isUserChat ? ' chatbot__content__my-box' : '';
 	        var chatElement = $('<div class="content__box__container"><div class="chatbot__content__box' + whoChatClass + '">'
-	                + message + '</div></div>');
+	                + linkifyText(message) + '</div></div>');
 	
 	        // 대화 메시지를 화면에 띄우기 전에 이전의 'AI 답변 중...' 메시지 삭제
 	        if (!isUserChat) {
 	            $('#chatbot__content').find('.chatbot__content__box--waiting').remove();
 	        }
-	
+					
 	        // 대화 메시지를 화면에 띄우기
 	        chatbotContent.append(chatElement);
 	
@@ -262,6 +262,13 @@
                 $('#chatbot__content').find('.chatbot__content__box--waiting').remove();
                 isWaitingResponse = false;
             }
+        }
+	 	
+        function linkifyText(message) {
+            const urlPattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+            return message.replace(urlPattern, function(url) {
+                return '<a href="' + url + '" target="_blank">' + url + '</a>';
+            });
         }
 	</script>
 </body>
