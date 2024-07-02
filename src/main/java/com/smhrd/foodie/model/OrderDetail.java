@@ -11,6 +11,8 @@ public class OrderDetail {
    
    private int order_idx;
    
+   private int ingre_idx;
+   
    private String ingre_img;
    
    private String ingre_name;
