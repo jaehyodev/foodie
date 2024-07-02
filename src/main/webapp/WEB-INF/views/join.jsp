@@ -152,11 +152,19 @@
 										type="email" class="form-control" id="email" name="mem_email"
 										placeholder="이메일을 입력하세요" required>
 								</div>
-								<div class="form-group">
-									<label for="phoneNumber">전화번호</label> <label id="label4"></label>
-									<input type="tel" class="form-control" id="tel" name="mem_tel"
-										placeholder="전화번호를 입력하세요" required>
-								</div>
+								
+								                        
+                <div class="form-group">
+                  <label for="phoneNumber">전화번호</label>
+                  <label id="label4"></label>
+                  <div class="phone-input-group">
+                		<input type="tel" class="form-control" id="tel1" name="mem_tel1" maxlength="3" required>
+                		<span>-</span><input type="tel" class="form-control" id="tel2" name="mem_tel2" maxlength="4" required>
+                		<span>-</span><input type="tel" class="form-control" id="tel3" name="mem_tel3" maxlength="4" required>
+                	</div>
+                </div>
+                        
+								
 								<div class="form-group">
 									<label for="addr">주소</label>
 									
