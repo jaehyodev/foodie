@@ -1,3 +1,74 @@
+ /* 재료 개별 장바구니 버튼 (수량 x) */
+function ingreCart(ingre_idx){
+	$.ajax({
+		url : "cart.do",
+		type : "get",
+		data : {"ingre_idx":ingre_idx},
+		success : function(data){
+			if (data == "notLogin")
+				showPopup("로그인을 해주세요.");
+			else if (data == "success")
+				showCartPopup("장바구니에 추가되었습니다.");
+			else
+				showPopup("장바구니 담기를 실패했습니다.");
+		},
+		error : function(){
+			showPopup("오류 발생");
+		}
+	})
+}
+
+/* 장바구니 버튼 (수량 o) */
+function ingreDetailCart(ingre_idx){
+	var quantity = document.getElementById('quantityInput').value;
+	$.ajax({
+		url : "current-cart.do",
+		type : "get",
+       	data : {"ingre_idx":ingre_idx, "quantity":quantity},
+       	success : function(data){
+       		if (data == "notLogin")
+       			showPopup("로그인을 해주세요.");
+       	 	else if (data == "success")
+       		 	showCartPopup("장바구니에 추가되었습니다.");
+       	 	else
+       		 	showPopup("장바구니 담기를 실패했습니다.");
+       	},
+       	error : function(){
+        	showPopup("오류 발생");
+       	}
+    })
+}
+
+/* 관련 재료 한번에 장바구니 담기 버튼 */
+$(document).ready(function() {
+   	$("#getCheckedValues").click(function() {
+       	let checkedItems = [];
+       	$(".check:checked").each(function() {
+           	checkedItems.push($(this).val());
+       	});
+       	$.ajax({
+           	url: "all-cart.do",
+           	type: "get",
+           	traditional: true,
+			data: { "checkedItems": checkedItems },
+			success: function(data) {
+	 			if (data == "notLogin")
+	 				showPopup("로그인을 해주세요.");
+				else if (data == "success")
+					showCartPopup("장바구니에 추가되었습니다.");
+				else
+					showPopup("장바구니 담기를 실패했습니다.");
+			},
+	        error: function() {
+	        	showPopup("오류 발생");
+	        }
+		});
+	});
+});  
+   
+   
+   
+   
    // 전체 선택/해제 기능
    function toggleCheckboxes(source) {
       var checkboxes = document.getElementsByClassName("check");
@@ -20,7 +91,7 @@
 
     $.ajax({
         type: "get",
-        url: "deleteSelectedItems.do",
+        url: "delete-selected-items.do",
         traditional: true,
         data: {
             ingreIdxs: ingreIdxs,
@@ -51,7 +122,7 @@
       }
       
         $.ajax({
-         url : "updateCart.do",
+         url : "update-cart.do",
          type : "get",
          dataType : "json",
          traditional : true,
@@ -141,7 +212,7 @@
                //rsp.imp_uid 값으로 결제 단건조회 API를 호출하여 결제결과를 판단               
                   if(rsp.success){ //주문완료
                         $.ajax({
-                           url : "checkoutSuccess.do",
+                           url : "checkout-success.do",
                            type : "get",
                            traditional: true,
                            data : {

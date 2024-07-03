@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.smhrd.foodie.mapper.RecipeMapper;
+import com.smhrd.foodie.mapper.RecipeIngreMapper;
 import com.smhrd.foodie.model.Recipe;
 
 @Controller
 public class HomeController {
 	
 	@Autowired
-	RecipeMapper mapper;
+	RecipeIngreMapper mapper;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -28,15 +28,15 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
     // 인기 있는 레시피 목록을 데이터베이스에서 가져옵니다.
     List<Recipe> popularList = mapper.findPopularRecipes();
-    // 새로운 레시피 목록을 데이터베이스에서 가져옵니다.
-    List<Recipe> newList = mapper.findNewRecipes();
     // 모든 레시피 목록을 데이터베이스에서 가져옵니다.
     List<Recipe> recommendedList = mapper.findRecommendedRecipes();
+    // 새로운 레시피 목록을 데이터베이스에서 가져옵니다.
+    List<Recipe> newList = mapper.findNewRecipes();
     
     // 가져온 목록을 뷰에서 사용할 수 있도록 모델에 추가합니다.
     model.addAttribute("popularList", popularList);
-    model.addAttribute("newList", newList);
     model.addAttribute("recommendedList", recommendedList);
+    model.addAttribute("newList", newList);
     
 		return "index";
 	}
@@ -59,9 +59,9 @@ public class HomeController {
 		return "update";
 	}
 	
-	@RequestMapping(value = "/updatepw", method = RequestMethod.GET)
+	@RequestMapping(value = "/update-pw", method = RequestMethod.GET)
 	public String updatePw() {
-		return "updatepw";
+		return "update-pw";
 	}
 
 	// 회원 탈퇴 페이지
@@ -70,24 +70,24 @@ public class HomeController {
 		return "delete";
 	}
 
-	@RequestMapping(value = "/shopgrid", method = RequestMethod.GET)
+	@RequestMapping(value = "/ingre-grid", method = RequestMethod.GET)
 	public String shopGrid() {
-		return "shop-grid";
+		return "ingre-grid";
 	}
 
-	@RequestMapping(value = "/shopdetail", method = RequestMethod.GET)
+	@RequestMapping(value = "/ingre-detail", method = RequestMethod.GET)
 	public String shopDetail() {
-		return "shop-details";
+		return "ingre-detail";
 	}
 
-	@RequestMapping(value = "/recipe", method = RequestMethod.GET)
+	@RequestMapping(value = "/recipe-grid", method = RequestMethod.GET)
 	public String recipe() {
-		return "recipe";
+		return "recipe-grid";
 	}
 
-	@RequestMapping(value = "/recipedetail", method = RequestMethod.GET)
+	@RequestMapping(value = "/recipe-detail", method = RequestMethod.GET)
 	public String recipeDetail() {
-		return "recipe-details";
+		return "recipe-detail";
 	}
 
 	// 챗봇 페이지

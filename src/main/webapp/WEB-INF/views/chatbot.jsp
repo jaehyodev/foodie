@@ -43,6 +43,7 @@
 </head>
 
 <body>
+
 	<div id="chatbot__header">
 		<span>1:1 문의 상담</span>
 	    <div class="toggle-btn" id="toggleButton">
@@ -63,5 +64,6 @@
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
+	
 </body>
 </html>
