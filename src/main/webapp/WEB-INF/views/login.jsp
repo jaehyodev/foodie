@@ -118,14 +118,6 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-6 col-md-8">
 
-					<!-- 로그인 실패 시 나오는 멘트 -->
-					<c:if test="${not empty flash.error}">
-						<div class="logion-error-message">${flash.error}</div>
-						<script>
-							console.log("${flash.error}");
-						</script>
-					</c:if>
-
 					<div class="login__form">
 						<form action="/foodie/loginCheck" method="post">
 							<div class="form-group">
