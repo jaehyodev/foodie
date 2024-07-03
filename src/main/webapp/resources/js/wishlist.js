@@ -1,4 +1,48 @@
-<!-- 레시피 찜 목록 체크 시 전체 레시피 체크 -->
+/* 재료 찜 버튼 */
+function ingreWishlist(ingre_idx){
+	$.ajax({
+		url : "wish-ingre.do",
+		type : "get",
+		data : {"ingre_idx":ingre_idx},
+		success : function(data){
+			if (data == "notLogin")
+				showPopup("로그인을 해주세요.");
+			else if (data == "delWish")
+				showPopup("찜 목록에서 삭제되었습니다.");
+			else if (data == "inWish")
+				showPopup("찜 목록에 추가되었습니다.");
+			else
+				showPopup("찜 목록 담기를 실패했습니다.");
+		},
+		error : function(){
+			showPopup("오류 발생");
+	    }
+	})
+}
+
+/* 레시피 찜 버튼 */
+function recipeWishlist(recipe_idx){
+   	$.ajax({
+       	url : "wish-recipe.do",
+       	type : "get",
+       	data : {"recipe_idx":recipe_idx},
+       	success : function(data){
+       		if (data == "notLogin")
+       			showPopup("로그인을 해주세요.");
+       	 	else if (data == "delWish")
+       		 	showPopup("찜 목록에서 삭제되었습니다.");
+       	 	else if (data == "inWish")
+       		 	showPopup("찜 목록에 추가되었습니다.");
+       	 	else
+       		 	showPopup("찜 목록 담기를 실패했습니다.");
+        	},
+       	error : function(){
+           	showPopup("오류 발생");
+       	}
+   	})
+}
+
+/* 레시피 찜 목록 체크 시 전체 레시피 체크 */
 function checkRecipesAll(source) {
   if (source.checked) {
     // source 체크박스가 체크되었을 때
@@ -20,7 +64,7 @@ function checkRecipesAll(source) {
 }
 
 
-<!-- 재료 찜 목록 체크 시 전체 재료 체크 -->
+/* 재료 찜 목록 체크 시 전체 재료 체크 */
 function checkIngresAll(source) {
   if (source.checked) {
 	  // source 체크박스가 체크되었을 때
@@ -42,7 +86,7 @@ function checkIngresAll(source) {
 }
 
 
-<!-- 레시피 찜 목록 삭제 -->
+/* 레시피 찜 목록 삭제 */
 // 레시피 찜 목록 개별 삭제
 function deleteRecipe(recipe_idx) {
   $.ajax({
@@ -70,9 +114,9 @@ function deleteSelectedRecipes() {
     return;
   }
 
-	// Ajax 요청으로 서버에 레시피 찜 목록 선택된 항목들만 삭제 요청
+  // Ajax 요청으로 서버에 레시피 찜 목록 선택된 항목들만 삭제 요청
   $.ajax({
-    url: "wishlist/recipe/deleteSelected.do",
+    url: "wishlist/recipe/delete-selected.do",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify(recipeIdxArray),
@@ -88,7 +132,7 @@ function deleteSelectedRecipes() {
 }
 
 
-<!-- 재료 찜 목록 삭제 -->
+/* 재료 찜 목록 삭제 */
 // 재료 찜 목록 개별 삭제
 function deleteIngre(ingre_idx) {
   $.ajax({
@@ -118,7 +162,7 @@ function deleteSelectedIngres() {
 
   // Ajax 요청으로 서버에 재료 찜 목록 선택된 항목들만 삭제 요청
   $.ajax({
-    url: "wishlist/ingre/deleteSelected.do",
+    url: "wishlist/ingre/delete-selected.do",
     type: "POST",
     contentType: "application/json",
     data: JSON.stringify(ingreIdxArray),

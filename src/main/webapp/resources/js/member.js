@@ -27,7 +27,7 @@ $("#id").on("focusout", function () {
 
   // Ajax로 전송
   $.ajax({
-    url: "/foodie/idCheck",
+    url: "/foodie/id-check",
     data: {
       mem_id: id,
     },
@@ -92,7 +92,7 @@ $("#email").on("focusout", function () {
 
   //Ajax로 전송
   $.ajax({
-    url: "/foodie/emailCheck",
+    url: "/foodie/email-check",
     data: {
       mem_email: email,
     },
@@ -179,7 +179,7 @@ $(".phone-input-group").on("focusout", function () {
 
   //Ajax로 전송
   $.ajax({
-    url: "/foodie/phoneCheck",
+    url: "/foodie/phone-check",
     data: {
       mem_phone: tel,
     },
@@ -291,7 +291,7 @@ $("#updatePwBtn").click(function (event) {
 
   // AJAX 요청
   $.ajax({
-    url: "/foodie/updatePw.do",
+    url: "/foodie/update-pw.do",
     type: "POST",
     data: formData,
     dataType: "text",
@@ -369,7 +369,7 @@ $("#loginBtn").click(function (event) {
 
   // AJAX 요청
   $.ajax({
-    url: "/foodie/loginCheck",
+    url: "/foodie/login-check",
     type: "POST",
     data: { id: login_id, pw: login_pw },
     dataType: "text",

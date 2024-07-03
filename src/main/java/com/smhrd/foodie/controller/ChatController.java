@@ -32,7 +32,7 @@ public class ChatController {
       conversationHistory.add(new ChatMessage("system", "어조: 친절하게, 전문가답게"));
 	}
 
-	@PostMapping(value = "/chatbot/hitopenaiapi", produces = "application/text; charset=utf8")
+	@PostMapping(value = "/chatbot/hit-openai-api", produces = "application/text; charset=utf8")
 	public String getOpenaiResponse(@RequestBody String prompt, HttpSession session) {
 
 		// 최대로 출력 가능한 AI의 답변

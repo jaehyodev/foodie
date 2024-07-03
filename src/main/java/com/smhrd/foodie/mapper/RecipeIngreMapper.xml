@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.smhrd.foodie.mapper.RecipeIngreMapper">
+ 
+ 	<!-- ★★★ 레시피 관련 sql문 ★★★ -->
+ 	<!-- 해당 레시피의 관련 재료 목록 -->
+ 	<select id="recipeIngre" parameterType="com.smhrd.foodie.model.Recipe" resultType="com.smhrd.foodie.model.Ingredient">
+ 		SELECT B.ingre_idx, B.ingre_name, B.ingre_cat, B.ingre_content ,B.ingre_price, B.ingre_img, B.ingre_weight
+		FROM recipe_ingre_info A, ingredient_info B
+		WHERE A.ingre_idx = B.ingre_idx AND A.recipe_idx = #{recipe_idx}
+ 	</select>
+ 	
+ 	<!-- 레시피 재료 페이징 리스트 -->
+ 	<select id="ingreList" parameterType="com.smhrd.foodie.model.Paging" resultType="com.smhrd.foodie.model.Ingredient">
+ 		SELECT A.ingre_idx, A.ingre_name, A.ingre_cat, A.ingre_content, A.ingre_price, A.ingre_img, A.ingre_weight
+		FROM (
+			SELECT *, row_number() OVER(ORDER BY ingre_idx) AS row_num
+		    FROM ingredient_info
+		    WHERE ingre_cat = #{ingre_cat}
+		) A
+		WHERE row_num BETWEEN #{start} AND #{end}
+ 	</select>
+ 	
+ 	<!-- 해당 레시피가 찜 목록에 있는지 확인 -->
+ 	<select id="checkRecipeWish" parameterType="com.smhrd.foodie.model.WishlistCart" resultType="int">
+ 		SELECT count(*) FROM recipe_wishlist_info WHERE mem_id = #{mem_id} AND recipe_idx = #{recipe_ingre_idx}
+ 	</select>
+ 	
+ 	<!-- 레시피 찜 목록에 추가 -->
+ 	<select id="inRecipeWish" parameterType="com.smhrd.foodie.model.WishlistCart">
+ 		INSERT INTO recipe_wishlist_info(mem_id,recipe_idx) VALUES(#{mem_id},#{recipe_ingre_idx})
+ 	</select>
+ 	
+ 	<!-- 레시피 찜 목록에서 삭제 -->
+ 	<delete id="delRecipeWish" parameterType="com.smhrd.foodie.model.WishlistCart">
+ 		DELETE FROM recipe_wishlist_info WHERE mem_id=#{mem_id} AND recipe_idx=#{recipe_ingre_idx}
+ 	</delete>
+ 	
+ 	<!-- 해당 레시피의 관련 재료의 알러지, 비선호 필터링 -->
+	<select id="memRecipeIngre" parameterType="com.smhrd.foodie.model.RecipeAllergyDislike" resultType="com.smhrd.foodie.model.Ingredient">
+		SELECT DISTINCT A.ingre_idx, A.ingre_name, A.ingre_cat,
+		    CASE
+		        WHEN F.allergy_idx IS NOT NULL THEN '알레르기 주의 식품'
+		        WHEN MDI.dislike_idx IS NOT NULL THEN '비선호 식품'
+		        ELSE '일반 식품'
+		    END AS ingre_content, A.ingre_price, A.ingre_img, A.ingre_weight
+		FROM ingredient_info A JOIN recipe_ingre_info B ON A.ingre_idx = B.ingre_idx
+		    JOIN recipe_info C ON B.recipe_idx = C.recipe_idx
+		    LEFT JOIN (
+		        SELECT DISTINCT ingre_idx, iai.allergy_idx
+		        FROM ingre_allergy_info iai JOIN member_allergy_info mai ON iai.allergy_idx = mai.allergy_idx
+		        WHERE mai.mem_id = #{mem_id}
+		    ) F ON A.ingre_idx = F.ingre_idx
+		    LEFT JOIN ingre_allergy_info D ON A.ingre_idx = D.ingre_idx
+		    LEFT JOIN (
+		        SELECT MDI.mem_id, DI.dislike_idx, DI.dislike_name
+		        FROM member_dislike_info MDI JOIN dislike_info DI ON MDI.dislike_idx = DI.dislike_idx
+		        WHERE MDI.mem_id = #{mem_id}
+		    ) MDI ON A.ingre_name LIKE CONCAT('%', MDI.dislike_name, '%')
+		WHERE  C.recipe_name = #{recipe_name}
+	</select>
+ 	
+ 	<!-- ★★★ 재료 관련 sql문 ★★★ -->
+ 	<!-- 해당 재료 찜 목록에 있는지 확인 -->
+ 	<select id="checkIngreWish" parameterType="com.smhrd.foodie.model.WishlistCart" resultType="int">
+ 		SELECT count(*) FROM ingre_wishlist_info WHERE mem_id = #{mem_id} AND ingre_idx = #{recipe_ingre_idx}
+ 	</select>
+ 	
+ 	<!-- 재료 찜 목록에 추가 -->
+ 	<select id="inIngreWish" parameterType="com.smhrd.foodie.model.WishlistCart">
+ 		INSERT INTO ingre_wishlist_info(mem_id,ingre_idx) VALUES(#{mem_id},#{recipe_ingre_idx})
+ 	</select>
+ 	
+ 	<!-- 재료 찜 목록에서 삭제 -->
+ 	<delete id="delIngreWish" parameterType="com.smhrd.foodie.model.WishlistCart">
+ 		DELETE FROM ingre_wishlist_info WHERE mem_id=#{mem_id} AND ingre_idx=#{recipe_ingre_idx}
+ 	</delete> 	
+ 	
+ 	<!-- 장바구니 목록 -->
+ 	<select id="checkIngreCart" parameterType="com.smhrd.foodie.model.WishlistCart" resultType="int">
+ 		select count(*) from basket_info where mem_id = #{mem_id} and ingre_idx = #{recipe_ingre_idx}
+ 	</select>
+ 	
+ 	<!-- 장바구니 목록 업데이트 (기존 상품, 1개) -->
+	<update id="updateIngreCart" parameterType="com.smhrd.foodie.model.WishlistCart">
+		UPDATE basket_info SET ingre_cnt = ingre_cnt+1 WHERE mem_id = #{mem_id} AND ingre_idx = #{recipe_ingre_idx}
+	</update>
+ 	
+ 	<!-- 장바구니 목록 업데이트 (새 상품, 1개) -->
+ 	<select id="inIngreCart" parameterType="com.smhrd.foodie.model.WishlistCart">
+ 		INSERT INTO basket_info(mem_id,ingre_idx,ingre_cnt) VALUES(#{mem_id},#{recipe_ingre_idx},1)
+ 	</select>
+
+ 	<!-- 장바구니 목록 업데이트 (기존 상품, 사용자가 정한 수량) -->
+	<update id="updateDetailIngreCart" parameterType="com.smhrd.foodie.model.WishlistCart">
+		UPDATE basket_info SET ingre_cnt = ingre_cnt + #{quantity} WHERE mem_id = #{mem_id} AND ingre_idx = #{recipe_ingre_idx}
+	</update>
+ 	
+ 	<!-- 장바구니 목록 업데이트 (새 상품, 사용자가 정한 수량) -->
+ 	<select id="inDetailIngreCart" parameterType="com.smhrd.foodie.model.WishlistCart">
+ 		INSERT INTO basket_info(mem_id,ingre_idx,ingre_cnt) VALUES(#{mem_id},#{recipe_ingre_idx},#{quantity})
+ 	</select>
+    
+ </mapper>

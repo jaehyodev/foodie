@@ -52,34 +52,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
-					<div class="hero__categories">
-						<div class="hero__categories__all">
-							<i class="fa fa-bars"></i> <span>카테고리</span>
-						</div>
-						<ul id="categories-list">
-							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
-							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
-							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
-							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
-							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
-							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
-							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
-						</ul>
-						<ul id="additional-categories">
-							<li><a href="<c:url value='/shopgrid/채소/1'/>">채소</a></li>
-							<li><a href="<c:url value='/shopgrid/과일/1'/>">과일</a></li>
-							<li><a href="<c:url value='/shopgrid/수산/1'/>">수산</a></li>
-							<li><a href="<c:url value='/shopgrid/정육ㆍ계란류/1'/>">정육ㆍ계란류</a></li>
-							<li><a href="<c:url value='/shopgrid/쌀ㆍ잡곡/1'/>">쌀ㆍ잡곡</a></li>
-							<li><a href="<c:url value='/shopgrid/면ㆍ오일/1'/>">면ㆍ오일</a></li>
-							<li><a href="<c:url value='/shopgrid/우유ㆍ유제품/1'/>">우유ㆍ유제품</a></li>
-							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
-							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
-							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
-							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
-						</ul>
-					</div>
+
+					<!-- Categories Section Begin -->
+					<%@ include file="./categories.jsp"%>
+					<!-- Categories Section End -->
+
 				</div>
 				<div class="col-lg-9">
 
@@ -113,7 +90,7 @@
 			<div class="row"></div>
 		</div>
 	</section>
-	
+
 	<section class="allergy-section">
 		<div class="container">
 			<div class="row">
@@ -132,7 +109,7 @@
 				</div>
 				<div class="col-lg-9">
 					<div class="mypage__content">
-						<form action="/foodie/updateAllergy" method="post">
+						<form action="/foodie/update-allergy" method="post">
 							<input type="hidden" name="deleteAllergy" id="deleteAllergy"
 								value=""> <input type="hidden" name="deleteDislike"
 								id="deleteDislike" value="">
@@ -229,7 +206,7 @@
 
 	<script>
 	  // 현재 위치에서 /foodie/updateAllergy 액션을 가진 폼을 form 변수에 저장
-	  const form = document.querySelector('form[action="/foodie/updateAllergy"]');
+	  const form = document.querySelector('form[action="/foodie/update-allergy"]');
 
 	  // id가 deleteAllergy인 hidden input 태그를 찾아감
 	  const deleteAllergy = document.getElementById('deleteAllergy');
@@ -237,13 +214,13 @@
 
 	  form.addEventListener('submit', function(event) {
 	
-		  // 현재 문서에서 name이 allergy_list인 모든 input 요소들을 선택하여 변수에 저장
+		// 현재 문서에서 name이 allergy_list인 모든 input 요소들을 선택하여 변수에 저장
 		  const allergy_list = document.querySelectorAll('input[name="allergy_list"]');
 		  // 현재 문서에서 name이 dislike_list인 모든 input 요소들을 선택하여 변수에 저장
 		  const dislike_list = document.querySelectorAll('input[name="dislike_list"]');
 		
-	    // 체크 해제된 알레르기의 value 값을 배열로 변환
-	    const uncheckAllergy = Array.from(allergy_list)
+			// 체크 해제된 알레르기의 value 값을 배열로 변환
+	    	const uncheckAllergy = Array.from(allergy_list)
 	      .filter(checkbox => !checkbox.checked)
 	      .map(checkbox => checkbox.value);
 		
@@ -276,5 +253,6 @@
        }
     });
    </script>
+
 </body>
 </html>

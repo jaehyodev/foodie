@@ -28,4 +28,5 @@ public class ChatCompletionResponse {
 		private ChatMessage message;
 
 	}
+	
 }

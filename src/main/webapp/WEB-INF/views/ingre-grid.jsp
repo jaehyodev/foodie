@@ -40,28 +40,6 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
 	type="text/css">
 
-<!-- Css Styles -->
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/bootstrap.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/font-awesome.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/elegant-icons.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/jquery-ui.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/owl.carousel.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
-<link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
-	type="text/css">
 </head>
 
 <body>
@@ -75,34 +53,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
-					<div class="hero__categories">
-						<div class="hero__categories__all">
-							<i class="fa fa-bars"></i> <span>카테고리</span>
-						</div>
-						<ul id="additional-categories">
-							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
-							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
-							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
-							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
-							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
-							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
-							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
-						</ul>
-						<ul id="categories-list">
-							<li><a href="<c:url value='/shopgrid/채소/1'/>">채소</a></li>
-							<li><a href="<c:url value='/shopgrid/과일/1'/>">과일</a></li>
-							<li><a href="<c:url value='/shopgrid/수산/1'/>">수산</a></li>
-							<li><a href="<c:url value='/shopgrid/정육ㆍ계란류/1'/>">정육ㆍ계란류</a></li>
-							<li><a href="<c:url value='/shopgrid/쌀ㆍ잡곡/1'/>">쌀ㆍ잡곡</a></li>
-							<li><a href="<c:url value='/shopgrid/면ㆍ오일/1'/>">면ㆍ오일</a></li>
-							<li><a href="<c:url value='/shopgrid/우유ㆍ유제품/1'/>">우유ㆍ유제품</a></li>
-							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
-							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
-							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
-							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
-						</ul>
-					</div>
+				
+					<!-- Categories Section Begin -->
+					<%@ include file="./categories.jsp"%>
+					<!-- Categories Section End -->
+					
 				</div>
 				<div class="col-lg-9">
 
@@ -138,6 +93,7 @@
 				<div class="col-lg-12 col-md-7">
 					<div class="product__discount">
 						<div class="section-title product__discount__title">
+							<!-- 해당 재료 카테고리 명 -->
 							<h2>${ingrelist.get(0).ingre_cat }</h2>
 						</div>
 					</div>
@@ -147,6 +103,7 @@
 							<div class="col-lg-4 col-md-4">
 								<div class="filter__found">
 									<h6>
+										<!-- 해당 카테고리의 재료 개수 -->
 										<span>${total }</span> 개의 상품
 									</h6>
 								</div>
@@ -154,13 +111,18 @@
 						</div>
 					</div>
 					<div class="row">
+						<!-- 재료 목록 -->
 						<c:forEach items="${ingrelist }" var="list" varStatus="loop">
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
 										data-setbg="<c:url value='../../resources/img${list.ingre_img}'/>"
-										onclick="window.location.href = '<c:url value='/shopdetail/${list.ingre_idx }'/>'"
+										onclick="window.location.href = '<c:url value='/ingre-detail/${list.ingre_idx }'/>'"
 										style="cursor: pointer;"></div>
+									<!-- 
+										재료 사진이나 이름 호버 시 찜, 장바구니 버튼 나타내기
+										-> 로그인되어있고 찜 목록에 있으면 하트 색상 빨간색
+									 -->
 									<ul class="product__item__pic__hover">
 										<c:choose>
 											<c:when
@@ -181,9 +143,11 @@
 									</ul>
 									<div class="product__item__text">
 										<h6>
-											<a href="<c:url value='/shopdetail/${list.ingre_idx }'/>">${list.ingre_name }</a>
+											<!-- 재료 이름 -->
+											<a href="<c:url value='/ingre-detail/${list.ingre_idx }'/>">${list.ingre_name }</a>
 										</h6>
 										<h5>
+											<!-- 재료 가격 -->
 											<fmt:formatNumber value="${list.ingre_price }"
 												pattern="#,###" />
 											원
@@ -193,17 +157,16 @@
 							</div>
 						</c:forEach>
 					</div>
+					<!-- 페이징 버튼 -->
 					<div class="product__pagination">
 						<c:forEach begin="${1 }" end="${endPage }" var="page">
 							<c:choose>
 								<c:when test="${page == nowPage }">
-									<a
-										href="<c:url value='/shopgrid/${ingrelist.get(0).ingre_cat }/${page }'/>"
-										id="now__page">${page }</a>
+									<a href="<c:url value='/ingre-grid/${ingrelist.get(0).ingre_cat }/${page }'/>"
+									   id="now__page">${page }</a>
 								</c:when>
 								<c:otherwise>
-									<a
-										href="<c:url value='/shopgrid/${ingrelist.get(0).ingre_cat }/${page }'/>">${page }</a>
+									<a href="<c:url value='/ingre-grid/${ingrelist.get(0).ingre_cat }/${page }'/>">${page }</a>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
@@ -232,11 +195,12 @@
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/cart.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
 	<script src="<c:url value='/resources/js/search.js' />"></script>
-	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
+	<script src="<c:url value='/resources/js/wishlist.js' />"></script>
 
 </body>
 </html>

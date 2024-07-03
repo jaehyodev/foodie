@@ -64,7 +64,7 @@ public class CartController {
 	}
 
 	// 장바구니 목록 삭제
-	@RequestMapping(value = "/deleteSelectedItems.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete-selected-items.do", method = RequestMethod.GET)
 	public @ResponseBody String deleteSelectedItems(@RequestParam(value = "ingreIdxs") List<Integer> ingreIdxs,
 			@RequestParam(value = "memIds") List<String> memIds) {
 
@@ -83,7 +83,7 @@ public class CartController {
 	}
 
 	// 장바구니 목록 수정
-	@RequestMapping(value = "/updateCart.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/update-cart.do", method = RequestMethod.GET)
 	public ResponseEntity<String> updateItem(@RequestParam("cartValues") int[] cartValues,
 			@RequestParam("basketValues") int[] basketValues) {
 
@@ -125,7 +125,7 @@ public class CartController {
 	}
 
 	// 결제 완료 정보(주문번호,아이디,총액,주소)저장
-	@RequestMapping(value = "/checkoutSuccess.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/checkout-success.do", method = RequestMethod.GET)
 	public void checkoutSuccess(@RequestParam("merchant_uid") String merchant_uid,
 			@RequestParam("userAddr") String userAddr, @RequestParam("userSum") int userSum,
 			@RequestParam("ingreidxValues") String[] ingreidxValues, @RequestParam("countValues") String[] countValues,
@@ -164,7 +164,7 @@ public class CartController {
 	}
 
 	// iamport에 결제취소 요청하기
-	@RequestMapping(value = "/deleteOrder", method = RequestMethod.GET)
+	@RequestMapping(value = "/delete-order", method = RequestMethod.GET)
 	public @ResponseBody String refundRequest(@RequestParam("merchant_uid") String merchant_uid,
 			@RequestParam("reason") String reason) throws IOException {
 		String access_token = getToken(apiKey, secretKey);

@@ -1,3 +1,4 @@
+/* 기본 팝업 */
 function showPopup(message) {
     const popupContainer = document.createElement('div');
     popupContainer.id = 'popup-container';
@@ -53,7 +54,7 @@ function showPopup(message) {
        }
        else if(message=="비밀번호 변경이 완료되었습니다."){
               popupContainer.remove();
-              window.location.href = '/foodie/updatepw';
+              window.location.href = '/foodie/update-pw';
        }
        else if(message=="현재 비밀번호가 일치하지 않습니다."){
               popupContainer.remove();
@@ -82,6 +83,7 @@ function showPopup(message) {
     document.body.appendChild(popupContainer);
 }
 
+/* 주문 완료 팝업 */
 function showIdPopup(message, merchant_uid) {
     const popupContainer = document.createElement('div');
     popupContainer.id = 'popup-container';
@@ -129,6 +131,7 @@ function showIdPopup(message, merchant_uid) {
     document.body.appendChild(popupContainer);
 }
 
+/* 장바구니 버튼 클릭 시 팝업 */
 function showCartPopup(message) {
     const popupContainer = document.createElement('div');
     popupContainer.id = 'popup-container';
@@ -199,6 +202,8 @@ function showCartPopup(message) {
     popupContainer.appendChild(goToCartButton); // 장바구니로 가기 버튼 추가
     document.body.appendChild(popupContainer);
 }
+
+/* 주문 취소 확인 팝업 */
 function showConfirmPopup(message, onConfirm) {
     const popupContainer = document.createElement('div');
     popupContainer.id = 'popup-container';

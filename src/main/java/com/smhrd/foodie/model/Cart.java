@@ -26,4 +26,5 @@ public class Cart {
    private int order_cnt; // 주문 수량
    
    private String ingre_status; // 알러지, 비선호 상태
+   
 }

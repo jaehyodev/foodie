@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Wishlist {
-	private int wishlist_idx;
-	private String mem_id;
-	private int recipe_ingre_idx;
-	private int quantity;
+public class RecipeAllergyDislike {
+	
+	private String mem_id;		// 회원 아이디
+	private String recipe_name; // 레시피 이름
+	
 }

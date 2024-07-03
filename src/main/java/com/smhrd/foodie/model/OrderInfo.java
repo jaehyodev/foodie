@@ -9,16 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OrderInfo {
 	
-	private int order_idx;
-	
-	private String mem_id;
-	
-	private String ordered_at;
-	
-	private String order_status;
-	
-	private int total_amount;
-	
+	private int order_idx;	
+	private String mem_id;	
+	private String ordered_at;	
+	private String order_status;	
+	private int total_amount;	
 	private String order_addr;
 	
 }

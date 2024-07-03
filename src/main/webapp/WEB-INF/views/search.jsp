@@ -1,8 +1,14 @@
 <!DOCTYPE html>
+<!-- HTML 문서의 시작 -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!-- JSP 페이지의 설정: Java 언어 사용, 컨텐츠 타입과 인코딩 설정 -->
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!-- JSTL 코어 태그 라이브러리 선언 -->
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<!-- JSTL 포맷팅 태그 라이브러리 선언 -->
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -11,6 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Foodie</title>
+<!-- 웹페이지의 메타데이터 설정 및 제목 -->
 
 <!-- Google Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +25,7 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
 	rel="stylesheet">
+<!-- Google Font 설정 -->
 
 <!-- Css Styles -->
 <link rel="stylesheet"
@@ -41,61 +49,40 @@
 	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
 	type="text/css">
+<!-- 외부 CSS 파일 링크 -->
 
 </head>
 <body>
+	<!-- 웹페이지 본문 시작 -->
 
 	<!-- Header Section Begin -->
 	<%@ include file="./header.jsp"%>
-	<!-- Header Section End -->
+	<!-- 헤더 부분 포함 -->
 
-	<!-- Category Section Begin -->
+	<!-- 카테고리 부분 시작 -->
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
-					<div class="hero__categories">
-						<div class="hero__categories__all">
-							<i class="fa fa-bars"></i> <span>카테고리</span>
-						</div>
-						<ul id="categories-list">
-							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
-							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
-							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
-							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
-							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
-							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
-							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
-						</ul>
-						<ul id="additional-categories">
-							<li><a href="<c:url value='/shopgrid/채소/1'/>">채소</a></li>
-							<li><a href="<c:url value='/shopgrid/과일/1'/>">과일</a></li>
-							<li><a href="<c:url value='/shopgrid/수산/1'/>">수산</a></li>
-							<li><a href="<c:url value='/shopgrid/정육ㆍ계란류/1'/>">정육ㆍ계란류</a></li>
-							<li><a href="<c:url value='/shopgrid/쌀ㆍ잡곡/1'/>">쌀ㆍ잡곡</a></li>
-							<li><a href="<c:url value='/shopgrid/면ㆍ오일/1'/>">면ㆍ오일</a></li>
-							<li><a href="<c:url value='/shopgrid/우유ㆍ유제품/1'/>">우유ㆍ유제품</a></li>
-							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
-							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
-							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
-							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
-						</ul>
-					</div>
+				
+					<!-- Categories Section Begin -->
+					<%@ include file="./categories.jsp"%>
+					<!-- Categories Section End -->
+					
 				</div>
 				<div class="col-lg-9">
-
+				
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
-
+					
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Category Section End -->
+	<!-- 카테고리 부분 끝 -->
 
-	<!-- Wide Banner Section Begin -->
+	<!-- 와이드 배너 부분 시작 -->
 	<section class="breadcrumb-section set-bg"
 		data-setbg="<c:url value='/resources/img/breadcrumb.jpg'/>">
 		<div class="container">
@@ -108,7 +95,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- Wide Banner Section End -->
+	<!-- 와이드 배너 부분 끝 -->
 
 	<section class="product spad">
 		<div class="container">
@@ -132,6 +119,7 @@
 						</div>
 					</div>
 					<div class="row">
+						<!-- 레시피 리스트 출력 -->
 						<c:forEach items="${recipeList }" var="list" varStatus="loop">
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
@@ -162,7 +150,6 @@
 								</div>
 							</div>
 						</c:forEach>
-
 					</div>
 					<div class="product__discount">
 						<div class="section-title product__discount__title">
@@ -182,6 +169,7 @@
 						</div>
 					</div>
 					<div class="row">
+						<!-- 재료 리스트 출력 -->
 						<c:forEach items="${ingreList }" var="list" varStatus="loop">
 							<div class="col-lg-4 col-md-6 col-sm-6">
 								<div class="product__item">
@@ -220,19 +208,20 @@
 								</div>
 							</div>
 						</c:forEach>
+						<!-- 재료 리스트 출력 종료 -->
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Bottom Buttons (AI, Scroll up) Begin -->
+	<!-- 하단 버튼 (AI, 스크롤 업) 시작 -->
 	<%@ include file="./bottom-buttons.jsp"%>
-	<!-- Bottom Buttons (AI, Scroll up) End -->
+	<!-- 하단 버튼 (AI, 스크롤 업) 부분 포함 -->
 
-	<!-- Footer Section Begin -->
+	<!-- 푸터 부분 시작 -->
 	<%@ include file="./footer.jsp"%>
-	<!-- Footer Section End -->
+	<!-- 푸터 부분 포함 -->
 
 	<!-- Js Plugins -->
 	<script src="<c:url value='/resources/js/jquery-3.3.1.min.js' />"></script>
@@ -244,11 +233,16 @@
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/cart.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
-	<script src="<c:url value='/resources/js/search.js' />"></script>
-	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
+	<script src="<c:url value='/resources/js/search.js' />"></script>
+	<script src="<c:url value='/resources/js/wishlist.js' />"></script>
+	<!-- 외부 JavaScript 파일 링크 -->
 
 </body>
+<!-- 웹페이지 본문 끝 -->
 </html>
+<!-- HTML 문서의 끝 -->
+
