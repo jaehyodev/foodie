@@ -3803,7 +3803,7 @@ transparent
 
 
 /* AI 챗봇 열기 & 화면 상단으로 올리는 버튼 */
-#btn_ai {
+#btn--chatbot {
   position: fixed;
   bottom: 80px;
   right: 20px;
@@ -3812,14 +3812,14 @@ transparent
   transition: opacity 1s ease-in-out;
   z-index: 1000;
 }
-#btn_ai:hover img {
+#btn--chatbot:hover img {
     opacity: 0; /* 호버 시 이미지 투명도 변경 */
 }
-#btn_ai:hover::after {
+#btn--chatbot:hover::after {
     content: "";
     display: block; /* 추가된 이미지가 보이도록 설정 */
     position: absolute; /* 부모 요소에 상대적으로 위치 설정 */
-    background-image: url("../img/btn_ai-hover.png"); /* 호버 시 보여질 이미지 경로 */
+    background-image: url("../img/btn-chatbot-hover.png"); /* 호버 시 보여질 이미지 경로 */
     background-size: cover;
     top: 0;
     left: 0;
@@ -3828,7 +3828,7 @@ transparent
     opacity: 1;
     transition: opacity 1s ease-in-out;
 }
-#btn_top {
+#btn--top {
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -3837,14 +3837,14 @@ transparent
   transition: opacity 1s ease-in-out;
   z-index: 1000;
 }
-#btn_top:hover img {
+#btn--top:hover img {
     opacity: 0; /* 호버 시 이미지 투명도 변경 */
 }
-#btn_top:hover::after {
+#btn--top:hover::after {dm
     content: "";
     display: block; /* 추가된 이미지가 보이도록 설정 */
     position: absolute; /* 부모 요소에 상대적으로 위치 설정 */
-    background-image: url("../img/btn_top-hover.png"); /* 호버 시 보여질 이미지 경로 */
+    background-image: url("../img/btn-top-hover.png"); /* 호버 시 보여질 이미지 경로 */
     background-size: cover;
     top: 0;
     left: 0;
