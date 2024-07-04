@@ -71,7 +71,7 @@
 
 	<!-- Wide Banner Section Begin -->
 	<section class="breadcrumb-section set-bg"
-		data-setbg="resources/img/breadcrumb.jpg">
+		data-setbg="<c:url value='/resources/img/breadcrumb.jpg'/>">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 text-center">
@@ -119,7 +119,7 @@
 						<br>
 						<br>
 						<div class="login__register float-center">
-							아직 회원이 아니신가요? <a href="join" id="joinA">회원가입</a>
+							아직 회원이 아니신가요? <a href="join" id="login__join">회원가입</a>
 						</div>
 						<div class="login__block">
 						</div>

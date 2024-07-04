@@ -121,16 +121,16 @@
 					<div class="row">
 						<!-- 레시피 리스트 출력 -->
 						<c:forEach items="${recipeList }" var="list" varStatus="loop">
-							<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="col-lg-3 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
 										data-setbg="<c:url value='../resources/img${list.recipe_title_img }'/>"
-										onclick="window.location.href = '<c:url value='/recipedetails/${list.recipe_idx}'/>'"
+										onclick="window.location.href = '<c:url value='/recipe-detail/${list.recipe_idx}'/>'"
 										style="cursor: pointer;"></div>
 									<ul class="product__item__pic__hover">
 										<li><c:choose>
 												<c:when
-													test="${not empty member and wishlist.get(loop.index) == 1}">
+													test="${not empty member and recipeWishlist.get(loop.index) == 1}">
 													<a
 														href="<c:url value='javascript:recipeWishlist(${list.recipe_idx})'/>"
 														style="color: #D03737;"><i class="fa fa-heart"></i></a>
@@ -144,7 +144,7 @@
 									</ul>
 									<div class="product__item__text">
 										<h6>
-											<a href="<c:url value='/recipedetails/${list.recipe_idx}'/>">${list.recipe_name }</a>
+											<a href="<c:url value='/recipe-detail/${list.recipe_idx}'/>">${list.recipe_name }</a>
 										</h6>
 									</div>
 								</div>
@@ -171,33 +171,33 @@
 					<div class="row">
 						<!-- 재료 리스트 출력 -->
 						<c:forEach items="${ingreList }" var="list" varStatus="loop">
-							<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="col-lg-3 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
 										data-setbg="<c:url value='/resources/img${list.ingre_img}'/>"
-										onclick="window.location.href = '<c:url value='/shopdetail/${list.ingre_idx }'/>'"
+										onclick="window.location.href = '<c:url value='/ingre-detail/${list.ingre_idx }'/>'"
 										style="cursor: pointer;"></div>
 									<ul class="product__item__pic__hover">
-										<c:choose>
+										<li><c:choose>
 											<c:when
-												test="${not empty member and wishlist.get(loop.index) == 1}">
-												<li><a
+												test="${not empty member and ingreWishlist.get(loop.index) == 1}">
+												<a
 													href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"
-													style="color: #D03737;"><i class="fa fa-heart"></i></a></li>
+													style="color: #D03737;"><i class="fa fa-heart"></i></a>
 											</c:when>
 											<c:otherwise>
-												<li><a
+												<a
 													href="<c:url value='javascript:ingreWishlist(${list.ingre_idx})'/>"><i
-														class="fa fa-heart"></i></a></li>
+														class="fa fa-heart"></i></a>
 											</c:otherwise>
-										</c:choose>
+										</c:choose></li>
 										<li><a
 											href="<c:url value='javascript:ingreCart(${list.ingre_idx})'/>"><i
 												class="fa fa-shopping-cart"></i></a></li>
 									</ul>
 									<div class="product__item__text">
 										<h6>
-											<a href="<c:url value='/shopdetail/${list.ingre_idx }'/>">${list.ingre_name }</a>
+											<a href="<c:url value='/ingre-detail/${list.ingre_idx }'/>">${list.ingre_name }</a>
 										</h6>
 										<h5>
 											<fmt:formatNumber value="${list.ingre_price }"

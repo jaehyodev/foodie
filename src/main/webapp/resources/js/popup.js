@@ -71,6 +71,8 @@ function showPopup(message) {
        				popupContainer.remove();
        } else if (message=="새로운 비밀번호와 확인이 일치하지 않습니다.") {
        				popupContainer.remove();
+       }else if (message=="새로운 비밀번호는 영어와 숫자 조합으로 5~20자리여야 합니다.") {
+              popupContainer.remove();
        }
        else{
              popupContainer.remove(); // 예시로 현재 창을 닫는 동작만 수행

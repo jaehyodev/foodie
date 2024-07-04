@@ -263,10 +263,19 @@ $("#joinBtn").click(function (event) {
 $("#updatePwBtn").click(function (event) {
   event.preventDefault(); // 폼 제출 실행 방지 (action이 실행되는 것을 방지함.)
 
+  // 정규 표현식으로 비밀번호 조건 만들기, 영어와 숫자를 조합하여 5자리 이상 20자리 이하
+  const pwRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{5,20}$/;
+
   // 입력값 유효성 검사
   const curPw = $("#curPw").val();
   const newPw = $("#newPw").val();
   const pwCheck = $("#pwCheck").val();
+
+  // 조건 여부 확인
+  if (!pwRegex.test(newPw)) {
+     showPopup("새로운 비밀번호는 영어와 숫자 조합으로 5~20자리여야 합니다.");
+    return;
+  }
 
   if (curPw === "") {
     showPopup("현재 비밀번호를 입력하세요.");

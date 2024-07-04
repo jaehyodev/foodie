@@ -194,7 +194,8 @@
 									</c:forEach>
 								</div>
 								<hr>
-								<section class="related-product">
+								<%-- 구매창을 재료 부분에 따로 합칠 예정 --%>
+								<%-- <section class="related-product">
 									<div class="container">
 										<div class="row">
 											<div class="col-lg-12">
@@ -275,7 +276,7 @@
 											상품 장바구니 담기</button>
 										<br></br>
 									</div>
-								</section>
+								</section> --%>
 							</div>
 						</div>
 					</div>
