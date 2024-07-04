@@ -120,7 +120,7 @@
 					</div>
 					<div class="row">
 						<c:forEach items="${recipeList }" var="list" varStatus="loop">
-							<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="col-lg-3 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
 										data-setbg="<c:url value='../resources/img${list.recipe_title_img }'/>"
@@ -170,7 +170,7 @@
 					</div>
 					<div class="row">
 						<c:forEach items="${ingreList }" var="list" varStatus="loop">
-							<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="col-lg-3 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
 										data-setbg="<c:url value='/resources/img${list.ingre_img}'/>"
