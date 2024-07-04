@@ -23,7 +23,7 @@ public class MemberRestController {
 	MemberMapper mapper;
 
 	// ajax를 이용한 로그인 중복 확인
-	@RequestMapping(value = "idCheck", method = RequestMethod.POST)
+	@RequestMapping(value = "id-check", method = RequestMethod.POST)
 	public boolean idCheck(String mem_id) {
 
 		System.out.println(mapper.idCheck(mem_id));
@@ -32,7 +32,7 @@ public class MemberRestController {
 	}
 
 	// ajax를 이용한 이메일 중복 확인
-	@RequestMapping(value = "emailCheck", method = RequestMethod.POST)
+	@RequestMapping(value = "email-check", method = RequestMethod.POST)
 	public boolean emailCheck(String mem_email) {
 
 		System.out.println(mapper.emailCheck(mem_email));
@@ -41,7 +41,7 @@ public class MemberRestController {
 	}
 
 	// ajax를 이용한 전화번호 중복 확인
-	@RequestMapping(value = "phoneCheck", method = RequestMethod.POST)
+	@RequestMapping(value = "phone-check", method = RequestMethod.POST)
 	public boolean phoneCheck(String mem_phone) {
 
 		System.out.println(mapper.phoneCheck(mem_phone));
@@ -117,7 +117,7 @@ public class MemberRestController {
 	}
 
 	// 비밀번호 변경
-	@RequestMapping(value = "/updatePw.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/update-pw.do", method = RequestMethod.POST)
 	public String updatePw(HttpSession session, @RequestParam("curPw") String curPw, @RequestParam("newPw") String newPw,
 			@RequestParam("pwCheck") String pwCheck) {
 
@@ -188,7 +188,7 @@ public class MemberRestController {
 	}
 
 	// 로그인 확인 메소드
-	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
+	@RequestMapping(value = "/login-check", method = RequestMethod.POST)
 	public String loginCheck(@RequestParam("id") String id, @RequestParam("pw") String pw, HttpSession session) {
 
 		// 1. 전달받은 id 와 pw 를 DTO 에 set

@@ -68,7 +68,7 @@ public class WishlistController {
 	}
 
 	// 레시피 찜 목록 선택된 항목들 삭제
-	@RequestMapping(value = "/wishlist/recipe/deleteSelected.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/wishlist/recipe/delete-selected.do", method = RequestMethod.POST)
 	public @ResponseBody String deleteSelectedRecipes(HttpSession session, @RequestBody List<Integer> recipeIdxArray) {
 
 		// 세션에서 로그인 중인 멤버 가져오기
@@ -118,7 +118,7 @@ public class WishlistController {
 	}
 
 	// 재료 찜 목록 선택된 항목들 삭제
-	@RequestMapping(value = "/wishlist/ingre/deleteSelected.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/wishlist/ingre/delete-selected.do", method = RequestMethod.POST)
 	public @ResponseBody String deleteSelectedIngres(HttpSession session, @RequestBody List<Integer> ingreIdxArray) {
 
 		// 세션에서 로그인 중인 멤버 가져오기

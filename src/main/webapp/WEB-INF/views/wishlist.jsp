@@ -49,34 +49,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
-					<div class="hero__categories">
-						<div class="hero__categories__all">
-							<i class="fa fa-bars"></i> <span>카테고리</span>
-						</div>
-						<ul id="categories-list">
-							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
-							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
-							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
-							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
-							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
-							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
-							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
-						</ul>
-						<ul id="additional-categories">
-							<li><a href="<c:url value='/shopgrid/채소/1'/>">채소</a></li>
-							<li><a href="<c:url value='/shopgrid/과일/1'/>">과일</a></li>
-							<li><a href="<c:url value='/shopgrid/수산/1'/>">수산</a></li>
-							<li><a href="<c:url value='/shopgrid/정육ㆍ계란류/1'/>">정육ㆍ계란류</a></li>
-							<li><a href="<c:url value='/shopgrid/쌀ㆍ잡곡/1'/>">쌀ㆍ잡곡</a></li>
-							<li><a href="<c:url value='/shopgrid/면ㆍ오일/1'/>">면ㆍ오일</a></li>
-							<li><a href="<c:url value='/shopgrid/우유ㆍ유제품/1'/>">우유ㆍ유제품</a></li>
-							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
-							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
-							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
-							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
-						</ul>
-					</div>
+				
+					<!-- Categories Section Begin -->
+					<%@ include file="./categories.jsp"%>
+					<!-- Categories Section End -->
+					
 				</div>
 				<div class="col-lg-9">
 
@@ -122,7 +99,7 @@
 							<li class="active"><a href="wishlist">찜 목록</a></li>
 							<li><a href="allergy">알레르기 / 비선호 식재료</a></li>
 							<li><a href="update">개인 정보 수정</a></li>
-							<li><a href="updatepw">비밀번호 변경</a></li>
+							<li><a href="update-pw">비밀번호 변경</a></li>
 							<li><a href="delete">회원탈퇴</a></li>
 						</ul>
 					</div>
@@ -151,13 +128,13 @@
 										<td>
 											<div class="wishlist__img">
 												<a
-													href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>"><img
+													href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>"><img
 													src="<c:url value='/resources/img${recipe.recipe_title_img}'/>"
 													alt="${recipe.recipe_name}"> </a>
 											</div>
 										</td>
 										<td><a
-											href="<c:url value='/recipedetails/${recipe.recipe_idx}'/>"
+											href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>"
 											class="wishlist__name"> ${recipe.recipe_name} </a> <br />
 											<div class="wishlist__content">${recipe.recipe_content}</div>
 										</td>
@@ -190,13 +167,13 @@
 										<td>
 											<div class="wishlist__img">
 												<a
-													href="<c:url value='/shopdetail/${ingredient.ingre_idx}'/>"><img
+													href="<c:url value='/ingre-detail/${ingredient.ingre_idx}'/>"><img
 													src="<c:url value='/resources/img${ingredient.ingre_img}'/>"
 													alt="${ingredient.ingre_name}"> </a>
 											</div>
 										</td>
 										<td><a
-											href="<c:url value='/shopdetail/${ingredient.ingre_idx}'/>"
+											href="<c:url value='/ingre-detail/${ingredient.ingre_idx}'/>"
 											class="wishlist__name">${ingredient.ingre_name}</a> <br />
 											<div class="wishlist__content">${ingredient.ingre_content}</div>
 										</td>

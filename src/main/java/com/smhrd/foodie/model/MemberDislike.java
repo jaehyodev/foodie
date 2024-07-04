@@ -13,4 +13,5 @@ public class MemberDislike {
 	
 	private String mem_id;
 	private int dislike_idx;
+	
 }

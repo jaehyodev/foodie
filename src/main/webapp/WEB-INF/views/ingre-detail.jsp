@@ -40,28 +40,6 @@
 <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
 	type="text/css">
 
-<!-- Css Styles -->
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/bootstrap.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/font-awesome.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/elegant-icons.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/nice-select.css'/>" type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/jquery-ui.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/owl.carousel.min.css'/>"
-	type="text/css">
-<link rel="stylesheet"
-	href="<c:url value='/resources/css/slicknav.min.css'/>" type="text/css">
-<link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"
-	type="text/css">
 </head>
 
 <body>
@@ -75,40 +53,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-3">
-					<div class="hero__categories">
-						<div class="hero__categories__all">
-							<i class="fa fa-bars"></i> <span>카테고리</span>
-						</div>
-						<ul id="additional-categories">
-							<li><a href="<c:url value='/recipe/주부'/>">주부 레시피</a></li>
-							<li><a href="<c:url value='/recipe/키즈'/>">키즈 레시피</a></li>
-							<li><a href="<c:url value='/recipe/자취생'/>">자취생 레시피</a></li>
-							<li><a href="<c:url value='/recipe/다이어트'/>">다이어트 레시피</a></li>
-							<li><a href="<c:url value='/recipe/캠핑'/>">캠핑 레시피</a></li>
-							<li><a href="<c:url value='/recipe/파티'/>">파티 레시피</a></li>
-							<li><a href="<c:url value='/recipe/야식'/>">야식 레시피</a></li>
-							<li><a href="#" id="ingredient-link">재료 사러가기</a></li>
-						</ul>
-						<ul id="categories-list">
-							<li><a href="<c:url value='/shopgrid/채소/1'/>">채소</a></li>
-							<li><a href="<c:url value='/shopgrid/과일/1'/>">과일</a></li>
-							<li><a href="<c:url value='/shopgrid/수산/1'/>">수산</a></li>
-							<li><a href="<c:url value='/shopgrid/정육ㆍ계란류/1'/>">정육ㆍ계란류</a></li>
-							<li><a href="<c:url value='/shopgrid/쌀ㆍ잡곡/1'/>">쌀ㆍ잡곡</a></li>
-							<li><a href="<c:url value='/shopgrid/면ㆍ오일/1'/>">면ㆍ오일</a></li>
-							<li><a href="<c:url value='/shopgrid/우유ㆍ유제품/1'/>">우유ㆍ유제품</a></li>
-							<li><a href="<c:url value='/shopgrid/소스ㆍ조미료/1'/>">소스ㆍ조미료</a></li>
-							<li><a href="<c:url value='/shopgrid/음료/1'/>">음료</a></li>
-							<li><a href="<c:url value='/shopgrid/기타/1'/>">기타</a></li>
-							<li><a href="#" id="view-recipes">레시피 보러가기</a></li>
-						</ul>
-					</div>
+				
+					<!-- Categories Section Begin -->
+					<%@ include file="./categories.jsp"%>
+					<!-- Categories Section End -->
+					
 				</div>
 				<div class="col-lg-9">
 
-					<!-- Search Section Begin -->
-					<%@ include file="./search-form.jsp"%>
-					<!-- Search Section End -->
+				<!-- Search Section Begin -->
+				<%@ include file="./search-form.jsp"%>
+				<!-- Search Section End -->
 
 				</div>
 			</div>
@@ -123,6 +78,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
+						<!-- 해당 재료의 카테고리 이름 -->
 						<h2>${ingredient.ingre_cat }</h2>
 					</div>
 				</div>
@@ -148,7 +104,7 @@
 				<div class="col-lg-6 col-md-6">
 					<div class="product__details__text">
 						<h3>${ingredient.ingre_name }</h3>
-						<!-- 가격 -->
+						<!-- 재료 가격 -->
 						<div class="product__details__price">
 							<fmt:formatNumber value="${ingredient.ingre_price }"
 								pattern="#,###" />
@@ -158,7 +114,7 @@
 							<h5 style="line-height: 2.0;">${list }</h5>
 						</c:forEach>
 						<br></br>
-						<!-- 수량 -->
+						<!-- 재료 수량 -->
 						<div class="product__details__quantity">
 							<div class="quantity">
 								<div class="pro-qty">
@@ -166,9 +122,10 @@
 								</div>
 							</div>
 						</div>
-						<a
-							href="<c:url value='javascript:ingreDetailCart(${ingredient.ingre_idx})'/>"
-							class="site-btn">장바구니 담기</a>
+						<!-- 장바구니 버튼 -->
+						<a href="<c:url value='javascript:ingreDetailCart(${ingredient.ingre_idx})'/>"
+					  	   class="site-btn">장바구니 담기</a>
+					  	<!-- 찜 버튼 -->
 						<c:choose>
 							<c:when test="${wish == 1}">
 								<a
@@ -182,6 +139,7 @@
 									class="heart-icon"><span class="fa fa-heart"></span></a>
 							</c:otherwise>
 						</c:choose>
+						<!-- 재료의 용량과 생산연도 -->
 						<ul>
 							<li><b>중량/용량</b> <span>${ingredient.ingre_weight }</span></li>
 							<li><b>생산연도</b> <span>2024</span></li>
@@ -194,7 +152,7 @@
 	<!-- Product Details Section End -->
 
 	<!-- Related Product Section Begin -->
-	<!-- 관련상품 -->
+	<!-- 관련 재료 상품 -->
 	<section class="related-product">
 		<div class="container">
 			<div class="row">
@@ -210,11 +168,11 @@
 						<div class="product__item">
 							<div class="product__item__pic set-bg"
 								data-setbg="<c:url value='../resources/img${list.ingre_img }'/>"
-								onclick="window.location.href = '<c:url value='/shopdetail/${list.ingre_idx }'/>'"
+								onclick="window.location.href = '<c:url value='/ingre-detail/${list.ingre_idx }'/>'"
 								style="cursor: pointer;"></div>
 							<div class="product__item__text">
 								<h6>
-									<a href="<c:url value='/shopdetail/${list.ingre_idx }'/>">${list.ingre_name }</a>
+									<a href="<c:url value='/ingre-detail/${list.ingre_idx }'/>">${list.ingre_name }</a>
 								</h6>
 								<h5>
 									<fmt:formatNumber value="${list.ingre_price }" pattern="#,###" />
@@ -247,11 +205,12 @@
 	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
+	<script src="<c:url value='/resources/js/cart.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
 	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
 	<script src="<c:url value='/resources/js/popup.js' />"></script>
 	<script src="<c:url value='/resources/js/search.js' />"></script>
-	<script src="<c:url value='/resources/js/wish-cart.js' />"></script>
+	<script src="<c:url value='/resources/js/wishlist.js' />"></script>
 
 </body>
 </html>

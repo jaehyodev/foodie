@@ -8,7 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Paging {
-	private String ingre_cat;
-	private int start;
-	private int end;
+
+	private String ingre_cat; // 재료 카테고리
+	private int start; // 재료 start 번호
+	private int end; // 재료 end 번호
+
 }

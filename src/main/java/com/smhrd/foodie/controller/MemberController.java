@@ -129,7 +129,7 @@ public class MemberController {
 	}
 
 	// 알러지, 비선호 식재료 수정 기능
-	@RequestMapping(value = "/updateAllergy", method = RequestMethod.POST)
+	@RequestMapping(value = "/update-allergy", method = RequestMethod.POST)
 	public String updateAllergy(HttpSession session, Model model,
 			@RequestParam(name = "allergy_list", required = false) List<String> allergy_list,
 			@RequestParam(name = "dislike_list", required = false) List<String> dislike_list,
