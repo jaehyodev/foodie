@@ -113,7 +113,7 @@
 					<div class="row">
 						<!-- 재료 목록 -->
 						<c:forEach items="${ingrelist }" var="list" varStatus="loop">
-							<div class="col-lg-4 col-md-6 col-sm-6">
+							<div class="col-lg-3 col-md-6 col-sm-6">
 								<div class="product__item">
 									<div class="product__item__pic set-bg"
 										data-setbg="<c:url value='../../resources/img${list.ingre_img}'/>"

@@ -148,7 +148,7 @@
 								onclick="window.location.href = '<c:url value='/recipe-detail/${recipe.recipe_idx}'/>'"
 								style="cursor: pointer;"></div>
 							<h5>
-								<a href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
+								<a href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>" class="recipe__title">${recipe.recipe_name}</a>
 							</h5>
 						</div>
 					</c:forEach>
@@ -175,7 +175,7 @@
 								onclick="window.location.href = '<c:url value='/recipe-detail/${recipe.recipe_idx}'/>'"
 								style="cursor: pointer;"></div>
 							<h5>
-								<a href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
+								<a href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>" class="recipe__title">${recipe.recipe_name}</a>
 							</h5>
 						</div>
 					</c:forEach>
@@ -214,7 +214,7 @@
 								</ul>
 								<h5>
 									<!-- 레시피 이름을 동적으로 설정 -->
-									<a href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>">${recipe.recipe_name}</a>
+									<a href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>" class="recipe__title">${recipe.recipe_name}</a>
 								</h5>
 								<p>${recipe.recipe_content}</p>
 							</div>

@@ -47,20 +47,31 @@ public class SearchController {
 		Member member = (Member) session.getAttribute("member");
 		model.addAttribute("member", member);
 
-		List<Integer> row = new ArrayList<Integer>();
+		List<Integer> recipeRow = new ArrayList<Integer>();
+		List<Integer> ingreRow = new ArrayList<Integer>();
 
 		// 회원이 로그인한 상태일 경우
 		if (member != null) {
-			// 찜되어 있는지 안되어 있는지 확인
+			// 레시피 찜되어 있는지 안되어 있는지 확인
 			for (int i = 0; i < recipeList.size(); i++) {
 				WishlistCart wish = new WishlistCart();
 				wish.setRecipe_ingre_idx(recipeList.get(i).getRecipe_idx());
 				wish.setMem_id(member.getMem_id());
-				row.add(recipeMapper.checkRecipeWish(wish)); // 찜 여부 확인 결과 리스트에 추가
+				recipeRow.add(recipeMapper.checkRecipeWish(wish)); // 찜 여부 확인 결과 리스트에 추가
 			}
+			
+		// 재료 찜되어 있는지 안되어 있는지 확인
+					for (int i = 0; i < ingreList.size(); i++) {
+						WishlistCart wish = new WishlistCart();
+						wish.setRecipe_ingre_idx(ingreList.get(i).getIngre_idx());
+						wish.setMem_id(member.getMem_id());
+						ingreRow.add(recipeMapper.checkIngreWish(wish)); // 찜 여부 확인 결과 리스트에 추가
+					}
 		}
 
-		model.addAttribute("wishlist", row); // 찜 여부 리스트 추가
+		model.addAttribute("recipeWishlist", recipeRow); // 레시피 찜 여부 리스트 추가
+		model.addAttribute("ingreWishlist", ingreRow); // 재료 찜 여부 리스트 추가
+
 
 		return "search"; // 검색 결과 화면으로 이동
 	}
@@ -79,11 +90,11 @@ public class SearchController {
 			if (row > 0) {
 				// 찜 목록에서 삭제
 				recipeMapper.delRecipeWish(wish);
-				return "inWish";
+				return "delWish";
 			} else {
 				// 찜 목록에 추가
 				recipeMapper.inRecipeWish(wish);
-				return "success";
+				return "inWish";
 			}
 		}
 	}
@@ -103,11 +114,11 @@ public class SearchController {
 			if (row > 0) {
 				// 찜 목록에서 삭제
 				recipeMapper.delIngreWish(wish);
-				return "inWish";
+				return "delWish";
 			} else {
 				// 찜 목록에 추가
 				recipeMapper.inIngreWish(wish);
-				return "success";
+				return "inWish";
 			}
 		}
 	}
