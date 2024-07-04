@@ -137,11 +137,11 @@
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table align=center>
   <tr>
-    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/b11e6341-720a-4c9a-8690-640ed0114697" width="120" height="120"/></td>
-    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/be1a11ea-671c-4e38-b6fb-974e1decb29c" width="120" height="120"/></td>
-    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/d6ea2074-41cd-4ec2-acd6-bc1a69a36aa5" width="100" height="100"/></td>
-    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/28696dfc-9f72-4ba4-a9a1-d482bbe2e73f" width="100" height="100"/></td>
-    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/cd14be9c-d0d8-420e-9236-b2b18835c53d" width="140" height="140"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/744aa3e6-a0ff-4f98-8645-3c5cad75441d" width="120" height="120"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/cf398fb1-503f-41a8-83f7-2d270be93dd1" width="120" height="120"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/b8c519e0-76d4-48e1-b30d-b35601295ea1" width="120" height="120"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/f171bb3e-532a-4594-abd9-e562cf8fdeb5" width="120" height="120"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/fff4daff-d29c-481f-9ed7-bc665808236c" width="120" height="120"/></td>
   </tr>
   <tr>
     <td align="center"><strong>김재효</strong></td>
@@ -203,3 +203,4 @@
 1. i 태그가 아닌 svg 파일은 color 속성이 적용되지 않음<br>
 2. <b>fill 속성을 사용</b>해서 색상을 변경시킴
 </div></details>
+
