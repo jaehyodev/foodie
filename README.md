@@ -1,25 +1,56 @@
-# 📎 Foodie
-![logo](https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/d36c7826-e012-450d-ba08-d7a585b50cb7)
-
-
+<div align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/d36c7826-e012-450d-ba08-d7a585b50cb7"/></div>
 
 ## 👀 서비스 소개
-* 서비스명: 라이프 스타일별 식재료 원클릭 구매 사이트
-* 서비스설명: 상기 서비스는 라이프 스타일 별로 레시피 카테고리를 나누어 사용자 맞춤 레시피를 제공한다.
-  마이페이지에서 사용자의 식품 알레르기와 비선호 정보를 저장해두어 사용자 맞춤으로 음식 재료를 구매할 수 있는 서비스를 제공한다.
-  레시피 페이지에서 관련 상품을 원클릭으로 구매할 수 있도록 하여 사용자가 상품을 구매하는데 편리함을 높인다.
+### 라이프 스타일별 식재료 원클릭 구매 사이트
+상기 서비스는 라이프 스타일 별로 레시피 카테고리를 나누어 사용자 맞춤 레시피를 제공<br>
+마이페이지에서 사용자의 식품 알레르기와 비선호 정보를 저장해두어<br>
+사용자 맞춤으로 음식 재료를 구매할 수 있는 서비스를 제공<br>
+레시피 페이지에서 관련 상품을 원클릭으로 구매할 수 있도록 하여 편리함을 높임
 <br>
 
 ## 📅 프로젝트 기간
 2024.05.27 ~ 2024.07.01 (6주)
-<br>
+<br><br>
 
 ## ⭐ 주요 기능
-* 기능1
-* 기능2
-* 기능3
-* 기능4
-* 기능5
+<details><summary>회원 알레르기·비선호 정보 저장</summary><div align="center">
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/142fffc5-0f03-45c1-9f23-a3e8cb8a5654"/>
+</div></details>
+
+<details><summary>알레르기·비선호 필터링</summary><div align="center">
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/1cd9cbdc-39e6-4ea8-91b7-a0de49faa9ec"/>
+</div></details>
+
+<details><summary>인기 레시피, 추천 레시피, NEW 레시피</summary><div align="center">
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/4a898a89-4a7b-441b-8ef6-8619bfba5d4d"/>
+</div></details>
+
+<details><summary>챗봇</summary><div align="center">
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/646206df-9d8a-44e4-b5da-71d67c916cab"/></div></details>
+
+<details><summary>장바구니 목록</summary><div align="center">
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/4dadfbf8-9b90-4b25-addb-e68f16dcedf2"/></div></details>
+
+<details><summary>주문·결제</summary><div align="center">
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/6fd10452-9a86-4dc1-9511-d3330fd0f7f1"/><br>
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/34758cc6-89d2-4b89-8a3a-7cae806047bb"/><br>
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/eb5ba2a0-9000-447b-8c1a-a7fc8676b5ee"/>
+</div></details>
+
+<details><summary>주문 상세 및 결제 취소</summary><div align="center">
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/9462eb5b-dff6-48d2-85e2-82aa28586e33"/></div></details>
+
+<details><summary>반응형 웹</summary><div align="center">
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/81f751ec-a44b-4973-bbd5-ea42a089eafa"/>
+</div></details>
+
+<details><summary>페이징</summary><div align="center">
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/0ff4b416-4f91-4857-8d87-a45226916791"/>
+</div></details>
+
+<details><summary>애니메이션</summary><div align="center">
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/e5db303e-6dd3-4f7f-9cba-2e477263de83"/>
+</div></details>
 <br>
 
 ## ⛏ 기술스택
@@ -31,10 +62,10 @@
     <tr>
         <td>사용언어</td>
         <td>
-            <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/>
-            <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"/>
-            <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white"/>
+            <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+            <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
             <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
         </td>
     </tr>
     <tr>
@@ -47,7 +78,7 @@
     <tr>
         <td>개발도구</td>
         <td>
-            <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"/>
             <img src="https://img.shields.io/badge/RaskpberryPi-A22846?style=for-the-badge&logo=RaskpberryPi&logoColor=white"/>
             <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white"/>
             <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
@@ -62,14 +93,12 @@
     <tr>
         <td>데이터베이스</td>
         <td>
-            <img src="https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=Firebase&logoColor=white"/>
-            <img src="https://img.shields.io/badge/Oracle 11g-F80000?style=for-the-badge&logo=Oracle&logoColor=white"/>
+            <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
         </td>
     </tr>
     <tr>
         <td>협업도구</td>
         <td>
-            <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/>
             <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
         </td>
     </tr>
@@ -83,39 +112,36 @@
 <br>
 
 ## 📌 SW유스케이스
-![image](https://user-images.githubusercontent.com/25995055/178401023-9a015e66-aa6e-4d74-8564-9b1f9d306649.png)
+![image](https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/e6fa8edb-ad70-4b66-9896-83bee7def2a3)
 <br>
 
 ## 📌 서비스 흐름도
-![image](https://user-images.githubusercontent.com/25995055/178401048-d6484bda-a2d7-40e1-998b-2bd195cd9f89.png)
+![image](https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/8a48cf01-31ba-4c32-b436-f3132023ad29)
 <br>
 
 ## 📌 ER다이어그램
-![image](https://user-images.githubusercontent.com/25995055/169925318-102784c2-893f-4fd7-bec9-a54c44b669d4.png)
+![image](https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/8ea7a765-05cd-4a57-b1c7-da3f275e096a)
 <br>
 
 ## 🖥 화면 구성
 
-### 로그인/회원가입/회원괸리/회원수정/회원탈퇴
-![image](https://user-images.githubusercontent.com/25995055/178401098-95f15a0e-a2de-415e-83d5-883bb4cb0656.png)
+### 로그인/회원가입/마이페이지
 <br>
 
-### 옷 정보/코디 추천(날씨, 팁, 오늘의 코디, 참고할 수 있는 코디)
-![image](https://user-images.githubusercontent.com/25995055/178401127-287e6de2-4396-49fc-a107-59c4d5cd55c7.png)
+### 메인 화면
 <br>
 
-### 일정/고객센터
-![image](https://user-images.githubusercontent.com/25995055/178401150-861f0e93-0f40-4fae-98c1-2099bf513c8d.png)
+### 레시피 화면
 <br>
 
 ## 👨‍👩‍👦‍👦 팀원 역할
-<table>
+<table align=center>
   <tr>
-    <td align="center"><img src="https://item.kakaocdn.net/do/fd49574de6581aa2a91d82ff6adb6c0115b3f4e3c2033bfd702a321ec6eda72c" width="100" height="100"/></td>
-    <td align="center"><img src="https://mb.ntdtv.kr/assets/uploads/2019/01/Screen-Shot-2019-01-08-at-4.31.55-PM-e1546932545978.png" width="100" height="100"/></td>
-    <td align="center"><img src="https://mblogthumb-phinf.pstatic.net/20160127_177/krazymouse_1453865104404DjQIi_PNG/%C4%AB%C4%AB%BF%C0%C7%C1%B7%BB%C1%EE_%B6%F3%C0%CC%BE%F0.png?type=w2" width="100" height="100"/></td>
-    <td align="center"><img src="https://i.pinimg.com/236x/ed/bb/53/edbb53d4f6dd710431c1140551404af9.jpg" width="100" height="100"/></td>
-    <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/b11e6341-720a-4c9a-8690-640ed0114697" width="120" height="120"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/be1a11ea-671c-4e38-b6fb-974e1decb29c" width="120" height="120"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/d6ea2074-41cd-4ec2-acd6-bc1a69a36aa5" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/28696dfc-9f72-4ba4-a9a1-d482bbe2e73f" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/cd14be9c-d0d8-420e-9236-b2b18835c53d" width="140" height="140"/></td>
   </tr>
   <tr>
     <td align="center"><strong>김재효</strong></td>
@@ -125,27 +151,55 @@
     <td align="center"><strong>홍지연</strong></td>
   </tr>
   <tr>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Backend</b></td>
-    <td align="center"><b>Frontend</b></td>
+    <td align="center"><b>Back-End</b></td>
+    <td align="center"><b>Back-End</b></td>
+    <td align="center"><b>Back-End</b></td>
+    <td align="center"><b>Back-End</b></td>
+    <td align="center"><b>Front-End</b></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
+    <td align="center">Crawling<br>ChatBot<br>DataBase</td>
+    <td align="center">레시피 화면<br>재료 상품 화면<br>필터링 기능</td>
+    <td align="center">회원가입·로그인<br>주소 API 연동<br>마이페이지</td>
+    <td align="center">장바구니<br>주문·결제 페이지<br>결제 API 연동</td>
+    <td align="center">메인 화면<br>통합 검색 기능<br>UI·UX</td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/JaehyoDev" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/hyoj1201" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/pppppjjjjj1" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/LeeSeungJi27" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
   </tr>
 </table>
 
 ## 🤾‍♂️ 트러블슈팅
-개념: 문제 해결을 위해 문제의 원인을 논리적이고 체계적으로 찾는 일이며 제품이나 프로세스의 운영을 재개
-프로젝트 진행하는 동안 발생했던 이슈 중 가장 기억에 남았던 문제와 해결 프로세스 나열(2~5가지 정도)
-  
-* 문제1<br>
- 문제점 설명 및 해결방안
- 
-* 문제2<br>
- 문제점 설명 및 해결방안
+<details><summary>장바구니에 있는 상품을 결제했을 때 <b>보이는 금액과 결제 금액 오류</b></summary>
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/bd431c8c-a3b9-4b11-aa2a-395b244596be"/><br>
+1. 자바 스크립트 숫자 포맷팅 시 콤마 뒤 숫자를 인식하지 못함<br>
+2. 해당 변수에 replace(/,/g,*)를 넣어 <b>원래 값을 넘겨</b> 해결
+</div></details>
+
+<details><summary>스타일 CSS를 분리하면서 <b>스타일 적용이 안되는 오류</b></summary>
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/2ffb0a18-dbed-43bf-ba98-1cc629a7f885"/><br>
+1. 상대 경로로 설정되어서 이전 페이지의 경로가 누적됨<br>
+2. <c:url> 태그를 사용하여 상대 경로를 <b>절대 경로로 변환</b>하여 해결
+</div></details>
+
+<details><summary>회원 탈퇴 시 <b>외래키 제약 조건으로 인해</b> 실패 오류</summary>
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/f8db2f44-23b4-4f7b-a274-0a3d304679af"/><br>
+1. 외래키 제약 조건으로 인해 외래키 테이블의 데이터 삭제 실패<br>
+2. 외래키 옵션을 <b>Cascade로 설정</b>하여 해결
+</div></details>
+
+<details><summary>여러 주문 내역 중 <b>1번째 주문 내역만</b> 주문 번호·상태·취소가 보임</summary>
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/3ba8c499-1142-42cb-819b-c975ef733e0e"/><br>
+1. 중첩 반복문의 현재 반복 상태가 초기화되지 않음<br>
+2. <b><c:set>에 초기화 변수</b>를 설정하여 해결
+</div></details>
+
+<details><summary>바로가기 아이콘 <b>호버 시 색상 변하지 않음</b></summary>
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/18215275-d3b4-432f-99e6-083e85c12348"/><br>
+1. i 태그가 아닌 svg 파일은 color 속성이 적용되지 않음<br>
+2. <b>fill 속성을 사용</b>해서 색상을 변경시킴
+</div></details>
