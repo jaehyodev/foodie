@@ -13,12 +13,12 @@ public interface WishlistMapper {
 	
 	// 레시피 찜 목록
 	@Select("SELECT ri.recipe_idx, recipe_title_img, recipe_name, recipe_content FROM recipe_info ri"
-			+ " INNER JOIN recipe_wishlist_info rwi ON ri.recipe_idx = rwi.recipe_idx WHERE rwi.mem_id = #{mem_id}")
+			+ " JOIN recipe_wishlist_info rwi ON ri.recipe_idx = rwi.recipe_idx WHERE rwi.mem_id = #{mem_id}")
   List<Recipe> recipeWishlist(String mem_id);
 	
 	// 재료 찜 목록
 	@Select("SELECT ii.ingre_idx, ingre_img, ingre_name, ingre_content FROM ingredient_info ii"
-			+ " INNER JOIN ingre_wishlist_info iwi ON ii.ingre_idx = iwi.ingre_idx WHERE iwi.mem_id = #{mem_id}")
+			+ " JOIN ingre_wishlist_info iwi ON ii.ingre_idx = iwi.ingre_idx WHERE iwi.mem_id = #{mem_id}")
 	List<Ingredient> ingreWishlist(String mem_id);
 
 	// 레시피 찜 목록 삭제

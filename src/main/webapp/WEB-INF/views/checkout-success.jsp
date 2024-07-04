@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +47,7 @@
 	<%@ include file="./header.jsp"%>
 	<!-- Header Section End -->
 
-	<!-- Category Section Begin -->
+	<!-- Hero Section Begin -->
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row">
@@ -58,16 +59,16 @@
 					
 				</div>
 				<div class="col-lg-9">
-
+				
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
-
+					
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Category Section End -->
+	<!-- Hero Section End -->
 
 	<!-- Wide Banner Section Begin -->
 	<section class="breadcrumb-section set-bg"
@@ -76,7 +77,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<div class="breadcrumb__text">
-						<h2>로그인</h2>
+						<h2>주문/결제</h2>
 					</div>
 				</div>
 			</div>
@@ -84,50 +85,53 @@
 	</section>
 	<!-- Wide Banner Section End -->
 
-	<section class="hero hero-normal">
-		<div class="container">
-			<div class="row"></div>
+	<!-- 결제정보 Section Begin -->
+	<section class="shoping-cart spad">
+		<div class="section-title">
+			<h2>주문이 정상적으로 완료되었습니다 !</h2>
 		</div>
-	</section>
-
-	<section class="login-section spad">
 		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-6 col-md-8">
-
-					<div class="login__form">
-						<form action="/foodie/login-check" method="post">
-							<div class="form-group">
-								<label for="login_id" class="login__label">아이디</label> <input
-									type="text" class="form-control login__input" id="login_id"
-									name="login_id" placeholder="아이디를 입력하세요">
-							</div>
-							<div class="form-group">
-								<label for="login_pw" class="login__label">비밀번호</label> <input
-									type="password" class="form-control  login__input"
-									id="login_pw" name="login_pw" placeholder="비밀번호를 입력하세요">
-								<br>
-
-							</div>
-							<div class="login__warn">
-								<label id="label10" style="margin-top: 0.5rem;"></label>
-							</div>
-							<br>
-							<button id="loginBtn" type="submit" class="site-btn float-center">로그인</button>
-						</form>
-						<br>
-						<br>
-						<br>
-						<div class="login__register float-center">
-							아직 회원이 아니신가요? <a href="join" id="login__join">회원가입</a>
-						</div>
-						<div class="login__block">
-						</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="shoping__cart__table">
+						<table>
+							<thead>
+								<tr>
+									<th>주문번호</th>
+									<th>${cart.order_idx}</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th>받는 사람</th>
+									<td>${cart.mem_name}( ${cart.mem_phone} )</td>
+								</tr>
+								<tr>
+									<th>받는 주소</th>
+									<td>${cart.order_addr}</td>
+								</tr>
+								<tr>
+									<th>주문 일시</th>
+									<td>${cart.ordered_at}</td>
+								</tr>
+								<tr>
+									<th>결제 금액</th>
+									<td><fmt:formatNumber value="${cart.total_amount}"
+											pattern="#,###" />원</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>
+			<div class="col-lg-12">
+				<span style="display: block; text-align: center;"> <a
+					href="<c:url value='/mypage' />" class="primary-btn">주문 상세보기</a>
+				</span>
+			</div>
 		</div>
 	</section>
+	<!-- 결제정보 Section End -->
 
 	<!-- Bottom Buttons (AI, Scroll up) Begin -->
 	<%@ include file="./bottom-buttons.jsp"%>
@@ -148,8 +152,6 @@
 	<script src="<c:url value='/resources/js/main.js' />"></script>
 	<script src="<c:url value='/resources/js/bottom-buttons.js' />"></script>
 	<script src="<c:url value='/resources/js/chatbot.js' />"></script>
-	<script src="<c:url value='/resources/js/popup.js' />"></script>
-	<script src="<c:url value='/resources/js/member.js' />"></script>
 	<script src="<c:url value='/resources/js/other-category-list.js' />"></script>
 	<script src="<c:url value='/resources/js/search.js' />"></script>
 

@@ -13,4 +13,5 @@ public class MemberAllergy {
 	
 	private String mem_id;
 	private int allergy_idx;
+	
 }
