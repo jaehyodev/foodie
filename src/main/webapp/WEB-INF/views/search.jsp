@@ -57,9 +57,9 @@
 
 	<!-- Header Section Begin -->
 	<%@ include file="./header.jsp"%>
-	<!-- Header Section End -->
+	<!-- 헤더 부분 포함 -->
 
-	<!-- Category Section Begin -->
+	<!-- 카테고리 부분 시작 -->
 	<section class="hero hero-normal">
 		<div class="container">
 			<div class="row">
@@ -71,18 +71,18 @@
 					
 				</div>
 				<div class="col-lg-9">
-
+				
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
-
+					
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Category Section End -->
+	<!-- 카테고리 부분 끝 -->
 
-	<!-- Wide Banner Section Begin -->
+	<!-- 와이드 배너 부분 시작 -->
 	<section class="breadcrumb-section set-bg"
 		data-setbg="<c:url value='/resources/img/breadcrumb.jpg'/>">
 		<div class="container">
@@ -95,7 +95,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- Wide Banner Section End -->
+	<!-- 와이드 배너 부분 끝 -->
 
 	<section class="product spad">
 		<div class="container">
@@ -119,6 +119,7 @@
 						</div>
 					</div>
 					<div class="row">
+						<!-- 레시피 리스트 출력 -->
 						<c:forEach items="${recipeList }" var="list" varStatus="loop">
 							<div class="col-lg-3 col-md-6 col-sm-6">
 								<div class="product__item">
@@ -149,7 +150,6 @@
 								</div>
 							</div>
 						</c:forEach>
-
 					</div>
 					<div class="product__discount">
 						<div class="section-title product__discount__title">
@@ -169,6 +169,7 @@
 						</div>
 					</div>
 					<div class="row">
+						<!-- 재료 리스트 출력 -->
 						<c:forEach items="${ingreList }" var="list" varStatus="loop">
 							<div class="col-lg-3 col-md-6 col-sm-6">
 								<div class="product__item">
@@ -207,6 +208,7 @@
 								</div>
 							</div>
 						</c:forEach>
+						<!-- 재료 리스트 출력 종료 -->
 					</div>
 				</div>
 			</div>
