@@ -27,4 +27,9 @@ public class Cart {
    private String mem_phone; 		// member 연락처
   
    
+<<<<<<< HEAD
+=======
+   private String ingre_status; // 알러지, 비선호 상태
+   
+>>>>>>> b13f62760700612d81af755a95dd7eb9224904a4
 }
