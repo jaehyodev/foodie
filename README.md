@@ -191,7 +191,7 @@
 <details><summary>스타일 CSS를 분리하면서 <b>스타일 적용이 안되는 오류</b></summary>
 <img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/2ffb0a18-dbed-43bf-ba98-1cc629a7f885"/><br>
 1. 상대 경로로 설정되어서 이전 페이지의 경로가 누적됨<br>
-2. <c:url> 태그를 사용하여 상대 경로를 <b>절대 경로로 변환</b>하여 해결
+2. c:url 태그를 사용하여 상대 경로를 <b>절대 경로로 변환</b>하여 해결
 </div></details>
 
 <details><summary>회원 탈퇴 시 <b>외래키 제약 조건으로 인해</b> 실패 오류</summary>
@@ -203,7 +203,7 @@
 <details><summary>여러 주문 내역 중 <b>1번째 주문 내역만</b> 주문 번호·상태·취소가 보임</summary>
 <img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/3ba8c499-1142-42cb-819b-c975ef733e0e"/><br>
 1. 중첩 반복문의 현재 반복 상태가 초기화되지 않음<br>
-2. <b><c:set>에 초기화 변수</b>를 설정하여 해결
+2. <b>c:set 태그에 초기화 변수</b>를 설정하여 해결
 </div></details>
 
 <details><summary>바로가기 아이콘 <b>호버 시 색상 변하지 않음</b></summary>
