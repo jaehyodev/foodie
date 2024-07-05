@@ -131,16 +131,37 @@
 <br>
 
 ## 🖥 화면 구성
+<details><summary><b>메인화면</b></summary><div align="center">
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/ac20ab82-8886-4d1d-a5c8-5a3f6dde3adb"/>
+</div></details>
 
-### 로그인/회원가입/마이페이지
-<br>
+<details><summary><b>챗봇 화면</b></summary><div align="center">
+<img src=""/>
+</div></details>
 
-### 메인 화면
-<br>
+<details><summary><b>회원가입·로그인</b></summary><div align="center">
+<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/ba740888-8afb-4826-965f-86c914c151b3"/>
+</div></details>
 
-### 레시피 화면
-<br>
+<details><summary><b>레시피 화면</b></summary><div align="center">
+<img src=""/>
+</div></details>
 
+<details><summary><b>재료 상품 화면</b></summary><div align="center">
+<img src=""/>
+</div></details>
+
+<details><summary><b>장바구니</b></summary><div align="center">
+<img src=""/>
+</div></details>
+
+<details><summary><b>주문·결제 페이지</b></summary><div align="center">
+<img src=""/>
+</div></details>
+
+<details><summary><b>마이 페이지</b></summary><div align="center">
+<img src=""/>
+</div></details>
 
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table align=center>
