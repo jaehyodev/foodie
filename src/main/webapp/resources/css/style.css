@@ -2944,7 +2944,8 @@ transparent
 }
 
 .footer__widget ul {
-	width: 50%;
+	width: 60%;
+	min-width: 300px;
 	float: left;
 }
 
@@ -3894,8 +3895,14 @@ transparent
 }
 
 /*------------------------- 푸터 -------------------------*/
-.footer svg:hover {
-  fill: var(--primary-color);
+.footer__link__tistory {
+  fill: #eb531f
+}
+.footer__link__velog {
+  fill: #20c997
+}
+.footer svg:hover .footer__link__icon {
+  fill: var(--primary-color) !important;
 }
 
 /*------------------------- AI 챗봇 열기 & 화면 상단으로 올리는 버튼 -------------------------*/

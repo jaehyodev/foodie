@@ -25,7 +25,7 @@ public interface RecipeIngreMapper {
 	List<Recipe> findRecommendedRecipes();
 
 	// 메인 - 새로운 레시피
-	@Select("SELECT * FROM recipe_info ORDER BY recipe_views_cnt DESC LIMIT 3")
+	@Select("SELECT recipe_idx, recipe_title_img, recipe_name, recipe_content, DATE(recipe_posted_at) as recipe_posted_at FROM recipe_info ORDER BY recipe_posted_at DESC LIMIT 3")
 	List<Recipe> findNewRecipes();
 	
 	// 레시피 목록
