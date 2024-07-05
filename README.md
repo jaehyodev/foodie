@@ -116,7 +116,7 @@
 <br>
 
 ## 📌 서비스 흐름도
-![image](https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/8a48cf01-31ba-4c32-b436-f3132023ad29)
+![image](https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/5383e89d-3903-4a3c-bd5d-853992b8779a)
 <br>
 
 ## 📌 ER다이어그램
