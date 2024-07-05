@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,19 +63,19 @@
 		<div class="container main-page">
 			<div class="row">
 				<div class="col-lg-3">
-				
+
 					<!-- Categories Section Begin -->
 					<%@ include file="./categories.jsp"%>
 					<!-- Categories Section End -->
-					
+
 				</div>
 
 				<div class="col-lg-9">
-				
+
 					<!-- Search Section Begin -->
 					<%@ include file="./search-form.jsp"%>
 					<!-- Search Section End -->
-					
+
 					<br>
 					<div class="slideshow-container">
 						<div class="mySlides fade2">
@@ -148,7 +149,8 @@
 								onclick="window.location.href = '<c:url value='/recipe-detail/${recipe.recipe_idx}'/>'"
 								style="cursor: pointer;"></div>
 							<h5>
-								<a href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>" class="recipe__title">${recipe.recipe_name}</a>
+								<a href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>"
+									class="recipe__title">${recipe.recipe_name}</a>
 							</h5>
 						</div>
 					</c:forEach>
@@ -175,7 +177,8 @@
 								onclick="window.location.href = '<c:url value='/recipe-detail/${recipe.recipe_idx}'/>'"
 								style="cursor: pointer;"></div>
 							<h5>
-								<a href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>" class="recipe__title">${recipe.recipe_name}</a>
+								<a href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>"
+									class="recipe__title">${recipe.recipe_name}</a>
 							</h5>
 						</div>
 					</c:forEach>
@@ -210,11 +213,13 @@
 							<div class="blog__item__text">
 								<ul>
 									<!-- 날짜를 동적으로 설정 -->
-									<li><i class="fa fa-calendar-o"></i> July 7,2024</li>
+									<li><i class="fa fa-calendar-o"></i>
+										${recipe.recipe_posted_at}</li>
 								</ul>
 								<h5>
 									<!-- 레시피 이름을 동적으로 설정 -->
-									<a href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>" class="recipe__title">${recipe.recipe_name}</a>
+									<a href="<c:url value='/recipe-detail/${recipe.recipe_idx}'/>"
+										class="recipe__title">${recipe.recipe_name}</a>
 								</h5>
 								<p>${recipe.recipe_content}</p>
 							</div>
@@ -259,6 +264,28 @@
 			window.location.href = '/foodie/recipe-grid/키즈';
 		}	
 	</script>
-	
+	<script>
+    /* // new레시피 -> JavaScript로 날짜를 변환하여 출력
+    document.addEventListener("DOMContentLoaded", function() {
+        const dateElements = document.querySelectorAll(".recipePostedAt");
+        const dateStr = dateElements.textContent.trim(); // 앞뒤 공백 제거
+     		// 날짜 문자열이 존재하는지 확인
+        if (dateStr) {
+            console.log("date string:", dateStr); // 2024-07-05 10:57:09
+            const date = new Date(dateStr)
+            const year = date.getFullYear();
+            console.log("year:", year);
+            const month = ('0' + (date.getMonth() + 1)).slice(-2);
+            console.log("month:", month);
+            const day = ('0' + date.getDate()).slice(-2);
+            console.log("day:", day);
+            const dateStr2 = `${year}`;
+            console.log("date string:", dateStr2);
+        } else {
+            console.error("Date string is empty");
+        }
+    }); */
+	</script>
+
 </body>
 </html>
