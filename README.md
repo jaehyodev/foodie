@@ -169,7 +169,7 @@
     <td align="center"><a href="https://github.com/hyoj1201" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/pppppjjjjj1" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/LeeSeungJi27" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/hjy_0013" target='_blank'>github</a></td>
   </tr>
 </table>
 
