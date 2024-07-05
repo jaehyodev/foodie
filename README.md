@@ -14,42 +14,42 @@
 
 ## ⭐ 주요 기능
 <details><summary>회원 알레르기·비선호 정보 저장</summary><div align="center">
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/142fffc5-0f03-45c1-9f23-a3e8cb8a5654"/>
+<img height=400 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/142fffc5-0f03-45c1-9f23-a3e8cb8a5654"/>
 </div></details>
 
 <details><summary>알레르기·비선호 필터링</summary><div align="center">
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/1cd9cbdc-39e6-4ea8-91b7-a0de49faa9ec"/>
+<img height=400 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/1cd9cbdc-39e6-4ea8-91b7-a0de49faa9ec"/>
 </div></details>
 
 <details><summary>인기 레시피, 추천 레시피, NEW 레시피</summary><div align="center">
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/4a898a89-4a7b-441b-8ef6-8619bfba5d4d"/>
+<img height=400 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/4a898a89-4a7b-441b-8ef6-8619bfba5d4d"/>
 </div></details>
 
 <details><summary>챗봇</summary><div align="center">
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/646206df-9d8a-44e4-b5da-71d67c916cab"/></div></details>
+<img height=400 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/646206df-9d8a-44e4-b5da-71d67c916cab"/></div></details>
 
 <details><summary>장바구니 목록</summary><div align="center">
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/4dadfbf8-9b90-4b25-addb-e68f16dcedf2"/></div></details>
+<img height=400 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/4dadfbf8-9b90-4b25-addb-e68f16dcedf2"/></div></details>
 
 <details><summary>주문·결제</summary><div align="center">
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/6fd10452-9a86-4dc1-9511-d3330fd0f7f1"/><br>
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/34758cc6-89d2-4b89-8a3a-7cae806047bb"/><br>
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/eb5ba2a0-9000-447b-8c1a-a7fc8676b5ee"/>
+<img width=600 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/34758cc6-89d2-4b89-8a3a-7cae806047bb"/><br>
+<img width=600 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/6fd10452-9a86-4dc1-9511-d3330fd0f7f1"/><br>
+<img width=600 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/eb5ba2a0-9000-447b-8c1a-a7fc8676b5ee"/>
 </div></details>
 
 <details><summary>주문 상세 및 결제 취소</summary><div align="center">
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/9462eb5b-dff6-48d2-85e2-82aa28586e33"/></div></details>
+<img height=350 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/9462eb5b-dff6-48d2-85e2-82aa28586e33"/></div></details>
 
 <details><summary>반응형 웹</summary><div align="center">
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/81f751ec-a44b-4973-bbd5-ea42a089eafa"/>
+<img height=350 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/81f751ec-a44b-4973-bbd5-ea42a089eafa"/>
 </div></details>
 
 <details><summary>페이징</summary><div align="center">
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/0ff4b416-4f91-4857-8d87-a45226916791"/>
+<img height=350 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/0ff4b416-4f91-4857-8d87-a45226916791"/>
 </div></details>
 
 <details><summary>애니메이션</summary><div align="center">
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/e5db303e-6dd3-4f7f-9cba-2e477263de83"/>
+<img height=350 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/e5db303e-6dd3-4f7f-9cba-2e477263de83"/>
 </div></details>
 <br>
 
@@ -132,35 +132,36 @@
 
 ## 🖥 화면 구성
 <details><summary><b>메인화면</b></summary><div align="center">
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/ac20ab82-8886-4d1d-a5c8-5a3f6dde3adb"/>
+<img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/ac20ab82-8886-4d1d-a5c8-5a3f6dde3adb"/>
 </div></details>
 
 <details><summary><b>챗봇 화면</b></summary><div align="center">
-<img src=""/>
+<img height=400 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/646206df-9d8a-44e4-b5da-71d67c916cab"/>
 </div></details>
 
 <details><summary><b>회원가입·로그인</b></summary><div align="center">
-<img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/ba740888-8afb-4826-965f-86c914c151b3"/>
+<img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/ba740888-8afb-4826-965f-86c914c151b3"/>
 </div></details>
 
 <details><summary><b>레시피 화면</b></summary><div align="center">
-<img src=""/>
+<img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/82153c8d-3272-468a-b22e-55bf8246ef45"/>
 </div></details>
 
 <details><summary><b>재료 상품 화면</b></summary><div align="center">
-<img src=""/>
+<img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/29b2ff5a-0682-498a-9623-28a2e5e0e64e"/>
 </div></details>
 
 <details><summary><b>장바구니</b></summary><div align="center">
-<img src=""/>
+<img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/62409f97-7d2c-4f56-973e-5d5a83ef4259"/>
 </div></details>
 
 <details><summary><b>주문·결제 페이지</b></summary><div align="center">
-<img src=""/>
+<img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/6fd10452-9a86-4dc1-9511-d3330fd0f7f1"/><br>
+<img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/eb5ba2a0-9000-447b-8c1a-a7fc8676b5ee"/>
 </div></details>
 
 <details><summary><b>마이 페이지</b></summary><div align="center">
-<img src=""/>
+<img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/7b1e4b40-4bfd-46f7-9ca6-320cd5b49fea"/>
 </div></details>
 
 ## 👨‍👩‍👦‍👦 팀원 역할
