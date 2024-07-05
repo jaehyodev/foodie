@@ -72,15 +72,13 @@
         <td>라이브러리</td>
         <td>
             <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white"/>
-            <img src="https://img.shields.io/badge/KakaoMap-FFCD00?style=for-the-badge&logo=Kakao&logoColor=white"/>
+            <img src="https://img.shields.io/badge/MYBATIS-000000?style=for-the-badge&logo=mybatis&logoColor=white"/>
         </td>
     </tr>
     <tr>
         <td>개발도구</td>
         <td>
             <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"/>
-            <img src="https://img.shields.io/badge/RaskpberryPi-A22846?style=for-the-badge&logo=RaskpberryPi&logoColor=white"/>
-            <img src="https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=Arduino&logoColor=white"/>
             <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
         </td>
     </tr>
@@ -102,6 +100,15 @@
             <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white"/>
         </td>
     </tr>
+    <tr>
+        <td>외부 API</td>
+        <td>
+            <img src="https://img.shields.io/badge/Kakao_Address_API-FEE500?style=for-the-badge&logo=kakao&logoColor=black"/>
+            <img src="https://img.shields.io/badge/I'mport_Kakao_Pay_API-FFCD00?style=for-the-badge&logo=kakao&logoColor=black"/>
+            <img src="https://img.shields.io/badge/ChatGPT_OpenAI_API-412991?style=for-the-badge&logo=openai&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Chatbase_API-005C9E?style=for-the-badge&logo=chatbase&logoColor=white"/>
+        </td>
+</tr>
 </table>
 
 
