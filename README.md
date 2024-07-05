@@ -134,14 +134,15 @@
 ### 레시피 화면
 <br>
 
+
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table align=center>
   <tr>
-    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/744aa3e6-a0ff-4f98-8645-3c5cad75441d" width="120" height="120"/></td>
-    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/cf398fb1-503f-41a8-83f7-2d270be93dd1" width="120" height="120"/></td>
-    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/b8c519e0-76d4-48e1-b30d-b35601295ea1" width="120" height="120"/></td>
-    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/f171bb3e-532a-4594-abd9-e562cf8fdeb5" width="120" height="120"/></td>
-    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/fff4daff-d29c-481f-9ed7-bc665808236c" width="120" height="120"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/9ed6d1e9-00dd-4b83-a9ba-185ffe51df54" width="120" height="120"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/0a959739-99b0-40e2-b1e8-a39549432a27" width="120" height="120"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/6cf691ff-10f5-4905-86a8-797683d8772b" width="120" height="120"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/3776bdbb-7e33-4b9a-be21-ec4c5b64c79a" width="120" height="120"/></td>
+    <td align="center"><img src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/96157b81-d14f-4a9e-8e58-edaddeba1a82" width="120" height="120"/></td>
   </tr>
   <tr>
     <td align="center"><strong>김재효</strong></td>
