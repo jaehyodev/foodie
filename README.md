@@ -63,9 +63,8 @@
     <tr>
         <td>사용언어</td>
         <td>
-            <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
-            <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
             <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white"/>
             <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
         </td>
     </tr>
@@ -112,23 +111,26 @@
 </tr>
 </table>
 
-
 <br>
 
 ## ⚙ 시스템 아키텍처
 ![image](https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/ec1dca93-4551-4bb4-a6cb-2b705c5bddcb)
+
 <br>
 
 ## 📌 SW유스케이스
 ![image](https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/e6fa8edb-ad70-4b66-9896-83bee7def2a3)
+
 <br>
 
 ## 📌 서비스 흐름도
 ![image](https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/5383e89d-3903-4a3c-bd5d-853992b8779a)
+
 <br>
 
 ## 📌 ER다이어그램
 ![image](https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/8ea7a765-05cd-4a57-b1c7-da3f275e096a)
+
 <br>
 
 ## 🖥 화면 구성
@@ -164,6 +166,8 @@
 <details><summary>마이 페이지</summary><div align="center">
 <img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/7b1e4b40-4bfd-46f7-9ca6-320cd5b49fea"/>
 </div></details>
+
+<br>
 
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table align=center>
@@ -203,6 +207,8 @@
     <td align="center"><a href="https://github.com/HongJiye0n" target='_blank'>github</a></td>
   </tr>
 </table>
+
+<br>
 
 ## 🤾‍♂️ 트러블슈팅
 <details><summary>장바구니에 있는 상품을 결제했을 때 <b>보이는 금액과 결제 금액 오류</b></summary>
