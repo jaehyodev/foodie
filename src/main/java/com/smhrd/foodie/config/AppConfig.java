@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 @ComponentScan(basePackages = "com.smhrd.foodie")
 public class AppConfig {
 
-	@Value("${chatgpt.api-key}")
+	@Value("${chatgptApiKey}")
     private String chatgptApiKey;
 	
 	// RestTemplate 빈을 생성.
