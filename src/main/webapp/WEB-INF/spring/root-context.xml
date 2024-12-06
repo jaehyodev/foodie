@@ -9,10 +9,10 @@
 		
 	<!-- 1. HikariCP bean 객체 등록 : 어떤 DB 사용할 지 작성 -->
 	<bean id="hikoriConfig" class="com.zaxxer.hikari.HikariConfig">
-		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-      	<property name="jdbcUrl" value="jdbc:mysql://project-db-cgi.smhrd.com:3307/campus_24SW_FULL_p2_2?serverTimezone=UTC&amp;characterEncoding=UTF-8"/>
-      	<property name="username" value="campus_24SW_FULL_p2_2"/>
-      	<property name="password" value="smhrd2"/>
+		<property name="driverClassName" value="{spring.datasource.driver-class-name}"/>
+      	<property name="jdbcUrl" value="${spring.datasource.url}"/>
+      	<property name="username" value="${spring.datasource.username}"/>
+      	<property name="password" value="${spring.datasource.password}"/>
 	</bean>
 
 	<!-- 2. DataSource : Spring을 통해서 mysql 사용을 위한 접근 -->
