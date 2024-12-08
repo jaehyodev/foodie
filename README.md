@@ -15,12 +15,12 @@
 <br>
 
 ## 🔥 접속 URL
-<a target="_blank" href="http://43.202.32.57/"/></a>
+<a target="_blank" href="http://43.202.32.57/"></a>
 
 <br>
 
-## ▶️ 시연 영상
-<a target="_blank" href="https://youtu.be/uAsiy1tu2Ow"/></a>
+## 🎞 시연 영상
+<a target="_blank" href="https://youtu.be/uAsiy1tu2Ow"></a>
 
 <br>
 
