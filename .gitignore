@@ -1,6 +1,12 @@
 # Created by https://www.toptal.com/developers/gitignore/api/java,maven,eclipse,intellij,windows,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,maven,eclipse,intellij,windows,macos
 
+### DB ###
+application.properties
+
+### API KEY ###
+config.properties
+
 ### Eclipse ###
 .metadata
 bin/

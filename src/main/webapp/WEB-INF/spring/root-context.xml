@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
@@ -6,19 +5,23 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	
+	<!-- Property 파일을 로드 -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:application.properties"/>
+    </bean>
+	
 	<!-- 1. HikariCP bean 객체 등록 : 어떤 DB 사용할 지 작성 -->
 	<bean id="hikoriConfig" class="com.zaxxer.hikari.HikariConfig">
-		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-      	<property name="jdbcUrl" value="jdbc:mysql://project-db-cgi.smhrd.com:3307/campus_24SW_FULL_p2_2?serverTimezone=UTC&amp;characterEncoding=UTF-8"/>
-      	<property name="username" value="campus_24SW_FULL_p2_2"/>
-      	<property name="password" value="smhrd2"/>
+		<property name="driverClassName" value="${spring.datasource.driver-class-name}"/>
+        <property name="jdbcUrl" value="${spring.datasource.url}"/>
+        <property name="username" value="${spring.datasource.username}"/>
+        <property name="password" value="${spring.datasource.password}"/>
 	</bean>
 
 	<!-- 2. DataSource : Spring을 통해서 mysql 사용을 위한 접근 -->
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
-		<!-- dataSource가 생성될 때 처리를 위한 생성자 생성
-		생성자가 생성될 때 db의 정보를 가지고 있는 hikariConfig 객체 생성 -->
+		<!-- dataSource가 생성될 때 처리를 위한 생성자 생성 -->
 		<constructor-arg ref="hikoriConfig"/>
 	</bean>
 	
