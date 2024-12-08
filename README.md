@@ -55,7 +55,7 @@
 </div></details>
 <br>
 
-## ⛏ 기술스택
+## ⛏ 기술 스택
 <table>
     <tr>
         <th>구분</th>
@@ -119,7 +119,7 @@
 
 <br>
 
-## 📌 SW유스케이스
+## 📌 SW 유스케이스
 ![image](https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/e6fa8edb-ad70-4b66-9896-83bee7def2a3)
 
 <br>
@@ -129,17 +129,17 @@
 
 <br>
 
-## 📌 ER다이어그램
+## 📌 ER 다이어그램
 ![image](https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/8ea7a765-05cd-4a57-b1c7-da3f275e096a)
 
 <br>
 
 ## 🖥 화면 구성
-<details><summary>메인화면</summary><div align="center">
+<details><summary>메인</summary><div align="center">
 <img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/ac20ab82-8886-4d1d-a5c8-5a3f6dde3adb"/>
 </div></details>
 
-<details><summary>챗봇 화면</summary><div align="center">
+<details><summary>챗봇</summary><div align="center">
 <img height=400 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/646206df-9d8a-44e4-b5da-71d67c916cab"/>
 </div></details>
 
@@ -147,11 +147,11 @@
 <img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/ba740888-8afb-4826-965f-86c914c151b3"/>
 </div></details>
 
-<details><summary>레시피 화면</summary><div align="center">
+<details><summary>레시피</summary><div align="center">
 <img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/82153c8d-3272-468a-b22e-55bf8246ef45"/>
 </div></details>
 
-<details><summary>재료 상품 화면</summary><div align="center">
+<details><summary>재료 상품</summary><div align="center">
 <img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/29b2ff5a-0682-498a-9623-28a2e5e0e64e"/>
 </div></details>
 
@@ -159,12 +159,12 @@
 <img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/62409f97-7d2c-4f56-973e-5d5a83ef4259"/>
 </div></details>
 
-<details><summary>주문·결제 페이지</summary><div align="center">
+<details><summary>주문·결제</summary><div align="center">
 <img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/6fd10452-9a86-4dc1-9511-d3330fd0f7f1"/><br>
 <img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/eb5ba2a0-9000-447b-8c1a-a7fc8676b5ee"/>
 </div></details>
 
-<details><summary>마이 페이지</summary><div align="center">
+<details><summary>마이페이지</summary><div align="center">
 <img width=650 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/7b1e4b40-4bfd-46f7-9ca6-320cd5b49fea"/>
 </div></details>
 
@@ -194,10 +194,10 @@
     <td align="center"><b>Front-End</b></td>
   </tr>
   <tr>
-    <td align="center">Crawling<br>ChatBot<br>DataBase</td>
+    <td align="center">데이터베이스 설계<br>크롤링<br>챗봇</td>
     <td align="center">레시피 화면<br>재료 상품 화면<br>필터링 기능</td>
     <td align="center">회원가입·로그인<br>주소 API 연동<br>마이페이지</td>
-    <td align="center">장바구니<br>주문·결제 페이지<br>결제 API 연동</td>
+    <td align="center">장바구니<br>주문·결제<br>결제 API 연동</td>
     <td align="center">메인 화면<br>통합 검색 기능<br>UI·UX</td>
   </tr>
   <tr>
