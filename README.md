@@ -14,6 +14,16 @@
 
 <br>
 
+## 🔥 접속 URL
+<a target="_blank" href="http://43.202.32.57/"/></a>
+
+<br>
+
+## ▶️ 시연 영상
+<a target="_blank" href="https://youtu.be/uAsiy1tu2Ow"/></a>
+
+<br>
+
 ## ⭐ 주요 기능
 <details><summary>회원 알레르기·비선호 정보 저장</summary><div align="center">
 <img height=400 src="https://github.com/2024-SMHRD-SW-Fullstack-1/Foodie/assets/162679970/142fffc5-0f03-45c1-9f23-a3e8cb8a5654"/>
