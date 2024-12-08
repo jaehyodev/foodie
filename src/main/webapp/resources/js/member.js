@@ -27,7 +27,7 @@ $("#id").on("focusout", function () {
 
   // Ajax로 전송
   $.ajax({
-    url: "/foodie/id-check",
+    url: "/id-check",
     data: {
       mem_id: id,
     },
@@ -92,7 +92,7 @@ $("#email").on("focusout", function () {
 
   //Ajax로 전송
   $.ajax({
-    url: "/foodie/email-check",
+    url: "/email-check",
     data: {
       mem_email: email,
     },
@@ -179,7 +179,7 @@ $(".phone-input-group").on("focusout", function () {
 
   //Ajax로 전송
   $.ajax({
-    url: "/foodie/phone-check",
+    url: "/phone-check",
     data: {
       mem_phone: tel,
     },
@@ -234,7 +234,7 @@ $("#joinBtn").click(function (event) {
     });
 
     $.ajax({
-      url: "/foodie/join.do",
+      url: "/join.do",
       type: "POST",
       data: formData,
       dataType: "text",
@@ -300,7 +300,7 @@ $("#updatePwBtn").click(function (event) {
 
   // AJAX 요청
   $.ajax({
-    url: "/foodie/update-pw.do",
+    url: "/update-pw.do",
     type: "POST",
     data: formData,
     dataType: "text",
@@ -339,7 +339,7 @@ $("#deleteBtn").click(function (event) {
 
     // 4. AJAX 요청
     $.ajax({
-      url: "/foodie/delete.do",
+      url: "/delete.do",
       type: "POST",
       data: { input_id: input_id, input_pw: input_pw },
       dataType: "text",
@@ -378,13 +378,13 @@ $("#loginBtn").click(function (event) {
 
   // AJAX 요청
   $.ajax({
-    url: "/foodie/login-check",
+    url: "/login-check",
     type: "POST",
     data: { id: login_id, pw: login_pw },
     dataType: "text",
     success: function (result) {
       if (result == "success") {
-        window.location.href = "/foodie/";
+        window.location.href = "/";
       } else if (result == "fail") {
         $("#label10")
           .css("color", "red")

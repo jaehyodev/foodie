@@ -145,7 +145,7 @@
 					<c:forEach var="recipe" items="${popularList}">
 						<div class="col-lg-3">
 							<div class="categories__item set-bg"
-								data-setbg="<c:url value='resources/img${recipe.recipe_title_img}'/>"
+								data-setbg="<c:url value='/resources/img${recipe.recipe_title_img}'/>"
 								onclick="window.location.href = '<c:url value='/recipe-detail/${recipe.recipe_idx}'/>'"
 								style="cursor: pointer;"></div>
 							<h5>

@@ -1,7 +1,7 @@
 /* 챗봇 열기 - Begin */
 function openChatbot() {
   window.open(
-    "/foodie/chatbot",
+    "/chatbot",
     "ChatGPT openAI Chatbot",
     "width=400,height=600"
   );
@@ -143,7 +143,7 @@ function sendChatToServer(message) {
 
   currentAjaxRequest = $.ajax({
     type: "POST",
-    url: "/foodie/chatbot/hit-openai-api", // 서버의 컨트롤러 매핑 URL
+    url: "/chatbot/hit-openai-api", // 서버의 컨트롤러 매핑 URL
     contentType: "application/json; charset=UTF-8",
     data: JSON.stringify(message),
     beforeSend: function () {

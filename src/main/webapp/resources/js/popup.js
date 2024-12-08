@@ -36,7 +36,7 @@ function showPopup(message) {
     function popupConfirm() {
        if(message=="로그인을 해주세요."){
              popupContainer.remove();          
-           window.location.href = '/foodie/login';
+           window.location.href = '/login';
        }
        else if(message=="수정되었습니다."){
              popupContainer.remove();
@@ -44,7 +44,7 @@ function showPopup(message) {
        }
        else if(message=="회원가입이 완료되었습니다."){
               popupContainer.remove();
-              window.location.href = '/foodie/login';
+              window.location.href = '/login';
        }
        else if(message=="회원가입 실패 (서버 오류)"){
               popupContainer.remove();
@@ -54,13 +54,13 @@ function showPopup(message) {
        }
        else if(message=="비밀번호 변경이 완료되었습니다."){
               popupContainer.remove();
-              window.location.href = '/foodie/update-pw';
+              window.location.href = '/update-pw';
        }
        else if(message=="현재 비밀번호가 일치하지 않습니다."){
               popupContainer.remove();
        }else if(message=="회원탈퇴가 완료되었습니다."){
        				 popupContainer.remove();
-       				 window.location.href = '/foodie/';
+       				 window.location.href = '/';
        }else if(message=="아이디 또는 비밀번호가 일치하지 않습니다."){
        				popupContainer.remove();
        } else if (message=="현재 비밀번호를 입력하세요.") {
@@ -122,7 +122,7 @@ function showIdPopup(message, merchant_uid) {
 
     function popupConfirm() {
        if(message=="주문이 완료되었습니다."){
-             window.location.href = '/foodie/success/'+merchant_uid;
+             window.location.href = '/success/'+merchant_uid;
        }      
        else
              popupContainer.remove(); // 예시로 현재 창을 닫는 동작만 수행
@@ -186,7 +186,7 @@ function showCartPopup(message) {
     function popupConfirm() {
         if (message == "로그인을 해주세요.") {
             popupContainer.remove();
-            window.location.href = '/foodie/login';
+            window.location.href = '/login';
         }
         else {
             popupContainer.remove(); // 예시로 현재 창을 닫는 동작만 수행
@@ -196,7 +196,7 @@ function showCartPopup(message) {
 
     function goToCart() {
         popupContainer.remove();
-        window.location.href = '/foodie/cart'; // 장바구니 페이지로 이동
+        window.location.href = '/cart'; // 장바구니 페이지로 이동
     }
 
     popupContainer.appendChild(popupMessage);

@@ -36,7 +36,7 @@
                            <div class="login-section">
                               <span>${member.mem_name}님</span>
                               <span><a href=<c:url value='/mypage'/> >마이페이지</a></span>
-                              <form action="/foodie/logout" method="post" class="logout-form">
+                              <form action="/logout" method="post" class="logout-form">
                                  <button type="submit" id ="logoutBtn" class="auth-link" style="cursor: pointer;">로그아웃</button>
                               </form>
                            </div>
@@ -53,7 +53,9 @@
          <div class="col-lg-3">
             <div class="header__logo">
                <!-- 로고 부분 -->
-               <a href="/foodie"><img src="<c:url value='/resources/img/logo.png'/>" alt=""></a>
+               <a href="/">
+               	<img src="<c:url value='/resources/img/logo-text.png'/>" alt="">
+               </a>
             </div>
          </div>
          <div class="col-lg-6"></div>
