@@ -109,7 +109,7 @@
 				</div>
 				<div class="col-lg-9">
 					<div class="mypage__content">
-						<form action="/foodie/update-allergy" method="post">
+						<form action="/update-allergy" method="post">
 							<input type="hidden" name="deleteAllergy" id="deleteAllergy"
 								value=""> <input type="hidden" name="deleteDislike"
 								id="deleteDislike" value="">
@@ -205,8 +205,7 @@
 	<script src="<c:url value='/resources/js/search.js' />"></script>
 
 	<script>
-	  // 현재 위치에서 /foodie/updateAllergy 액션을 가진 폼을 form 변수에 저장
-	  const form = document.querySelector('form[action="/foodie/update-allergy"]');
+	  const form = document.querySelector('form[action="/update-allergy"]');
 
 	  // id가 deleteAllergy인 hidden input 태그를 찾아감
 	  const deleteAllergy = document.getElementById('deleteAllergy');
@@ -215,44 +214,43 @@
 	  form.addEventListener('submit', function(event) {
 	
 		// 현재 문서에서 name이 allergy_list인 모든 input 요소들을 선택하여 변수에 저장
-		  const allergy_list = document.querySelectorAll('input[name="allergy_list"]');
-		  // 현재 문서에서 name이 dislike_list인 모든 input 요소들을 선택하여 변수에 저장
-		  const dislike_list = document.querySelectorAll('input[name="dislike_list"]');
+		const allergy_list = document.querySelectorAll('input[name="allergy_list"]');
+		// 현재 문서에서 name이 dislike_list인 모든 input 요소들을 선택하여 변수에 저장
+		const dislike_list = document.querySelectorAll('input[name="dislike_list"]');
 		
-			// 체크 해제된 알레르기의 value 값을 배열로 변환
-	    	const uncheckAllergy = Array.from(allergy_list)
+	    // 체크 해제된 알레르기의 value 값을 배열로 변환
+	    const uncheckAllergy = Array.from(allergy_list)
 	      .filter(checkbox => !checkbox.checked)
 	      .map(checkbox => checkbox.value);
 		
-		  // 체크 해제된 비선호 식재료의 value 값을 배열로 변환
-		  const uncheckDislike = Array.from(dislike_list)
+		// 체크 해제된 비선호 식재료의 value 값을 배열로 변환
+		const uncheckDislike = Array.from(dislike_list)
 	      .filter(checkbox => !checkbox.checked)
 	      .map(checkbox => checkbox.value);
 	
- 		  // 체크 해제된 알레르기 값들을 쉼표로 구분된 문자열로 변환하여 hidden input에 저장
-      deleteAllergy.value = uncheckAllergy.join(',');
+ 		// 체크 해제된 알레르기 값들을 쉼표로 구분된 문자열로 변환하여 hidden input에 저장
+        deleteAllergy.value = uncheckAllergy.join(',');
 	
-      // 체크 해제된 비선호 식재료 값들을 쉼표로 구분된 문자열로 변환하여 hidden input에 저장
-      deleteDislike.value = uncheckDislike.join(',');
+        // 체크 해제된 비선호 식재료 값들을 쉼표로 구분된 문자열로 변환하여 hidden input에 저장
+        deleteDislike.value = uncheckDislike.join(',');
 	  });
   </script>
-	<!-- 알레르기/비선호 수정하기 클릭 시 팝업창 띄우기 -->
-	<script>
-      document.addEventListener('DOMContentLoaded', function() {
-       // JSP에서 자바스크립트로 플래시 속성을 전달
-       var updateStatus = '<c:out value="${updateStatus}" />';
-   
-       // 회원 정보 수정 성공
-       if (updateStatus === 'success') {
-            // 새 창을 엽니다.
-            var popupWidth = 400;
-            var popupHeight = 300;
-            var popupX = (window.screen.width / 2) - (popupWidth / 2);
-            var popupY = (window.screen.height / 2) - (popupHeight / 2);
-            showPopup("알레르기 및 비선호 식재료 수정에 성공했습니다.");
-       }
-    });
-   </script>
-
+  <!-- 알레르기/비선호 수정하기 클릭 시 팝업창 띄우기 -->
+  <script>
+	document.addEventListener('DOMContentLoaded', function() {
+	  // JSP에서 자바스크립트로 플래시 속성을 전달
+	  var updateStatus = '<c:out value="${updateStatus}" />';
+		  
+	  // 회원 정보 수정 성공
+	  if (updateStatus === 'success') {
+	    // 새 창을 엽니다.
+        var popupWidth = 400;
+        var popupHeight = 300;
+        var popupX = (window.screen.width / 2) - (popupWidth / 2);
+        var popupY = (window.screen.height / 2) - (popupHeight / 2);
+        showPopup("알레르기 및 비선호 식재료 수정에 성공했습니다.");
+	  }
+	});
+	</script>
 </body>
 </html>
