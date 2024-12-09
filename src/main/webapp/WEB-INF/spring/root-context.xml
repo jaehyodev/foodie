@@ -8,7 +8,7 @@
 	
 	<!-- Property 파일을 로드 -->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:application.properties"/>
+        <property name="locations" value="classpath:application.properties"/>
     </bean>
 	
 	<!-- 1. HikariCP bean 객체 등록 : 어떤 DB 사용할 지 작성 -->
