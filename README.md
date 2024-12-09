@@ -15,12 +15,12 @@
 <br>
 
 ## 🔥 접속 URL
-<a target="_blank" href="http://43.202.32.57/">Foodie 웹사이트 바로가기</a>
+<a href="http://43.202.32.57/">Foodie 웹사이트 바로가기</a>
 
 <br>
 
 ## 🎞 시연 영상
-<a target="_blank" href="https://youtu.be/uAsiy1tu2Ow">시연 영상 보기</a>
+<a href="https://youtu.be/uAsiy1tu2Ow">시연 영상 보기</a>
 
 <br>
 
