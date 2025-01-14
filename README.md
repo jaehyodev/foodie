@@ -204,7 +204,7 @@
     <td align="center"><b>Front-End</b></td>
   </tr>
   <tr>
-    <td align="center">데이터베이스 설계<br>크롤링<br>챗봇</td>
+    <td align="center">데이터베이스 설계<br>크롤링<br>챗봇<br>AWS</td>
     <td align="center">레시피 화면<br>재료 상품 화면<br>필터링 기능</td>
     <td align="center">회원가입·로그인<br>주소 API 연동<br>마이페이지</td>
     <td align="center">장바구니<br>주문·결제<br>결제 API 연동</td>
